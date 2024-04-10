@@ -1,0 +1,119 @@
+.. tomotree documentation master file, created by
+   sphinx-quickstart on Wed Mar  6 18:51:19 2024.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. image:: _static/image.png
+   :width: 300px
+   :align: right
+
+
+Welcome to tomotree's documentation!
+====================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+Python class for processing data from acoustic tomography for trees. Here you can 
+find documentation of classes and functions. The source codes will be available later. 
+
+.. note::
+    The package is described in the paper *(to be added later)* . The code of the package will 
+    be available after publication of the paper.
+
+
+Primitive method 
+================
+
+Rays determine the velocities of cells through.
+The velocity is established as a mean of the rays through this cell. 
+
+* `Testing simulated data with decay in the middle. Testing noncircular shape. <./_static/demo_artificial.py.html>`_ 
+
+Short demo of all methods
+=========================
+
+* `Testing simulated data with decay outside the center and noncircular shape. <./_static/demo_artificial2.py.html>`_ 
+* `Testing simulated data with two decays. <./_static/demo_artificial3.py.html>`_ 
+
+Velocity is a parabolic function of angle from radial direction
+===============================================================
+
+Data from the paper *Analysis of wave velocity patterns in black cherry trees 
+and its effect on internal decay detection*, 
+https://www.sciencedirect.com/science/article/pii/S0168169914000684
+
+* `Degraded wood. <./_static/demo_cherry_II.py.html>`_ 
+* `Sound wood. <./_static/demo_cherry_I.py.html>`_ 
+
+
+Eliptic based segmentation method (EBSI)
+========================================
+
+Comparison of primitive method (velocity from rays through) and EBSI. 
+
+* `Degraded wood and EBSI. <./_static/demo_EBSI_Du.py.html>`_ 
+* `Sound wood and EBSI.  <./_static/demo_EBSI_Du_sound_wood.py.html>`_ 
+* `Testing elliptical domains of rays, angles from radial direction and EBSI method for degraded wood. <./_static/demo_rays_from_point.py.html>`_ 
+
+Simultaneous interactive reconstruction technique (SIRT)
+========================================================
+
+* `Degraded wood and SIRT. <./_static/demo_SIRT.py.html>`_ 
+
+
+Equidistant ray segmentation method (ERSM)
+==========================================
+
+* `Degradation in the center <./_static/demo_ERSM_central_defect.py.html>`_   
+* `Sound wood <./_static/demo_ERSM_Du_sound_wood.py.html>`_
+* `The method for few rays <./_static/demo_ERSM_few_rays.py.html>`_, the file
+  shows some of the details of the mechanism behind  
+  
+Tests of internal procedures
+============================
+
+* `Testing ray segmentation. <./_static/demo_ellipse.py.html>`_ 
+* `Testing ray segmentation and spatial interpolation. <./_static/demo_ellipse_n.py.html>`_ 
+* `Simple test. <./_static/demo_few_rays.py.html>`_ 
+* `Simple 2-ray test of the Grid class. <./_static/demo_grid.py.html>`_  
+
+TomoWood
+========
+
+One of few datasets published and tomotree has been tested on this dataset.
+However, the data are suspicious. The node positions 
+does not match photo well, the velocities are highly asymmetric and the velocity
+as a function of the angle between the ray and the radial direction is not 
+a parabolic function.
+
+Perlin, L. P., Pinto, R. C. de A., & Valle, Â. do. (2019). Ultrasonic tomography in wood with anisotropy consideration. Construction and Building Materials, 229, 116958. https://doi.org/10.1016/J.CONBUILDMAT.2019.116958
+
+Data downloaded from Ultrasonic tomographic reconstruction considering wood anisotropy - UPR BioWooEB. (n.d.). Retrieved March 29, 2024, from https://dataverse.cirad.fr/dataset.xhtml?persistentId=doi:10.18167/DVN1/GI8LSW
+
+
+* `Healthy tree <./_static/demo_tomoWood_1.py.html>`_
+* `Deffect in the center <./_static/demo_tomoWood_2.py.html>`_
+* `Deffect outside center <./_static/demo_tomoWood_3.py.html>`_
+
+Various tests
+=============
+
+* `Checking triangle inequality <./_static/demo_triangle.py.html>`_
+* `Speed test <./_static/speed_test.py.html>`_
+* `Segmentation testing <./_static/test_segments.py.html>`_
+
+Online application
+==================
+
+The web interface to the Tomotree package is available at
+`https://tomotree.streamlit.app/ <https://tomotree.streamlit.app/>`_. A short video is also `available <https://youtu.be/P0PhThIeqmo>`_
+  
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

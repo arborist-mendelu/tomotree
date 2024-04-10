@@ -1,0 +1,4 @@
+.. automodule:: tomotree
+   :members:
+   :undoc-members:
+   :show-inheritance:

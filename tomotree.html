@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tomotree module &mdash; tomotree  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=1ea1444f" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            tomotree
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Tomotree module</a></li>
+<li><a class="reference internal" href="#tomotree.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
+<li><a class="reference internal" href="#tomotree.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Cell.dx"><code class="docutils literal notranslate"><span class="pre">Cell.dx</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Cell.dy"><code class="docutils literal notranslate"><span class="pre">Cell.dy</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Cell.boundary_points"><code class="docutils literal notranslate"><span class="pre">Cell.boundary_points</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Cell.segments"><code class="docutils literal notranslate"><span class="pre">Cell.segments</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Cell.id"><code class="docutils literal notranslate"><span class="pre">Cell.id</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tomotree.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a><ul>
+<li><a class="reference internal" href="#tomotree.Grid.x"><code class="docutils literal notranslate"><span class="pre">Grid.x</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Grid.y"><code class="docutils literal notranslate"><span class="pre">Grid.y</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Grid.cells"><code class="docutils literal notranslate"><span class="pre">Grid.cells</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Grid.all_cells"><code class="docutils literal notranslate"><span class="pre">Grid.all_cells</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Grid.get_cell"><code class="docutils literal notranslate"><span class="pre">Grid.get_cell()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Grid.plot"><code class="docutils literal notranslate"><span class="pre">Grid.plot()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Grid.set_cell_velocity_from_ray_means"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_velocity_from_ray_means()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tomotree.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li><a class="reference internal" href="#tomotree.Node.coordinates"><code class="docutils literal notranslate"><span class="pre">Node.coordinates</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Node.rays_from"><code class="docutils literal notranslate"><span class="pre">Node.rays_from</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Node.rays_to"><code class="docutils literal notranslate"><span class="pre">Node.rays_to</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Node.number"><code class="docutils literal notranslate"><span class="pre">Node.number</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tomotree.Ray"><code class="docutils literal notranslate"><span class="pre">Ray</span></code></a><ul>
+<li><a class="reference internal" href="#tomotree.Ray.start"><code class="docutils literal notranslate"><span class="pre">Ray.start</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Ray.end"><code class="docutils literal notranslate"><span class="pre">Ray.end</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Ray.speed"><code class="docutils literal notranslate"><span class="pre">Ray.speed</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Ray.time"><code class="docutils literal notranslate"><span class="pre">Ray.time</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Ray.segments"><code class="docutils literal notranslate"><span class="pre">Ray.segments</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tomotree.Segment"><code class="docutils literal notranslate"><span class="pre">Segment</span></code></a><ul>
+<li><a class="reference internal" href="#tomotree.Segment.ray"><code class="docutils literal notranslate"><span class="pre">Segment.ray</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Segment.speed"><code class="docutils literal notranslate"><span class="pre">Segment.speed</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Segment.start"><code class="docutils literal notranslate"><span class="pre">Segment.start</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Segment.end"><code class="docutils literal notranslate"><span class="pre">Segment.end</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Segment.start_coordinates"><code class="docutils literal notranslate"><span class="pre">Segment.start_coordinates</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Segment.end_coordinates"><code class="docutils literal notranslate"><span class="pre">Segment.end_coordinates</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Segment.length"><code class="docutils literal notranslate"><span class="pre">Segment.length</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Segment.length</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Segment.split"><code class="docutils literal notranslate"><span class="pre">Segment.split()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tomotree.Tomo"><code class="docutils literal notranslate"><span class="pre">Tomo</span></code></a><ul>
+<li><a class="reference internal" href="#tomotree.Tomo.nodes"><code class="docutils literal notranslate"><span class="pre">Tomo.nodes</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.rays"><code class="docutils literal notranslate"><span class="pre">Tomo.rays</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.speeds"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.times"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.get_node_by_number"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.n"><code class="docutils literal notranslate"><span class="pre">Tomo.n</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.grid"><code class="docutils literal notranslate"><span class="pre">Tomo.grid</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.polygon"><code class="docutils literal notranslate"><span class="pre">Tomo.polygon</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.allsegments"><code class="docutils literal notranslate"><span class="pre">Tomo.allsegments</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.check_triangle_inequality"><code class="docutils literal notranslate"><span class="pre">Tomo.check_triangle_inequality()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.do_EBSI_method"><code class="docutils literal notranslate"><span class="pre">Tomo.do_EBSI_method()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.do_ERSM_method"><code class="docutils literal notranslate"><span class="pre">Tomo.do_ERSM_method()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.do_SIRT_method"><code class="docutils literal notranslate"><span class="pre">Tomo.do_SIRT_method()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.fix_velocity_EBSI"><code class="docutils literal notranslate"><span class="pre">Tomo.fix_velocity_EBSI()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.limit_cell_plot_velocities"><code class="docutils literal notranslate"><span class="pre">Tomo.limit_cell_plot_velocities()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.plot"><code class="docutils literal notranslate"><span class="pre">Tomo.plot()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.plot_angular_dependence"><code class="docutils literal notranslate"><span class="pre">Tomo.plot_angular_dependence()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.plot_sinogram"><code class="docutils literal notranslate"><span class="pre">Tomo.plot_sinogram()</span></code></a></li>
+<li><a class="reference internal" href="#id4"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.speeds_at_angles_3Dplot"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds_at_angles_3Dplot()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.Tomo.speeds_at_angles_table"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds_at_angles_table()</span></code></a></li>
+<li><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tomotree.angle_between"><code class="docutils literal notranslate"><span class="pre">angle_between()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.colorbar"><code class="docutils literal notranslate"><span class="pre">colorbar()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.get_boundary_points"><code class="docutils literal notranslate"><span class="pre">get_boundary_points()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.is_point_inside_ellipse"><code class="docutils literal notranslate"><span class="pre">is_point_inside_ellipse()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.perp"><code class="docutils literal notranslate"><span class="pre">perp()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.roll_table"><code class="docutils literal notranslate"><span class="pre">roll_table()</span></code></a></li>
+<li><a class="reference internal" href="#tomotree.speed2color"><code class="docutils literal notranslate"><span class="pre">speed2color()</span></code></a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">tomotree</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tomotree module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tomotree.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tomotree-module">
+<span id="module-tomotree"></span><h1>Tomotree module<a class="headerlink" href="#tomotree-module" title="Link to this heading"></a></h1>
+<p>This module is intended as a tool for processing data from
+acoustic tomography of trees.</p>
+<p>It is considered as a version of Ray semented method proposed by Du et al.
+Image Reconstruction of Internal Defects in Wood Based on Segmented
+Propagation Rays of Stress Waves, Appl. Sci. 2018, 8, 1778; doi:10.3390/app8101778</p>
+<p>The modification is that we do not use bisection of segments, but choose the
+number of segmentes such that the lengths of the segments are closer than
+using the method proposed by Du.</p>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="tomotree.Cell">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">Cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">nan</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Cell" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for cells in grid. Contains the list of rays and their velocities (or velocities on the
+corresponding ray segment) and the velocity</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Cell.rays">
+<span class="sig-name descname"><span class="pre">rays</span></span><a class="headerlink" href="#tomotree.Cell.rays" title="Link to this definition"></a></dt>
+<dd><p>A list of rays passing through the cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Cell.velocity">
+<span class="sig-name descname"><span class="pre">velocity</span></span><a class="headerlink" href="#tomotree.Cell.velocity" title="Link to this definition"></a></dt>
+<dd><p>The velocity of the cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Cell.velocities_list">
+<span class="sig-name descname"><span class="pre">velocities_list</span></span><a class="headerlink" href="#tomotree.Cell.velocities_list" title="Link to this definition"></a></dt>
+<dd><p>List of velocities of rays or segments which go through
+the cell. This list is used inside loops. In the first step in the
+loop over rays or segments the list is filled by the values from
+the rays which have influence to the cell. In the second step the
+average of this list is used to determine the velocity
+of the cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Cell.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#tomotree.Cell.x" title="Link to this definition"></a></dt>
+<dd><p>The x-coordinate of the bottom left corner of the cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Cell.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#tomotree.Cell.y" title="Link to this definition"></a></dt>
+<dd><p>The y-coordinate of the bottom left corner of the cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Cell.dx">
+<span class="sig-name descname"><span class="pre">dx</span></span><a class="headerlink" href="#tomotree.Cell.dx" title="Link to this definition"></a></dt>
+<dd><p>The width of the cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Cell.dy">
+<span class="sig-name descname"><span class="pre">dy</span></span><a class="headerlink" href="#tomotree.Cell.dy" title="Link to this definition"></a></dt>
+<dd><p>The height of the cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Cell.boundary_points">
+<span class="sig-name descname"><span class="pre">boundary_points</span></span><a class="headerlink" href="#tomotree.Cell.boundary_points" title="Link to this definition"></a></dt>
+<dd><p>List of points on boundary. Useful when testing if a cell is
+inside ellipse.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Cell.segments">
+<span class="sig-name descname"><span class="pre">segments</span></span><a class="headerlink" href="#tomotree.Cell.segments" title="Link to this definition"></a></dt>
+<dd><p>Set of segments through the cell.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Cell.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#tomotree.Cell.id" title="Link to this definition"></a></dt>
+<dd><p>The id of the cell. Initiated when creating the grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tomotree.Grid">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">Grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">10)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">10)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">11</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Grid" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class representing a grid in a tomogram.</p>
+<p>Cells are stored in a dataframe. This allows to get the cell by using
+a coordinates of a point inside using <code class="code docutils literal notranslate"><span class="pre">loc</span></code> method.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Grid.x">
+<span class="sig-name descname"><span class="pre">x</span></span><a class="headerlink" href="#tomotree.Grid.x" title="Link to this definition"></a></dt>
+<dd><p>Array containing the x-coordinates of the grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Grid.y">
+<span class="sig-name descname"><span class="pre">y</span></span><a class="headerlink" href="#tomotree.Grid.y" title="Link to this definition"></a></dt>
+<dd><p>Array containing the y-coordinates of the grid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Grid.cells">
+<span class="sig-name descname"><span class="pre">cells</span></span><a class="headerlink" href="#tomotree.Grid.cells" title="Link to this definition"></a></dt>
+<dd><p>DataFrame representing the grid cells, initialized with Cell
+objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Grid.all_cells">
+<span class="sig-name descname"><span class="pre">all_cells</span></span><a class="headerlink" href="#tomotree.Grid.all_cells" title="Link to this definition"></a></dt>
+<dd><p>List of cells in the diagram.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Grid.get_cell">
+<span class="sig-name descname"><span class="pre">get_cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Grid.get_cell" title="Link to this definition"></a></dt>
+<dd><p>Retrieves a cell from the grid based on its coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>float</em>) – The x-coordinate of the cell.</p></li>
+<li><p><strong>y</strong> (<em>float</em>) – The y-coordinate of the cell.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The cell object located at the specified coordinates.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tomotree.Cell" title="tomotree.Cell">Cell</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Grid.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shading</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'flat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_countourf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Grid.plot" title="Link to this definition"></a></dt>
+<dd><p>Plot a heatmap of the grid velocities using <cite>pcolormesh</cite> or <cite>contourf</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The axes object containing the heatmap plot.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>use_countourf</strong> (<em>bool</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Grid.set_cell_velocity_from_ray_means">
+<span class="sig-name descname"><span class="pre">set_cell_velocity_from_ray_means</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Grid.set_cell_velocity_from_ray_means" title="Link to this definition"></a></dt>
+<dd><p>Update cell velocities. Takes list of rays through the cell.
+The velocities of the rays from this list are used and the new
+cell velocity is calculated as mean of the velocities of the rays.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tomotree.Node">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">Node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinates</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Node" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for tomogram nodes. The node stores information on coordinates,
+rays from the node, rays to the node and the node number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>coordinates</strong> (<em>ndarray</em>) – </p></li>
+<li><p><strong>number</strong> (<em>int</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Node.coordinates">
+<span class="sig-name descname"><span class="pre">coordinates</span></span><a class="headerlink" href="#tomotree.Node.coordinates" title="Link to this definition"></a></dt>
+<dd><p>A tuple representing the coordinates of the node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Node.rays_from">
+<span class="sig-name descname"><span class="pre">rays_from</span></span><a class="headerlink" href="#tomotree.Node.rays_from" title="Link to this definition"></a></dt>
+<dd><p>A set of rays originating from this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Node.rays_to">
+<span class="sig-name descname"><span class="pre">rays_to</span></span><a class="headerlink" href="#tomotree.Node.rays_to" title="Link to this definition"></a></dt>
+<dd><p>A set of rays targeting this node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Node.number">
+<span class="sig-name descname"><span class="pre">number</span></span><a class="headerlink" href="#tomotree.Node.number" title="Link to this definition"></a></dt>
+<dd><p>Node number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tomotree.Ray">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">Ray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Ray" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Ray in the acoustic tomography.</p>
+<p>When initialized, the ray is added to the <code class="docutils literal notranslate"><span class="pre">rays_from</span></code> and <code class="docutils literal notranslate"><span class="pre">rays_to</span></code>
+attributes of the node at the start and at the end.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start</strong> (<a class="reference internal" href="#tomotree.Node" title="tomotree.Node"><em>Node</em></a>) – </p></li>
+<li><p><strong>end</strong> (<a class="reference internal" href="#tomotree.Node" title="tomotree.Node"><em>Node</em></a>) – </p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Ray.start">
+<span class="sig-name descname"><span class="pre">start</span></span><a class="headerlink" href="#tomotree.Ray.start" title="Link to this definition"></a></dt>
+<dd><p>The starting node of the ray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tomotree.Node" title="tomotree.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Ray.end">
+<span class="sig-name descname"><span class="pre">end</span></span><a class="headerlink" href="#tomotree.Ray.end" title="Link to this definition"></a></dt>
+<dd><p>The ending node of the ray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tomotree.Node" title="tomotree.Node">Node</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Ray.speed">
+<span class="sig-name descname"><span class="pre">speed</span></span><a class="headerlink" href="#tomotree.Ray.speed" title="Link to this definition"></a></dt>
+<dd><p>The speed of the ray. If not provided, it will be calculated
+based on the distance between start and end nodes and the given
+time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Ray.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#tomotree.Ray.time" title="Link to this definition"></a></dt>
+<dd><p>The time taken for the ray to travel from start to end. Only
+used if speed is not provided.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float, optional</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Ray.segments">
+<span class="sig-name descname"><span class="pre">segments</span></span><a class="headerlink" href="#tomotree.Ray.segments" title="Link to this definition"></a></dt>
+<dd><p>The set of segments for the segmented method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>set</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Ray.angle_from_radial">
+<span class="sig-name descname"><span class="pre">angle_from_radial</span></span><a class="headerlink" href="#tomotree.Ray.angle_from_radial" title="Link to this definition"></a></dt>
+<dd><p>The angle between the ray and the radial direction.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Ray.length">
+<span class="sig-name descname"><span class="pre">length</span></span><a class="headerlink" href="#tomotree.Ray.length" title="Link to this definition"></a></dt>
+<dd><p>The length of the ray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tomotree.Segment">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">Segment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Segment" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Ray segment. Properties are parent ray, the speed on the segment and the start
+and the end position of the segment on the ray. The start of the ray
+corresponds to the position 0, the end corresponds to position 1.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Segment.ray">
+<span class="sig-name descname"><span class="pre">ray</span></span><a class="headerlink" href="#tomotree.Segment.ray" title="Link to this definition"></a></dt>
+<dd><p>The parent ray of the segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#tomotree.Ray" title="tomotree.Ray">Ray</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Segment.speed">
+<span class="sig-name descname"><span class="pre">speed</span></span><a class="headerlink" href="#tomotree.Segment.speed" title="Link to this definition"></a></dt>
+<dd><p>The speed on the segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Segment.start">
+<span class="sig-name descname"><span class="pre">start</span></span><a class="headerlink" href="#tomotree.Segment.start" title="Link to this definition"></a></dt>
+<dd><p>The start position of the segment on the ray. Float from 0 to 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Segment.end">
+<span class="sig-name descname"><span class="pre">end</span></span><a class="headerlink" href="#tomotree.Segment.end" title="Link to this definition"></a></dt>
+<dd><p>The end position of the segment on the ray. Float from 0 to 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Segment.start_coordinates">
+<span class="sig-name descname"><span class="pre">start_coordinates</span></span><a class="headerlink" href="#tomotree.Segment.start_coordinates" title="Link to this definition"></a></dt>
+<dd><p>The start coordinates of the segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array-like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Segment.end_coordinates">
+<span class="sig-name descname"><span class="pre">end_coordinates</span></span><a class="headerlink" href="#tomotree.Segment.end_coordinates" title="Link to this definition"></a></dt>
+<dd><p>The end coordinates of the segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array-like</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Segment.length">
+<span class="sig-name descname"><span class="pre">length</span></span><a class="headerlink" href="#tomotree.Segment.length" title="Link to this definition"></a></dt>
+<dd><p>length of the segment</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Return length of the segment</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Segment.split">
+<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Segment.split" title="Link to this definition"></a></dt>
+<dd><p>Split the segment to two or more segments. Removes the segment
+from the ray.segments set and adds new segments to this set.</p>
+<p>Return the set from the new segments. This allows to adjust the speed on
+these new segments.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="tomotree.Tomo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">Tomo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speeds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">times</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">21</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ny</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">21</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symmetric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for constructing and displaying a tomogram or generally for processing
+the output from a tomograph.</p>
+<p>The arguments are a list of vertices and a table with speeds.</p>
+<p>By default, there are 12 points evenly distributed on a circle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nodes</strong> (<em>list</em><em>, </em><em>optional</em>) – List of pairs <code class="docutils literal notranslate"><span class="pre">[[x1,</span> <span class="pre">y1],</span> <span class="pre">[x2,</span> <span class="pre">y2],</span> <span class="pre">...]</span></code> representing
+coordinates of nodes. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, nodes are generated regularly on
+a circle. The default is <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>speeds</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – The table with speeds. The times are calculated from speeds and lengths.
+The data from each source is in a column. The data arriving to sensors
+are in the rows. The table is square table with NaN in main diagonal.
+The default is None.</p></li>
+<li><p><strong>times</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – The table with times if speeds are not given. The speeds are calculated
+from the times and lengths. The default is None. The format (source/receiver)
+is the same as for speeds.</p></li>
+<li><p><strong>nx</strong> (<em>int</em>) – The number of cells along horizontal axis.</p></li>
+<li><p><strong>ny</strong> (<em>int</em>) – The number of cells along vertical axis.</p></li>
+<li><p><strong>symmetric</strong> (<em>bool</em>) – If True, the ray speed on each ray is an average of speeds in
+both directions. This allows to speed up the processing when the
+method is symmetric. The default is False.</p></li>
+<li><p><strong>eps</strong> (<em>float</em>) – The gap between the lefmost (rightmost, top bottom) node and the
+grid boundary. Should be nonzero for SIRT.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Tomo.nodes">
+<span class="sig-name descname"><span class="pre">nodes</span></span><a class="headerlink" href="#tomotree.Tomo.nodes" title="Link to this definition"></a></dt>
+<dd><p>The list of nodes in the tomogram.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Tomo.rays">
+<span class="sig-name descname"><span class="pre">rays</span></span><a class="headerlink" href="#tomotree.Tomo.rays" title="Link to this definition"></a></dt>
+<dd><p>The list of rays in the tomogram.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Tomo.speeds">
+<span class="sig-name descname"><span class="pre">speeds</span></span><a class="headerlink" href="#tomotree.Tomo.speeds" title="Link to this definition"></a></dt>
+<dd><p>The speed table.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Tomo.times">
+<span class="sig-name descname"><span class="pre">times</span></span><a class="headerlink" href="#tomotree.Tomo.times" title="Link to this definition"></a></dt>
+<dd><p>The table of times.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Tomo.get_node_by_number">
+<span class="sig-name descname"><span class="pre">get_node_by_number</span></span><a class="headerlink" href="#tomotree.Tomo.get_node_by_number" title="Link to this definition"></a></dt>
+<dd><p>Dictionary which allows to access the node by a number of the node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Tomo.n">
+<span class="sig-name descname"><span class="pre">n</span></span><a class="headerlink" href="#tomotree.Tomo.n" title="Link to this definition"></a></dt>
+<dd><p>The number of vertices</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Tomo.grid">
+<span class="sig-name descname"><span class="pre">grid</span></span><a class="headerlink" href="#tomotree.Tomo.grid" title="Link to this definition"></a></dt>
+<dd><p>The grid for the tomogram</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Tomo.polygon">
+<span class="sig-name descname"><span class="pre">polygon</span></span><a class="headerlink" href="#tomotree.Tomo.polygon" title="Link to this definition"></a></dt>
+<dd><p>The boundary of the tomogram. Polygon with vertices in nodes.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">get_node_by_number</span></span><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd><p>Dict which allows to access nodes in tomogram by their numbers.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tomotree.Tomo.allsegments">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">allsegments</span></span><a class="headerlink" href="#tomotree.Tomo.allsegments" title="Link to this definition"></a></dt>
+<dd><p>Return list of all segments in the tomogram.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.check_triangle_inequality">
+<span class="sig-name descname"><span class="pre">check_triangle_inequality</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.check_triangle_inequality" title="Link to this definition"></a></dt>
+<dd><p>Check if the direct route is shorter (smaller time) than the route
+via another node.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.do_EBSI_method">
+<span class="sig-name descname"><span class="pre">do_EBSI_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fix_velocity_EBSI_function=&lt;function</span> <span class="pre">Tomo.&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.do_EBSI_method" title="Link to this definition"></a></dt>
+<dd><p>Do the EBSI method on tomogram. The tomogram object is updated.</p>
+<ul class="simple">
+<li><p>Clear the <code class="code docutils literal notranslate"><span class="pre">velocities_list</span></code> of cells</p></li>
+<li><p>Fix the velocity of tangent rays</p></li>
+<li><p>For each ray get the list of cells influenced by the ray and then
+update the <cite>velocities_list</cite></p></li>
+<li><p>Update cell velocities as mean of the values from <code class="code docutils literal notranslate"><span class="pre">velocities_list</span></code>
+from the previous step. Use weighted mean, the weights are lengths
+of segments.</p></li>
+<li><p>The cells outside the polygon are ignored.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fix_velocity_EBSI_function</strong> – Allows to set the function f(speed,angle) which describes
+how to fix the rays having declination <cite>angle</cite> from radial
+direction. The default <code class="code docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x,y:</span>
+<span class="pre">x/(1-0.2*np.abs(y**2))</span></code> setting is from the paper <a class="reference external" href="https://bioresources.cnr.ncsu.edu/resources/stress-wave-tomography-of-wood-internal-defects-using-ellipse-based-spatial-interpolation-and-velocity-compensation/">Du et al.
+(2015). “Stress wave tomography,” BioResources 10(3),
+3948-3962.</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.do_ERSM_method">
+<span class="sig-name descname"><span class="pre">do_ERSM_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fix_velocity_EBSI_function=&lt;function</span> <span class="pre">Tomo.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_segmentation=0.98</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_interpolation=0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n=2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.do_ERSM_method" title="Link to this definition"></a></dt>
+<dd><p>Do the ERSM method on tomogram.</p>
+<ul class="simple">
+<li><p>Clear the <code class="docutils literal notranslate"><span class="pre">velocities_list</span></code> of cells</p></li>
+<li><p>Fix the velocity of tangent rays if required</p></li>
+<li><p>For each ray get the list of cells influenced by the ray and then
+update the <code class="docutils literal notranslate"><span class="pre">velocities_list</span></code></p></li>
+<li><p>Update cell velocities as mean of the values from <code class="docutils literal notranslate"><span class="pre">velocities_list</span></code>
+from the previous step</p></li>
+<li><p>The cells outside the polygon are ignored.</p></li>
+</ul>
+<p>We set the eccentricity values for both ray segmentation and spatial
+interpolation. We use eccentricity rather than the quotient of minor
+and major axes, the value <code class="docutils literal notranslate"><span class="pre">c</span></code> value in Du (2018). The conversion is
+by the formula <code class="docutils literal notranslate"><span class="pre">e=sqrt(1-c**2)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fix_velocity_EBSI_function</strong> – <p>Allows to set the function f(speed,angle) which describes
+how to fix the rays having declination <cite>angle</cite> from radial
+direction. The default <code class="code docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x,y:</span>
+<span class="pre">x/(1-0.2*np.abs(y**2))</span></code> setting is from the paper <a class="reference external" href="https://bioresources.cnr.ncsu.edu/resources/stress-wave-tomography-of-wood-internal-defects-using-ellipse-based-spatial-interpolation-and-velocity-compensation/">Du et al.
+(2015). “Stress wave tomography,” BioResources 10(3),
+3948-3962.</a></p>
+</p></li>
+<li><p><strong>e_segmentation</strong> (<em>float</em>) – Eccentricity for ray segmentation algorithm. This eccentricity
+is used when setting the velocities of the ray segments. Du suggests
+c value for this step between 0.65 and 0.8 which is eccentricity
+between 0.76 and 0.60.</p></li>
+<li><p><strong>e_interpolation</strong> (<em>float</em>) – Eccentricity for spatial interpolation by segmented ellipse.
+Du suggests c value between 0.85 and 0.95 which is e between
+0.53 and 0.31.</p></li>
+<li><p><strong>n</strong> – The shortest ray is divided into <code class="docutils literal notranslate"><span class="pre">n</span></code> segments. The other rays are
+divided into similar lengths.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.do_SIRT_method">
+<span class="sig-name descname"><span class="pre">do_SIRT_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fix_reaction_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.do_SIRT_method" title="Link to this definition"></a></dt>
+<dd><p>SIRT method as described in SIRT- and CG-Type Methods for the Iterative Solution
+of Sparse Linear Least-Squares Problems by Sluis and Vorst
+LINEAR ALGEBRA AND ITS APPLICATIONS 130:257-302 (1990).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>speed_max</strong> (<em>float</em>) – </p></li>
+<li><p><strong>speed_min</strong> (<em>float</em>) – </p></li>
+<li><p><strong>fix_reaction_time</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.fix_velocity_EBSI">
+<span class="sig-name descname"><span class="pre">fix_velocity_EBSI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function=&lt;function</span> <span class="pre">Tomo.&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.fix_velocity_EBSI" title="Link to this definition"></a></dt>
+<dd><p>Fix the velocities as described in EBSI in the paper
+<a class="reference external" href="https://bioresources.cnr.ncsu.edu/resources/stress-wave-tomography-of-wood-internal-defects-using-ellipse-based-spatial-interpolation-and-velocity-compensation/">Du et al. (2015). “Stress wave tomography,” BioResources 10(3), 3948-3962.</a></p>
+<ul class="simple">
+<li><p>The function used to fix the velocities can be customized,
+if necessary. The default is <code class="code docutils literal notranslate"><span class="pre">lambda</span> <span class="pre">x,y:</span> <span class="pre">x/(1-0.2*np.abs(y**2)</span></code>.</p></li>
+<li><p>The function does not allow to be called twice on the same
+tomogram. Prints a friendly notice if the user attempts to call
+is for the second time. The variable
+<code class="code docutils literal notranslate"><span class="pre">self.velocities_EBSI_fixed</span></code> is set to <code class="code docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.limit_cell_plot_velocities">
+<span class="sig-name descname"><span class="pre">limit_cell_plot_velocities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fraction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.limit_cell_plot_velocities" title="Link to this definition"></a></dt>
+<dd><p>” Find limits suitable for tomogram plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> – Tomogram to be potted</p></li>
+<li><p><strong>fraction</strong> (<em>float</em>) – Fraction of the total number of cells, which should have maximal and minimal colors. The value 0.1 ensures that
+10 percent of the cells will have minimal color and 10 percent maximal color.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p>Return dictionary with keys <cite>speed_min</cite> and <cite>speed max</cite>. The author is expected to pass this dictionary to</p></li>
+<li><p><em>the plot method of the tomograf.</em></p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(6,</span> <span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rays</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_ray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shading</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'flat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_countourf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.plot" title="Link to this definition"></a></dt>
+<dd><p>Draw the rays with color corresponding to the speed on each ray.
+It is possible to set the interval for the speeds. If not, it is
+determined automatically from the minimal and maximal value.</p>
+<p>The value shift_ray allows to set the shift betwenn rays in the opposite
+direction. This allows to see if the speeds in opposite directions differ.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grid</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>rays</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>shift_ray</strong> (<em>float</em>) – </p></li>
+<li><p><strong>use_countourf</strong> (<em>bool</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.plot_angular_dependence">
+<span class="sig-name descname"><span class="pre">plot_angular_dependence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.plot_angular_dependence" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.plot_sinogram">
+<span class="sig-name descname"><span class="pre">plot_sinogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imshow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.plot_sinogram" title="Link to this definition"></a></dt>
+<dd><p>Vykreslení grafu. Předpokládá 12 snímačů pravidelně do kruhu. TODO: opravit.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id4">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">speeds</span></span><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.speeds_at_angles_3Dplot">
+<span class="sig-name descname"><span class="pre">speeds_at_angles_3Dplot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.speeds_at_angles_3Dplot" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.speeds_at_angles_table">
+<span class="sig-name descname"><span class="pre">speeds_at_angles_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">highlight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.speeds_at_angles_table" title="Link to this definition"></a></dt>
+<dd><p>Vytiskne tabulku, kde jsou rychlosti z jednotlivych bodu v zavislosti
+na odchylce od radialniho smeru. Vystupem je tabulka pandas.
+Parametr highlight umožní vybarvit nejvyšší a nejnižší hodnoty</p>
+<p>Předpokládá 12 snímačů pravidelně do kruhu. TODO: opravit.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>highlight</strong> (<em>bool</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id5">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">times</span></span><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tomotree.angle_between">
+<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">angle_between</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.angle_between" title="Link to this definition"></a></dt>
+<dd><p>Calculate and return the signed angle in radians between two vectors <cite>v1</cite> and <cite>v2</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v1</strong> (<em>numpy.ndarray</em>) – The first input vector. It should be a 2D vector.</p></li>
+<li><p><strong>v2</strong> (<em>numpy.ndarray</em>) – The second input vector. It should be a 2D vector.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The signed angle in radians between <code class="docutils literal notranslate"><span class="pre">v1</span></code> and <code class="docutils literal notranslate"><span class="pre">v2</span></code>. The angle is
+measured counterclockwise from <code class="docutils literal notranslate"><span class="pre">v1</span></code> to <code class="docutils literal notranslate"><span class="pre">v2</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p>The function first calculates the angle of <code class="docutils literal notranslate"><span class="pre">v1</span></code> from the positive x-axis (<code class="docutils literal notranslate"><span class="pre">angle1</span></code>).
+Then rotates <code class="docutils literal notranslate"><span class="pre">v2</span></code> by <code class="docutils literal notranslate"><span class="pre">-angle1</span></code> to align <cite>v1</cite> with the positive x-axis.
+Finally, it calculates the angle of the rotated <code class="docutils literal notranslate"><span class="pre">v2</span></code> from the positive
+x-axis, which is the signed angle between <code class="docutils literal notranslate"><span class="pre">v1</span></code> and <code class="docutils literal notranslate"><span class="pre">v2</span></code>.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tomotree.colorbar">
+<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">colorbar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmap=&lt;matplotlib.colors.LinearSegmentedColormap</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.colorbar" title="Link to this definition"></a></dt>
+<dd><p>Add colorbar to the current plot. Arguments are bounds for velocities
+and colorscheme.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min</strong> (<em>float</em>) – </p></li>
+<li><p><strong>max</strong> (<em>float</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tomotree.get_boundary_points">
+<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">get_boundary_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posunx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">posuny</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.get_boundary_points" title="Link to this definition"></a></dt>
+<dd><p>The function <cite>get_boundary_points</cite> is designed to generate points on
+the boundary of a rectangle. This can be useful for testing if a cell is
+within an elliptical domain of a given ray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>N</strong> (<em>int</em>) – The number of points to generate on each side of the rectangle.
+The default value is 5.</p></li>
+<li><p><strong>dx</strong> (<em>float</em>) – The length of the rectangle in the x-direction. The default
+value is 1.</p></li>
+<li><p><strong>dy</strong> (<em>float</em>) – The length of the rectangle in the y-direction. The default
+value is 1.</p></li>
+<li><p><strong>posunx</strong> (<em>float</em>) – The x-coordinate of the bottom-left corner of the rectangle. The
+default value is 0.</p></li>
+<li><p><strong>posuny</strong> (<em>float</em>) – The y-coordinate of the bottom-left corner of the rectangle. The
+default value is 0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><em>ndarray</em></p>
+</dd>
+</dl>
+<p>The function returns a 2D numpy array with shape (2, 4*N). The first
+row of the array contains the x-coordinates of the points, and the
+second row contains the y-coordinates. The points are ordered
+counterclockwise, starting from the bottom-left corner of the rectangle.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tomotree.is_point_inside_ellipse">
+<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">is_point_inside_ellipse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eccentricity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_from_vertex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.is_point_inside_ellipse" title="Link to this definition"></a></dt>
+<dd><p>Test if a point is inside the ellipse. The ellipse is defined by the
+start and end point of the main axis and eccentricity. If <code class="docutils literal notranslate"><span class="pre">distance_from_vertex</span></code>
+is true, returns also the length of the distance between the points and
+the start vertex measured in the direction of the major axis. (Useful for
+spatial interpolation by the segmented ellipse.)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point</strong> (<em>ndarray</em>) – Point or an array of points to be tested. The last axis of the array
+is supposed to have length 2.</p></li>
+<li><p><strong>start</strong> (<em>float</em>) – One of the ends of the major axis.</p></li>
+<li><p><strong>end</strong> (<em>float</em>) – The second ends of te major axis.</p></li>
+<li><p><strong>eccentricity</strong> (<em>float</em>) – Ellipse eccentricity. The default is 0.9.</p></li>
+<li><p><strong>distance_from_vertex</strong> (<em>bool</em>) – If true, return also distance from vertex, i.e. return pair
+[boolean, distance from minor]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>bool</em> – Returns bool or array of bools if <code class="docutils literal notranslate"><span class="pre">distance_from_vertex</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p><em>list</em> – Returns a pair of bool and float if <code class="docutils literal notranslate"><span class="pre">distance_from_vertex</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>ndarray</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tomotree.perp">
+<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">perp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v=&lt;class</span> <span class="pre">'numpy.ndarray'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.perp" title="Link to this definition"></a></dt>
+<dd><p>Return vector perpendicular to the argument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>ndarray</em></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tomotree.roll_table">
+<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">roll_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.roll_table" title="Link to this definition"></a></dt>
+<dd><p>Converts table with n columns as soures and (n-1) rows as receivers
+to n times n table.
+Input is table in which the first row is the TOF to the first neighbor
+etc.
+Output is table where each row contains TOF of the same node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>ndarray</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tomotree.speed2color">
+<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">speed2color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.speed2color" title="Link to this definition"></a></dt>
+<dd><p>Convert speed to color.
+Return black, if the speed is outside minimal and maximal value.
+Othervise return a color according to the colormap scheme.</p>
+<ul class="simple">
+<li><p>Parameters <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> set the minimal and maximal value.</p></li>
+<li><p>If the values are not given, values <code class="docutils literal notranslate"><span class="pre">speed_min</span></code> and <code class="docutils literal notranslate"><span class="pre">speed_max</span></code> are used.</p></li>
+<li><p>If none of these values are given, set <code class="docutils literal notranslate"><span class="pre">min=0</span></code> and <code class="docutils literal notranslate"><span class="pre">max=1</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>speed</strong> (<em>float</em>) – Speed to be converted to color</p></li>
+<li><p><strong>max</strong> (<em>float</em>) – Maximal value, the speed correspoding to the fastest color</p></li>
+<li><p><strong>min</strong> (<em>float</em>) – Minimal value, the speed corresponding to the color with smallest velocity.</p></li>
+<li><p><strong>speed_min</strong> (<em>float</em>) – The values <cite>speed_min</cite> and <cite>speed_max</cite> are used if <cite>min</cite> and <cite>max</cite> are not set.</p></li>
+<li><p><strong>speed_max</strong> (<em>float</em>) – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Valentino Cristini, Robert Mařík.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
