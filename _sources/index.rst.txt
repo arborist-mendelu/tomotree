@@ -88,10 +88,12 @@ does not match photo well, the velocities are highly asymmetric and the velocity
 as a function of the angle between the ray and the radial direction is not 
 a parabolic function.
 
-Perlin, L. P., Pinto, R. C. de A., & Valle, Â. do. (2019). Ultrasonic tomography in wood with anisotropy consideration. Construction and Building Materials, 229, 116958. https://doi.org/10.1016/J.CONBUILDMAT.2019.116958
+Espinosa, L., Brancheriau, L., Cortes, Y. et al. Ultrasound computed tomography
+on standing trees: accounting for wood anisotropy permits a more accurate
+detection of defects. Annals of Forest Science 77, 68 (2020).
+https://doi.org/10.1007/s13595-020-00971-z
 
 Data downloaded from Ultrasonic tomographic reconstruction considering wood anisotropy - UPR BioWooEB. (n.d.). Retrieved March 29, 2024, from https://dataverse.cirad.fr/dataset.xhtml?persistentId=doi:10.18167/DVN1/GI8LSW
-
 
 * `Healthy tree <./_static/demo_tomoWood_1.py.html>`_
 * `Deffect in the center <./_static/demo_tomoWood_2.py.html>`_
@@ -117,3 +119,4 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
