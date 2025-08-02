@@ -119,18 +119,18 @@ Online application
 The web interface to the Tomotree package is available at
 `https://tomotree.streamlit.app/ <https://tomotree.streamlit.app/>`_. A short video is also `available <https://youtu.be/P0PhThIeqmo>`_
   
-
-Tomotree
+Tomotree 
 ========
 
-.. automodule:: tomotree
-   :members:
+.. toctree::
+   :maxdepth: 2
+   :caption: Moduly
 
-Resistograph
-============
+   tomotree
+   analyze_f3d
+   data_upload
+   resistograph
 
-.. automodule:: tomotree.resistograph
-   :members:
 
 Indices and tables
 ==================

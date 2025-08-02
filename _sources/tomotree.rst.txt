@@ -1,3 +1,6 @@
+Tomotree
+========
+
 .. automodule:: tomotree
    :members:
    :undoc-members:
