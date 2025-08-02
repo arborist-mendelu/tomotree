@@ -23,8 +23,11 @@ find documentation of classes and functions. The source codes will be available 
     be available after publication of the paper.
 
 
+Overview
+=======
+
 Primitive method 
-================
+----------------
 
 Rays determine the velocities of cells through.
 The velocity is established as a mean of the rays through this cell. 
@@ -32,13 +35,13 @@ The velocity is established as a mean of the rays through this cell.
 * `Testing simulated data with decay in the middle. Testing noncircular shape. <./_static/demo_artificial.py.html>`_ 
 
 Short demo of all methods
-=========================
+-------------------------
 
 * `Testing simulated data with decay outside the center and noncircular shape. <./_static/demo_artificial2.py.html>`_ 
 * `Testing simulated data with two decays. <./_static/demo_artificial3.py.html>`_ 
 
 Velocity is a parabolic function of angle from radial direction
-===============================================================
+---------------------------------------------------------------
 
 Data from the paper *Analysis of wave velocity patterns in black cherry trees 
 and its effect on internal decay detection*, 
@@ -49,7 +52,7 @@ https://www.sciencedirect.com/science/article/pii/S0168169914000684
 
 
 Eliptic based segmentation method (EBSI)
-========================================
+---------------------------------------
 
 Comparison of primitive method (velocity from rays through) and EBSI. 
 
@@ -58,21 +61,25 @@ Comparison of primitive method (velocity from rays through) and EBSI.
 * `Testing elliptical domains of rays, angles from radial direction and EBSI method for degraded wood. <./_static/demo_rays_from_point.py.html>`_ 
 
 Simultaneous interactive reconstruction technique (SIRT)
-========================================================
+--------------------------------------------------------
+
 
 * `Degraded wood and SIRT. <./_static/demo_SIRT.py.html>`_ 
 
 
 Equidistant ray segmentation method (ERSM)
-==========================================
+------------------------------------------
 
 * `Degradation in the center <./_static/demo_ERSM_central_defect.py.html>`_   
 * `Sound wood <./_static/demo_ERSM_Du_sound_wood.py.html>`_
 * `The method for few rays <./_static/demo_ERSM_few_rays.py.html>`_, the file
   shows some of the details of the mechanism behind  
-  
+
+Tests and demos
+===============
+
 Tests of internal procedures
-============================
+----------------------------
 
 * `Testing ray segmentation. <./_static/demo_ellipse.py.html>`_ 
 * `Testing ray segmentation and spatial interpolation. <./_static/demo_ellipse_n.py.html>`_ 
@@ -80,7 +87,7 @@ Tests of internal procedures
 * `Simple 2-ray test of the Grid class. <./_static/demo_grid.py.html>`_  
 
 TomoWood
-========
+--------
 
 One of few datasets published and tomotree has been tested on this dataset.
 However, the data are suspicious. The node positions 
@@ -100,7 +107,7 @@ Data downloaded from Ultrasonic tomographic reconstruction considering wood anis
 * `Deffect outside center <./_static/demo_tomoWood_3.py.html>`_
 
 Various tests
-=============
+-------------
 
 * `Checking triangle inequality <./_static/demo_triangle.py.html>`_
 * `Speed test <./_static/speed_test.py.html>`_
@@ -112,6 +119,18 @@ Online application
 The web interface to the Tomotree package is available at
 `https://tomotree.streamlit.app/ <https://tomotree.streamlit.app/>`_. A short video is also `available <https://youtu.be/P0PhThIeqmo>`_
   
+
+Tomotree
+========
+
+.. automodule:: tomotree
+   :members:
+
+Resistograph
+============
+
+.. automodule:: tomotree.resistograph
+   :members:
 
 Indices and tables
 ==================
