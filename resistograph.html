@@ -20,7 +20,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Data upload" href="data_upload.html" /> 
+    <link rel="next" title="Analyze f3d files" href="analyze_f3d.html" />
+    <link rel="prev" title="Tomotree" href="tomotree.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,8 +43,20 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Moduly</span></p>
-<ul class="current">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="doc.html">Tomotree package description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#primitive-method">Primitive method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#short-demo-of-all-methods">Short demo of all methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#equidistant-ray-segmentation-method-ersm">Equidistant ray segmentation method (ERSM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#tests-of-internal-procedures">Tests of internal procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#tomowood">TomoWood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#various-tests">Various tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#online-application">Online application</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tomotree.html">Tomotree</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree-module">Tomotree module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
@@ -137,6 +150,17 @@
 <li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.speed2color"><code class="docutils literal notranslate"><span class="pre">speed2color()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Resistograph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.resistograph.Resistograph.preprocess_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.preprocess_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.resistograph.Resistograph.read_resistograph_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.read_resistograph_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.resistograph.Resistograph.remove_global_linear_trend"><code class="docutils literal notranslate"><span class="pre">Resistograph.remove_global_linear_trend()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="analyze_f3d.html">Analyze f3d files</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.df_nodes"><code class="docutils literal notranslate"><span class="pre">df_nodes()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.distance_matrix"><code class="docutils literal notranslate"><span class="pre">distance_matrix()</span></code></a></li>
@@ -148,17 +172,6 @@
 <li class="toctree-l1"><a class="reference internal" href="data_upload.html">Data upload</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="data_upload.html#tomotree.data_upload.get_directory"><code class="docutils literal notranslate"><span class="pre">get_directory()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_upload.html#tomotree.data_upload.handle_zip_upload"><code class="docutils literal notranslate"><span class="pre">handle_zip_upload()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Resistograph</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tomotree.resistograph.Resistograph.preprocess_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.preprocess_data()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tomotree.resistograph.Resistograph.read_resistograph_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.read_resistograph_data()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#tomotree.resistograph.Resistograph.remove_global_linear_trend"><code class="docutils literal notranslate"><span class="pre">Resistograph.remove_global_linear_trend()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -223,13 +236,14 @@ and removing global linear trends from the data.</p>
 <dt class="sig sig-object py" id="tomotree.resistograph.Resistograph.get_data">
 <span class="sig-name descname"><span class="pre">get_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.Resistograph.get_data" title="Link to this definition"></a></dt>
 <dd><p>Get the processed resistograph data.</p>
-<section id="returns">
-<h3>Returns:<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
-<dl class="simple">
-<dt>pandas.DataFrame</dt><dd><p>The processed resistograph data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The processed resistograph data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
 </dd>
 </dl>
-</section>
 </dd></dl>
 
 <dl class="py method">
@@ -275,8 +289,44 @@ from the data to normalize the values.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tomotree.resistograph.add_resistograph_to_image">
-<span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">add_resistograph_to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tomogram</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">13</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meter_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.add_resistograph_to_image" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">add_resistograph_to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tomogram</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meter_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.add_resistograph_to_image" title="Link to this definition"></a></dt>
 <dd><p>Plot resistograph data as series of colored bars on the picture with tomogram.</p>
+<p>This function visualizes resistograph data by overlaying it as colored bars on a tomogram image.
+The bars are color-coded based on the resistograph values, and a color bar is added to indicate
+the value range. Additionally, a scale indicator is drawn on the image.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – A DataFrame containing resistograph data. Each column represents a resistograph measurement
+for a specific node.</p></li>
+<li><p><strong>tomogram</strong> (<em>object</em>) – An object representing the tomogram. It must have a <cite>get_node_by_number</cite> method that returns
+nodes with <cite>coordinates</cite> attributes.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – The axes on which to plot the resistograph data. If None, a new figure and axes are created.</p></li>
+<li><p><strong>cax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – The axes on which to plot the color bar. If None, the color bar is added to the main axes.</p></li>
+<li><p><strong>min</strong> (<em>float</em><em>, </em><em>optional</em>) – The minimum value for the color normalization. Default is 100.</p></li>
+<li><p><strong>max</strong> (<em>float</em><em>, </em><em>optional</em>) – The maximum value for the color normalization. Default is 200.</p></li>
+<li><p><strong>zorder</strong> (<em>int</em><em>, </em><em>optional</em>) – The z-order for the plotted elements. Default is 100.</p></li>
+<li><p><strong>columns</strong> (<em>list</em><em>, </em><em>optional</em>) – A list of column indices from the DataFrame to plot. If None, all columns are used.</p></li>
+<li><p><strong>linewidth</strong> (<em>float</em><em>, </em><em>optional</em>) – The width of the colored bars. Default is 16.</p></li>
+<li><p><strong>meter_length</strong> (<em>float</em><em>, </em><em>optional</em>) – The length of the scale indicator in meters. Default is 20.</p></li>
+<li><p><strong>step</strong> (<em>int</em><em>, </em><em>optional</em>) – The step size for down-sampling the resistograph data. Default is 300.</p></li>
+<li><p><strong>**kwargs</strong> (<em>dict</em>) – Additional keyword arguments for customization.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ax</strong> – The axes with the plotted resistograph data.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The function assumes that the tomogram nodes are numbered sequentially and that their coordinates
+are accessible via the <cite>get_node_by_number</cite> method.</p></li>
+<li><p>The scale indicator is drawn at the bottom-left corner of the plot, with labels “5cm” and “10cm”.</p></li>
+<li><p>Missing or NaN values in the resistograph data are ignored during plotting.</p></li>
+</ul>
 </dd></dl>
 
 </section>
@@ -285,7 +335,8 @@ from the data to normalize the values.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="data_upload.html" class="btn btn-neutral float-left" title="Data upload" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tomotree.html" class="btn btn-neutral float-left" title="Tomotree" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="analyze_f3d.html" class="btn btn-neutral float-right" title="Analyze f3d files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
