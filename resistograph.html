@@ -9,7 +9,7 @@
   <title>Resistograph &mdash; tomotree  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=1ea1444f" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -158,7 +158,9 @@
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.resistograph.Resistograph.remove_global_linear_trend"><code class="docutils literal notranslate"><span class="pre">Resistograph.remove_global_linear_trend()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tomotree.resistograph.get_drilling_start"><code class="docutils literal notranslate"><span class="pre">get_drilling_start()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analyze_f3d.html">Analyze f3d files</a><ul>
@@ -288,6 +290,29 @@ from the data to normalize the values.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="tomotree.resistograph.add_resistograph_graphs">
+<span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">add_resistograph_graphs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resistograph_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C0'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.add_resistograph_graphs" title="Link to this definition"></a></dt>
+<dd><p>Add resistograph graphs to the plot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resistograph_df</strong> (<em>pd.DataFrame</em>) – DataFrame containing resistograph data.</p></li>
+<li><p><strong>nodes_df</strong> (<em>pd.DataFrame</em>) – DataFrame containing node information.</p></li>
+<li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – Axes object to add the graphs to.</p></li>
+<li><p><strong>yshift</strong> (<em>int</em>) – Vertical shift for the graphs (default is 100).</p></li>
+<li><p><strong>yscale</strong> (<em>int</em>) – Vertical scale for the graphs (default is 20).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The axes with the resistograph graphs added.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>matplotlib.axes.Axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="tomotree.resistograph.add_resistograph_to_image">
 <span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">add_resistograph_to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tomogram</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meter_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.add_resistograph_to_image" title="Link to this definition"></a></dt>
 <dd><p>Plot resistograph data as series of colored bars on the picture with tomogram.</p>
@@ -327,6 +352,26 @@ are accessible via the <cite>get_node_by_number</cite> method.</p></li>
 <li><p>The scale indicator is drawn at the bottom-left corner of the plot, with labels “5cm” and “10cm”.</p></li>
 <li><p>Missing or NaN values in the resistograph data are ignored during plotting.</p></li>
 </ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tomotree.resistograph.get_drilling_start">
+<span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">get_drilling_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.get_drilling_start" title="Link to this definition"></a></dt>
+<dd><p>Get the starting point and angle of the drilling for a given index.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<em>int</em>) – Index of the drilling position.</p></li>
+<li><p><strong>nodes_df</strong> (<em>pd.DataFrame</em>) – DataFrame containing node information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary containing the coordinates and angle of the drilling start.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>

@@ -9,7 +9,7 @@
   <title>Tomotree &mdash; tomotree  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=1ea1444f" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -158,7 +158,9 @@
 <li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.remove_global_linear_trend"><code class="docutils literal notranslate"><span class="pre">Resistograph.remove_global_linear_trend()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.get_drilling_start"><code class="docutils literal notranslate"><span class="pre">get_drilling_start()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analyze_f3d.html">Analyze f3d files</a><ul>
@@ -814,10 +816,15 @@ via another node.</p>
 <span class="sig-name descname"><span class="pre">do_EBSI_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fix_velocity_EBSI_function=&lt;function</span> <span class="pre">Tomo.&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.do_EBSI_method" title="Link to this definition"></a></dt>
 <dd><p>Do the EBSI method on tomogram. The tomogram object is updated.</p>
 <ul class="simple">
-<li><p>Clear the <code class="code docutils literal notranslate"><span class="pre">velocities_list</span></code> of cells</p></li>
-<li><p>Fix the velocity of tangent rays</p></li>
-<li><p>For each ray get the list of cells influenced by the ray and then
-update the <cite>velocities_list</cite></p></li>
+<li><p>Clear the <code class="code docutils literal notranslate"><span class="pre">velocities_list</span></code> of cells. This removes any data
+from previous methods, if any.</p></li>
+<li><p>Fix the velocity of tangent rays, if required and if not done
+before. This fixes the fact that the speed depends on the angle
+between the ray and the radial direction.</p></li>
+<li><p>For each ray get the list of cells influenced by the ray. For each cell
+influenced by the ray add the ray speed to the  <cite>velocities_list</cite>.
+Use points on cell boundaries and ellipse defined by the ray and
+eccentricity to check, if the cell is influenced by the ray.</p></li>
 <li><p>Update cell velocities as mean of the values from <code class="code docutils literal notranslate"><span class="pre">velocities_list</span></code>
 from the previous step. Use weighted mean, the weights are lengths
 of segments.</p></li>
@@ -832,6 +839,13 @@ direction. The default <code class="code docutils literal notranslate"><span cla
 (2015). “Stress wave tomography,” BioResources 10(3),
 3948-3962.</a></p>
 </dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary where keys are rays and values are lists of cells
+influenced by the ray.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
 </dl>
 </dd></dl>
 
@@ -840,8 +854,15 @@ direction. The default <code class="code docutils literal notranslate"><span cla
 <span class="sig-name descname"><span class="pre">do_ERSM_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fix_velocity_EBSI_function=&lt;function</span> <span class="pre">Tomo.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_segmentation=0.98</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e_interpolation=0.99</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean=&lt;function</span> <span class="pre">nanmean&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.do_ERSM_method" title="Link to this definition"></a></dt>
 <dd><p>Do the ERSM method on tomogram.</p>
 <ul class="simple">
-<li><p>Clear the <code class="docutils literal notranslate"><span class="pre">velocities_list</span></code> of cells</p></li>
-<li><p>Fix the velocity of tangent rays if required</p></li>
+<li><p>Clear the <code class="docutils literal notranslate"><span class="pre">velocities_list</span></code> of cells. This removes any
+relicts from previous methods.</p></li>
+<li><p>Fix the velocity of tangent rays if required. This fixes the fact that
+the speed in radial direction is maximal</p></li>
+<li><p>Do the ray segmentation</p></li>
+<li><p>For each segment on ray find the cells affected by the segment, i.e.
+get the cells inside the ellipse around the ray such that the
+orthogonal projection to major axis is in the segment. Then store
+the segment speed to the <code class="docutils literal notranslate"><span class="pre">velocities_list</span></code> in the cell.</p></li>
 <li><p>For each ray get the list of cells influenced by the ray and then
 update the <code class="docutils literal notranslate"><span class="pre">velocities_list</span></code></p></li>
 <li><p>Update cell velocities as mean of the values from <code class="docutils literal notranslate"><span class="pre">velocities_list</span></code>
