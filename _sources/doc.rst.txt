@@ -8,6 +8,41 @@ find documentation of classes and functions. The source codes will be available 
     The package is described in the paper *(to be added later)* . The code of the package will 
     be available after publication of the paper.
 
+Installation
+------------
+
+Docker
+~~~~~~
+
+The easiest way to use the package is through Docker. The Docker compose file is attached
+for Streamlit GUI and for Jupyter interface. To run the GUI use the following command:
+
+``docker compose up``
+
+The GUI can be accessed at `http://localhost:8501`. You will see this link in the terminal output.
+
+To run the Jupyter interface use the following command:
+
+``docker compose -f compose-jupyter.yml up``
+
+The Jupyterlab interface can be accessed at `http://localhost:8888`. The token 
+can be found in the terminal output.
+
+Are you new in docker?
+
+* If you run the above commands for the first time, it take severa minutes to download
+  and install packages and create the containers. If the containers are created, 
+  the next start takes just few seconds.
+* To show the space occupied by the containers use ``docker system df``
+* To list the images use ``docker images``
+* To prune unused images use ``docker image prune``
+* To do other tasks use help to docker ecosystem or AI assistant.
+
+Python
+~~~~~~
+
+* It is recommended to use a virtual environment. Use `conda`, `pip` or any alternative. Consult AI assistant if necessary.
+* Install the packages from the file `requirements.txt`.
 
 Primitive method 
 ----------------
@@ -59,6 +94,7 @@ Equidistant ray segmentation method (ERSM)
 * `Sound wood <./_static/demo_ERSM_Du_sound_wood.py.html>`_
 * `The method for few rays <./_static/demo_ERSM_few_rays.py.html>`_, the file
   shows some of the details of the mechanism behind  
+* `Test of identification segments through <./_static/demo_RSEN_Du.py.html>`_
 
 
 Tests of internal procedures
