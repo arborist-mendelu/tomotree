@@ -248,9 +248,10 @@ the next start takes just few seconds.</p></li>
 </section>
 <section id="primitive-method">
 <h2>Primitive method<a class="headerlink" href="#primitive-method" title="Link to this heading"></a></h2>
-<p>Rays determine the velocities of cells through.
-The velocity is established as a mean of the rays through this cell.</p>
 <ul class="simple">
+<li><p>Rays determine the velocities of cells through.</p></li>
+<li><p>The velocity is established as a mean of the rays through this cell.</p></li>
+<li><p>If any cell is not illuminated by the rays, its velocity is undefined. Thus not suitable for fine grids.</p></li>
 <li><p><a class="reference external" href="./_static/demo_artificial.py.html">Testing simulated data with decay in the middle. Testing noncircular shape.</a></p></li>
 </ul>
 </section>
@@ -308,8 +309,8 @@ shows some of the details of the mechanism behind</p></li>
 </section>
 <section id="tomowood">
 <h2>TomoWood<a class="headerlink" href="#tomowood" title="Link to this heading"></a></h2>
-<p>One of few datasets published and tomotree has been tested on this dataset.
-However, the data are suspicious. The node positions
+<p>TomoWood is onne of few datasets published. Tomotree has been tested on this dataset.
+However, the data could be unreliable. The node positions
 does not match photo well, the velocities are highly asymmetric and the velocity
 as a function of the angle between the ray and the radial direction is not
 a parabolic function.</p>
@@ -334,8 +335,9 @@ detection of defects. Annals of Forest Science 77, 68 (2020).
 </section>
 <section id="online-application">
 <h2>Online application<a class="headerlink" href="#online-application" title="Link to this heading"></a></h2>
-<p>The web interface to the Tomotree package is available at
-<a class="reference external" href="https://tomotree.streamlit.app/">https://tomotree.streamlit.app/</a>. A short video is also <a class="reference external" href="https://youtu.be/P0PhThIeqmo">available</a></p>
+<p>The old web interface to the Tomotree package is available at
+<a class="reference external" href="https://tomotree.streamlit.app/">https://tomotree.streamlit.app/</a>. A short video is also <a class="reference external" href="https://youtu.be/P0PhThIeqmo">available</a>
+An updated version is available as a docker container. See the installation instructions above.</p>
 </section>
 </section>
 

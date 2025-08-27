@@ -47,8 +47,9 @@ Python
 Primitive method 
 ----------------
 
-Rays determine the velocities of cells through.
-The velocity is established as a mean of the rays through this cell. 
+* Rays determine the velocities of cells through.
+* The velocity is established as a mean of the rays through this cell. 
+* If any cell is not illuminated by the rays, its velocity is undefined. Thus not suitable for fine grids.
 
 * `Testing simulated data with decay in the middle. Testing noncircular shape. <./_static/demo_artificial.py.html>`_ 
 
@@ -83,7 +84,6 @@ Comparison of primitive method (velocity from rays through) and EBSI.
 Simultaneous interactive reconstruction technique (SIRT)
 --------------------------------------------------------
 
-
 * `Degraded wood and SIRT. <./_static/demo_SIRT.py.html>`_ 
 
 
@@ -108,8 +108,8 @@ Tests of internal procedures
 TomoWood
 --------
 
-One of few datasets published and tomotree has been tested on this dataset.
-However, the data are suspicious. The node positions 
+TomoWood is onne of few datasets published. Tomotree has been tested on this dataset.
+However, the data could be unreliable. The node positions 
 does not match photo well, the velocities are highly asymmetric and the velocity
 as a function of the angle between the ray and the radial direction is not 
 a parabolic function.
@@ -135,5 +135,6 @@ Various tests
 Online application
 ------------------
 
-The web interface to the Tomotree package is available at
+The old web interface to the Tomotree package is available at
 `https://tomotree.streamlit.app/ <https://tomotree.streamlit.app/>`_. A short video is also `available <https://youtu.be/P0PhThIeqmo>`_
+An updated version is available as a docker container. See the installation instructions above. 

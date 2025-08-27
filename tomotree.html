@@ -1082,16 +1082,18 @@ and colorscheme.</p>
 <dd><p>Transform distances between nodes to coordinates.</p>
 <p>The input is dataframe with distances between nodes and index in the form n1-n2, where
 n1 and n2 are node numbers. Example:</p>
-<p><code class="docutils literal notranslate"><span class="pre">`</span>
-<span class="pre">2-1,</span> <span class="pre">12.0</span>
-<span class="pre">3-1,</span> <span class="pre">25.0</span>
-<span class="pre">...</span>
-<span class="pre">12-1,</span> <span class="pre">12.5</span>
-<span class="pre">2-7,</span> <span class="pre">52.0</span>
-<span class="pre">3-7,</span> <span class="pre">45.4</span>
-<span class="pre">...</span>
-<span class="pre">12-7,</span> <span class="pre">51.2</span>
-<span class="pre">`</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">12.0</span>
+<span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">25.0</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="mi">12</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">12.5</span>
+<span class="mi">2</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mf">52.0</span>
+<span class="mi">3</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mf">45.4</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="mi">12</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mf">51.2</span>
+</pre></div>
+</div>
 <p>The output is a numpy array of shape (num, 2) containing the x and y coordinates of each node.
 Node 1 is at (0, 0). If center is True, then the coordinates are shifted so that the center of the
 arrangement is at (0, 0).</p>
