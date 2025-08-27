@@ -9,7 +9,7 @@
   <title>Tomotree &mdash; tomotree  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=1ea1444f" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -141,8 +141,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#tomotree.angle_between"><code class="docutils literal notranslate"><span class="pre">angle_between()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tomotree.colorbar"><code class="docutils literal notranslate"><span class="pre">colorbar()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tomotree.distances_to_coordiantes"><code class="docutils literal notranslate"><span class="pre">distances_to_coordiantes()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tomotree.find_node_coordiantes"><code class="docutils literal notranslate"><span class="pre">find_node_coordiantes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tomotree.distances_to_coordinates"><code class="docutils literal notranslate"><span class="pre">distances_to_coordinates()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tomotree.get_boundary_points"><code class="docutils literal notranslate"><span class="pre">get_boundary_points()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tomotree.is_point_inside_ellipse"><code class="docutils literal notranslate"><span class="pre">is_point_inside_ellipse()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tomotree.perp"><code class="docutils literal notranslate"><span class="pre">perp()</span></code></a></li>
@@ -1073,14 +1072,24 @@ and colorscheme.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="tomotree.distances_to_coordiantes">
-<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">distances_to_coordiantes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.distances_to_coordiantes" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="tomotree.find_node_coordiantes">
-<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">find_node_coordiantes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zip_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_xml_filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'project.f3d'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.find_node_coordiantes" title="Link to this definition"></a></dt>
-<dd><p>The input is the path to f3d file from Fakop device. The output is the table do node coordinates.</p>
+<dt class="sig sig-object py" id="tomotree.distances_to_coordinates">
+<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">distances_to_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.distances_to_coordinates" title="Link to this definition"></a></dt>
+<dd><p>Transform distances between nodes to coordinates.</p>
+<p>The input is dataframe with distances between nodes and index in the form n1-n2, where
+n1 and n2 are node numbers. Example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">2-1,</span> <span class="pre">12.0</span>
+<span class="pre">3-1,</span> <span class="pre">25.0</span>
+<span class="pre">...</span>
+<span class="pre">12-1,</span> <span class="pre">12.5</span>
+<span class="pre">2-7,</span> <span class="pre">52.0</span>
+<span class="pre">3-7,</span> <span class="pre">45.4</span>
+<span class="pre">...</span>
+<span class="pre">12-7,</span> <span class="pre">51.2</span>
+<span class="pre">`</span></code></p>
+<p>The output is a numpy array of shape (num, 2) containing the x and y coordinates of each node.
+Node 1 is at (0, 0). If center is True, then the coordinates are shifted so that the center of the
+arrangement is at (0, 0).</p>
 </dd></dl>
 
 <dl class="py function">

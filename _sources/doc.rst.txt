@@ -42,6 +42,8 @@ Comparison of primitive method (velocity from rays through) and EBSI.
 * `Degraded wood and EBSI. <./_static/demo_EBSI_Du.py.html>`_ 
 * `Sound wood and EBSI.  <./_static/demo_EBSI_Du_sound_wood.py.html>`_ 
 * `Testing elliptical domains of rays, angles from radial direction and EBSI method for degraded wood. <./_static/demo_rays_from_point.py.html>`_ 
+* `Testing elliptical area of influence. <./_static/demo_EBSI_steps.py.html>`_ 
+
 
 Simultaneous interactive reconstruction technique (SIRT)
 --------------------------------------------------------
