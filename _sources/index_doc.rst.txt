@@ -1,0 +1,25 @@
+.. image:: _static/image.png
+   :width: 300px
+   :align: right
+
+  
+Welcome to tomotree's documentation!
+====================================
+
+.. toctree::
+   :maxdepth: 2
+
+   doc
+   tomotree
+   resistograph
+   analyze_f3d
+   data_upload
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+

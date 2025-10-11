@@ -1,0 +1,39 @@
+﻿tomotree.resistograph.Resistograph
+==================================
+
+.. currentmodule:: tomotree.resistograph
+
+.. autoclass:: Resistograph
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Resistograph.__init__
+      ~Resistograph.get_data
+      ~Resistograph.preprocess_data
+      ~Resistograph.read_resistograph_data
+      ~Resistograph.remove_global_linear_trend
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~Resistograph.data
+      ~Resistograph.nan_lower_limit
+      ~Resistograph.nan_upper_limit
+      ~Resistograph.polyorder
+      ~Resistograph.set_min_treshold
+      ~Resistograph.smooth
+      ~Resistograph.window_length
+      ~Resistograph.directory
+   
+   

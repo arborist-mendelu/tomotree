@@ -1,0 +1,52 @@
+title: TomoTree - SW for acoustic tomography of trees
+header_title: TomoTree
+header_subtitle: Acoustic tomography solution
+footer: Cristini & Mařík 2025
+
+nav:
+  - { anchor: "start", label: "Start" }
+  - { anchor: "source", label: "Source" }
+
+sections:
+  - anchor: "start"
+    title: "TomoTree"
+    image: "assets/img/tomogram.png"
+    image_position: "right"
+    image_class: ""
+    content: |
+      - Open source software for **acoustic tomography** of trees.
+      - Processing of *resistograph* data.
+      - Combination of tomograph and resistograph data.
+      - Easy to use graphical user interface based on Streamlit.
+      - Available as Python package, Docker container, and Conda environment.
+
+  - anchor: "rays"
+    title: "Acoustic rays visualization"
+    image: "assets/img/rays.png"
+    image_position: "left"
+    image_class: ""
+    content: |
+      - Visualization of acoustic rays in the tree cross-section.
+      - Put rays and cross section photo (if available) together.
+      - Speed filter for rays.
+      - Helps to identify problematic rays and improve tomogram quality.
+
+  - anchor: "tomogram"
+    title: "Tomogram reconstructions"
+    image: "assets/img/tomogram_with_background.png"
+    image_position: "right"
+    image_class: ""
+    content: |
+      - Several reconstruction methods available.
+      - Each method well documented.
+      - The tomogram can be compared with the photo of the actual cross section, if available.
+
+  - anchor: "source"
+    title: "Source code"
+    image: "assets/img/github.png"
+    image_position: "left"
+    image_class: "rounded-circle"
+    content: |
+      - Source code is available on [GitHub](https://github.com/robert-marik/tomotree).
+      - Feel free to report issues or contribute.
+      - Documentation on [GitHub Pages](https://robert-marik.github.io/tomotree/index_doc.html).

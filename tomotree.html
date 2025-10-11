@@ -7,9 +7,9 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tomotree &mdash; tomotree  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=1ea1444f" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -32,7 +32,7 @@
 
           
           
-          <a href="index.html" class="icon icon-home">
+          <a href="index_doc.html" class="icon icon-home">
             tomotree
           </a>
 <div role="search">
@@ -135,6 +135,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.do_EBSI_method"><code class="docutils literal notranslate"><span class="pre">Tomo.do_EBSI_method()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.do_ERSM_method"><code class="docutils literal notranslate"><span class="pre">Tomo.do_ERSM_method()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.do_SIRT_method"><code class="docutils literal notranslate"><span class="pre">Tomo.do_SIRT_method()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.estimate_sound_wood_speed"><code class="docutils literal notranslate"><span class="pre">Tomo.estimate_sound_wood_speed()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.fix_velocity_EBSI"><code class="docutils literal notranslate"><span class="pre">Tomo.fix_velocity_EBSI()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.get_ray"><code class="docutils literal notranslate"><span class="pre">Tomo.get_ray()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.limit_cell_plot_velocities"><code class="docutils literal notranslate"><span class="pre">Tomo.limit_cell_plot_velocities()</span></code></a></li>
@@ -194,14 +195,14 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">tomotree</a>
+          <a href="index_doc.html">tomotree</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li><a href="index_doc.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Tomotree</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tomotree.rst.txt" rel="nofollow"> View page source</a>
@@ -436,7 +437,7 @@ objects.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tomotree.Grid.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shading</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'flat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_contourf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Grid.plot" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shading</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'flat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_contourf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_colorbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Grid.plot" title="Link to this definition"></a></dt>
 <dd><p>Plot a heatmap of the grid velocities using <cite>pcolormesh</cite> or <cite>contourf</cite>.</p>
 <p>If status is True, the cell status (0 or 1) is plotted instead of the velocity. In this case
 minimal and maximal limits are set automatically.</p>
@@ -453,14 +454,15 @@ minimal and maximal limits are set automatically.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="tomotree.Grid.set_cell_status_from_threshold">
 <span class="sig-name descname"><span class="pre">set_cell_status_from_threshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_as_zero</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Grid.set_cell_status_from_threshold" title="Link to this definition"></a></dt>
-<dd><p>Set cell velocity to 0 if the velocity is below the limit.
-Otherwise set the velocity to 1. The function is useful for
-binary classification of cells.</p>
+<dd><p>Set cell velocity to 0 if the velocity is below the limit or undefined.
+Otherwise set the velocity to 1. The function is useful for binary
+classification of cells.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>limit</strong> (<em>float</em>) – The threshold value for classification.</p></li>
-<li><p><strong>nan_as_zero</strong> (<em>bool</em>)</p></li>
+<li><p><strong>nan_as_zero</strong> (<em>bool</em>) – If True, NaN is used rather than 0. This is useful for plotting
+the status, because NaN is not shown in the plot.</p></li>
 </ul>
 </dd>
 </dl>
@@ -975,6 +977,51 @@ LINEAR ALGEBRA AND ITS APPLICATIONS 130:257-302 (1990).</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.estimate_sound_wood_speed">
+<span class="sig-name descname"><span class="pre">estimate_sound_wood_speed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">include=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_status=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">e=0.995</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean=&lt;function</span> <span class="pre">nanmean&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose_output=False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.estimate_sound_wood_speed" title="Link to this definition"></a></dt>
+<dd><p>Estimate the average speed of sound in wood from the tangential rays.</p>
+<p>The average is calculated from the cells affected by the tangential rays.
+The cells affected by the ray are those which have at least one boundary
+point inside the ellipse defined by the ray and eccentricity 0.995.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>include</strong> – If not None, it is a list of sets of node numbers defining the rays
+to be included in the calculation. Example: [{1,7},{2,8}] includes
+only rays between nodes 1 and 7 and between nodes 2 and 8.</p></li>
+<li><p><strong>exclude</strong> – If not None, it is a list of sets of node numbers defining the rays
+to be excluded from the calculation. Example: [{1,7},{2,8}] excludes
+rays between nodes 1 and 7 and between nodes 2 and 8.</p></li>
+<li><p><strong>set_status</strong> – If True, the status of the cells used in the calculation is set to 1.</p></li>
+<li><p><strong>e</strong> – Eccentricity of the ellipse used to determine the cells affected by
+the ray. Default is 0.995.</p></li>
+<li><p><strong>mean</strong> – Function used to calculate the average speed. Default is numpy.nanmean.
+Another alternative is median.</p></li>
+<li><p><strong>verbose_output</strong> – If True, outputs detailed data about the calculation.
+Default is False, which returns only the average speed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The average speed of sound in wood if verbose_output is False.
+If verbose_output is True, returns a dictionary with keys:
+‘speed’ - the average speed of sound in wood,
+‘cells’ - the set of cells used in the calculation,
+‘rays’ - the list of rays used in the calculation,
+‘cells_per_ray’ - a dictionary where keys are rays and values are sets of cells
+affected by the ray.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float or dict</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The function is used to estimate the sound speed in wood. The method is based
+on the fact that the wood degradation occurs typically in the center of the tree or log,
+while the tangential rays pass through the outer part of the log.
+The average speed of sound in wood is then</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="tomotree.Tomo.fix_velocity_EBSI">
 <span class="sig-name descname"><span class="pre">fix_velocity_EBSI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function=&lt;function</span> <span class="pre">Tomo.&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.fix_velocity_EBSI" title="Link to this definition"></a></dt>
 <dd><p>Fix the velocities as described in EBSI in the paper
@@ -1036,7 +1083,7 @@ to match travel times as close as possible.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tomotree.Tomo.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed_min=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize=(6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rays=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_ray=0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shading='flat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_contourf=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_rays=&lt;function</span> <span class="pre">Tomo.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lw=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.plot" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed_min=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize=(6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rays=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_ray=0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shading='flat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_contourf=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_rays=&lt;function</span> <span class="pre">Tomo.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lw=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_colorbar=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.plot" title="Link to this definition"></a></dt>
 <dd><p>Draw the rays with color corresponding to the speed on each ray.
 It is possible to set the interval for the speeds. If not, it is
 determined automatically from the minimal and maximal value.</p>
@@ -1273,7 +1320,7 @@ Output is table where each row contains TOF of the same node.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tomotree.speed2color">
-<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">speed2color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.speed2color" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">speed2color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.speed2color" title="Link to this definition"></a></dt>
 <dd><p>Convert speed to color.
 Return black, if the speed is outside minimal and maximal value.
 Othervise return a color according to the colormap scheme.</p>
@@ -1286,10 +1333,12 @@ Othervise return a color according to the colormap scheme.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>speed</strong> (<em>float</em>) – Speed to be converted to color</p></li>
-<li><p><strong>max</strong> (<em>float</em>) – Maximal value, the speed correspoding to the fastest color</p></li>
+<li><p><strong>max</strong> (<em>float</em>) – Maximal value, the speed corresponding to the fastest color</p></li>
 <li><p><strong>min</strong> (<em>float</em>) – Minimal value, the speed corresponding to the color with smallest velocity.</p></li>
 <li><p><strong>speed_min</strong> (<em>float</em>) – The values <cite>speed_min</cite> and <cite>speed_max</cite> are used if <cite>min</cite> and <cite>max</cite> are not set.</p></li>
 <li><p><strong>speed_max</strong> (<em>float</em>)</p></li>
+<li><p><strong>extend</strong> (<em>bool</em>) – If True, extend the colormap beyond the min and max values. If false, return black
+for values outside the min-max range.</p></li>
 </ul>
 </dd>
 </dl>
