@@ -8,7 +8,7 @@ nav:
   - { anchor: "source", label: "Source" }
 
 sections:
-  - anchor: "start"
+  - anchor: "scroll"
     title: "TomoTree"
     image: "assets/img/tomogram.png"
     image_position: "right"
@@ -41,10 +41,20 @@ sections:
       - Each method well documented.
       - The tomogram can be compared with the photo of the actual cross section, if available.
 
+  - anchor: "start"
+    title: "Getting started"
+    image: "assets/img/euler.png"
+    image_position: "left"
+    image_class: ""
+    content: |
+      - The stable GUI interface is available on <https://euler.mendelu.cz/tomotree/>.
+      - The development version of the GUI interface contains new features which will be propagated to the stable branch after testing period. Available on <https://euler.mendelu.cz/dev-tomotree/>.
+      - You can also run TomoTree locally using Docker or Conda. See the [documentation](https://robert-marik.github.io/tomotree/doc.html#installation) on GitHub.
+
   - anchor: "source"
     title: "Source code"
     image: "assets/img/github.png"
-    image_position: "left"
+    image_position: "right"
     image_class: "rounded-circle"
     content: |
       - Source code is available on [GitHub](https://github.com/robert-marik/tomotree).

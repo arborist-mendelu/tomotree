@@ -73,8 +73,8 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #ee0979;
-  --bs-link-hover-color: #be0761;
+  --bs-link-color: #457cf3;
+  --bs-link-hover-color: #1e0fa8;
   --bs-code-color: #ee0979;
   --bs-highlight-bg: #fff3cd;
 }
@@ -247,7 +247,7 @@ sup {
 
 a {
   color: var(--bs-link-color);
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
   color: var(--bs-link-hover-color);
@@ -10861,7 +10861,8 @@ header.masthead {
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-  background: linear-gradient(0deg, #AFA 20%, #007909 100%);
+  /*background: linear-gradient(0deg, #AFA 20%, #007909 100%);*/
+  background: #EEE;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: scroll;
