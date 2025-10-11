@@ -7,8 +7,11 @@ with open("content.yaml", encoding="utf-8") as f:
     data = yaml.safe_load(f)
 
 # Markdown → HTML pro každou sekci
+position = 'right'
 for section in data["sections"]:
     section["content_html"] = markdown(section["content"])
+    section["image_position"] = position
+    position = 'right' if position == 'left' else 'left'
 
 # Načti šablonu
 with open("template.html", encoding="utf-8") as f:
