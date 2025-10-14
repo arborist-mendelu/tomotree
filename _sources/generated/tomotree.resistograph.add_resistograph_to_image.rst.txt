@@ -1,6 +1,0 @@
-﻿tomotree.resistograph.add\_resistograph\_to\_image
-==================================================
-
-.. currentmodule:: tomotree.resistograph
-
-.. autofunction:: add_resistograph_to_image

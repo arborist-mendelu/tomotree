@@ -77,3 +77,13 @@ sections:
       - Source code is available on [GitHub](https://github.com/robert-marik/tomotree).
       - Feel free to report issues or contribute.
       - Documentation on [GitHub Pages](https://robert-marik.github.io/tomotree/index_doc.html).
+
+  - anchor: "support"
+    title: "Support"
+    image: "assets/img/support.png"
+    image_class: ""
+    content: |
+      The development of TomoTree is supported by the Ministry of Education, Youth and Sports 
+      of the Czech Republic, project ERC CZ no. LL1909 “Tree Dynamics: Understanding of Mechanical 
+      Response to Loading (DYNATREE)” and MSCA FELLOWSHIP CZ MENDELU CZ.02.01.01/00/22_010/0008893 
+      “Wood Degradation in the Urban Environment (WooDU)”.

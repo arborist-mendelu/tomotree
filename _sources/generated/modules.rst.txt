@@ -1,7 +1,0 @@
-tomotree
-========
-
-.. toctree::
-   :maxdepth: 4
-
-   tomotree
