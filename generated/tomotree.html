@@ -48,8 +48,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../doc.html#python">Python</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../doc.html#primitive-method">Primitive method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#quick-start">Quick start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#short-demo-of-all-methods">Short demo of all methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#rays-method">Rays method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
@@ -160,7 +161,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../resistograph.html">Resistograph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.DrillingPath"><code class="docutils literal notranslate"><span class="pre">DrillingPath</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.DrillingPath.angle"><code class="docutils literal notranslate"><span class="pre">DrillingPath.angle</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.data"><code class="docutils literal notranslate"><span class="pre">Resistograph.data</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.preprocess_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.preprocess_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.read_resistograph_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.read_resistograph_data()</span></code></a></li>
@@ -169,7 +175,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.get_drilling_start"><code class="docutils literal notranslate"><span class="pre">get_drilling_start()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../analyze_f3d.html">Analyze f3d files</a><ul>
@@ -341,7 +346,7 @@ state.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tomotree.lib_streamlit_tomotree.binary_tomo">
-<span class="sig-prename descclassname"><span class="pre">tomotree.lib_streamlit_tomotree.</span></span><span class="sig-name descname"><span class="pre">binary_tomo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_comparison_width</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.lib_streamlit_tomotree.binary_tomo" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">tomotree.lib_streamlit_tomotree.</span></span><span class="sig-name descname"><span class="pre">binary_tomo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_comparison_width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.lib_streamlit_tomotree.binary_tomo" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
@@ -408,26 +413,6 @@ The directories are relative to the current working directory.</p>
 <dd><p>Returns the data from the directory.</p>
 <p>If normalize_nodes is True, the nodes coordinates are normalized
 by subtracting the mean of the coordinates.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="tomotree.lib_streamlit_tomotree.get_dpa_data">
-<span class="sig-prename descclassname"><span class="pre">tomotree.lib_streamlit_tomotree.</span></span><span class="sig-name descname"><span class="pre">get_dpa_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">take_sqrt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.lib_streamlit_tomotree.get_dpa_data" title="Link to this definition"></a></dt>
-<dd><p>Processes DPA data files and returns a concatenated DataFrame.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>files</strong> (<em>list</em>) – List of file paths to process.</p></li>
-<li><p><strong>take_sqrt</strong> (<em>bool</em>) – Whether to apply square root transformation to the data.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Processed and concatenated data.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>pd.DataFrame</p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -626,8 +611,91 @@ preprocessing, and removing global linear trends from the data. It also includes
 to visualize the resistograph data as colored bars on a tomogram image.</p>
 <p>This code is part of the Tomotree project.</p>
 <dl class="py class">
+<dt class="sig sig-object py" id="tomotree.resistograph.DrillingPath">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">DrillingPath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.DrillingPath" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to represent a drilling path with start and end points.</p>
+<p>File is the filename from which to read the resistograph data.
+All other attributes are optional and default value is None.
+Attributes:
+———–
+start : np.ndarray</p>
+<blockquote>
+<div><p>Starting coordinates of the drilling path.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>end<span class="classifier">np.ndarray</span></dt><dd><p>Ending coordinates of the drilling path.</p>
+</dd>
+<dt>file<span class="classifier">str</span></dt><dd><p>Filename associated with the drilling path.</p>
+</dd>
+<dt>name<span class="classifier">str</span></dt><dd><p>Name associated with the drilling path.</p>
+</dd>
+<dt>data<span class="classifier">pd.DataFrame</span></dt><dd><p>DataFrame containing resistograph data for the drilling path.
+If the filename is not None in the init, it is read from the file.</p>
+</dd>
+</dl>
+<section id="notes">
+<h3>Notes:<a class="headerlink" href="#notes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>The class uses the <cite>dataclass</cite> decorator for boilerplate code reduction.</p></li>
+<li><p>All attributes are optional and default to None.</p></li>
+<li><p>The <cite>data</cite> attribute is initialized to None and can be populated later.</p></li>
+</ul>
+<dl class="py property">
+<dt class="sig sig-object py" id="tomotree.resistograph.DrillingPath.angle">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">angle</span></span><a class="headerlink" href="#tomotree.resistograph.DrillingPath.angle" title="Link to this definition"></a></dt>
+<dd><p>Calculate the angle of the drilling path in degrees.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The angle of the drilling path in degrees.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.resistograph.DrillingPath.data">
+<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#tomotree.resistograph.DrillingPath.data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.resistograph.DrillingPath.end">
+<span class="sig-name descname"><span class="pre">end</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#tomotree.resistograph.DrillingPath.end" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.resistograph.DrillingPath.file">
+<span class="sig-name descname"><span class="pre">file</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#tomotree.resistograph.DrillingPath.file" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.resistograph.DrillingPath.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#tomotree.resistograph.DrillingPath.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.resistograph.DrillingPath.start">
+<span class="sig-name descname"><span class="pre">start</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#tomotree.resistograph.DrillingPath.start" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file</strong> (<em>str</em>)</p></li>
+<li><p><strong>start</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>end</strong> (<em>ndarray</em>)</p></li>
+<li><p><strong>name</strong> (<em>str</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="tomotree.resistograph.Resistograph">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">Resistograph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_lower_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_upper_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">22000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_min_treshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">201</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polyorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.Resistograph" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">Resistograph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_lower_limit=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_upper_limit=220000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_min_treshold=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_length=201</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polyorder=3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drilling_paths=&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.Resistograph" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class to handle resistograph data processing, including reading, preprocessing,
 and removing global linear trends from the data.</p>
@@ -651,14 +719,28 @@ and removing global linear trends from the data.</p>
 <dt>data<span class="classifier">pandas.DataFrame</span></dt><dd><p>DataFrame containing processed resistograph data.</p>
 </dd>
 </dl>
-<dl class="py attribute">
+<dl class="py property">
 <dt class="sig sig-object py" id="tomotree.resistograph.Resistograph.data">
-<span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#tomotree.resistograph.Resistograph.data" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#tomotree.resistograph.Resistograph.data" title="Link to this definition"></a></dt>
+<dd><p>Property to get the processed resistograph data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The processed resistograph data.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="tomotree.resistograph.Resistograph.directory">
 <span class="sig-name descname"><span class="pre">directory</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#tomotree.resistograph.Resistograph.directory" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.resistograph.Resistograph.drilling_paths">
+<span class="sig-name descname"><span class="pre">drilling_paths</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../resistograph.html#tomotree.resistograph.DrillingPath" title="tomotree.resistograph.DrillingPath"><span class="pre">DrillingPath</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#tomotree.resistograph.Resistograph.drilling_paths" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -682,7 +764,7 @@ and removing global linear trends from the data.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="tomotree.resistograph.Resistograph.nan_upper_limit">
-<span class="sig-name descname"><span class="pre">nan_upper_limit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">22000</span></em><a class="headerlink" href="#tomotree.resistograph.Resistograph.nan_upper_limit" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">nan_upper_limit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">220000</span></em><a class="headerlink" href="#tomotree.resistograph.Resistograph.nan_upper_limit" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -702,9 +784,17 @@ smoothing if enabled, and removes values below a minimum threshold.</p>
 <dt class="sig sig-object py" id="tomotree.resistograph.Resistograph.read_resistograph_data">
 <span class="sig-name descname"><span class="pre">read_resistograph_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.Resistograph.read_resistograph_data" title="Link to this definition"></a></dt>
 <dd><p>Read resistograph data from files in the specified directory and process it.</p>
-<p>The method reads all files with the extension <cite>.dpa</cite>, extracts the data section,
-and calculates the square root of the values. The processed data is stored in a
-pandas DataFrame.</p>
+<p>The method reads all files with the extension <cite>.dpa</cite>, extracts the data
+section. The data is stored in a list of DrillingPath objects.</p>
+<section id="id1">
+<h4>Notes:<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>The method assumes that the files are in CSV format with a specific header.</p></li>
+<li><p>The data section starts after a line containing ‘[DATA]’.</p></li>
+<li><p>The method logs the number of files read and their names.</p></li>
+<li><p>The processed data is stored in the <cite>drilling_paths</cite> attribute.</p></li>
+</ul>
+</section>
 </dd></dl>
 
 <dl class="py method">
@@ -741,6 +831,7 @@ from the data to normalize the values.</p>
 <li><p><strong>set_min_treshold</strong> (<em>int</em>)</p></li>
 <li><p><strong>window_length</strong> (<em>int</em>)</p></li>
 <li><p><strong>polyorder</strong> (<em>int</em>)</p></li>
+<li><p><strong>drilling_paths</strong> (<em>list</em><em>[</em><a class="reference internal" href="../resistograph.html#tomotree.resistograph.DrillingPath" title="tomotree.resistograph.DrillingPath"><em>DrillingPath</em></a><em>]</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -748,16 +839,18 @@ from the data to normalize the values.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tomotree.resistograph.add_resistograph_graphs">
-<span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">add_resistograph_graphs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resistograph_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C0'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.add_resistograph_graphs" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">add_resistograph_graphs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resistograph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yshift</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yscale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'C0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showlabels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.add_resistograph_graphs" title="Link to this definition"></a></dt>
 <dd><p>Add resistograph graphs to the plot.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>resistograph_df</strong> (<em>pd.DataFrame</em>) – DataFrame containing resistograph data.</p></li>
-<li><p><strong>nodes_df</strong> (<em>pd.DataFrame</em>) – DataFrame containing node information.</p></li>
+<li><p><strong>resistograph</strong> (<a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph" title="tomotree.resistograph.Resistograph"><em>Resistograph</em></a>) – An object representing the resistograph.</p></li>
 <li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em>) – Axes object to add the graphs to.</p></li>
 <li><p><strong>yshift</strong> (<em>int</em>) – Vertical shift for the graphs (default is 100).</p></li>
 <li><p><strong>yscale</strong> (<em>int</em>) – Vertical scale for the graphs (default is 20).</p></li>
+<li><p><strong>color</strong> (<em>str</em>) – Color for the graphs (default is ‘C0’).</p></li>
+<li><p><strong>showlabels</strong> (<em>bool</em>) – Whether to show labels for each drilling path (default is False).</p></li>
+<li><p><strong>include_only</strong> (<em>list</em><em>, </em><em>optional</em>) – A list of drilling path names to include in the plot. If None, all paths are included.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -771,7 +864,7 @@ from the data to normalize the values.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tomotree.resistograph.add_resistograph_to_image">
-<span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">add_resistograph_to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tomogram</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meter_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.add_resistograph_to_image" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">add_resistograph_to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resistograph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meter_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showlabels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.add_resistograph_to_image" title="Link to this definition"></a></dt>
 <dd><p>Plot resistograph data as series of colored bars on the picture with tomogram.</p>
 <p>This function visualizes resistograph data by overlaying it as colored bars on a tomogram image.
 The bars are color-coded based on the resistograph values, and a color bar is added to indicate
@@ -779,10 +872,7 @@ the value range. Additionally, a scale indicator is drawn on the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – A DataFrame containing resistograph data. Each column represents a resistograph measurement
-for a specific node.</p></li>
-<li><p><strong>tomogram</strong> (<em>object</em>) – An object representing the tomogram. It must have a <cite>get_node_by_number</cite> method that returns
-nodes with <cite>coordinates</cite> attributes.</p></li>
+<li><p><strong>resistograph</strong> (<a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph" title="tomotree.resistograph.Resistograph"><em>Resistograph</em></a>) – An object representing the resistograph.</p></li>
 <li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – The axes on which to plot the resistograph data. If None, a new figure and axes are created.</p></li>
 <li><p><strong>cax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – The axes on which to plot the color bar. If None, the color bar is added to the main axes.</p></li>
 <li><p><strong>min</strong> (<em>float</em><em>, </em><em>optional</em>) – The minimum value for the color normalization. Default is 100.</p></li>
@@ -792,6 +882,8 @@ nodes with <cite>coordinates</cite> attributes.</p></li>
 <li><p><strong>linewidth</strong> (<em>float</em><em>, </em><em>optional</em>) – The width of the colored bars. Default is 16.</p></li>
 <li><p><strong>meter_length</strong> (<em>float</em><em>, </em><em>optional</em>) – The length of the scale indicator in meters. Default is 20.</p></li>
 <li><p><strong>step</strong> (<em>int</em><em>, </em><em>optional</em>) – The step size for down-sampling the resistograph data. Default is 300.</p></li>
+<li><p><strong>showlabels</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to show labels for each drilling path. Default is False.</p></li>
+<li><p><strong>include_only</strong> (<em>list</em><em>, </em><em>optional</em>) – A list of drilling path names to include in the plot. If None, all paths are included.</p></li>
 <li><p><strong>**kwargs</strong> (<em>dict</em>) – Additional keyword arguments for customization.</p></li>
 </ul>
 </dd>
@@ -809,26 +901,6 @@ are accessible via the <cite>get_node_by_number</cite> method.</p></li>
 <li><p>The scale indicator is drawn at the bottom-left corner of the plot, with labels “5cm” and “10cm”.</p></li>
 <li><p>Missing or NaN values in the resistograph data are ignored during plotting.</p></li>
 </ul>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="tomotree.resistograph.get_drilling_start">
-<span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">get_drilling_start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nodes_df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.get_drilling_start" title="Link to this definition"></a></dt>
-<dd><p>Get the starting point and angle of the drilling for a given index.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>i</strong> (<em>int</em>) – Index of the drilling position.</p></li>
-<li><p><strong>nodes_df</strong> (<em>pd.DataFrame</em>) – DataFrame containing node information.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dictionary containing the coordinates and angle of the drilling start.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dict</p>
-</dd>
-</dl>
 </dd></dl>
 
 </section>
@@ -1492,8 +1564,8 @@ grid boundary. Should be nonzero for SIRT.</p></li>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="id1">
-<span class="sig-name descname"><span class="pre">get_node_by_number</span></span><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">get_node_by_number</span></span><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
 <dd><p>Dict which allows to access nodes in tomogram by their numbers.</p>
 </dd></dl>
 
@@ -1768,8 +1840,8 @@ direction. This allows to see if the speeds in opposite directions differ.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="id4">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">speeds</span></span><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id5">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">speeds</span></span><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1792,8 +1864,8 @@ Parametr highlight umožní vybarvit nejvyšší a nejnižší hodnoty</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="id5">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tangential_rays</span></span><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id6">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tangential_rays</span></span><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
 <dd><p>Return list of all tangential rays in the tomogram.</p>
 <p>The tangential rays in tomogram with 12 nodes are 1-3, 1-11, 2-4,
 2-12, 3-5, 4-6, 5-7, 6-8, 7-9, 8-10, 9-11, 10-12.</p>
@@ -1805,8 +1877,8 @@ Parametr highlight umožní vybarvit nejvyšší a nejnižší hodnoty</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="id6">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">times</span></span><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="id7">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">times</span></span><a class="headerlink" href="#id7" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -1862,10 +1934,31 @@ and colorscheme.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tomotree.distances_to_coordinates">
-<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">distances_to_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.distances_to_coordinates" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">distances_to_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clockwise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.distances_to_coordinates" title="Link to this definition"></a></dt>
 <dd><p>Transform distances between nodes to coordinates.</p>
-<p>The input is dataframe with distances between nodes and index in the form n1-n2, where
-n1 and n2 are node numbers. Example:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> – Dataframe with distances between nodes. The index is in the form n1-n2,
+where n1 and n2 are node numbers.</p></li>
+<li><p><strong>num</strong> – Number of nodes. If None, it is calculated from the dataframe.</p></li>
+<li><p><strong>center</strong> – If True, the coordinates are shifted so that the center of the arrangement
+is at (0, 0).</p></li>
+<li><p><strong>clockwise</strong> – If True, the nodes are arranged in clockwise order. Default is False,
+i.e. counterclockwise order.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A numpy array of shape (num, 2) containing the x and y coordinates of
+each node. Node 1 is at (0, 0). If center is True, then the coordinates
+are shifted so that the center of the arrangement is at (0, 0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">12.0</span>
 <span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">25.0</span>
 <span class="o">...</span>
@@ -1878,9 +1971,6 @@ n1 and n2 are node numbers. Example:</p>
 <span class="mi">12</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mf">51.2</span>
 </pre></div>
 </div>
-<p>The output is a numpy array of shape (num, 2) containing the x and y coordinates of each node.
-Node 1 is at (0, 0). If center is True, then the coordinates are shifted so that the center of the
-arrangement is at (0, 0).</p>
 </dd></dl>
 
 <dl class="py function">

@@ -50,8 +50,9 @@
 <li class="toctree-l3"><a class="reference internal" href="doc.html#python">Python</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#primitive-method">Primitive method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#quick-start">Quick start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#short-demo-of-all-methods">Short demo of all methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#rays-method">Rays method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
@@ -162,7 +163,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resistograph.html">Resistograph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.DrillingPath"><code class="docutils literal notranslate"><span class="pre">DrillingPath</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.DrillingPath.angle"><code class="docutils literal notranslate"><span class="pre">DrillingPath.angle</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.data"><code class="docutils literal notranslate"><span class="pre">Resistograph.data</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.preprocess_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.preprocess_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.read_resistograph_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.read_resistograph_data()</span></code></a></li>
@@ -171,7 +177,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.get_drilling_start"><code class="docutils literal notranslate"><span class="pre">get_drilling_start()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analyze_f3d.html">Analyze f3d files</a><ul>
@@ -1207,10 +1212,31 @@ and colorscheme.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="tomotree.distances_to_coordinates">
-<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">distances_to_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.distances_to_coordinates" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">tomotree.</span></span><span class="sig-name descname"><span class="pre">distances_to_coordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clockwise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.distances_to_coordinates" title="Link to this definition"></a></dt>
 <dd><p>Transform distances between nodes to coordinates.</p>
-<p>The input is dataframe with distances between nodes and index in the form n1-n2, where
-n1 and n2 are node numbers. Example:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> – Dataframe with distances between nodes. The index is in the form n1-n2,
+where n1 and n2 are node numbers.</p></li>
+<li><p><strong>num</strong> – Number of nodes. If None, it is calculated from the dataframe.</p></li>
+<li><p><strong>center</strong> – If True, the coordinates are shifted so that the center of the arrangement
+is at (0, 0).</p></li>
+<li><p><strong>clockwise</strong> – If True, the nodes are arranged in clockwise order. Default is False,
+i.e. counterclockwise order.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A numpy array of shape (num, 2) containing the x and y coordinates of
+each node. Node 1 is at (0, 0). If center is True, then the coordinates
+are shifted so that the center of the arrangement is at (0, 0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>Example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">12.0</span>
 <span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mf">25.0</span>
 <span class="o">...</span>
@@ -1223,9 +1249,6 @@ n1 and n2 are node numbers. Example:</p>
 <span class="mi">12</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mf">51.2</span>
 </pre></div>
 </div>
-<p>The output is a numpy array of shape (num, 2) containing the x and y coordinates of each node.
-Node 1 is at (0, 0). If center is True, then the coordinates are shifted so that the center of the
-arrangement is at (0, 0).</p>
 </dd></dl>
 
 <dl class="py function">

@@ -48,8 +48,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../doc.html#python">Python</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../doc.html#primitive-method">Primitive method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#quick-start">Quick start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#short-demo-of-all-methods">Short demo of all methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#rays-method">Rays method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
@@ -160,7 +161,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../resistograph.html">Resistograph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.DrillingPath"><code class="docutils literal notranslate"><span class="pre">DrillingPath</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.DrillingPath.angle"><code class="docutils literal notranslate"><span class="pre">DrillingPath.angle</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.data"><code class="docutils literal notranslate"><span class="pre">Resistograph.data</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.preprocess_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.preprocess_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.read_resistograph_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.read_resistograph_data()</span></code></a></li>
@@ -169,7 +175,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.get_drilling_start"><code class="docutils literal notranslate"><span class="pre">get_drilling_start()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../analyze_f3d.html">Analyze f3d files</a><ul>
@@ -215,7 +220,7 @@
 <h1>tomotree.resistograph.add_resistograph_to_image<a class="headerlink" href="#tomotree-resistograph-add-resistograph-to-image" title="Link to this heading"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="tomotree.resistograph.add_resistograph_to_image">
-<span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">add_resistograph_to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tomogram</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meter_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.add_resistograph_to_image" title="Link to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">add_resistograph_to_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resistograph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">linewidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">meter_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">step</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">showlabels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.add_resistograph_to_image" title="Link to this definition"></a></dt>
 <dd><p>Plot resistograph data as series of colored bars on the picture with tomogram.</p>
 <p>This function visualizes resistograph data by overlaying it as colored bars on a tomogram image.
 The bars are color-coded based on the resistograph values, and a color bar is added to indicate
@@ -223,10 +228,7 @@ the value range. Additionally, a scale indicator is drawn on the image.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>pandas.DataFrame</em>) – A DataFrame containing resistograph data. Each column represents a resistograph measurement
-for a specific node.</p></li>
-<li><p><strong>tomogram</strong> (<em>object</em>) – An object representing the tomogram. It must have a <cite>get_node_by_number</cite> method that returns
-nodes with <cite>coordinates</cite> attributes.</p></li>
+<li><p><strong>resistograph</strong> (<a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph" title="tomotree.resistograph.Resistograph"><em>Resistograph</em></a>) – An object representing the resistograph.</p></li>
 <li><p><strong>ax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – The axes on which to plot the resistograph data. If None, a new figure and axes are created.</p></li>
 <li><p><strong>cax</strong> (<em>matplotlib.axes.Axes</em><em>, </em><em>optional</em>) – The axes on which to plot the color bar. If None, the color bar is added to the main axes.</p></li>
 <li><p><strong>min</strong> (<em>float</em><em>, </em><em>optional</em>) – The minimum value for the color normalization. Default is 100.</p></li>
@@ -236,6 +238,8 @@ nodes with <cite>coordinates</cite> attributes.</p></li>
 <li><p><strong>linewidth</strong> (<em>float</em><em>, </em><em>optional</em>) – The width of the colored bars. Default is 16.</p></li>
 <li><p><strong>meter_length</strong> (<em>float</em><em>, </em><em>optional</em>) – The length of the scale indicator in meters. Default is 20.</p></li>
 <li><p><strong>step</strong> (<em>int</em><em>, </em><em>optional</em>) – The step size for down-sampling the resistograph data. Default is 300.</p></li>
+<li><p><strong>showlabels</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to show labels for each drilling path. Default is False.</p></li>
+<li><p><strong>include_only</strong> (<em>list</em><em>, </em><em>optional</em>) – A list of drilling path names to include in the plot. If None, all paths are included.</p></li>
 <li><p><strong>**kwargs</strong> (<em>dict</em>) – Additional keyword arguments for customization.</p></li>
 </ul>
 </dd>

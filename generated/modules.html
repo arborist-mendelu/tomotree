@@ -48,8 +48,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../doc.html#python">Python</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../doc.html#primitive-method">Primitive method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#quick-start">Quick start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#short-demo-of-all-methods">Short demo of all methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#rays-method">Rays method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
@@ -160,7 +161,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../resistograph.html">Resistograph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.DrillingPath"><code class="docutils literal notranslate"><span class="pre">DrillingPath</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.DrillingPath.angle"><code class="docutils literal notranslate"><span class="pre">DrillingPath.angle</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.data"><code class="docutils literal notranslate"><span class="pre">Resistograph.data</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.preprocess_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.preprocess_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.read_resistograph_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.read_resistograph_data()</span></code></a></li>
@@ -169,7 +175,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.get_drilling_start"><code class="docutils literal notranslate"><span class="pre">get_drilling_start()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../analyze_f3d.html">Analyze f3d files</a><ul>
@@ -246,7 +251,6 @@
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.lib_streamlit_tomotree.get_checkbox_params"><code class="docutils literal notranslate"><span class="pre">get_checkbox_params()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.lib_streamlit_tomotree.get_data_directory"><code class="docutils literal notranslate"><span class="pre">get_data_directory()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.lib_streamlit_tomotree.get_data_from_directory"><code class="docutils literal notranslate"><span class="pre">get_data_from_directory()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.lib_streamlit_tomotree.get_dpa_data"><code class="docutils literal notranslate"><span class="pre">get_dpa_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.lib_streamlit_tomotree.get_file"><code class="docutils literal notranslate"><span class="pre">get_file()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.lib_streamlit_tomotree.get_radio_params"><code class="docutils literal notranslate"><span class="pre">get_radio_params()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.lib_streamlit_tomotree.get_slider_params"><code class="docutils literal notranslate"><span class="pre">get_slider_params()</span></code></a></li>
@@ -275,9 +279,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="tomotree.html#module-tomotree.resistograph">tomotree.resistograph module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.resistograph.DrillingPath"><code class="docutils literal notranslate"><span class="pre">DrillingPath</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.resistograph.DrillingPath.angle"><code class="docutils literal notranslate"><span class="pre">DrillingPath.angle</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.resistograph.DrillingPath.data"><code class="docutils literal notranslate"><span class="pre">DrillingPath.data</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.resistograph.DrillingPath.end"><code class="docutils literal notranslate"><span class="pre">DrillingPath.end</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.resistograph.DrillingPath.file"><code class="docutils literal notranslate"><span class="pre">DrillingPath.file</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.resistograph.DrillingPath.name"><code class="docutils literal notranslate"><span class="pre">DrillingPath.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.resistograph.DrillingPath.start"><code class="docutils literal notranslate"><span class="pre">DrillingPath.start</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.resistograph.Resistograph.data"><code class="docutils literal notranslate"><span class="pre">Resistograph.data</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.resistograph.Resistograph.directory"><code class="docutils literal notranslate"><span class="pre">Resistograph.directory</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.resistograph.Resistograph.drilling_paths"><code class="docutils literal notranslate"><span class="pre">Resistograph.drilling_paths</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.resistograph.Resistograph.nan_lower_limit"><code class="docutils literal notranslate"><span class="pre">Resistograph.nan_lower_limit</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.resistograph.Resistograph.nan_upper_limit"><code class="docutils literal notranslate"><span class="pre">Resistograph.nan_upper_limit</span></code></a></li>
@@ -292,7 +306,6 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.resistograph.get_drilling_start"><code class="docutils literal notranslate"><span class="pre">get_drilling_start()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="tomotree.html#module-tomotree.transform_image">tomotree.transform_image module</a><ul>
@@ -365,7 +378,7 @@
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.Tomo.n"><code class="docutils literal notranslate"><span class="pre">Tomo.n</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.Tomo.grid"><code class="docutils literal notranslate"><span class="pre">Tomo.grid</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.Tomo.polygon"><code class="docutils literal notranslate"><span class="pre">Tomo.polygon</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="tomotree.html#id1"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tomotree.html#id2"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.Tomo.info"><code class="docutils literal notranslate"><span class="pre">Tomo.info</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.Tomo.allsegments"><code class="docutils literal notranslate"><span class="pre">Tomo.allsegments</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.Tomo.check_triangle_inequality"><code class="docutils literal notranslate"><span class="pre">Tomo.check_triangle_inequality()</span></code></a></li>
@@ -380,11 +393,11 @@
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.Tomo.plot"><code class="docutils literal notranslate"><span class="pre">Tomo.plot()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.Tomo.plot_angular_dependence"><code class="docutils literal notranslate"><span class="pre">Tomo.plot_angular_dependence()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.Tomo.plot_sinogram"><code class="docutils literal notranslate"><span class="pre">Tomo.plot_sinogram()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="tomotree.html#id4"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tomotree.html#id5"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.Tomo.speeds_at_angles_3Dplot"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds_at_angles_3Dplot()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.Tomo.speeds_at_angles_table"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds_at_angles_table()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="tomotree.html#id5"><code class="docutils literal notranslate"><span class="pre">Tomo.tangential_rays</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="tomotree.html#id6"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tomotree.html#id6"><code class="docutils literal notranslate"><span class="pre">Tomo.tangential_rays</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="tomotree.html#id7"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="tomotree.html#tomotree.Tomo.update_segments_from_cells"><code class="docutils literal notranslate"><span class="pre">Tomo.update_segments_from_cells()</span></code></a></li>
 </ul>
 </li>

@@ -47,8 +47,9 @@
 <li class="toctree-l3"><a class="reference internal" href="doc.html#python">Python</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#primitive-method">Primitive method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#quick-start">Quick start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#short-demo-of-all-methods">Short demo of all methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#rays-method">Rays method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
@@ -159,7 +160,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resistograph.html">Resistograph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.DrillingPath"><code class="docutils literal notranslate"><span class="pre">DrillingPath</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.DrillingPath.angle"><code class="docutils literal notranslate"><span class="pre">DrillingPath.angle</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.data"><code class="docutils literal notranslate"><span class="pre">Resistograph.data</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.preprocess_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.preprocess_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.read_resistograph_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.read_resistograph_data()</span></code></a></li>
@@ -168,7 +174,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.get_drilling_start"><code class="docutils literal notranslate"><span class="pre">get_drilling_start()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="analyze_f3d.html">Analyze f3d files</a><ul>
@@ -263,6 +268,8 @@
 </li>
       <li><a href="generated/tomotree.html#tomotree.Tomo.allsegments">allsegments (tomotree.Tomo property)</a>, <a href="tomotree.html#tomotree.Tomo.allsegments">[1]</a>
 </li>
+      <li><a href="generated/tomotree.html#tomotree.resistograph.DrillingPath.angle">angle (tomotree.resistograph.DrillingPath property)</a>, <a href="resistograph.html#tomotree.resistograph.DrillingPath.angle">[1]</a>
+</li>
       <li><a href="generated/tomotree.html#tomotree.angle_between">angle_between() (in module tomotree)</a>, <a href="tomotree.html#tomotree.angle_between">[1]</a>
 </li>
       <li><a href="generated/tomotree.html#tomotree.Ray.angle_from_radial">angle_from_radial (tomotree.Ray attribute)</a>, <a href="tomotree.html#tomotree.Ray.angle_from_radial">[1]</a>
@@ -303,8 +310,12 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/tomotree.html#tomotree.resistograph.Resistograph.data">data (tomotree.resistograph.Resistograph attribute)</a>
+      <li><a href="generated/tomotree.html#tomotree.resistograph.DrillingPath.data">data (tomotree.resistograph.DrillingPath attribute)</a>
+
+      <ul>
+        <li><a href="generated/tomotree.html#tomotree.resistograph.Resistograph.data">(tomotree.resistograph.Resistograph property)</a>, <a href="resistograph.html#tomotree.resistograph.Resistograph.data">[1]</a>
 </li>
+      </ul></li>
       <li><a href="generated/tomotree.html#tomotree.lib_streamlit_tomotree.defix">defix() (in module tomotree.lib_streamlit_tomotree)</a>
 </li>
       <li><a href="analyze_f3d.html#tomotree.analyze_f3d.df_nodes">df_nodes() (in module tomotree.analyze_f3d)</a>, <a href="generated/tomotree.html#tomotree.analyze_f3d.df_nodes">[1]</a>
@@ -325,6 +336,10 @@
 </li>
       <li><a href="generated/tomotree.html#tomotree.lib_streamlit_tomotree.do_tomo">do_tomo() (in module tomotree.lib_streamlit_tomotree)</a>
 </li>
+      <li><a href="generated/tomotree.html#tomotree.resistograph.Resistograph.drilling_paths">drilling_paths (tomotree.resistograph.Resistograph attribute)</a>
+</li>
+      <li><a href="generated/tomotree.html#tomotree.resistograph.DrillingPath">DrillingPath (class in tomotree.resistograph)</a>, <a href="resistograph.html#tomotree.resistograph.DrillingPath">[1]</a>
+</li>
       <li><a href="generated/tomotree.html#tomotree.Cell.dx">dx (tomotree.Cell attribute)</a>, <a href="tomotree.html#tomotree.Cell.dx">[1]</a>
 </li>
       <li><a href="generated/tomotree.html#tomotree.Cell.dy">dy (tomotree.Cell attribute)</a>, <a href="tomotree.html#tomotree.Cell.dy">[1]</a>
@@ -338,13 +353,15 @@
       <li><a href="generated/tomotree.html#tomotree.Ray.end">end (tomotree.Ray attribute)</a>, <a href="tomotree.html#tomotree.Ray.end">[1]</a>
 
       <ul>
+        <li><a href="generated/tomotree.html#tomotree.resistograph.DrillingPath.end">(tomotree.resistograph.DrillingPath attribute)</a>
+</li>
         <li><a href="generated/tomotree.html#tomotree.Segment.end">(tomotree.Segment attribute)</a>, <a href="tomotree.html#tomotree.Segment.end">[1]</a>
 </li>
       </ul></li>
-      <li><a href="generated/tomotree.html#tomotree.Segment.end_coordinates">end_coordinates (tomotree.Segment attribute)</a>, <a href="tomotree.html#tomotree.Segment.end_coordinates">[1]</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/tomotree.html#tomotree.Segment.end_coordinates">end_coordinates (tomotree.Segment attribute)</a>, <a href="tomotree.html#tomotree.Segment.end_coordinates">[1]</a>
+</li>
       <li><a href="generated/tomotree.html#tomotree.Tomo.estimate_sound_wood_speed">estimate_sound_wood_speed() (tomotree.Tomo method)</a>, <a href="tomotree.html#tomotree.Tomo.estimate_sound_wood_speed">[1]</a>
 </li>
       <li><a href="analyze_f3d.html#tomotree.analyze_f3d.extract_distance_data">extract_distance_data() (in module tomotree.analyze_f3d)</a>, <a href="generated/tomotree.html#tomotree.analyze_f3d.extract_distance_data">[1]</a>
@@ -358,6 +375,8 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/tomotree.html#tomotree.lib_streamlit_tomotree.fig_to_pil">fig_to_pil() (in module tomotree.lib_streamlit_tomotree)</a>
+</li>
+      <li><a href="generated/tomotree.html#tomotree.resistograph.DrillingPath.file">file (tomotree.resistograph.DrillingPath attribute)</a>
 </li>
       <li><a href="generated/tomotree.html#tomotree.lib_streamlit_tomotree.finish">finish() (in module tomotree.lib_streamlit_tomotree)</a>
 </li>
@@ -389,15 +408,11 @@
 </li>
       <li><a href="data_upload.html#tomotree.data_upload.get_directory">get_directory() (in module tomotree.data_upload)</a>, <a href="generated/tomotree.html#tomotree.data_upload.get_directory">[1]</a>
 </li>
-      <li><a href="generated/tomotree.html#tomotree.lib_streamlit_tomotree.get_dpa_data">get_dpa_data() (in module tomotree.lib_streamlit_tomotree)</a>
-</li>
-      <li><a href="generated/tomotree.html#tomotree.resistograph.get_drilling_start">get_drilling_start() (in module tomotree.resistograph)</a>, <a href="resistograph.html#tomotree.resistograph.get_drilling_start">[1]</a>
+      <li><a href="generated/tomotree.html#tomotree.lib_streamlit_tomotree.get_file">get_file() (in module tomotree.lib_streamlit_tomotree)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="generated/tomotree.html#tomotree.lib_streamlit_tomotree.get_file">get_file() (in module tomotree.lib_streamlit_tomotree)</a>
-</li>
-      <li><a href="generated/tomotree.html#id1">get_node_by_number (tomotree.Tomo attribute)</a>, <a href="generated/tomotree.html#tomotree.Tomo.get_node_by_number">[1]</a>, <a href="tomotree.html#id1">[2]</a>, <a href="tomotree.html#tomotree.Tomo.get_node_by_number">[3]</a>
+      <li><a href="generated/tomotree.html#id2">get_node_by_number (tomotree.Tomo attribute)</a>, <a href="generated/tomotree.html#tomotree.Tomo.get_node_by_number">[1]</a>, <a href="tomotree.html#id1">[2]</a>, <a href="tomotree.html#tomotree.Tomo.get_node_by_number">[3]</a>
 </li>
       <li><a href="generated/tomotree.html#tomotree.lib_streamlit_tomotree.get_radio_params">get_radio_params() (in module tomotree.lib_streamlit_tomotree)</a>
 </li>
@@ -498,12 +513,14 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/tomotree.html#tomotree.Tomo.n">n (tomotree.Tomo attribute)</a>, <a href="tomotree.html#tomotree.Tomo.n">[1]</a>
 </li>
-      <li><a href="generated/tomotree.html#tomotree.resistograph.Resistograph.nan_lower_limit">nan_lower_limit (tomotree.resistograph.Resistograph attribute)</a>
+      <li><a href="generated/tomotree.html#tomotree.resistograph.DrillingPath.name">name (tomotree.resistograph.DrillingPath attribute)</a>
 </li>
-      <li><a href="generated/tomotree.html#tomotree.resistograph.Resistograph.nan_upper_limit">nan_upper_limit (tomotree.resistograph.Resistograph attribute)</a>
+      <li><a href="generated/tomotree.html#tomotree.resistograph.Resistograph.nan_lower_limit">nan_lower_limit (tomotree.resistograph.Resistograph attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="generated/tomotree.html#tomotree.resistograph.Resistograph.nan_upper_limit">nan_upper_limit (tomotree.resistograph.Resistograph attribute)</a>
+</li>
       <li><a href="generated/tomotree.html#tomotree.Node">Node (class in tomotree)</a>, <a href="tomotree.html#tomotree.Node">[1]</a>
 </li>
       <li><a href="generated/tomotree.html#tomotree.Tomo.nodes">nodes (tomotree.Tomo attribute)</a>, <a href="tomotree.html#tomotree.Tomo.nodes">[1]</a>
@@ -616,20 +633,20 @@
 </li>
       <li><a href="generated/tomotree.html#tomotree.resistograph.Resistograph.smooth">smooth (tomotree.resistograph.Resistograph attribute)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/tomotree.html#tomotree.Ray.speed">speed (tomotree.Ray attribute)</a>, <a href="tomotree.html#tomotree.Ray.speed">[1]</a>
 
       <ul>
         <li><a href="generated/tomotree.html#tomotree.Segment.speed">(tomotree.Segment attribute)</a>, <a href="tomotree.html#tomotree.Segment.speed">[1]</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="generated/tomotree.html#tomotree.speed2color">speed2color() (in module tomotree)</a>, <a href="tomotree.html#tomotree.speed2color">[1]</a>
 </li>
       <li><a href="generated/tomotree.html#tomotree.Tomo.speeds">speeds (tomotree.Tomo attribute)</a>, <a href="tomotree.html#tomotree.Tomo.speeds">[1]</a>
 
       <ul>
-        <li><a href="generated/tomotree.html#id4">(tomotree.Tomo property)</a>, <a href="tomotree.html#id4">[1]</a>
+        <li><a href="generated/tomotree.html#id5">(tomotree.Tomo property)</a>, <a href="tomotree.html#id4">[1]</a>
 </li>
       </ul></li>
       <li><a href="generated/tomotree.html#tomotree.Tomo.speeds_at_angles_3Dplot">speeds_at_angles_3Dplot() (tomotree.Tomo method)</a>, <a href="tomotree.html#tomotree.Tomo.speeds_at_angles_3Dplot">[1]</a>
@@ -641,6 +658,8 @@
       <li><a href="generated/tomotree.html#tomotree.Ray.start">start (tomotree.Ray attribute)</a>, <a href="tomotree.html#tomotree.Ray.start">[1]</a>
 
       <ul>
+        <li><a href="generated/tomotree.html#tomotree.resistograph.DrillingPath.start">(tomotree.resistograph.DrillingPath attribute)</a>
+</li>
         <li><a href="generated/tomotree.html#tomotree.Segment.start">(tomotree.Segment attribute)</a>, <a href="tomotree.html#tomotree.Segment.start">[1]</a>
 </li>
       </ul></li>
@@ -661,7 +680,7 @@
       <li><a href="generated/tomotree.html#tomotree.Tomo.tangential_rays">tangential_rays (tomotree.Tomo attribute)</a>, <a href="tomotree.html#tomotree.Tomo.tangential_rays">[1]</a>
 
       <ul>
-        <li><a href="generated/tomotree.html#id5">(tomotree.Tomo property)</a>, <a href="tomotree.html#id5">[1]</a>
+        <li><a href="generated/tomotree.html#id6">(tomotree.Tomo property)</a>, <a href="tomotree.html#id5">[1]</a>
 </li>
       </ul></li>
       <li><a href="generated/tomotree.html#tomotree.Ray.time">time (tomotree.Ray attribute)</a>, <a href="tomotree.html#tomotree.Ray.time">[1]</a>
@@ -669,7 +688,7 @@
       <li><a href="generated/tomotree.html#tomotree.Tomo.times">times (tomotree.Tomo attribute)</a>, <a href="tomotree.html#tomotree.Tomo.times">[1]</a>
 
       <ul>
-        <li><a href="generated/tomotree.html#id6">(tomotree.Tomo property)</a>, <a href="tomotree.html#id6">[1]</a>
+        <li><a href="generated/tomotree.html#id7">(tomotree.Tomo property)</a>, <a href="tomotree.html#id6">[1]</a>
 </li>
       </ul></li>
       <li><a href="generated/tomotree.html#tomotree.lib_streamlit_tomotree.toast">toast() (in module tomotree.lib_streamlit_tomotree)</a>

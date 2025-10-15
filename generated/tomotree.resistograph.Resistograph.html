@@ -48,8 +48,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../doc.html#python">Python</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../doc.html#primitive-method">Primitive method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#quick-start">Quick start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#short-demo-of-all-methods">Short demo of all methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../doc.html#rays-method">Rays method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../doc.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
@@ -160,7 +161,12 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../resistograph.html">Resistograph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.DrillingPath"><code class="docutils literal notranslate"><span class="pre">DrillingPath</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.DrillingPath.angle"><code class="docutils literal notranslate"><span class="pre">DrillingPath.angle</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.data"><code class="docutils literal notranslate"><span class="pre">Resistograph.data</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.preprocess_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.preprocess_data()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.read_resistograph_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.read_resistograph_data()</span></code></a></li>
@@ -169,7 +175,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../resistograph.html#tomotree.resistograph.get_drilling_start"><code class="docutils literal notranslate"><span class="pre">get_drilling_start()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../analyze_f3d.html">Analyze f3d files</a><ul>
@@ -215,7 +220,7 @@
 <h1>tomotree.resistograph.Resistograph<a class="headerlink" href="#tomotree-resistograph-resistograph" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="tomotree.resistograph.Resistograph">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">Resistograph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_lower_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_upper_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">22000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_min_treshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">201</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polyorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.Resistograph" title="Link to this definition"></a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tomotree.resistograph.</span></span><span class="sig-name descname"><span class="pre">Resistograph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_lower_limit=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_upper_limit=220000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_min_treshold=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_length=201</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polyorder=3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drilling_paths=&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.Resistograph" title="Link to this definition"></a></dt>
 <dd><p>A class to handle resistograph data processing, including reading, preprocessing,
 and removing global linear trends from the data.</p>
 <section id="attributes">
@@ -240,7 +245,7 @@ and removing global linear trends from the data.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="tomotree.resistograph.Resistograph.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_lower_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_upper_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">22000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_min_treshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">201</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polyorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.Resistograph.__init__" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_lower_limit=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_upper_limit=220000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smooth=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">set_min_treshold=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_length=201</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">polyorder=3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drilling_paths=&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.resistograph.Resistograph.__init__" title="Link to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -251,6 +256,7 @@ and removing global linear trends from the data.</p>
 <li><p><strong>set_min_treshold</strong> (<em>int</em>)</p></li>
 <li><p><strong>window_length</strong> (<em>int</em>)</p></li>
 <li><p><strong>polyorder</strong> (<em>int</em>)</p></li>
+<li><p><strong>drilling_paths</strong> (<em>list</em><em>[</em><a class="reference internal" href="../resistograph.html#tomotree.resistograph.DrillingPath" title="tomotree.resistograph.DrillingPath"><em>DrillingPath</em></a><em>]</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
@@ -282,8 +288,8 @@ and removing global linear trends from the data.</p>
 <p class="rubric">Attributes</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="tomotree.html#tomotree.resistograph.Resistograph.data" title="tomotree.resistograph.Resistograph.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="../resistograph.html#tomotree.resistograph.Resistograph.data" title="tomotree.resistograph.Resistograph.data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data</span></code></a></p></td>
+<td><p>Property to get the processed resistograph data.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="tomotree.html#tomotree.resistograph.Resistograph.nan_lower_limit" title="tomotree.resistograph.Resistograph.nan_lower_limit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nan_lower_limit</span></code></a></p></td>
 <td><p></p></td>
@@ -319,6 +325,7 @@ and removing global linear trends from the data.</p>
 <li><p><strong>set_min_treshold</strong> (<em>int</em>)</p></li>
 <li><p><strong>window_length</strong> (<em>int</em>)</p></li>
 <li><p><strong>polyorder</strong> (<em>int</em>)</p></li>
+<li><p><strong>drilling_paths</strong> (<em>list</em><em>[</em><a class="reference internal" href="../resistograph.html#tomotree.resistograph.DrillingPath" title="tomotree.resistograph.DrillingPath"><em>DrillingPath</em></a><em>]</em>)</p></li>
 </ul>
 </dd>
 </dl>
