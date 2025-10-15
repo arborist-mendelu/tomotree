@@ -7,9 +7,9 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tomotree package description &mdash; tomotree  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=1ea1444f" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -50,9 +50,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#python">Python</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#primitive-method">Primitive method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#short-demo-of-all-methods">Short demo of all methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#rays-method">Rays method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
@@ -235,7 +234,6 @@ for Streamlit GUI and for Jupyter interface. To run the GUI use the following co
 <p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span> <span class="pre">-f</span> <span class="pre">compose-jupyter.yml</span> <span class="pre">up</span></code></p>
 <p>The Jupyterlab interface can be accessed at <cite>http://localhost:8888</cite>. The token
 can be found in the terminal output.</p>
-<p>VSCode allows to connect to the running container. See <a class="reference external" href="https://code.visualstudio.com/docs/devcontainers/attach-container">Remote - Containers</a>.</p>
 <p>Are you new in docker?</p>
 <ul class="simple">
 <li><p>If you run the above commands for the first time, it take severa minutes to download
@@ -255,11 +253,13 @@ the next start takes just few seconds.</p></li>
 </ul>
 </section>
 </section>
-<section id="quick-start">
-<h2>Quick start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>
+<section id="primitive-method">
+<h2>Primitive method<a class="headerlink" href="#primitive-method" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="./_static/00_basic_tomogram_rays.py.html">Visualization of acoustic rays.</a></p></li>
-<li><p><a class="reference external" href="./_static/00_ERSM_method.py.html">Tomogram reconstruction using advanced method.</a></p></li>
+<li><p>Rays determine the velocities of cells through.</p></li>
+<li><p>The velocity is established as a mean of the rays through this cell.</p></li>
+<li><p>If any cell is not illuminated by the rays, its velocity is undefined. Thus not suitable for fine grids.</p></li>
+<li><p><a class="reference external" href="./_static/demo_artificial.py.html">Testing simulated data with decay in the middle. Testing noncircular shape.</a></p></li>
 </ul>
 </section>
 <section id="short-demo-of-all-methods">
@@ -267,15 +267,6 @@ the next start takes just few seconds.</p></li>
 <ul class="simple">
 <li><p><a class="reference external" href="./_static/demo_artificial2.py.html">Testing simulated data with decay outside the center and noncircular shape.</a></p></li>
 <li><p><a class="reference external" href="./_static/demo_artificial3.py.html">Testing simulated data with two decays.</a></p></li>
-</ul>
-</section>
-<section id="rays-method">
-<h2>Rays method<a class="headerlink" href="#rays-method" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>Rays determine the velocities of cells through.</p></li>
-<li><p>The velocity is established as a mean of the rays through this cell.</p></li>
-<li><p>If any cell is not illuminated by the rays, its velocity is undefined. Thus not suitable for fine grids.</p></li>
-<li><p><a class="reference external" href="./_static/demo_artificial.py.html">Testing simulated data with decay in the middle. Testing noncircular shape.</a></p></li>
 </ul>
 </section>
 <section id="velocity-is-a-parabolic-function-of-angle-from-radial-direction">
@@ -353,7 +344,7 @@ detection of defects. Annals of Forest Science 77, 68 (2020).
 <h2>Online application<a class="headerlink" href="#online-application" title="Link to this heading"></a></h2>
 <p>The old web interface to the Tomotree package is available at
 <a class="reference external" href="https://tomotree.streamlit.app/">https://tomotree.streamlit.app/</a>. A short video is also <a class="reference external" href="https://youtu.be/P0PhThIeqmo">available</a>
-An updated version of the web UI is available as a docker container. See the installation instructions above.</p>
+An updated version is available as a docker container. See the installation instructions above.</p>
 </section>
 </section>
 

@@ -28,8 +28,6 @@ To run the Jupyter interface use the following command:
 The Jupyterlab interface can be accessed at `http://localhost:8888`. The token 
 can be found in the terminal output.
 
-VSCode allows to connect to the running container. See `Remote - Containers <https://code.visualstudio.com/docs/devcontainers/attach-container>`_.
-
 Are you new in docker?
 
 * If you run the above commands for the first time, it take severa minutes to download
@@ -46,27 +44,20 @@ Python
 * It is recommended to use a virtual environment. Use `conda`, `pip` or any alternative. Consult AI assistant if necessary.
 * Install the packages from the file `requirements.txt`.
 
-Quick start
------------
-
-* `Visualization of acoustic rays. <./_static/00_basic_tomogram_rays.py.html>`_ 
-* `Tomogram reconstruction using advanced method. <./_static/00_ERSM_method.py.html>`_ 
-
-Short demo of all methods
--------------------------
-
-* `Testing simulated data with decay outside the center and noncircular shape. <./_static/demo_artificial2.py.html>`_ 
-* `Testing simulated data with two decays. <./_static/demo_artificial3.py.html>`_ 
-
-
-Rays method 
------------
+Primitive method 
+----------------
 
 * Rays determine the velocities of cells through.
 * The velocity is established as a mean of the rays through this cell. 
 * If any cell is not illuminated by the rays, its velocity is undefined. Thus not suitable for fine grids.
 
 * `Testing simulated data with decay in the middle. Testing noncircular shape. <./_static/demo_artificial.py.html>`_ 
+
+Short demo of all methods
+-------------------------
+
+* `Testing simulated data with decay outside the center and noncircular shape. <./_static/demo_artificial2.py.html>`_ 
+* `Testing simulated data with two decays. <./_static/demo_artificial3.py.html>`_ 
 
 Velocity is a parabolic function of angle from radial direction
 ---------------------------------------------------------------
@@ -146,4 +137,4 @@ Online application
 
 The old web interface to the Tomotree package is available at
 `https://tomotree.streamlit.app/ <https://tomotree.streamlit.app/>`_. A short video is also `available <https://youtu.be/P0PhThIeqmo>`_
-An updated version of the web UI is available as a docker container. See the installation instructions above. 
+An updated version is available as a docker container. See the installation instructions above. 
