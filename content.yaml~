@@ -83,8 +83,7 @@ sections:
     image: "assets/img/support.png"
     image_class: ""
     content: |
-      - The development of TomoTree is supported by the Ministry of Education, Youth and Sports 
-        of the Czech Republic, project ERC CZ no. LL1909 “Tree Dynamics: Understanding of Mechanical 
-        Response to Loading (DYNATREE)” and MSCA FELLOWSHIP CZ MENDELU CZ.02.01.01/00/22_010/0008893 
-        “Wood Degradation in the Urban Environment (WooDU)”.
-      - Access to CESNET storage facilities provided by the project “e-INFRA CZ” under the programme “Projects of Large Research, Development, and Innovations Infrastructures” LM2023054), is greatly appreciated.
+      The development of TomoTree is supported by the Ministry of Education, Youth and Sports 
+      of the Czech Republic, project ERC CZ no. LL1909 “Tree Dynamics: Understanding of Mechanical 
+      Response to Loading (DYNATREE)” and MSCA FELLOWSHIP CZ MENDELU CZ.02.01.01/00/22_010/0008893 
+      “Wood Degradation in the Urban Environment (WooDU)”.
