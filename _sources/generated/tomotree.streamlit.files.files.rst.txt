@@ -1,0 +1,21 @@
+tomotree.streamlit.files.files
+==============================
+
+.. automodule:: tomotree.streamlit.files.files
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      confirm_delete
+      delete_file
+      download_zip
+      file_browser
+      file_upload
+      files
+      filetype
+      preview
+      preview_f3d
+      preview_zip
+   

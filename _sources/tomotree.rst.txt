@@ -5,3 +5,23 @@ Tomotree
    :members:
    :undoc-members:
    :show-inheritance:
+
+.. automodule:: tomotree.classes.node
+   :members:
+   :undoc-members:
+   :show-inheritance:      
+
+.. automodule:: tomotree.classes.ray
+   :members:
+   :undoc-members:
+   :show-inheritance:      
+
+.. automodule:: tomotree.classes.cell
+   :members:
+   :undoc-members:
+   :show-inheritance:      
+
+.. automodule:: tomotree.classes.grid
+   :members:
+   :undoc-members:
+   :show-inheritance:

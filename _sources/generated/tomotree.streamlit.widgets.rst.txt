@@ -1,0 +1,39 @@
+tomotree.streamlit.widgets
+==========================
+
+.. automodule:: tomotree.streamlit.widgets
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      create_radio
+      create_toggle
+      get_checkbox_params
+      get_data_directory
+      get_input_params
+      get_pills_params
+      get_radio_params
+      get_segmented_control_params
+      get_slider_params
+      get_text_input_params
+      handle_selection
+      highlight_tabs
+      is_developer
+      make_pills
+      mytabs
+      progress_message
+      setup_checkboxes
+      setup_radio_buttons
+      setup_sliders
+      setup_text_inputs
+      slider
+      toggle
+      update_checkbox
+      update_input
+      update_radio
+      update_slider
+      update_slider_from_pair_input
+      update_text_input
+   

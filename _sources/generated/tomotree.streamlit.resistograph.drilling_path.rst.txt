@@ -1,0 +1,13 @@
+tomotree.streamlit.resistograph.drilling\_path
+==============================================
+
+.. automodule:: tomotree.streamlit.resistograph.drilling_path
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      clean_numpy
+      drilling_path_setup
+   

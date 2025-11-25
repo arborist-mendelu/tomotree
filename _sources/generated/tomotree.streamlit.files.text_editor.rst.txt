@@ -1,0 +1,12 @@
+tomotree.streamlit.files.text\_editor
+=====================================
+
+.. automodule:: tomotree.streamlit.files.text_editor
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      plain_text_editor_app
+   

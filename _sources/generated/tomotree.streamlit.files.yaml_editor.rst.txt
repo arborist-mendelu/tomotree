@@ -1,0 +1,12 @@
+tomotree.streamlit.files.yaml\_editor
+=====================================
+
+.. automodule:: tomotree.streamlit.files.yaml_editor
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      yaml_text_editor_app
+   

@@ -1,0 +1,26 @@
+﻿tomotree.classes
+================
+
+.. automodule:: tomotree.classes
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      angle_between
+      get_boundary_points
+      perp
+      unsigned_angle_between
+   
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   cell
+   grid
+   node
+   ray
+   tomo

@@ -1,61 +1,34 @@
-tomotree package
-================
-
-Submodules
-----------
-
-tomotree.analyze\_f3d module
-----------------------------
-
-.. automodule:: tomotree.analyze_f3d
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-tomotree.data\_upload module
-----------------------------
-
-.. automodule:: tomotree.data_upload
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-tomotree.lib\_streamlit\_tomotree module
-----------------------------------------
-
-.. automodule:: tomotree.lib_streamlit_tomotree
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-tomotree.login module
----------------------
-
-.. automodule:: tomotree.login
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-tomotree.resistograph module
-----------------------------
-
-.. automodule:: tomotree.resistograph
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-tomotree.transform\_image module
---------------------------------
-
-.. automodule:: tomotree.transform_image
-   :members:
-   :show-inheritance:
-   :undoc-members:
-
-Module contents
----------------
+﻿tomotree
+========
 
 .. automodule:: tomotree
-   :members:
-   :show-inheritance:
-   :undoc-members:
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      colorbar
+      distances_to_coordinates
+      is_point_inside_ellipse
+      roll_table
+      speed2color
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Tomo
+   
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   analyze_f3d
+   classes
+   physics
+   resistograph
+   streamlit
+   transform_image

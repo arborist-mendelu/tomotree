@@ -1,0 +1,12 @@
+tomotree.streamlit.css
+======================
+
+.. automodule:: tomotree.streamlit.css
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      setup_css
+   
