@@ -1,4 +1,4 @@
-.. image:: _static/image.png
+.. image:: ../_static/image.png
    :width: 300px
    :align: right
 
@@ -13,7 +13,6 @@ Welcome to tomotree's documentation!
    tomotree
    resistograph
    analyze_f3d
-   data_upload
 
 
 Indices and tables
