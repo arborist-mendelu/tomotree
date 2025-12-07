@@ -11,15 +11,39 @@ find documentation of classes and functions. The source codes will be available 
 Installation
 ------------
 
+Pip installation
+~~~~~~~~~~~~~~~~
+
+It is strongly recommended to use a virtual environment. You can use `conda`, `pip` or any alternative.
+With `conda`, you can use `mamba` for faster installation. Consult AI assistant if necessary.
+You can prepare the environment with the following commands:
+
+.. code-block:: bash
+
+    mamba create -n tomotree python=3.12
+    mamba activate tomotree
+
+Now you can install the package using pip. Run the following command in your terminal to install development version:
+
+.. code-block:: bash
+
+    pip install git+ssh://git@github.com/robert-marik/tomotree.git@devel
+
+Now you can create the app file and run. 
+
+.. code-block:: bash
+    echo -e "from tomotree.streamlit_app.app import app\napp()" > app.py
+    streamlit run app.py
+
 Docker
 ~~~~~~
 
-The easiest way to use the package is through Docker. The Docker compose file is attached
-for Streamlit GUI and for Jupyter interface. To run the GUI use the following command:
+Another easy way to use the package with GUI is through Docker. The Docker compose file is attached
+for Streamlit GUI and for Jupyter interface in the docker subdirectory. To run the GUI use the following command:
 
 ``docker compose up``
 
-The GUI can be accessed at `http://localhost:8501`. You will see this link in the terminal output.
+The GUI can be accessed at http://localhost:8501 URL. You will see this link in the terminal output.
 
 To run the Jupyter interface use the following command:
 

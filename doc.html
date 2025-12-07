@@ -7,9 +7,9 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tomotree package description &mdash; tomotree  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=1ea1444f" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -46,6 +46,7 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tomotree package description</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pip-installation">Pip installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#docker">Docker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#python">Python</a></li>
 </ul>
@@ -280,12 +281,27 @@ be available after publication of the paper.</p>
 </div>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<section id="pip-installation">
+<h3>Pip installation<a class="headerlink" href="#pip-installation" title="Link to this heading"></a></h3>
+<p>It is strongly recommended to use a virtual environment. You can use <cite>conda</cite>, <cite>pip</cite> or any alternative.
+With <cite>conda</cite>, you can use <cite>mamba</cite> for faster installation. Consult AI assistant if necessary.
+You can prepare the environment with the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>tomotree<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12
+mamba<span class="w"> </span>activate<span class="w"> </span>tomotree
+</pre></div>
+</div>
+<p>Now you can install the package using pip. Run the following command in your terminal to install development version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+ssh://git@github.com/robert-marik/tomotree.git@devel
+</pre></div>
+</div>
+<p>Now you can create the app file and run.</p>
+</section>
 <section id="docker">
 <h3>Docker<a class="headerlink" href="#docker" title="Link to this heading"></a></h3>
-<p>The easiest way to use the package is through Docker. The Docker compose file is attached
-for Streamlit GUI and for Jupyter interface. To run the GUI use the following command:</p>
+<p>Another easy way to use the package with GUI is through Docker. The Docker compose file is attached
+for Streamlit GUI and for Jupyter interface in the docker subdirectory. To run the GUI use the following command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span> <span class="pre">up</span></code></p>
-<p>The GUI can be accessed at <cite>http://localhost:8501</cite>. You will see this link in the terminal output.</p>
+<p>The GUI can be accessed at <a class="reference external" href="http://localhost:8501">http://localhost:8501</a> URL. You will see this link in the terminal output.</p>
 <p>To run the Jupyter interface use the following command:</p>
 <p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span> <span class="pre">-f</span> <span class="pre">compose-jupyter.yml</span> <span class="pre">up</span></code></p>
 <p>The Jupyterlab interface can be accessed at <cite>http://localhost:8888</cite>. The token
