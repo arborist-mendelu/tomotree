@@ -16,7 +16,7 @@ Pip installation
 
 It is strongly recommended to use a virtual environment. You can use `conda`, `pip` or any alternative.
 With `conda`, you can use `mamba` for faster installation. Consult AI assistant if necessary.
-You can prepare the environment with the following commands:
+You can prepare the environment with the following commands. You may use `conda` instead of `mamba` if you do not have `mamba` installed.
 
 .. code-block:: bash
 
@@ -24,6 +24,8 @@ You can prepare the environment with the following commands:
     mamba activate tomotree
 
 Now you can install the package using pip. Run the following command in your terminal to install development version:
+If you do not have SSH keys set up for GitHub, you can use the HTTPS link instead. Remove `@devel` to 
+install the latest stable version rather than the development version.
 
 .. code-block:: bash
 
@@ -32,6 +34,7 @@ Now you can install the package using pip. Run the following command in your ter
 Now you can create the app file and run. 
 
 .. code-block:: bash
+
     echo -e "from tomotree.streamlit_app.app import app\napp()" > app.py
     streamlit run app.py
 
@@ -41,13 +44,17 @@ Docker
 Another easy way to use the package with GUI is through Docker. The Docker compose file is attached
 for Streamlit GUI and for Jupyter interface in the docker subdirectory. To run the GUI use the following command:
 
-``docker compose up``
+.. code-block:: bash
+
+    docker compose up
 
 The GUI can be accessed at http://localhost:8501 URL. You will see this link in the terminal output.
 
 To run the Jupyter interface use the following command:
 
-``docker compose -f compose-jupyter.yml up``
+.. code-block:: bash
+
+    docker compose -f compose-jupyter.yml up
 
 The Jupyterlab interface can be accessed at `http://localhost:8888`. The token 
 can be found in the terminal output.

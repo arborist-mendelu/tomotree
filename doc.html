@@ -285,25 +285,35 @@ be available after publication of the paper.</p>
 <h3>Pip installation<a class="headerlink" href="#pip-installation" title="Link to this heading"></a></h3>
 <p>It is strongly recommended to use a virtual environment. You can use <cite>conda</cite>, <cite>pip</cite> or any alternative.
 With <cite>conda</cite>, you can use <cite>mamba</cite> for faster installation. Consult AI assistant if necessary.
-You can prepare the environment with the following commands:</p>
+You can prepare the environment with the following commands. You may use <cite>conda</cite> instead of <cite>mamba</cite> if you do not have <cite>mamba</cite> installed.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>tomotree<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12
 mamba<span class="w"> </span>activate<span class="w"> </span>tomotree
 </pre></div>
 </div>
-<p>Now you can install the package using pip. Run the following command in your terminal to install development version:</p>
+<p>Now you can install the package using pip. Run the following command in your terminal to install development version:
+If you do not have SSH keys set up for GitHub, you can use the HTTPS link instead. Remove <cite>&#64;devel</cite> to
+install the latest stable version rather than the development version.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+ssh://git@github.com/robert-marik/tomotree.git@devel
 </pre></div>
 </div>
 <p>Now you can create the app file and run.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;from tomotree.streamlit_app.app import app\napp()&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>app.py
+streamlit<span class="w"> </span>run<span class="w"> </span>app.py
+</pre></div>
+</div>
 </section>
 <section id="docker">
 <h3>Docker<a class="headerlink" href="#docker" title="Link to this heading"></a></h3>
 <p>Another easy way to use the package with GUI is through Docker. The Docker compose file is attached
 for Streamlit GUI and for Jupyter interface in the docker subdirectory. To run the GUI use the following command:</p>
-<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span> <span class="pre">up</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up
+</pre></div>
+</div>
 <p>The GUI can be accessed at <a class="reference external" href="http://localhost:8501">http://localhost:8501</a> URL. You will see this link in the terminal output.</p>
 <p>To run the Jupyter interface use the following command:</p>
-<p><code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span> <span class="pre">-f</span> <span class="pre">compose-jupyter.yml</span> <span class="pre">up</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>compose-jupyter.yml<span class="w"> </span>up
+</pre></div>
+</div>
 <p>The Jupyterlab interface can be accessed at <cite>http://localhost:8888</cite>. The token
 can be found in the terminal output.</p>
 <p>VSCode allows to connect to the running container. See <a class="reference external" href="https://code.visualstudio.com/docs/devcontainers/attach-container">Remote - Containers</a>.</p>
