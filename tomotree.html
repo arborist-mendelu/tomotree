@@ -128,6 +128,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.info"><code class="docutils literal notranslate"><span class="pre">Tomo.info</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.pith"><code class="docutils literal notranslate"><span class="pre">Tomo.pith</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.data_source"><code class="docutils literal notranslate"><span class="pre">Tomo.data_source</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.boundary"><code class="docutils literal notranslate"><span class="pre">Tomo.boundary</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.allsegments"><code class="docutils literal notranslate"><span class="pre">Tomo.allsegments</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.cells_velocity_statistics"><code class="docutils literal notranslate"><span class="pre">Tomo.cells_velocity_statistics()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.check_triangle_inequality"><code class="docutils literal notranslate"><span class="pre">Tomo.check_triangle_inequality()</span></code></a></li>
@@ -907,6 +909,28 @@ the mean of the node coordinates.</p>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Tomo.data_source">
+<span class="sig-name descname"><span class="pre">data_source</span></span><a class="headerlink" href="#tomotree.Tomo.data_source" title="Link to this definition"></a></dt>
+<dd><p>Either ‘speeds’ or ‘times’ depending on how the tomogram was created.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Tomo.boundary">
+<span class="sig-name descname"><span class="pre">boundary</span></span><a class="headerlink" href="#tomotree.Tomo.boundary" title="Link to this definition"></a></dt>
+<dd><p>either None or ‘polygon’ or ‘spline’. Default is ‘spline’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">plot</span> <span class="pre">:</span></span></dt>
@@ -989,20 +1013,24 @@ inside the spline defined boundary.</p>
 <dt class="sig sig-object py" id="tomotree.Tomo.do_EBSI_method">
 <span class="sig-name descname"><span class="pre">do_EBSI_method</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fix_velocity_EBSI_function=&lt;function</span> <span class="pre">Tomo.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power_EBSI_weighting=1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.do_EBSI_method" title="Link to this definition"></a></dt>
 <dd><p>Do the EBSI method on tomogram. The tomogram object is updated.</p>
+<p>The method EBSI reconstruction is performed as follows:</p>
 <ul class="simple">
 <li><p>Clear the <code class="code docutils literal notranslate"><span class="pre">velocities_list</span></code> of cells. This removes any data
 from previous methods, if any.</p></li>
 <li><p>Fix the velocity of tangent rays, if required and if not done
 before. This fixes the fact that the speed depends on the angle
+between the ray and the radial direction. Divide the speed of each ray
+by the value $(1-0.2  heta^2)$, where $       heta$ is the angle
 between the ray and the radial direction.</p></li>
-<li><p>For each ray get the list of cells influenced by the ray. For each cell
-influenced by the ray add the ray speed to the  <cite>velocities_list</cite>.
+<li><p>For each ray get the list of cells influenced by the ray.
 Use points on cell boundaries and ellipse defined by the ray and
 eccentricity to check, if the cell is influenced by the ray.</p></li>
+<li><p>For each cell influenced by the ray add the ray speed to the
+<cite>velocities_list</cite> of the cell.</p></li>
 <li><p>Update cell velocities as mean of the values from <code class="code docutils literal notranslate"><span class="pre">velocities_list</span></code>
 from the previous step. Use weighted mean, the weights are lengths
 of segments.</p></li>
-<li><p>The cells outside the polygon are ignored.</p></li>
+<li><p>The cells outside the boundary are ignored.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1038,8 +1066,8 @@ influenced by the ray. Only if <code class="docutils literal notranslate"><span 
 <li><p>Clear the <code class="docutils literal notranslate"><span class="pre">velocities_list</span></code> of cells. This removes any
 relicts from previous methods.</p></li>
 <li><p>Fix the velocity of tangent rays if required. This fixes the fact that
-the speed in radial direction is maximal</p></li>
-<li><p>Do the ray segmentation</p></li>
+the speed in radial direction is maximal.</p></li>
+<li><p>Do the ray segmentation.</p></li>
 <li><p>For each segment on ray find the cells affected by the segment, i.e.
 get the cells inside the ellipse around the ray such that the
 orthogonal projection to major axis is in the segment. Then store
@@ -1276,6 +1304,9 @@ Parametr highlight umožní vybarvit nejvyšší a nejnižší hodnoty</p>
 <dd><p>Return list of all tangential rays in the tomogram.</p>
 <p>The tangential rays in tomogram with 12 nodes are 1-3, 1-11, 2-4,
 2-12, 3-5, 4-6, 5-7, 6-8, 7-9, 8-10, 9-11, 10-12.</p>
+<p>Only active nodes are considered. The tangential rays are
+collected from the node to the node two positions ahead
+in the list of active nodes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list of rays</p>
