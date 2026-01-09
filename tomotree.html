@@ -52,7 +52,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#quick-start">Quick start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#short-demo-of-all-methods">Short demo of all methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#short-demos">Short demos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#rays-method">Rays method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
@@ -69,6 +69,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#tomotree.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.Cell.velocity_no_boundary"><code class="docutils literal notranslate"><span class="pre">Cell.velocity_no_boundary</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
@@ -142,15 +143,19 @@
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.get_ray"><code class="docutils literal notranslate"><span class="pre">Tomo.get_ray()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.limit_cell_plot_velocities"><code class="docutils literal notranslate"><span class="pre">Tomo.limit_cell_plot_velocities()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.optimize_back"><code class="docutils literal notranslate"><span class="pre">Tomo.optimize_back()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.optimize_back_tomogram"><code class="docutils literal notranslate"><span class="pre">Tomo.optimize_back_tomogram()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.plot"><code class="docutils literal notranslate"><span class="pre">Tomo.plot()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.plot_angular_dependence"><code class="docutils literal notranslate"><span class="pre">Tomo.plot_angular_dependence()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.plot_sinogram"><code class="docutils literal notranslate"><span class="pre">Tomo.plot_sinogram()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.ray_time"><code class="docutils literal notranslate"><span class="pre">Tomo.ray_time()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.ray_time_comparison"><code class="docutils literal notranslate"><span class="pre">Tomo.ray_time_comparison()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id5"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.speeds_at_angles_3Dplot"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds_at_angles_3Dplot()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.speeds_at_angles_table"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds_at_angles_table()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id6"><code class="docutils literal notranslate"><span class="pre">Tomo.tangential_rays</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id7"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.update_segments_from_cells"><code class="docutils literal notranslate"><span class="pre">Tomo.update_segments_from_cells()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.velocities_on_ray"><code class="docutils literal notranslate"><span class="pre">Tomo.velocities_on_ray()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#tomotree.get_boundary_points"><code class="docutils literal notranslate"><span class="pre">get_boundary_points()</span></code></a></li>
@@ -192,6 +197,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#tomotree.classes.cell.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.classes.cell.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.classes.cell.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.classes.cell.Cell.velocity_no_boundary"><code class="docutils literal notranslate"><span class="pre">Cell.velocity_no_boundary</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.classes.cell.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.classes.cell.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.classes.cell.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
@@ -305,7 +311,26 @@ corresponding ray segment) and the velocity</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="tomotree.Cell.velocity">
 <span class="sig-name descname"><span class="pre">velocity</span></span><a class="headerlink" href="#tomotree.Cell.velocity" title="Link to this definition"></a></dt>
-<dd><p>The velocity of the cell.</p>
+<dd><p>The velocity of the cell. This value can be updated during
+image reconstruction. The cells outside the polygon or spline
+defined by the nodes have velocity equal to nan. The cell is
+considered to be outside the polygon or spline if the center
+of the cell is outside the polygon or spline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Cell.velocity_no_boundary">
+<span class="sig-name descname"><span class="pre">velocity_no_boundary</span></span><a class="headerlink" href="#tomotree.Cell.velocity_no_boundary" title="Link to this definition"></a></dt>
+<dd><p>The velocity of the cell without considering boundary of the
+tomogram. For EBSI and ERSM methods all cells in the elliptical
+neighborhood have assigned velocity, but some of them are outside
+the tomogram boundary. This attribute stores the velocity of the
+cell without considering the boundary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -508,7 +533,12 @@ objects.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The cell object located at the specified coordinates.</p>
+<dd class="field-even"><p><p>The cell object located at the specified coordinates.
+None:</p>
+<blockquote>
+<div><p>If the coordinates are outside the grid boundaries.</p>
+</div></blockquote>
+</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#tomotree.Cell" title="tomotree.Cell">Cell</a></p>
@@ -530,7 +560,7 @@ objects.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tomotree.Grid.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_min=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max=2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shading='flat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_contourf=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_colorbar=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete_colorbar=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_intervals=6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete_colorbar_palette=&lt;matplotlib.colors.LinearSegmentedColormap</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function=&lt;function</span> <span class="pre">Grid.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar_kwds={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Grid.plot" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_min=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max=2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shading='flat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_contourf=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_colorbar=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete_colorbar=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_intervals=6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete_colorbar_palette=&lt;matplotlib.colors.LinearSegmentedColormap</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function=&lt;function</span> <span class="pre">Grid.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar_kwds={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_data='velocity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Grid.plot" title="Link to this definition"></a></dt>
 <dd><p>Plot a heatmap of the grid velocities using <cite>pcolormesh</cite> or <cite>contourf</cite>.</p>
 <p>If status is True, the cell status (0 or 1) is plotted instead of the velocity. In this case
 minimal and maximal limits are set automatically.</p>
@@ -1226,10 +1256,33 @@ end: The ending node or its number.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tomotree.Tomo.optimize_back">
-<span class="sig-name descname"><span class="pre">optimize_back</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.optimize_back" title="Link to this definition"></a></dt>
-<dd><p>Optimized version:
-Rescales using linear transformation the velocities of segments and cells
-to match measured travel times.</p>
+<span class="sig-name descname"><span class="pre">optimize_back</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.optimize_back" title="Link to this definition"></a></dt>
+<dd><p>Wrapper for optimize_back methods.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.optimize_back_tomogram">
+<span class="sig-name descname"><span class="pre">optimize_back_tomogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">do_optimization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxiter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">300</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.optimize_back_tomogram" title="Link to this definition"></a></dt>
+<dd><p>Optimize the tomogram by rescaling the velocities using linear transformation
+to match measured TOF.</p>
+<dl>
+<dt>Input:</dt><dd><dl class="simple">
+<dt>do_optimization: If False, no optimization is done, only (k, q)</dt><dd><p>= (1, 0) is applied.</p>
+</dd>
+</dl>
+<p>maxiter: Maximum number of iterations for the optimizer.</p>
+</dd>
+<dt>Output:</dt><dd><p>A dictionary</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>do_optimization</strong> (<em>bool</em>)</p></li>
+<li><p><strong>maxiter</strong> (<em>int</em>)</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1272,6 +1325,49 @@ to match measured travel times.</p>
 <dt class="sig sig-object py" id="tomotree.Tomo.plot_sinogram">
 <span class="sig-name descname"><span class="pre">plot_sinogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">imshow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.plot_sinogram" title="Link to this definition"></a></dt>
 <dd><p>Vykreslení grafu. Předpokládá 12 snímačů pravidelně do kruhu. TODO: opravit.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.ray_time">
+<span class="sig-name descname"><span class="pre">ray_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ray_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocities</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.ray_time" title="Link to this definition"></a></dt>
+<dd><p>Compute the travel time of a ray by numerical integration.
+:param ray_index: Index of the ray in the tomogram’s ray list.
+:type ray_index: int
+:param n: Number of points to use in the numerical integration.
+:type n: int
+:param k: Scaling factor for velocities.
+:type k: float
+:param q: Shift factor for velocities.
+:type q: float
+:param velocities: If provided, use these velocities instead of computing them from the tomogram.
+:type velocities: np.array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Travel time of the ray in seconds.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.ray_time_comparison">
+<span class="sig-name descname"><span class="pre">ray_time_comparison</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.ray_time_comparison" title="Link to this definition"></a></dt>
+<dd><p>Compare the travel times of rays computed from the tomogram
+with the measured travel times.
+:param n: Number of points to use in the numerical integration.
+:type n: int</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>DataFrame with columns ‘computed’, ‘measured’, ‘difference’, ‘abs_difference’.
+The index is the ray endpoints in the format ‘start&lt;-&gt;end’.
+The DataFrame is sorted by ‘abs_difference’ in descending order.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py property">
@@ -1326,6 +1422,26 @@ in the list of active nodes.</p>
 cell boundaries. The speed is determined by the cell velocity. If the
 cell velocity is undefined (may appear near the boundary), the average
 speed on the ray is used.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tomotree.Tomo.velocities_on_ray">
+<span class="sig-name descname"><span class="pre">velocities_on_ray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ray_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.velocities_on_ray" title="Link to this definition"></a></dt>
+<dd><p>Get the velocities at n points along the ray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ray_index</strong> (<em>int</em>) – Index of the ray in the tomogram’s ray list.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – Number of points to sample along the ray.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Array of velocities at the sampled points along the ray.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>np.array</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -1742,7 +1858,26 @@ corresponding ray segment) and the velocity</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="tomotree.classes.cell.Cell.velocity">
 <span class="sig-name descname"><span class="pre">velocity</span></span><a class="headerlink" href="#tomotree.classes.cell.Cell.velocity" title="Link to this definition"></a></dt>
-<dd><p>The velocity of the cell.</p>
+<dd><p>The velocity of the cell. This value can be updated during
+image reconstruction. The cells outside the polygon or spline
+defined by the nodes have velocity equal to nan. The cell is
+considered to be outside the polygon or spline if the center
+of the cell is outside the polygon or spline.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.classes.cell.Cell.velocity_no_boundary">
+<span class="sig-name descname"><span class="pre">velocity_no_boundary</span></span><a class="headerlink" href="#tomotree.classes.cell.Cell.velocity_no_boundary" title="Link to this definition"></a></dt>
+<dd><p>The velocity of the cell without considering boundary of the
+tomogram. For EBSI and ERSM methods all cells in the elliptical
+neighborhood have assigned velocity, but some of them are outside
+the tomogram boundary. This attribute stores the velocity of the
+cell without considering the boundary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -1945,7 +2080,12 @@ objects.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The cell object located at the specified coordinates.</p>
+<dd class="field-even"><p><p>The cell object located at the specified coordinates.
+None:</p>
+<blockquote>
+<div><p>If the coordinates are outside the grid boundaries.</p>
+</div></blockquote>
+</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#tomotree.Cell" title="tomotree.Cell">Cell</a></p>
@@ -1967,7 +2107,7 @@ objects.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tomotree.classes.grid.Grid.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_min=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max=2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shading='flat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_contourf=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_colorbar=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete_colorbar=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_intervals=6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete_colorbar_palette=&lt;matplotlib.colors.LinearSegmentedColormap</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function=&lt;function</span> <span class="pre">Grid.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar_kwds={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.classes.grid.Grid.plot" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_min=0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max=2000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shading='flat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_contourf=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_colorbar=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete_colorbar=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_intervals=6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete_colorbar_palette=&lt;matplotlib.colors.LinearSegmentedColormap</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function=&lt;function</span> <span class="pre">Grid.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar_kwds={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_data='velocity'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.classes.grid.Grid.plot" title="Link to this definition"></a></dt>
 <dd><p>Plot a heatmap of the grid velocities using <cite>pcolormesh</cite> or <cite>contourf</cite>.</p>
 <p>If status is True, the cell status (0 or 1) is plotted instead of the velocity. In this case
 minimal and maximal limits are set automatically.</p>

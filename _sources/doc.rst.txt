@@ -83,12 +83,16 @@ Quick start
 * `Visualization of acoustic rays. <./_static/00_basic_tomogram_rays.py.html>`_ 
 * `Tomogram reconstruction using advanced method. <./_static/00_ERSM_method.py.html>`_ 
 
-Short demo of all methods
--------------------------
 
+
+
+Short demos
+-----------
 * `Testing simulated data with decay outside the center and noncircular shape. <./_static/demo_artificial2.py.html>`_ 
 * `Testing simulated data with two decays. <./_static/demo_artificial3.py.html>`_ 
 * `The input data for the nodes are either coordinates or distances between nodes. <./_static/demo_distances.py.html>`_ 
+* `Wall thickenss <./_static/measure_walls.py.html>`_
+
 
 Rays method 
 -----------

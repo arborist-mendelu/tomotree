@@ -49,7 +49,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#quick-start">Quick start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#short-demo-of-all-methods">Short demo of all methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#short-demos">Short demos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#rays-method">Rays method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
@@ -66,6 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocity_no_boundary"><code class="docutils literal notranslate"><span class="pre">Cell.velocity_no_boundary</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
@@ -139,15 +140,19 @@
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.get_ray"><code class="docutils literal notranslate"><span class="pre">Tomo.get_ray()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.limit_cell_plot_velocities"><code class="docutils literal notranslate"><span class="pre">Tomo.limit_cell_plot_velocities()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.optimize_back"><code class="docutils literal notranslate"><span class="pre">Tomo.optimize_back()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.optimize_back_tomogram"><code class="docutils literal notranslate"><span class="pre">Tomo.optimize_back_tomogram()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.plot"><code class="docutils literal notranslate"><span class="pre">Tomo.plot()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.plot_angular_dependence"><code class="docutils literal notranslate"><span class="pre">Tomo.plot_angular_dependence()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.plot_sinogram"><code class="docutils literal notranslate"><span class="pre">Tomo.plot_sinogram()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.ray_time"><code class="docutils literal notranslate"><span class="pre">Tomo.ray_time()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.ray_time_comparison"><code class="docutils literal notranslate"><span class="pre">Tomo.ray_time_comparison()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#id5"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.speeds_at_angles_3Dplot"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds_at_angles_3Dplot()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.speeds_at_angles_table"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds_at_angles_table()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#id6"><code class="docutils literal notranslate"><span class="pre">Tomo.tangential_rays</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#id7"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.update_segments_from_cells"><code class="docutils literal notranslate"><span class="pre">Tomo.update_segments_from_cells()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.velocities_on_ray"><code class="docutils literal notranslate"><span class="pre">Tomo.velocities_on_ray()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.get_boundary_points"><code class="docutils literal notranslate"><span class="pre">get_boundary_points()</span></code></a></li>
@@ -189,6 +194,7 @@
 <li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocity_no_boundary"><code class="docutils literal notranslate"><span class="pre">Cell.velocity_no_boundary</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
@@ -597,6 +603,10 @@
       <li><a href="tomotree.html#tomotree.Tomo.optimize_back">optimize_back() (tomotree.Tomo method)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="tomotree.html#tomotree.Tomo.optimize_back_tomogram">optimize_back_tomogram() (tomotree.Tomo method)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="P">P</h2>
@@ -637,6 +647,10 @@
 </li>
       </ul></li>
       <li><a href="tomotree.html#tomotree.classes.ray.Segment.ray">ray (tomotree.classes.ray.Segment attribute)</a>
+</li>
+      <li><a href="tomotree.html#tomotree.Tomo.ray_time">ray_time() (tomotree.Tomo method)</a>
+</li>
+      <li><a href="tomotree.html#tomotree.Tomo.ray_time_comparison">ray_time_comparison() (tomotree.Tomo method)</a>
 </li>
       <li><a href="tomotree.html#tomotree.Cell.rays">rays (tomotree.Cell attribute)</a>
 
@@ -841,12 +855,20 @@
         <li><a href="tomotree.html#tomotree.classes.cell.Cell.velocities_list">(tomotree.classes.cell.Cell attribute)</a>
 </li>
       </ul></li>
+      <li><a href="tomotree.html#tomotree.Tomo.velocities_on_ray">velocities_on_ray() (tomotree.Tomo method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="tomotree.html#tomotree.Cell.velocity">velocity (tomotree.Cell attribute)</a>
 
       <ul>
         <li><a href="tomotree.html#tomotree.classes.cell.Cell.velocity">(tomotree.classes.cell.Cell attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="tomotree.html#tomotree.Cell.velocity_no_boundary">velocity_no_boundary (tomotree.Cell attribute)</a>
+
+      <ul>
+        <li><a href="tomotree.html#tomotree.classes.cell.Cell.velocity_no_boundary">(tomotree.classes.cell.Cell attribute)</a>
 </li>
       </ul></li>
   </ul></td>
