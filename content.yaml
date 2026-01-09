@@ -65,7 +65,7 @@ sections:
     content: |
       - The stable GUI interface contains well tested code which allows to utilize TomoTree without programming skills.
       - The development version of the GUI interface contains new features which will be propagated to the stable branch after testing period.
-      - You can also run TomoTree locally using Docker or Conda. See the [documentation](https://robert-marik.github.io/tomotree/doc.html#installation) on GitHub.
+      - You can also run TomoTree locally using Docker or Conda. See the [documentation](doc.html#installation) on GitHub.
         <p> <a class="btn btn-primary btn-l rounded-pill mt-5" href="https://euler.mendelu.cz/tomotree/">Stable version</a>
         <br><a class="btn btn-primary btn-l rounded-pill mt-5" href="https://euler.mendelu.cz/dev-tomotree/">Development version</a>
 
@@ -74,9 +74,9 @@ sections:
     image: "assets/img/github.png"
     image_class: "rounded-circle"
     content: |
-      - Source code is available on [GitHub](https://github.com/robert-marik/tomotree).
+      - Source code is available on [GitHub](https://github.com/arborist-mendelu/tomotree).
       - Feel free to report issues or contribute.
-      - Documentation on [GitHub Pages](https://robert-marik.github.io/tomotree/index_doc.html).
+      - Documentation on [GitHub Pages](index_doc.html).
 
   - anchor: "support"
     title: "Support"
