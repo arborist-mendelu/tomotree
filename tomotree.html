@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Resistograph" href="resistograph.html" />
-    <link rel="prev" title="Tomotree package description" href="doc.html" /> 
+    <link rel="prev" title="TomoTree package description" href="doc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,7 +44,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="doc.html">Tomotree package description</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="doc.html">TomoTree package description</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="doc.html#installation">Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="doc.html#pip-installation">Pip installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="doc.html#docker">Docker</a></li>
@@ -841,7 +841,7 @@ grid boundary. Should be nonzero for SIRT.</p></li>
 <li><p><strong>include_only</strong> (<em>list</em><em>, </em><em>optional</em>) – List of node numbers which should be included in the tomogram.
 If None, all nodes are included. The default is None.</p></li>
 <li><p><strong>pith</strong> (<em>numpy.ndarray</em><em>, </em><em>optional</em>) – Coordinates of the pith. If not given, the pith is calculated as
-the mean of the node coordinates. The default is None.</p></li>
+the centroid of the polygon from node coordinates. The default is None.</p></li>
 <li><p><strong>boundary</strong> (<em>optional</em>) – either None or ‘polygon’ or ‘spline’. Default is ‘spline’.</p></li>
 </ul>
 </dd>
@@ -2088,7 +2088,7 @@ None:</p>
 </p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#tomotree.Cell" title="tomotree.Cell">Cell</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#tomotree.classes.cell.Cell" title="tomotree.classes.cell.Cell">Cell</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2173,7 +2173,7 @@ cell velocity is calculated as mean of the velocities of the rays.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="doc.html" class="btn btn-neutral float-left" title="Tomotree package description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="doc.html" class="btn btn-neutral float-left" title="TomoTree package description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="resistograph.html" class="btn btn-neutral float-right" title="Resistograph" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

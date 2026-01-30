@@ -1,0 +1,12 @@
+tomotree.streamlit.files.horizontal\_style
+==========================================
+
+.. automodule:: tomotree.streamlit.files.horizontal_style
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      st_horizontal
+   

@@ -1,0 +1,12 @@
+tomotree.streamlit.resistograph.curves
+======================================
+
+.. automodule:: tomotree.streamlit.resistograph.curves
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      resistograph_curves_app
+   

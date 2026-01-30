@@ -1,4 +1,4 @@
-Tomotree package description
+TomoTree package description
 ============================
 
 Python class for processing data from acoustic tomography for trees. Here you can 
@@ -24,12 +24,18 @@ You can prepare the environment with the following commands. You may use `conda`
     mamba activate tomotree
 
 Now you can install the package using pip. Run the following command in your terminal to install development version:
-If you do not have SSH keys set up for GitHub, you can use the HTTPS link instead. Remove `@devel` to 
-install the latest stable version rather than the development version.
+If you do not have SSH keys set up for GitHub, you can use the HTTPS link instead. 
+
+.. code-block:: bash
+
+    pip install git+ssh://git@github.com/robert-marik/tomotree.git
+
+Use `@devel` to install the development version.
 
 .. code-block:: bash
 
     pip install git+ssh://git@github.com/robert-marik/tomotree.git@devel
+
 
 Now you can create the app file and run. 
 
@@ -82,8 +88,6 @@ Quick start
 
 * `Visualization of acoustic rays. <./_static/00_basic_tomogram_rays.py.html>`_ 
 * `Tomogram reconstruction using advanced method. <./_static/00_ERSM_method.py.html>`_ 
-
-
 
 
 Short demos

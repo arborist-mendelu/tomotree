@@ -1,0 +1,18 @@
+tomotree.streamlit.app\_config
+==============================
+
+.. automodule:: tomotree.streamlit.app_config
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      load_config
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Config
+   

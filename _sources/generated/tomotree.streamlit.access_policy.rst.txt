@@ -1,0 +1,19 @@
+tomotree.streamlit.access\_policy
+=================================
+
+.. automodule:: tomotree.streamlit.access_policy
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      check_access
+      has_permission
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      User
+   

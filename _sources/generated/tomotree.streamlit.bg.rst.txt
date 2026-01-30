@@ -1,0 +1,16 @@
+tomotree.streamlit.bg
+=====================
+
+.. automodule:: tomotree.streamlit.bg
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      add_background
+      fig_to_pil
+      is_bg_well_defined
+      select_image_for_background
+      set_background_data
+   

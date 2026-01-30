@@ -1,0 +1,12 @@
+tomotree.streamlit.files.zip\_extractor
+=======================================
+
+.. automodule:: tomotree.streamlit.files.zip_extractor
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      zip_extractor_app
+   

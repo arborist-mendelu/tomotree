@@ -1,0 +1,14 @@
+tomotree.streamlit.resistograph.mean\_std
+=========================================
+
+.. automodule:: tomotree.streamlit.resistograph.mean_std
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      plot_rolling_mean_std
+      plot_savgol_mean_std
+      resistograph_draw
+   

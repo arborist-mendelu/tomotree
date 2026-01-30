@@ -1,0 +1,12 @@
+tomotree.streamlit.menu
+=======================
+
+.. automodule:: tomotree.streamlit.menu
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      create_menu_buttons
+   

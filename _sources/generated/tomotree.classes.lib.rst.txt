@@ -1,0 +1,14 @@
+tomotree.classes.lib
+====================
+
+.. automodule:: tomotree.classes.lib
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      grid_point_in_polygon
+      point_in_polygon_numba
+      points_in_polygon
+   

@@ -1,0 +1,13 @@
+tomotree.streamlit.read\_config
+===============================
+
+.. automodule:: tomotree.streamlit.read_config
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      check_permission
+      read_config
+   

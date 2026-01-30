@@ -1,0 +1,12 @@
+tomotree.streamlit.measure\_time
+================================
+
+.. automodule:: tomotree.streamlit.measure_time
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      measure_time
+   

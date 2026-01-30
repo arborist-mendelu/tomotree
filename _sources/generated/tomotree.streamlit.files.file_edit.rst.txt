@@ -1,0 +1,12 @@
+tomotree.streamlit.files.file\_edit
+===================================
+
+.. automodule:: tomotree.streamlit.files.file_edit
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      edit
+   

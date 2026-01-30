@@ -1,7 +1,7 @@
 title: TomoTree - SW for acoustic tomography of trees
 header_title: TomoTree
 header_subtitle: Acoustic tomography solution
-footer: Cristini & Mařík 2025
+footer: Cristini & Mařík, 2025-2026
 
 nav:
   - { anchor: "start", label: "Start" }
@@ -66,8 +66,7 @@ sections:
       - The stable GUI interface contains well tested code which allows to utilize TomoTree without programming skills.
       - The development version of the GUI interface contains new features which will be propagated to the stable branch after testing period.
       - You can also run TomoTree locally using Docker or Conda. See the [documentation](doc.html#installation) on GitHub.
-        <p> <a class="btn btn-primary btn-l rounded-pill mt-5" href="https://euler.mendelu.cz/tomotree/">Stable version</a>
-        <br><a class="btn btn-primary btn-l rounded-pill mt-5" href="https://euler.mendelu.cz/dev-tomotree/">Development version</a>
+        <p> <a class="btn btn-primary btn-l rounded-pill mt-5" href="https://tomotree.mendelu.cz">Online version</a>
 
   - anchor: "source"
     title: "Source code"

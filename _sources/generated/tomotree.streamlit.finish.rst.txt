@@ -1,0 +1,6 @@
+tomotree.streamlit.finish
+=========================
+
+.. currentmodule:: tomotree.streamlit
+
+.. autofunction:: finish
