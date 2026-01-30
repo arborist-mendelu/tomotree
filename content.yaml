@@ -60,7 +60,7 @@ sections:
 
   - anchor: "start"
     title: "Getting started"
-    image: "assets/img/euler.png"
+    image: "assets/img/radon.png"
     image_class: ""
     content: |
       - The stable GUI interface contains well tested code which allows to utilize TomoTree without programming skills.
