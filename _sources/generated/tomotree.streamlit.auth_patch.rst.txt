@@ -1,0 +1,12 @@
+tomotree.streamlit.auth\_patch
+==============================
+
+.. automodule:: tomotree.streamlit.auth_patch
+
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      disable_password_validation
+   

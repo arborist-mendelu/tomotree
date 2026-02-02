@@ -8,7 +8,6 @@ tomotree.streamlit.login
 
    .. autosummary::
    
-      save_log_message
       show_titlepage
       stauth_login
    

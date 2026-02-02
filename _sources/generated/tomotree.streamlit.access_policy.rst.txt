@@ -10,6 +10,7 @@ tomotree.streamlit.access\_policy
    
       check_access
       has_permission
+      test_admin
    
    .. rubric:: Classes
 

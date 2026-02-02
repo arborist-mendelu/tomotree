@@ -25,6 +25,7 @@
    access_policy
    app_config
    assets
+   auth_patch
    bg
    config
    css
@@ -40,6 +41,7 @@
    read_config
    resistograph
    save
+   share
    showdata
    slider
    tomograph

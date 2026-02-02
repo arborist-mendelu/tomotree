@@ -1,4 +1,4 @@
-tomotree.streamlit.files.file\_manager
+﻿tomotree.streamlit.files.file\_manager
 ======================================
 
 .. automodule:: tomotree.streamlit.files.file_manager
@@ -15,4 +15,5 @@ tomotree.streamlit.files.file\_manager
       preview_dialog
       rename_dialog
       unzip_dialog
+      validate_yaml
    

@@ -68,6 +68,15 @@ sections:
       - You can also run TomoTree locally using Docker or Conda. See the [documentation](doc.html#installation) on GitHub.
         <p> <a class="btn btn-primary btn-l rounded-pill mt-5" href="https://tomotree.mendelu.cz">Online version</a>
 
+  - anchor: "share"
+    title: "Share your analysis"
+    image: "assets/img/share.png"
+    image_class: ""
+    content: |
+      - Running the GUI interface on public site you can share your data and analysis.
+      - The data can be shared to the other users.
+      - Private sharing with secret link is also possible. 
+
   - anchor: "source"
     title: "Source code"
     image: "assets/img/github.png"
