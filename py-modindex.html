@@ -114,6 +114,8 @@
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.signed_angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.signed_angle_from_radial</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.ori_time"><code class="docutils literal notranslate"><span class="pre">Ray.ori_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.ori_speed"><code class="docutils literal notranslate"><span class="pre">Ray.ori_speed</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Tomo"><code class="docutils literal notranslate"><span class="pre">Tomo</span></code></a><ul>
@@ -144,6 +146,8 @@
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.limit_cell_plot_velocities"><code class="docutils literal notranslate"><span class="pre">Tomo.limit_cell_plot_velocities()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.optimize_back"><code class="docutils literal notranslate"><span class="pre">Tomo.optimize_back()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.optimize_back_tomogram"><code class="docutils literal notranslate"><span class="pre">Tomo.optimize_back_tomogram()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.ori_speeds"><code class="docutils literal notranslate"><span class="pre">Tomo.ori_speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.ori_times"><code class="docutils literal notranslate"><span class="pre">Tomo.ori_times</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.plot"><code class="docutils literal notranslate"><span class="pre">Tomo.plot()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.plot_angular_dependence"><code class="docutils literal notranslate"><span class="pre">Tomo.plot_angular_dependence()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.plot_sinogram"><code class="docutils literal notranslate"><span class="pre">Tomo.plot_sinogram()</span></code></a></li>
@@ -180,6 +184,8 @@
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.signed_angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.signed_angle_from_radial</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.ori_time"><code class="docutils literal notranslate"><span class="pre">Ray.ori_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.ori_speed"><code class="docutils literal notranslate"><span class="pre">Ray.ori_speed</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment"><code class="docutils literal notranslate"><span class="pre">Segment</span></code></a><ul>
@@ -281,19 +287,10 @@
    <h1>Python Module Index</h1>
 
    <div class="modindex-jumpbox">
-   <a href="#cap-a"><strong>a</strong></a> | 
    <a href="#cap-t"><strong>t</strong></a>
    </div>
 
    <table class="indextable modindextable">
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-a"><td></td><td>
-       <strong>a</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="generated/analyze_f3d.html#module-analyze_f3d"><code class="xref">analyze_f3d</code></a></td><td>
-       <em></em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-t"><td></td><td>
        <strong>t</strong></td><td></td></tr>
@@ -306,12 +303,7 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.analyze_f3d.html#module-tomotree.analyze_f3d"><code class="xref">tomotree.analyze_f3d</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.classes.html#module-tomotree.classes"><code class="xref">tomotree.classes</code></a></td><td>
+       <a href="analyze_f3d.html#module-tomotree.analyze_f3d"><code class="xref">tomotree.analyze_f3d</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
@@ -326,11 +318,6 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.classes.lib.html#module-tomotree.classes.lib"><code class="xref">tomotree.classes.lib</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
        <a href="tomotree.html#module-tomotree.classes.node"><code class="xref">tomotree.classes.node</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
@@ -341,242 +328,7 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.classes.tomo.html#module-tomotree.classes.tomo"><code class="xref">tomotree.classes.tomo</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.physics.html#module-tomotree.physics"><code class="xref">tomotree.physics</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
        <a href="resistograph.html#module-tomotree.resistograph"><code class="xref">tomotree.resistograph</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.html#module-tomotree.streamlit"><code class="xref">tomotree.streamlit</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.access_policy.html#module-tomotree.streamlit.access_policy"><code class="xref">tomotree.streamlit.access_policy</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.app_config.html#module-tomotree.streamlit.app_config"><code class="xref">tomotree.streamlit.app_config</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.assets.html#module-tomotree.streamlit.assets"><code class="xref">tomotree.streamlit.assets</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.auth_patch.html#module-tomotree.streamlit.auth_patch"><code class="xref">tomotree.streamlit.auth_patch</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.bg.html#module-tomotree.streamlit.bg"><code class="xref">tomotree.streamlit.bg</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.config.html#module-tomotree.streamlit.config"><code class="xref">tomotree.streamlit.config</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.css.html#module-tomotree.streamlit.css"><code class="xref">tomotree.streamlit.css</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.env_info.html#module-tomotree.streamlit.env_info"><code class="xref">tomotree.streamlit.env_info</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.files.html#module-tomotree.streamlit.files"><code class="xref">tomotree.streamlit.files</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.files.csv_editor.html#module-tomotree.streamlit.files.csv_editor"><code class="xref">tomotree.streamlit.files.csv_editor</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.files.directory_manager.html#module-tomotree.streamlit.files.directory_manager"><code class="xref">tomotree.streamlit.files.directory_manager</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.files.file_edit.html#module-tomotree.streamlit.files.file_edit"><code class="xref">tomotree.streamlit.files.file_edit</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.files.file_manager.html#module-tomotree.streamlit.files.file_manager"><code class="xref">tomotree.streamlit.files.file_manager</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.files.files.html#module-tomotree.streamlit.files.files"><code class="xref">tomotree.streamlit.files.files</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.files.horizontal_style.html#module-tomotree.streamlit.files.horizontal_style"><code class="xref">tomotree.streamlit.files.horizontal_style</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.files.text_editor.html#module-tomotree.streamlit.files.text_editor"><code class="xref">tomotree.streamlit.files.text_editor</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.files.yaml_editor.html#module-tomotree.streamlit.files.yaml_editor"><code class="xref">tomotree.streamlit.files.yaml_editor</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.files.zip_extractor.html#module-tomotree.streamlit.files.zip_extractor"><code class="xref">tomotree.streamlit.files.zip_extractor</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.grant_support.html#module-tomotree.streamlit.grant_support"><code class="xref">tomotree.streamlit.grant_support</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.ini_data.html#module-tomotree.streamlit.ini_data"><code class="xref">tomotree.streamlit.ini_data</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.logging.html#module-tomotree.streamlit.logging"><code class="xref">tomotree.streamlit.logging</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.login.html#module-tomotree.streamlit.login"><code class="xref">tomotree.streamlit.login</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.measure_time.html#module-tomotree.streamlit.measure_time"><code class="xref">tomotree.streamlit.measure_time</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.menu.html#module-tomotree.streamlit.menu"><code class="xref">tomotree.streamlit.menu</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.read_config.html#module-tomotree.streamlit.read_config"><code class="xref">tomotree.streamlit.read_config</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.resistograph.html#module-tomotree.streamlit.resistograph"><code class="xref">tomotree.streamlit.resistograph</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.resistograph.curves.html#module-tomotree.streamlit.resistograph.curves"><code class="xref">tomotree.streamlit.resistograph.curves</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.resistograph.drilling_path.html#module-tomotree.streamlit.resistograph.drilling_path"><code class="xref">tomotree.streamlit.resistograph.drilling_path</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.resistograph.mean_std.html#module-tomotree.streamlit.resistograph.mean_std"><code class="xref">tomotree.streamlit.resistograph.mean_std</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.resistograph.plot.html#module-tomotree.streamlit.resistograph.plot"><code class="xref">tomotree.streamlit.resistograph.plot</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.save.html#module-tomotree.streamlit.save"><code class="xref">tomotree.streamlit.save</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.share.html#module-tomotree.streamlit.share"><code class="xref">tomotree.streamlit.share</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.showdata.html#module-tomotree.streamlit.showdata"><code class="xref">tomotree.streamlit.showdata</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.slider.html#module-tomotree.streamlit.slider"><code class="xref">tomotree.streamlit.slider</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.tomograph.html#module-tomotree.streamlit.tomograph"><code class="xref">tomotree.streamlit.tomograph</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.tomograph.area.html#module-tomotree.streamlit.tomograph.area"><code class="xref">tomotree.streamlit.tomograph.area</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.tomograph.binary.html#module-tomotree.streamlit.tomograph.binary"><code class="xref">tomotree.streamlit.tomograph.binary</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.tomograph.measure.html#module-tomotree.streamlit.tomograph.measure"><code class="xref">tomotree.streamlit.tomograph.measure</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.tomograph.speed_calibration.html#module-tomotree.streamlit.tomograph.speed_calibration"><code class="xref">tomotree.streamlit.tomograph.speed_calibration</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.tomograph.tomogram.html#module-tomotree.streamlit.tomograph.tomogram"><code class="xref">tomotree.streamlit.tomograph.tomogram</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.tomotree.html#module-tomotree.streamlit.tomotree"><code class="xref">tomotree.streamlit.tomotree</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.user.html#module-tomotree.streamlit.user"><code class="xref">tomotree.streamlit.user</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.streamlit.widgets.html#module-tomotree.streamlit.widgets"><code class="xref">tomotree.streamlit.widgets</code></a></td><td>
-       <em></em></td></tr>
-     <tr class="cg-1">
-       <td></td>
-       <td>&#160;&#160;&#160;
-       <a href="generated/tomotree.transform_image.html#module-tomotree.transform_image"><code class="xref">tomotree.transform_image</code></a></td><td>
        <em></em></td></tr>
    </table>
 

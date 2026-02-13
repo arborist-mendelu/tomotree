@@ -114,6 +114,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Ray.signed_angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.signed_angle_from_radial</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.Ray.ori_time"><code class="docutils literal notranslate"><span class="pre">Ray.ori_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.Ray.ori_speed"><code class="docutils literal notranslate"><span class="pre">Ray.ori_speed</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#tomotree.Tomo"><code class="docutils literal notranslate"><span class="pre">Tomo</span></code></a><ul>
@@ -144,6 +146,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.limit_cell_plot_velocities"><code class="docutils literal notranslate"><span class="pre">Tomo.limit_cell_plot_velocities()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.optimize_back"><code class="docutils literal notranslate"><span class="pre">Tomo.optimize_back()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.optimize_back_tomogram"><code class="docutils literal notranslate"><span class="pre">Tomo.optimize_back_tomogram()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.ori_speeds"><code class="docutils literal notranslate"><span class="pre">Tomo.ori_speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.ori_times"><code class="docutils literal notranslate"><span class="pre">Tomo.ori_times</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.plot"><code class="docutils literal notranslate"><span class="pre">Tomo.plot()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.plot_angular_dependence"><code class="docutils literal notranslate"><span class="pre">Tomo.plot_angular_dependence()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.Tomo.plot_sinogram"><code class="docutils literal notranslate"><span class="pre">Tomo.plot_sinogram()</span></code></a></li>
@@ -180,6 +184,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.classes.ray.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.classes.ray.Ray.signed_angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.signed_angle_from_radial</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tomotree.classes.ray.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.classes.ray.Ray.ori_time"><code class="docutils literal notranslate"><span class="pre">Ray.ori_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tomotree.classes.ray.Ray.ori_speed"><code class="docutils literal notranslate"><span class="pre">Ray.ori_speed</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#tomotree.classes.ray.Segment"><code class="docutils literal notranslate"><span class="pre">Segment</span></code></a><ul>
@@ -590,7 +596,7 @@ minimal and maximal limits are set automatically.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tomotree.Grid.set_cell_status_from_threshold">
-<span class="sig-name descname"><span class="pre">set_cell_status_from_threshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_as_zero=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function=&lt;function</span> <span class="pre">Grid.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping=&lt;function</span> <span class="pre">Grid.&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Grid.set_cell_status_from_threshold" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_cell_status_from_threshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_as_zero=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function=&lt;function</span> <span class="pre">Grid.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping=&lt;function</span> <span class="pre">Grid.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping_lb=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Grid.set_cell_status_from_threshold" title="Link to this definition"></a></dt>
 <dd><p>Set cell velocity to 0 if the velocity is below the limit or undefined.
 Otherwise set the velocity to 1. The function is useful for binary
 classification of cells.</p>
@@ -605,6 +611,10 @@ with the limit. Identity by default.</p></li>
 <li><p><strong>mapping</strong> (<em>callable</em>) – A function to map the cell velocity to the status value
 when the velocity is above the limit. By default, it maps
 any value to 1.</p></li>
+<li><p><strong>mapping_lb</strong> (<em>callable</em><em> or </em><em>None</em>) – A function to map the cell velocity to the status value
+when the velocity is below the limit. If None, the status is
+set to 0 or np.nan, depending on the value of <cite>nan_as_zero</cite>.
+By default, it is None.</p></li>
 </ul>
 </dd>
 </dl>
@@ -801,6 +811,28 @@ used if speed is not provided.</p>
 <dt class="sig sig-object py" id="tomotree.Ray.length">
 <span class="sig-name descname"><span class="pre">length</span></span><a class="headerlink" href="#tomotree.Ray.length" title="Link to this definition"></a></dt>
 <dd><p>The length of the ray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Ray.ori_time">
+<span class="sig-name descname"><span class="pre">ori_time</span></span><a class="headerlink" href="#tomotree.Ray.ori_time" title="Link to this definition"></a></dt>
+<dd><p>The original time of the ray before any adjustments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.Ray.ori_speed">
+<span class="sig-name descname"><span class="pre">ori_speed</span></span><a class="headerlink" href="#tomotree.Ray.ori_speed" title="Link to this definition"></a></dt>
+<dd><p>The original speed of the ray before any adjustments.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -1285,6 +1317,16 @@ to match measured TOF.</p>
 </dl>
 </dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="tomotree.Tomo.ori_speeds">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ori_speeds</span></span><a class="headerlink" href="#tomotree.Tomo.ori_speeds" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="tomotree.Tomo.ori_times">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ori_times</span></span><a class="headerlink" href="#tomotree.Tomo.ori_times" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="tomotree.Tomo.plot">
 <span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">speed_min=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_max=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">figsize=(6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rays=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shift_ray=0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shading='flat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_contourf=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_rays=&lt;function</span> <span class="pre">Tomo.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lw=2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_colorbar=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete_colorbar=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_intervals=5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">discrete_colorbar_palette=&lt;matplotlib.colors.LinearSegmentedColormap</span> <span class="pre">object&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function=&lt;function</span> <span class="pre">Tomo.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colorbar_kwds={}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.Tomo.plot" title="Link to this definition"></a></dt>
@@ -1735,6 +1777,28 @@ used if speed is not provided.</p>
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.classes.ray.Ray.ori_time">
+<span class="sig-name descname"><span class="pre">ori_time</span></span><a class="headerlink" href="#tomotree.classes.ray.Ray.ori_time" title="Link to this definition"></a></dt>
+<dd><p>The original time of the ray before any adjustments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tomotree.classes.ray.Ray.ori_speed">
+<span class="sig-name descname"><span class="pre">ori_speed</span></span><a class="headerlink" href="#tomotree.classes.ray.Ray.ori_speed" title="Link to this definition"></a></dt>
+<dd><p>The original speed of the ray before any adjustments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -2088,7 +2152,7 @@ None:</p>
 </p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#tomotree.classes.cell.Cell" title="tomotree.classes.cell.Cell">Cell</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#tomotree.Cell" title="tomotree.Cell">Cell</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2137,7 +2201,7 @@ minimal and maximal limits are set automatically.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tomotree.classes.grid.Grid.set_cell_status_from_threshold">
-<span class="sig-name descname"><span class="pre">set_cell_status_from_threshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_as_zero=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function=&lt;function</span> <span class="pre">Grid.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping=&lt;function</span> <span class="pre">Grid.&lt;lambda&gt;&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.classes.grid.Grid.set_cell_status_from_threshold" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_cell_status_from_threshold</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">limit</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nan_as_zero=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function=&lt;function</span> <span class="pre">Grid.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping=&lt;function</span> <span class="pre">Grid.&lt;lambda&gt;&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping_lb=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tomotree.classes.grid.Grid.set_cell_status_from_threshold" title="Link to this definition"></a></dt>
 <dd><p>Set cell velocity to 0 if the velocity is below the limit or undefined.
 Otherwise set the velocity to 1. The function is useful for binary
 classification of cells.</p>
@@ -2152,6 +2216,10 @@ with the limit. Identity by default.</p></li>
 <li><p><strong>mapping</strong> (<em>callable</em>) – A function to map the cell velocity to the status value
 when the velocity is above the limit. By default, it maps
 any value to 1.</p></li>
+<li><p><strong>mapping_lb</strong> (<em>callable</em><em> or </em><em>None</em>) – A function to map the cell velocity to the status value
+when the velocity is below the limit. If None, the status is
+set to 0 or np.nan, depending on the value of <cite>nan_as_zero</cite>.
+By default, it is None.</p></li>
 </ul>
 </dd>
 </dl>
