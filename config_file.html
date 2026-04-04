@@ -1,0 +1,672 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration file config.yaml &mdash; tomotree  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Internationalization (i18n) &amp; Localization (l10n) Guide" href="i18n.html" />
+    <link rel="prev" title="TomoTree package description" href="doc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index_doc.html" class="icon icon-home">
+            tomotree
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="doc.html">TomoTree package description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="doc.html#pip-installation">Pip installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc.html#docker">Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc.html#python">Python</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#quick-start">Quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#short-demos">Short demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#rays-method">Rays method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#equidistant-ray-segmentation-method-ersm">Equidistant ray segmentation method (ERSM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#tests-of-internal-procedures">Tests of internal procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#tomowood">TomoWood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#various-tests">Various tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#online-application">Online application</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration file <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#location">Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-data">Input data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#node-positions">Node positions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#measurements">Measurements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#units">Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access-control">Access control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grid-resolution">Grid resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#velocity-colour-scale">Velocity colour scale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scale-type">Scale type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bounds-numerical-m-s">Bounds — numerical (m/s)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bounds-percentage-of-reference-value">Bounds — percentage of reference value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bounds-percentile">Bounds — percentile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tomogram-appearance">Tomogram appearance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reconstruction-parameters">Reconstruction parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subset-of-nodes">Subset of nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sound-wood-speed">Sound-wood speed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#background-photo">Background photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resistograph-settings">Resistograph settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#navigation-landing-page">Navigation / landing page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#minimal-example">Minimal example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization (i18n) &amp; Localization (l10n) Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#architecture-overview">1. Architecture overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#directory-layout">2. Directory layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#how-it-works-at-runtime">3. How it works at runtime</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#translation-look-up">Translation look-up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#plural-forms">Plural forms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#marking-strings-for-translation-in-python-code">4. Marking strings for translation in Python code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#import-the-function">Import the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#basic-usage">Basic usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#variable-interpolation-use-format-not-f-strings">Variable interpolation — use <code class="docutils literal notranslate"><span class="pre">.format()</span></code>, not f-strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#multiline-strings">Multiline strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#loop-variable-clash">Loop variable clash</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#extracting-new-strings-to-the-template-pot">5. Extracting new strings to the template (.pot)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#manual-extraction-current-workflow">Manual extraction (current workflow)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#automated-extraction-optional-requires-xgettext">Automated extraction (optional, requires xgettext)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#updating-existing-language-files-po">6. Updating existing language files (.po)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#po-file-structure">.po file structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#adding-a-new-string-to-an-existing-language">Adding a new string to an existing language</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#adding-a-brand-new-language">7. Adding a brand-new language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-1-create-the-directory-po-file">Step 1 — Create the directory &amp; PO file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-2-register-the-language-in-init-py">Step 2 — Register the language in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-3-register-the-language-in-po-to-json-py">Step 3 — Register the language in <code class="docutils literal notranslate"><span class="pre">po_to_json.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-4-generate-the-json-file">Step 4 — Generate the JSON file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-5-verify">Step 5 — Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#compiling-translations-po-json">8. Compiling translations (.po → .json)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#currently-supported-languages">9. Currently supported languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#common-pitfalls">10. Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tomotree.html">Tomotree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree-module">Tomotree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocity_no_boundary"><code class="docutils literal notranslate"><span class="pre">Cell.velocity_no_boundary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.dx"><code class="docutils literal notranslate"><span class="pre">Cell.dx</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.dy"><code class="docutils literal notranslate"><span class="pre">Cell.dy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.boundary_points"><code class="docutils literal notranslate"><span class="pre">Cell.boundary_points</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.segments"><code class="docutils literal notranslate"><span class="pre">Cell.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.id"><code class="docutils literal notranslate"><span class="pre">Cell.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.status"><code class="docutils literal notranslate"><span class="pre">Cell.status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.x"><code class="docutils literal notranslate"><span class="pre">Grid.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.y"><code class="docutils literal notranslate"><span class="pre">Grid.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.cells"><code class="docutils literal notranslate"><span class="pre">Grid.cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.all_cells"><code class="docutils literal notranslate"><span class="pre">Grid.all_cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.min_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.max_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.get_cell"><code class="docutils literal notranslate"><span class="pre">Grid.get_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id0"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id1"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.plot"><code class="docutils literal notranslate"><span class="pre">Grid.plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.set_cell_status_from_threshold"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_status_from_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.set_cell_velocity_from_ray_means"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_velocity_from_ray_means()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.coordinates"><code class="docutils literal notranslate"><span class="pre">Node.coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.raw_coordinates"><code class="docutils literal notranslate"><span class="pre">Node.raw_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.rays_from"><code class="docutils literal notranslate"><span class="pre">Node.rays_from</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.rays_to"><code class="docutils literal notranslate"><span class="pre">Node.rays_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.number"><code class="docutils literal notranslate"><span class="pre">Node.number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.get_ray_to"><code class="docutils literal notranslate"><span class="pre">Node.get_ray_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.active"><code class="docutils literal notranslate"><span class="pre">Node.active</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Ray"><code class="docutils literal notranslate"><span class="pre">Ray</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.start"><code class="docutils literal notranslate"><span class="pre">Ray.start</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.end"><code class="docutils literal notranslate"><span class="pre">Ray.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.speed"><code class="docutils literal notranslate"><span class="pre">Ray.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.time"><code class="docutils literal notranslate"><span class="pre">Ray.time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.segments"><code class="docutils literal notranslate"><span class="pre">Ray.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.signed_angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.signed_angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.ori_time"><code class="docutils literal notranslate"><span class="pre">Ray.ori_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.ori_speed"><code class="docutils literal notranslate"><span class="pre">Ray.ori_speed</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Tomo"><code class="docutils literal notranslate"><span class="pre">Tomo</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.nodes"><code class="docutils literal notranslate"><span class="pre">Tomo.nodes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.rays"><code class="docutils literal notranslate"><span class="pre">Tomo.rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.tangential_rays"><code class="docutils literal notranslate"><span class="pre">Tomo.tangential_rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.speeds"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.times"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.get_node_by_number"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.n"><code class="docutils literal notranslate"><span class="pre">Tomo.n</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.grid"><code class="docutils literal notranslate"><span class="pre">Tomo.grid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.polygon"><code class="docutils literal notranslate"><span class="pre">Tomo.polygon</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id2"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.info"><code class="docutils literal notranslate"><span class="pre">Tomo.info</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.pith"><code class="docutils literal notranslate"><span class="pre">Tomo.pith</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.data_source"><code class="docutils literal notranslate"><span class="pre">Tomo.data_source</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.boundary"><code class="docutils literal notranslate"><span class="pre">Tomo.boundary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.allsegments"><code class="docutils literal notranslate"><span class="pre">Tomo.allsegments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.get_ray"><code class="docutils literal notranslate"><span class="pre">Tomo.get_ray()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.ori_speeds"><code class="docutils literal notranslate"><span class="pre">Tomo.ori_speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.ori_times"><code class="docutils literal notranslate"><span class="pre">Tomo.ori_times</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id3"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id4"><code class="docutils literal notranslate"><span class="pre">Tomo.tangential_rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id5"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.get_boundary_points"><code class="docutils literal notranslate"><span class="pre">get_boundary_points()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.is_point_inside_ellipse"><code class="docutils literal notranslate"><span class="pre">is_point_inside_ellipse()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.perp"><code class="docutils literal notranslate"><span class="pre">perp()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.speed2color"><code class="docutils literal notranslate"><span class="pre">speed2color()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.coordinates"><code class="docutils literal notranslate"><span class="pre">Node.coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.raw_coordinates"><code class="docutils literal notranslate"><span class="pre">Node.raw_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.rays_from"><code class="docutils literal notranslate"><span class="pre">Node.rays_from</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.rays_to"><code class="docutils literal notranslate"><span class="pre">Node.rays_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.number"><code class="docutils literal notranslate"><span class="pre">Node.number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.get_ray_to"><code class="docutils literal notranslate"><span class="pre">Node.get_ray_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.active"><code class="docutils literal notranslate"><span class="pre">Node.active</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray"><code class="docutils literal notranslate"><span class="pre">Ray</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.start"><code class="docutils literal notranslate"><span class="pre">Ray.start</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.end"><code class="docutils literal notranslate"><span class="pre">Ray.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.speed"><code class="docutils literal notranslate"><span class="pre">Ray.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.time"><code class="docutils literal notranslate"><span class="pre">Ray.time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.segments"><code class="docutils literal notranslate"><span class="pre">Ray.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.signed_angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.signed_angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.ori_time"><code class="docutils literal notranslate"><span class="pre">Ray.ori_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.ori_speed"><code class="docutils literal notranslate"><span class="pre">Ray.ori_speed</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment"><code class="docutils literal notranslate"><span class="pre">Segment</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.ray"><code class="docutils literal notranslate"><span class="pre">Segment.ray</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.speed"><code class="docutils literal notranslate"><span class="pre">Segment.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.start"><code class="docutils literal notranslate"><span class="pre">Segment.start</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.end"><code class="docutils literal notranslate"><span class="pre">Segment.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.start_coordinates"><code class="docutils literal notranslate"><span class="pre">Segment.start_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.end_coordinates"><code class="docutils literal notranslate"><span class="pre">Segment.end_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.length"><code class="docutils literal notranslate"><span class="pre">Segment.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id7"><code class="docutils literal notranslate"><span class="pre">Segment.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.split"><code class="docutils literal notranslate"><span class="pre">Segment.split()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocity_no_boundary"><code class="docutils literal notranslate"><span class="pre">Cell.velocity_no_boundary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.dx"><code class="docutils literal notranslate"><span class="pre">Cell.dx</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.dy"><code class="docutils literal notranslate"><span class="pre">Cell.dy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.boundary_points"><code class="docutils literal notranslate"><span class="pre">Cell.boundary_points</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.segments"><code class="docutils literal notranslate"><span class="pre">Cell.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.id"><code class="docutils literal notranslate"><span class="pre">Cell.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.status"><code class="docutils literal notranslate"><span class="pre">Cell.status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.x"><code class="docutils literal notranslate"><span class="pre">Grid.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.y"><code class="docutils literal notranslate"><span class="pre">Grid.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.cells"><code class="docutils literal notranslate"><span class="pre">Grid.cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.all_cells"><code class="docutils literal notranslate"><span class="pre">Grid.all_cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.min_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.max_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.get_cell"><code class="docutils literal notranslate"><span class="pre">Grid.get_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id8"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id9"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.plot"><code class="docutils literal notranslate"><span class="pre">Grid.plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.set_cell_status_from_threshold"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_status_from_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.set_cell_velocity_from_ray_means"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_velocity_from_ray_means()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resistograph.html">Resistograph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.DrillingPath"><code class="docutils literal notranslate"><span class="pre">DrillingPath</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.DrillingPath.angle"><code class="docutils literal notranslate"><span class="pre">DrillingPath.angle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.data"><code class="docutils literal notranslate"><span class="pre">Resistograph.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.preprocess_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.preprocess_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.read_resistograph_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.read_resistograph_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.remove_global_linear_trend"><code class="docutils literal notranslate"><span class="pre">Resistograph.remove_global_linear_trend()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analyze_f3d.html">Analyze f3d files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.df_nodes"><code class="docutils literal notranslate"><span class="pre">df_nodes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.distance_matrix"><code class="docutils literal notranslate"><span class="pre">distance_matrix()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.extract_distance_data"><code class="docutils literal notranslate"><span class="pre">extract_distance_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.extract_time_data"><code class="docutils literal notranslate"><span class="pre">extract_time_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.get_xml_root"><code class="docutils literal notranslate"><span class="pre">get_xml_root()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.time_matrix"><code class="docutils literal notranslate"><span class="pre">time_matrix()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index_doc.html">tomotree</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index_doc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Configuration file <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/config_file.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuration-file-config-yaml">
+<h1>Configuration file <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code><a class="headerlink" href="#configuration-file-config-yaml" title="Link to this heading"></a></h1>
+<p>Each dataset directory can contain an optional <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code> file that
+pre-configures the TomoTree application for that particular measurement.
+When the directory is loaded the file is parsed and its values are written
+directly into the application’s session state, so every subsequent slider,
+radio button, or toggle in the sidebar already shows the correct setting for
+the dataset.</p>
+<hr class="docutils" />
+<section id="location">
+<h2>Location<a class="headerlink" href="#location" title="Link to this heading"></a></h2>
+<p>Place the file inside the measurement directory, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>streamlit_user/my_project/Measurement_01/
+├── config.yaml          ← here
+├── nodes.csv
+├── speeds.csv
+└── photo.jpg
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="input-data">
+<h2>Input data<a class="headerlink" href="#input-data" title="Link to this heading"></a></h2>
+<section id="node-positions">
+<h3>Node positions<a class="headerlink" href="#node-positions" title="Link to this heading"></a></h3>
+<p>Provide either <strong>Cartesian coordinates</strong> or <strong>pairwise distances</strong>;
+the application uses whichever key is present.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cartesian coordinates of sensors as a CSV string (x, y in metres).</span>
+<span class="c1"># Note the | marking the start of a multi-line string. One line per node, no header.</span>
+<span class="nt">nodes</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">  </span><span class="no">0.0;0.0</span>
+<span class="w">  </span><span class="no">-0.1388855641449167;-0.034055837563451805</span>
+<span class="w">  </span><span class="no">-0.26053412907939993;-0.13405583756345177</span>
+<span class="w">  </span><span class="no">-0.2926037348490796;-0.2800143824027072</span>
+<span class="w">  </span><span class="no">-0.2527030211439491;-0.42563620981387473</span>
+<span class="w">  </span><span class="no">-0.1380170864257508;-0.537565143824027</span>
+<span class="w">  </span><span class="no">0.0;-0.591</span>
+<span class="w">  </span><span class="no">0.1526909370521609;-0.5812800338409475</span>
+<span class="w">  </span><span class="no">0.26408687276895;-0.4892791878172589</span>
+<span class="w">  </span><span class="no">0.2918393428044868;-0.32928680203045674</span>
+<span class="w">  </span><span class="no">0.2482252001711349;-0.1755</span>
+<span class="w">  </span><span class="no">0.15585561338053316;-0.05416666666666666</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Distance table as a CSV string:  from-to, distance</span>
+<span class="nt">distances</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="l l-Scalar l-Scalar-Plain">2-1,28.8</span>
+<span class="l l-Scalar l-Scalar-Plain">3-1,58</span>
+<span class="l l-Scalar l-Scalar-Plain">4-1,72.8</span>
+<span class="l l-Scalar l-Scalar-Plain">5-1,81.7</span>
+<span class="l l-Scalar l-Scalar-Plain">6-1,90.3</span>
+<span class="l l-Scalar l-Scalar-Plain">7-1,95.2</span>
+<span class="l l-Scalar l-Scalar-Plain">8-1,85.1</span>
+<span class="l l-Scalar l-Scalar-Plain">9-1,73.2</span>
+<span class="l l-Scalar l-Scalar-Plain">10-1,64.4</span>
+<span class="l l-Scalar l-Scalar-Plain">11-1,36.9</span>
+<span class="l l-Scalar l-Scalar-Plain">12-1,18.5</span>
+<span class="l l-Scalar l-Scalar-Plain">2-7,98.9</span>
+<span class="l l-Scalar l-Scalar-Plain">3-7,92.5</span>
+<span class="l l-Scalar l-Scalar-Plain">4-7,70.6</span>
+<span class="l l-Scalar l-Scalar-Plain">5-7,51.2</span>
+<span class="l l-Scalar l-Scalar-Plain">6-7,24.4</span>
+<span class="l l-Scalar l-Scalar-Plain">8-7,29.8</span>
+<span class="l l-Scalar l-Scalar-Plain">9-7,49.1</span>
+<span class="l l-Scalar l-Scalar-Plain">10-7,74.6</span>
+<span class="l l-Scalar l-Scalar-Plain">11-7,82.1</span>
+<span class="l l-Scalar l-Scalar-Plain">12-7,94.3</span>
+</pre></div>
+</div>
+<p>If neither key is present the application looks for files named
+<code class="docutils literal notranslate"><span class="pre">nodes.csv</span></code> / <code class="docutils literal notranslate"><span class="pre">distances.csv</span></code> or a binary <code class="docutils literal notranslate"><span class="pre">.f3d</span></code> file inside the directory.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">clockwise</span></code></strong> controls the orientation when computing positions from distances:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">clockwise</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">   </span><span class="c1"># true → clockwise node numbering</span>
+</pre></div>
+</div>
+</section>
+<section id="measurements">
+<h3>Measurements<a class="headerlink" href="#measurements" title="Link to this heading"></a></h3>
+<p>Provide either travel <strong>speeds</strong> (m/s) or travel <strong>times</strong> in a CSV matrix
+(rows = receivers, columns = sources).  Empty cells on the diagonal are fine.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">speeds</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">  </span><span class="no">;1289.0;1317.0;1373.0;1372.0;1282.0;1056.0;1002.0;1086.0;1174.0;1244.0;1384.0</span>
+<span class="w">  </span><span class="no">1289.0;;1413.0;1319.0;1318.0;1288.0;1129.0;953.0;1005.0;1132.0;1236.0;1292.0</span>
+<span class="w">  </span><span class="no">1317.0;1413.0;;1279.0;1257.0;1233.0;1152.0;1005.0;953.0;1071.0;1278.0;1346.0</span>
+<span class="w">  </span><span class="no">1373.0;1319.0;1279.0;;1292.0;1204.0;1135.0;1047.0;1000.0;962.0;1227.0;1374.0</span>
+<span class="w">  </span><span class="no">1372.0;1318.0;1257.0;1292.0;;1233.0;1139.0;1080.0;1076.0;993.0;1154.0;1319.0</span>
+<span class="w">  </span><span class="no">1282.0;1288.0;1233.0;1204.0;1233.0;;1174.0;1135.0;1207.0;1156.0;1061.0;1114.0</span>
+<span class="w">  </span><span class="no">1056.0;1129.0;1152.0;1135.0;1139.0;1174.0;;1276.0;1365.0;1325.0;1185.0;987.0</span>
+<span class="w">  </span><span class="no">1002.0;953.0;1005.0;1047.0;1080.0;1135.0;1276.0;;1236.0;1277.0;1222.0;1087.0</span>
+<span class="w">  </span><span class="no">1086.0;1005.0;953.0;1000.0;1076.0;1207.0;1365.0;1236.0;;1295.0;1258.0;1147.0</span>
+<span class="w">  </span><span class="no">1174.0;1132.0;1071.0;962.0;993.0;1156.0;1325.0;1277.0;1295.0;;1258.0;1192.0</span>
+<span class="w">  </span><span class="no">1244.0;1236.0;1278.0;1227.0;1154.0;1061.0;1185.0;1222.0;1258.0;1258.0;;1204.0</span>
+<span class="w">  </span><span class="no">1384.0;1292.0;1346.0;1374.0;1319.0;1114.0;987.0;1087.0;1147.0;1192.0;1204.0;</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">times</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">  </span><span class="no">;76.1;117.2;174.2;224.5;315.5;368.1;313.5;268.6;233.1;158.0;65.2</span>
+<span class="w">  </span><span class="no">78.9;;86.4;125.3;151.6;230.4;363.8;299.3;397.5;294.3;196.9;121.7</span>
+<span class="w">  </span><span class="no">117.2;62.1;;70.3;133.2;215.0;236.4;275.8;434.9;334.8;282.2;156.9</span>
+<span class="w">  </span><span class="no">188.6;130.3;66.3;;77.8;166.2;179.6;247.9;392.3;373.4;358.0;233.4</span>
+<span class="w">  </span><span class="no">242.0;185.4;136.2;74.7;;94.5;146.4;179.0;281.6;293.7;371.8;313.2</span>
+<span class="w">  </span><span class="no">299.8;237.4;182.3;134.9;74.6;;110.5;137.4;236.6;242.3;314.8;363.7</span>
+<span class="w">  </span><span class="no">317.1;302.4;241.2;173.8;143.9;104.0;;95.9;150.2;191.0;225.3;357.9</span>
+<span class="w">  </span><span class="no">377.3;300.0;282.6;237.5;211.8;155.4;100.3;;96.2;114.7;168.9;257.8</span>
+<span class="w">  </span><span class="no">255.8;321.4;358.3;372.6;281.3;239.4;155.7;92.4;;73.5;132.8;210.7</span>
+<span class="w">  </span><span class="no">198.6;258.3;280.7;373.6;312.9;279.7;204.5;126.3;94.3;;80.7;165.4</span>
+<span class="w">  </span><span class="no">124.6;175.8;235.4;381.0;377.9;329.0;244.8;201.0;138.9;83.6;;114.8</span>
+<span class="w">  </span><span class="no">58.2;107.9;151.4;240.4;285.6;399.7;345.9;273.4;234.8;158.6;116.8;</span>
+</pre></div>
+</div>
+<p>As with nodes, if neither key is present the application searches for
+<code class="docutils literal notranslate"><span class="pre">speeds.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">velocities.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">times.csv</span></code>, or an <code class="docutils literal notranslate"><span class="pre">.f3d</span></code> file.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="units">
+<h2>Units<a class="headerlink" href="#units" title="Link to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">length_unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">m</span><span class="w">      </span><span class="c1"># m | cm | mm  (default: m)</span>
+<span class="nt">time_unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">s</span><span class="w">        </span><span class="c1"># s | ms | µs   (default: s)</span>
+</pre></div>
+</div>
+<p><strong>Legacy alternative</strong> (deprecated, prefer the keys above):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">conversion factors</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.01</span><span class="w">      </span><span class="c1"># multiplier to convert to metres</span>
+<span class="w">  </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0e-6</span><span class="w">      </span><span class="c1"># multiplier to convert to seconds</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="access-control">
+<h2>Access control<a class="headerlink" href="#access-control" title="Link to this heading"></a></h2>
+<p>Restrict which logged-in users may open the dataset:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">allowed</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">alice</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">bob</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">guest</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>If the key is absent, all users have access.</p>
+</section>
+<hr class="docutils" />
+<section id="grid-resolution">
+<h2>Grid resolution<a class="headerlink" href="#grid-resolution" title="Link to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">nx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70</span><span class="w">   </span><span class="c1"># horizontal cell count (default: 41, range 4–140)</span>
+<span class="nt">ny</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">70</span><span class="w">   </span><span class="c1"># vertical cell count   (default: 41, range 4–140)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="velocity-colour-scale">
+<h2>Velocity colour scale<a class="headerlink" href="#velocity-colour-scale" title="Link to this heading"></a></h2>
+<section id="scale-type">
+<h3>Scale type<a class="headerlink" href="#scale-type" title="Link to this heading"></a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">speed_scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">percentile</span><span class="w">           </span><span class="c1"># percentile | percentage of reference value | numerical value</span>
+</pre></div>
+</div>
+</section>
+<section id="bounds-numerical-m-s">
+<h3>Bounds — numerical (m/s)<a class="headerlink" href="#bounds-numerical-m-s" title="Link to this heading"></a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">speed_min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600.0</span>
+<span class="nt">speed_max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1800.0</span>
+</pre></div>
+</div>
+</section>
+<section id="bounds-percentage-of-reference-value">
+<h3>Bounds — percentage of reference value<a class="headerlink" href="#bounds-percentage-of-reference-value" title="Link to this heading"></a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">speed_percent_min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+<span class="nt">speed_percent_max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span>
+
+<span class="c1"># Which value is 100 %:</span>
+<span class="nt">reference_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sound wood velocity</span><span class="w">   </span><span class="c1"># sound wood velocity | maximal velocity | upper decile</span>
+</pre></div>
+</div>
+</section>
+<section id="bounds-percentile">
+<h3>Bounds — percentile<a class="headerlink" href="#bounds-percentile" title="Link to this heading"></a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">speed_percentile_min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="nt">speed_percentile_max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">90</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tomogram-appearance">
+<h2>Tomogram appearance<a class="headerlink" href="#tomogram-appearance" title="Link to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">plot_function</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">velocity</span><span class="w">      </span><span class="c1"># velocity | velocity square | Edyn modulus</span>
+<span class="nt">tomogram_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cells only</span><span class="w">    </span><span class="c1"># rays only | cells only | both</span>
+<span class="nt">shading</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flat</span><span class="w">                </span><span class="c1"># flat | gouraud | nearest</span>
+<span class="nt">contourf</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">              </span><span class="c1"># use matplotlib contourf instead of pcolormesh</span>
+<span class="nt">draw_boundary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">         </span><span class="c1"># draw a curve along the sensor polygon</span>
+<span class="nt">boundary_is_spline</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">     </span><span class="c1"># spline (true) or polygon (false) boundary</span>
+<span class="nt">discrete_colorbar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">     </span><span class="c1"># quantise the colorbar</span>
+<span class="nt">n_discrete_colors</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w">         </span><span class="c1"># number of colours when discrete_colorbar is true</span>
+<span class="nt">grid</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                   </span><span class="c1"># draw grid lines on the tomogram</span>
+<span class="nt">axes_alignment</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">origin bottom left</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># origin bottom left | origin in the sensors center |</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># origin in the pith | none</span>
+<span class="nt">image_comparison_photo_tomogram</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain"># enable slider-based photo/tomogram comparison</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="reconstruction-parameters">
+<h2>Reconstruction parameters<a class="headerlink" href="#reconstruction-parameters" title="Link to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">anisotropy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">        </span><span class="c1"># correct for acoustic anisotropy (Du 2015 formula)</span>
+<span class="nt">rescale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">           </span><span class="c1"># rescale cell speeds to match measured TOF (ERSM)</span>
+<span class="nt">bark_thickness</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span><span class="w">     </span><span class="c1"># bark thickness in cm — sensors are shifted inward</span>
+<span class="nt">power</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span><span class="w">              </span><span class="c1"># EBSI: exponent for weighted mean (range 1–5)</span>
+<span class="nt">max_segments</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w">        </span><span class="c1"># ERSM: maximum ray segments (range 1–50)</span>
+<span class="nt">e_segmentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.98</span><span class="w">    </span><span class="c1"># ERSM: ellipse eccentricity for segmentation</span>
+<span class="nt">e_interpolation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.99</span><span class="w">   </span><span class="c1"># ERSM: ellipse eccentricity for interpolation</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="subset-of-nodes">
+<h2>Subset of nodes<a class="headerlink" href="#subset-of-nodes" title="Link to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use only a subset of node numbers (1-based) for reconstruction.</span>
+<span class="nt">nodes_subset</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">9</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">10</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">11</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">12</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="sound-wood-speed">
+<h2>Sound-wood speed<a class="headerlink" href="#sound-wood-speed" title="Link to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Node pairs used to estimate the sound-wood reference speed.</span>
+<span class="nt">rays_sound_wood_speed</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;1-11&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;2-12&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;1-3&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;2-4&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;3-5&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;4-6&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;5-7&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;6-8&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;7-9&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;8-10&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;9-11&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;10-12&#39;</span><span class="p p-Indicator">]</span>
+<span class="nt">speed_method_avg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mean</span><span class="w">    </span><span class="c1"># Mean | Median</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="background-photo">
+<h2>Background photo<a class="headerlink" href="#background-photo" title="Link to this heading"></a></h2>
+<p>Registers a photo from the directory and maps two known
+sensor positions to pixel coordinates so the photo can be correctly overlaid
+on the tomogram.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">background</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">photo.jpeg</span><span class="w">          </span><span class="c1"># filename inside the images/ sub-directory</span>
+<span class="w">  </span><span class="nt">from_node_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w">         </span><span class="c1"># node number for the first reference point</span>
+<span class="w">  </span><span class="nt">to_node_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span><span class="w">           </span><span class="c1"># node number for the second reference point</span>
+<span class="w">  </span><span class="nt">coordinates</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">x1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">427.58</span><span class="w">               </span><span class="c1"># pixel x of node from_node_value</span>
+<span class="w">    </span><span class="nt">y1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">42.82</span><span class="w">                </span><span class="c1"># pixel y of node from_node_value</span>
+<span class="w">    </span><span class="nt">x2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">506.50</span><span class="w">               </span><span class="c1"># pixel x of node to_node_value</span>
+<span class="w">    </span><span class="nt">y2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">736.33</span><span class="w">               </span><span class="c1"># pixel y of node to_node_value</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="resistograph-settings">
+<h2>Resistograph settings<a class="headerlink" href="#resistograph-settings" title="Link to this heading"></a></h2>
+<p>All <code class="docutils literal notranslate"><span class="pre">R_*</span></code> keys control the visual parameters of the resistograph display.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">R_min</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">88.0</span><span class="w">              </span><span class="c1"># minimum value on the resistograph scale</span>
+<span class="nt">R_max</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">180.0</span><span class="w">             </span><span class="c1"># maximum value on the resistograph scale</span>
+<span class="nt">R_depth</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25.0</span><span class="w">            </span><span class="c1"># maximum drilling depth shown (cm)</span>
+<span class="nt">R_scale_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">25.0</span><span class="w">     </span><span class="c1"># length of the reference scale bar (cm)</span>
+<span class="nt">R_color_column_step</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span><span class="w"> </span><span class="c1"># colour column step</span>
+<span class="nt">R_vertical_shift</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100.0</span><span class="w">  </span><span class="c1"># vertical shift of the plot</span>
+<span class="nt">R_vertical_scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20.0</span><span class="w">   </span><span class="c1"># zoom-out factor in the vertical direction</span>
+<span class="nt">R_window_length</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">201</span><span class="w">     </span><span class="c1"># window length for the smoothing filter (odd integer)</span>
+<span class="nt">R_polyorder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span><span class="w">           </span><span class="c1"># polynomial order for the Savitzky-Golay filter</span>
+<span class="nt">R_drillbar</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;00001394&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;00001400&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;00001395&#39;</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="c1"># identifiers of the drill bars to display</span>
+<span class="nt">R_graphs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[]</span>
+<span class="w">  </span><span class="c1"># identifiers of resistograph curves to overlay</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="navigation-landing-page">
+<h2>Navigation / landing page<a class="headerlink" href="#navigation-landing-page" title="Link to this heading"></a></h2>
+<p>Set the tab that is shown first when the dataset is opened:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">landing_page</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ERSM method</span><span class="w">   </span><span class="c1"># any valid menu item name</span>
+</pre></div>
+</div>
+<p>Alternative low-level form (kept for compatibility):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">config</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">first_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tomograph</span>
+<span class="w">  </span><span class="nt">last_sub</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">Resistograph</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Define drilling paths</span>
+<span class="w">    </span><span class="nt">Tomograph</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ERSM method</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="minimal-example">
+<h2>Minimal example<a class="headerlink" href="#minimal-example" title="Link to this heading"></a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">nodes</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;0.0,0.0</span>
+<span class="w">  </span><span class="s">-0.139,-0.034</span>
+<span class="w">  </span><span class="s">-0.261,-0.134</span>
+<span class="w">  </span><span class="s">&#39;</span>
+<span class="nt">speeds</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;,1250.0,1300.0</span>
+<span class="w">  </span><span class="s">1250.0,,1350.0</span>
+<span class="w">  </span><span class="s">1300.0,1350.0,</span>
+<span class="w">  </span><span class="s">&#39;</span>
+<span class="nt">length_unit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">m</span>
+<span class="nt">nx</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+<span class="nt">ny</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="doc.html" class="btn btn-neutral float-left" title="TomoTree package description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="i18n.html" class="btn btn-neutral float-right" title="Internationalization (i18n) &amp; Localization (l10n) Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Valentino Cristini, Robert Mařík.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

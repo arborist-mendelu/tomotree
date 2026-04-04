@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Methods for acoustic tomography on trees &mdash; tomotree  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index_doc.html" class="icon icon-home">
+            tomotree
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="doc.html">TomoTree package description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="doc.html#pip-installation">Pip installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc.html#docker">Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc.html#python">Python</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#quick-start">Quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#short-demos">Short demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#rays-method">Rays method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#equidistant-ray-segmentation-method-ersm">Equidistant ray segmentation method (ERSM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#tests-of-internal-procedures">Tests of internal procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#tomowood">TomoWood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#various-tests">Various tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#online-application">Online application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config_file.html">Configuration file <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#location">Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#input-data">Input data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#node-positions">Node positions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#measurements">Measurements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#units">Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#access-control">Access control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#grid-resolution">Grid resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#velocity-colour-scale">Velocity colour scale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#scale-type">Scale type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#bounds-numerical-m-s">Bounds — numerical (m/s)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#bounds-percentage-of-reference-value">Bounds — percentage of reference value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#bounds-percentile">Bounds — percentile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#tomogram-appearance">Tomogram appearance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#reconstruction-parameters">Reconstruction parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#subset-of-nodes">Subset of nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#sound-wood-speed">Sound-wood speed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#background-photo">Background photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#resistograph-settings">Resistograph settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#navigation-landing-page">Navigation / landing page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#minimal-example">Minimal example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization (i18n) &amp; Localization (l10n) Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#architecture-overview">1. Architecture overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#directory-layout">2. Directory layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#how-it-works-at-runtime">3. How it works at runtime</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#translation-look-up">Translation look-up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#plural-forms">Plural forms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#marking-strings-for-translation-in-python-code">4. Marking strings for translation in Python code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#import-the-function">Import the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#basic-usage">Basic usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#variable-interpolation-use-format-not-f-strings">Variable interpolation — use <code class="docutils literal notranslate"><span class="pre">.format()</span></code>, not f-strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#multiline-strings">Multiline strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#loop-variable-clash">Loop variable clash</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#extracting-new-strings-to-the-template-pot">5. Extracting new strings to the template (.pot)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#manual-extraction-current-workflow">Manual extraction (current workflow)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#automated-extraction-optional-requires-xgettext">Automated extraction (optional, requires xgettext)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#updating-existing-language-files-po">6. Updating existing language files (.po)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#po-file-structure">.po file structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#adding-a-new-string-to-an-existing-language">Adding a new string to an existing language</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#adding-a-brand-new-language">7. Adding a brand-new language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-1-create-the-directory-po-file">Step 1 — Create the directory &amp; PO file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-2-register-the-language-in-init-py">Step 2 — Register the language in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-3-register-the-language-in-po-to-json-py">Step 3 — Register the language in <code class="docutils literal notranslate"><span class="pre">po_to_json.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-4-generate-the-json-file">Step 4 — Generate the JSON file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-5-verify">Step 5 — Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#compiling-translations-po-json">8. Compiling translations (.po → .json)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#currently-supported-languages">9. Currently supported languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#common-pitfalls">10. Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tomotree.html">Tomotree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree-module">Tomotree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocity_no_boundary"><code class="docutils literal notranslate"><span class="pre">Cell.velocity_no_boundary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.dx"><code class="docutils literal notranslate"><span class="pre">Cell.dx</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.dy"><code class="docutils literal notranslate"><span class="pre">Cell.dy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.boundary_points"><code class="docutils literal notranslate"><span class="pre">Cell.boundary_points</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.segments"><code class="docutils literal notranslate"><span class="pre">Cell.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.id"><code class="docutils literal notranslate"><span class="pre">Cell.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.status"><code class="docutils literal notranslate"><span class="pre">Cell.status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.x"><code class="docutils literal notranslate"><span class="pre">Grid.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.y"><code class="docutils literal notranslate"><span class="pre">Grid.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.cells"><code class="docutils literal notranslate"><span class="pre">Grid.cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.all_cells"><code class="docutils literal notranslate"><span class="pre">Grid.all_cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.min_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.max_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.get_cell"><code class="docutils literal notranslate"><span class="pre">Grid.get_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id0"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id1"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.plot"><code class="docutils literal notranslate"><span class="pre">Grid.plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.set_cell_status_from_threshold"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_status_from_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.set_cell_velocity_from_ray_means"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_velocity_from_ray_means()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.coordinates"><code class="docutils literal notranslate"><span class="pre">Node.coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.raw_coordinates"><code class="docutils literal notranslate"><span class="pre">Node.raw_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.rays_from"><code class="docutils literal notranslate"><span class="pre">Node.rays_from</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.rays_to"><code class="docutils literal notranslate"><span class="pre">Node.rays_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.number"><code class="docutils literal notranslate"><span class="pre">Node.number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.get_ray_to"><code class="docutils literal notranslate"><span class="pre">Node.get_ray_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.active"><code class="docutils literal notranslate"><span class="pre">Node.active</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Ray"><code class="docutils literal notranslate"><span class="pre">Ray</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.start"><code class="docutils literal notranslate"><span class="pre">Ray.start</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.end"><code class="docutils literal notranslate"><span class="pre">Ray.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.speed"><code class="docutils literal notranslate"><span class="pre">Ray.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.time"><code class="docutils literal notranslate"><span class="pre">Ray.time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.segments"><code class="docutils literal notranslate"><span class="pre">Ray.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.signed_angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.signed_angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.ori_time"><code class="docutils literal notranslate"><span class="pre">Ray.ori_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.ori_speed"><code class="docutils literal notranslate"><span class="pre">Ray.ori_speed</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Tomo"><code class="docutils literal notranslate"><span class="pre">Tomo</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.nodes"><code class="docutils literal notranslate"><span class="pre">Tomo.nodes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.rays"><code class="docutils literal notranslate"><span class="pre">Tomo.rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.tangential_rays"><code class="docutils literal notranslate"><span class="pre">Tomo.tangential_rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.speeds"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.times"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.get_node_by_number"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.n"><code class="docutils literal notranslate"><span class="pre">Tomo.n</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.grid"><code class="docutils literal notranslate"><span class="pre">Tomo.grid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.polygon"><code class="docutils literal notranslate"><span class="pre">Tomo.polygon</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id2"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.info"><code class="docutils literal notranslate"><span class="pre">Tomo.info</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.pith"><code class="docutils literal notranslate"><span class="pre">Tomo.pith</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.data_source"><code class="docutils literal notranslate"><span class="pre">Tomo.data_source</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.boundary"><code class="docutils literal notranslate"><span class="pre">Tomo.boundary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.allsegments"><code class="docutils literal notranslate"><span class="pre">Tomo.allsegments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.get_ray"><code class="docutils literal notranslate"><span class="pre">Tomo.get_ray()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.ori_speeds"><code class="docutils literal notranslate"><span class="pre">Tomo.ori_speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.ori_times"><code class="docutils literal notranslate"><span class="pre">Tomo.ori_times</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id3"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id4"><code class="docutils literal notranslate"><span class="pre">Tomo.tangential_rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id5"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.get_boundary_points"><code class="docutils literal notranslate"><span class="pre">get_boundary_points()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.is_point_inside_ellipse"><code class="docutils literal notranslate"><span class="pre">is_point_inside_ellipse()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.perp"><code class="docutils literal notranslate"><span class="pre">perp()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.speed2color"><code class="docutils literal notranslate"><span class="pre">speed2color()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.coordinates"><code class="docutils literal notranslate"><span class="pre">Node.coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.raw_coordinates"><code class="docutils literal notranslate"><span class="pre">Node.raw_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.rays_from"><code class="docutils literal notranslate"><span class="pre">Node.rays_from</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.rays_to"><code class="docutils literal notranslate"><span class="pre">Node.rays_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.number"><code class="docutils literal notranslate"><span class="pre">Node.number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.get_ray_to"><code class="docutils literal notranslate"><span class="pre">Node.get_ray_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.active"><code class="docutils literal notranslate"><span class="pre">Node.active</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray"><code class="docutils literal notranslate"><span class="pre">Ray</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.start"><code class="docutils literal notranslate"><span class="pre">Ray.start</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.end"><code class="docutils literal notranslate"><span class="pre">Ray.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.speed"><code class="docutils literal notranslate"><span class="pre">Ray.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.time"><code class="docutils literal notranslate"><span class="pre">Ray.time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.segments"><code class="docutils literal notranslate"><span class="pre">Ray.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.signed_angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.signed_angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.ori_time"><code class="docutils literal notranslate"><span class="pre">Ray.ori_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.ori_speed"><code class="docutils literal notranslate"><span class="pre">Ray.ori_speed</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment"><code class="docutils literal notranslate"><span class="pre">Segment</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.ray"><code class="docutils literal notranslate"><span class="pre">Segment.ray</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.speed"><code class="docutils literal notranslate"><span class="pre">Segment.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.start"><code class="docutils literal notranslate"><span class="pre">Segment.start</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.end"><code class="docutils literal notranslate"><span class="pre">Segment.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.start_coordinates"><code class="docutils literal notranslate"><span class="pre">Segment.start_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.end_coordinates"><code class="docutils literal notranslate"><span class="pre">Segment.end_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.length"><code class="docutils literal notranslate"><span class="pre">Segment.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id7"><code class="docutils literal notranslate"><span class="pre">Segment.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.split"><code class="docutils literal notranslate"><span class="pre">Segment.split()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocity_no_boundary"><code class="docutils literal notranslate"><span class="pre">Cell.velocity_no_boundary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.dx"><code class="docutils literal notranslate"><span class="pre">Cell.dx</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.dy"><code class="docutils literal notranslate"><span class="pre">Cell.dy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.boundary_points"><code class="docutils literal notranslate"><span class="pre">Cell.boundary_points</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.segments"><code class="docutils literal notranslate"><span class="pre">Cell.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.id"><code class="docutils literal notranslate"><span class="pre">Cell.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.status"><code class="docutils literal notranslate"><span class="pre">Cell.status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.x"><code class="docutils literal notranslate"><span class="pre">Grid.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.y"><code class="docutils literal notranslate"><span class="pre">Grid.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.cells"><code class="docutils literal notranslate"><span class="pre">Grid.cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.all_cells"><code class="docutils literal notranslate"><span class="pre">Grid.all_cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.min_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.max_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.get_cell"><code class="docutils literal notranslate"><span class="pre">Grid.get_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id8"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id9"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.plot"><code class="docutils literal notranslate"><span class="pre">Grid.plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.set_cell_status_from_threshold"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_status_from_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.set_cell_velocity_from_ray_means"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_velocity_from_ray_means()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resistograph.html">Resistograph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.DrillingPath"><code class="docutils literal notranslate"><span class="pre">DrillingPath</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.DrillingPath.angle"><code class="docutils literal notranslate"><span class="pre">DrillingPath.angle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.data"><code class="docutils literal notranslate"><span class="pre">Resistograph.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.preprocess_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.preprocess_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.read_resistograph_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.read_resistograph_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.remove_global_linear_trend"><code class="docutils literal notranslate"><span class="pre">Resistograph.remove_global_linear_trend()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analyze_f3d.html">Analyze f3d files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.df_nodes"><code class="docutils literal notranslate"><span class="pre">df_nodes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.distance_matrix"><code class="docutils literal notranslate"><span class="pre">distance_matrix()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.extract_distance_data"><code class="docutils literal notranslate"><span class="pre">extract_distance_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.extract_time_data"><code class="docutils literal notranslate"><span class="pre">extract_time_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.get_xml_root"><code class="docutils literal notranslate"><span class="pre">get_xml_root()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.time_matrix"><code class="docutils literal notranslate"><span class="pre">time_matrix()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index_doc.html">tomotree</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index_doc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Methods for acoustic tomography on trees</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/methods.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>(Blockquotes are direct citations from the corresponding papers.)</p>
+<section id="methods-for-acoustic-tomography-on-trees">
+<h1>Methods for acoustic tomography on trees<a class="headerlink" href="#methods-for-acoustic-tomography-on-trees" title="Link to this heading"></a></h1>
+<p>Feng (2014) introduced the idea to track straight ray interceptions. Zeng (2013)
+developed the technigue based on ellitical neighborhood of rays to get points
+influenced by these rays. Du (2015) used ellipses with difference eccentricities.
+Du (2018) introduced segmentation idea. However, he used segmentation by bisection
+of segments a this results in lare differences between segment lengths. For this
+reason we present variation of this method.</p>
+<section id="anizotropy-handling">
+<h2>Anizotropy handling<a class="headerlink" href="#anizotropy-handling" title="Link to this heading"></a></h2>
+<p>The velocity in radial direction is higher than in nonradial. We divide velocity of nonradial rays as suggested by Du (2015). Not that the denominator is less than 1 and thus $v’_N$ (fixed velocity) is bigger than $v_N$ (measured velocity).</p>
+<section id="du-at-al-2015">
+<h3>Du at al. (2015)<a class="headerlink" href="#du-at-al-2015" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>To obtain more accurate input data for the proposed spatial interpolation method, based on Eq.13, the velocity value of each non-radial wave path can be compensated as follows,
+$$v ‘_N = \frac{v_N}{-0.2\theta + 1}\tag{14}$$
+where $v_N$ is the original velocity value of a certain non-radial wave path, and $v’_N$ is the velocity value of a certain non-radial wave path after compensation.</p>
+</div></blockquote>
+<p>RM: Probably a typing error in the paper and the equation (14) should read as
+$$v ‘_N = \frac{v_N}{-0.2\theta^2 + 1}.\tag{14}$$</p>
+</section>
+<section id="see-also-maurer-2006">
+<h3>See also Maurer (2006)<a class="headerlink" href="#see-also-maurer-2006" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Although anisotropy in its most general form is mathematically awkward, Thomsen (1986) showed that these equations can be substantially simplified when approximations for ‘‘weak anisotropy’’ are made. These approximations are reasonably accurate, even for materials with moderate anisotropy such as wood. For the sake of simplicity, we have further simplified the ‘‘weak anisotropy’’ equations and assumed elliptic anisotropy (Thomsen 1986), where the angle-dependent velocity v can be written as:</p>
+<p>$$ v=v_{\text{radial}}(1-\varepsilon\sin(\phi-\varphi)^2) \tag{10}$$</p>
+<p>where $\phi$ is the ray angle, $\varphi$ represents the azimuth of the $v_{\text{radial}}$ direction relative to the axis of the coordinate system, and $\varepsilon$ is the degree of anisotropy:
+$$\varepsilon =\frac{v_{\text{radial}}-v_{\text{tangential}}}{v_{\text{radial}}}.$$</p>
+</div></blockquote>
+</section>
+<section id="comments-by-robert-marik">
+<h3>Comments by Robert Mařík<a class="headerlink" href="#comments-by-robert-marik" title="Link to this heading"></a></h3>
+<p>Formula (14) contains probably a typing error. It arises from Taylor expansion (12) of a more complicated formula derived in Du (2015). However, the linear term is missing in formula (12) and thus simplification of (9) to (13) does not make any sense (see the original paper for references to equations). The dependence on $\theta$ in (14) should be quadratic. Something like
+$$v ‘_N = \frac{v_N}{-0.2\theta^2 + 1}\tag{14.B}$$</p>
+<p>Du (2015) používá Taylorův rozvoj funkce publikované v Dikrallah (2006), publikaci z konference. Kromě toho, že publikace není online, nedává smysl použití Taylorova vzorce. Je to přibližná metoda a platí jenom pro malé úhly. Oprava rychlostí není nijak výpočetně náročná a dá se udělat i s přesným vzorcem. Spolehlivější je asi ten Maurer (2006). Také nedává smysl použít opravu pro celý paprsek, protože během letu se odchylka od radiálního směru mění. Ale v ERSM metodě se dá udělat oprava pro každý segment samostatně. Tj. dalo by se opravit podle úhlu, který svírá segment a spojice střed paprsku - střed kmene. Pro každý paprsek by se vzaly jednotlivé segmenty a opravila by se na nich rychlost na každém segmentu samostatně.</p>
+</section>
+</section>
+<section id="ebsi">
+<h2>EBSI<a class="headerlink" href="#ebsi" title="Link to this heading"></a></h2>
+<p>See Du (2015).</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Initialization. (Generating grid graph, calculating all values of velocity rays with Eq. 2, and normalizing them.)</p></li>
+<li><p>Compensating the values of all non-radial velocity rays with Eq. 14. $$v ‘_N = \frac{v_N}{-0.2\theta + 1}\tag{14}$$</p></li>
+<li><p>Generating all of the affected zones with Eq. 4 and Eq. 5.</p></li>
+<li><p>For a certain grid cell, one can record all of the elliptic zones that affect it with Eq. 6, and calculate its velocity value, using Eq. 7 and Eq. 8.</p></li>
+<li><p>Repeating Step 4 until every grid cell has been processed.</p></li>
+<li><p>Visualization (reconstructing the 2D image with a certain color scale).</p></li>
+</ol>
+</div></blockquote>
+<p>Citation related to the step 3:</p>
+<blockquote>
+<div><p>A ray here represents the virtual propagation path of a stress wave, and its value represents the velocity value of stress wave. Obviously, there are internal defects present on the path if the value of a certain ray is low, but the exact location of the defective part is still uncertain. Ellipses with the same eccentricity will have a greater effect on the middle portion of a ray, but the defects may be near the sensor or somewhere else. Therefore, the spatial interpolation method that uses a basic ellipse can be improved. The length is another key property of the ray. The affected zones that corresponded to shorter rays are more likely to overlap with the defective region. As shown in Fig. 3(b), the area of the affected zone that corresponds to short rays should be larger, and the weight of the affected zone that corresponds to short rays should also be strengthened. The shape of the elliptic zone can be expressed as, $$c = \frac ba \tag{3}$$ where $a$ is the long axis of the ellipse and $b$ is the short axis of the ellipse. Therefore, $c$ is similar to the eccentricity, and the controlling coefficient for a certain ray can be given as,</p>
+<p>$$c_{ij}=\begin{cases}1-\frac{|j-i|}{\frac N2}&amp;|j-i|&lt;\frac N2\cr1-\frac{N-|j-i|}{\frac N2}&amp;|j-i|&gt;\frac N2\cr 0.1 &amp; |j-i|=\frac N2\end{cases}\tag{4}$$</p>
+<p>where: $i \in[1, N ]$ is the sensor number of a transmitter, $j \in[1, N ]$ is the sensor number of a receiver, $N$ is the total number of sensors, and $c_{ij}$ represents the ray from sensor number $i$ to sensor number $j$. The value of $a_{ij}$ is known, so the shape of each affected zone can be controlled by $b_{ij}$: $$b_{ij} = c_{ij} \times a_{ij}.\tag{5}$$</p>
+</div></blockquote>
+<p>Citation related to the step 4:</p>
+<blockquote>
+<div><p>Additionally, when a certain grid cell is affected by more than one elliptic zone, all these elliptic zones and their corresponding rays can be recorded. Then, the velocity value of the grid cell can be calculated as, $$v_{xy}=\sum_{k=1}^m w_k\times v_k\tag{7}$$ where $v_{xy}$ is the estimated velocity value of a certain grid cell, $v_k$ is the velocity value of a certain ray that affects the specific grid cell, $w_k$ is weighting coefficient, and $m$ is the total number of rays that affect the specific grid cell, simultaneously. Considering that elliptical zones that correspond to short rays should weigh more, $w_k$ can be given as, $$w_k = \frac {1}{l_k}\Biggm/ \sum_{z=1}^m \frac{1}{l_z}\tag{8}$$ where $l_z$ is the length of a certain ray.</p>
+</div></blockquote>
+</section>
+<section id="ersm">
+<h2>ERSM<a class="headerlink" href="#ersm" title="Link to this heading"></a></h2>
+<p>Improvement of Du (2018).</p>
+<ol class="arabic simple">
+<li><p>Choose typical size of the segment $l_0$. One half of the shortest ray is suggested length.</p></li>
+<li><p>Split each ray into segments of equal size. The number of segments is the integer part of the quotient $l/l_0$ where $l$ is the legth of the ray. <strong>This is the change from Du (2018)</strong></p></li>
+<li><p>For each segment consider the ellipse with major axis at the segment and the eccentricity given. Find all segments intercepting this ellipse and set the speed of this segment as a mean value of the speeds of segments through the ellipse.</p></li>
+<li><p>Set the cell velcities using spatial interpolation by segmented ellipe (SISE) as described in Du (2018).</p></li>
+</ol>
+</section>
+<section id="sirt-method">
+<h2>SIRT method<a class="headerlink" href="#sirt-method" title="Link to this heading"></a></h2>
+<p>Sluits and Vorst (1990) describe general SIRT methods. It $b_i$ is the time of fly of the $i$-th ray, $a_{ij}$ is the length of the intersection of the $i$-th ray with the $j$-th cell and $x_j$ is the slowness (reciprocal value of velocity) in the $j$-th cell, then we have
+$$b_i = \sum a_{ij} x_j$$
+or in matrix form
+$$b = Ax,$$
+where $b$ and $x$ are column matrices of times and slownesses respectively and $A$ is the matrix of segment lengths. In general, this linear system with unknowns $x$ does not have solution. Thus we have to find vector $x$ which is close to the solution in the sense that the euclidean norm $$||b-Ax||$$ of the difference between the left and right hand side is minimal.</p>
+<p>Simultaneous iterative reconstruction technique (SIRT) is the method to solve this least square problem iteratively.
+Sluis and Vorst (1990) present a class of iterative formulas</p>
+<p>$$x^{(k+1)}=x^{(k)}+\omega P A^T Q (b-Ax),\tag{*}$$</p>
+<p>where $P=\mathrm{diag}(1/\gamma_j)$, $Q=\mathrm{diag}(1/\rho_j)$ and
+$$\gamma_j=\sum_i |a_{ij}|^\alpha, \quad
+\rho_j=\sum_k |a_{ij}|^{2-\alpha}, \quad
+0\leq \alpha\leq 2, \quad 0&lt;\omega&lt;2.$$
+Common choices are $\omega =1$ and either $\alpha = 0$ or $\alpha =1$. The scheme (*) is convergent by Sluis and Vorst (1990), Theorem 4.10.</p>
+<section id="fixing-reaction-time-in-sirt-method">
+<h3>Fixing reaction time in SIRT method<a class="headerlink" href="#fixing-reaction-time-in-sirt-method" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>Maurer (2006): Finally, we highlight a common problem in acoustic wood
+tomography. Owing to inherent instrumental limitations, it is often difficult
+or impossible to determine precisely the difference between the origin time of
+the seismic pulse and the time of the first sample of the digitized seismogram.
+This time difference is generally unknown, but it usually remains constant
+during an experiment. Consequently, the origin time to may be
+included as a further unknown in the tomographic inversion procedure by modifying Eq. (1):</p>
+<p>$$ t_{ij}=\sum_{\text{cells}}l_{ijk}s_k+t_0 \tag{5}$$</p>
+<p>As shown by Maurer (1996), it is only necessary to append a column with values
+of 1 to matrix $G$ to solve the inverse problem related to Eq. (5). The
+solution vector $s$ will then include adjustments not only to the slowness of
+individual cells, but also to the origin time $t_0$.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="general-papers">
+<h2>General papers<a class="headerlink" href="#general-papers" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Strobel (2018) compares EBSI method and method based on means ray speeds at intersection.</p></li>
+</ul>
+</section>
+<section id="literature">
+<h2>Literature<a class="headerlink" href="#literature" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Maurer, H., Schubert, S. I., Bächle, F., Clauss, S., Gsell, D., Dual, J., &amp; Niemz, P. (2006). A simple anisotropy correction procedure for acoustic wood tomography. Holzforschung, 60(5), 567–573. https://doi.org/10.1515/HF.2006.094/MACHINEREADABLECITATION/RIS</p></li>
+<li><p>Li, G., Wang, X., Feng, H., Wiedenbeck, J., &amp; Ross, R. J. (2014). Analysis of wave velocity patterns in black cherry trees and its effect on internal decay detection. Computers and Electronics in Agriculture, 104, 32–39. https://doi.org/10.1016/J.COMPAG.2014.03.008</p></li>
+<li><p>Feng, H., Li, G., Fu, S., &amp; Wang, X. (2014). Tomographic Image Reconstruction Using an Interpolation Method for Tree Decay Detection. BioResources, 9(2), 3248–3263. https://doi.org/10.15376/BIORES.9.2.3248-3263</p></li>
+<li><p>Du, X., Li, J., Feng, H., &amp; Chen, S. (2018). Image Reconstruction of Internal Defects in Wood Based on Segmented Propagation Rays of Stress Waves. Applied Sciences 2018, Vol. 8, Page 1778, 8(10), 1778. https://doi.org/10.3390/APP8101778</p></li>
+<li><p>Strobel, J. R. A., de Carvalho, M. A. G., Gonçalves, R., Pedroso, C. B., dos Reis, M. N., &amp; Martins, P. S. (2018). Quantitative image analysis of acoustic tomography in woods. European Journal of Wood and Wood Products, 76(5), 1379–1389. https://doi.org/10.1007/S00107-018-1323-Y/TABLES/5</p></li>
+<li><p>van der Sluis, A., &amp; van der Vorst, H. A. (1990). SIRT- and CG-type methods for the iterative solution of sparse linear least-squares problems. Linear Algebra and Its Applications, 130(C), 257–303. https://doi.org/10.1016/0024-3795(90)90215-X</p></li>
+<li><p>Zeng, L., Lin, J., Hua, J., &amp; Shi, W. (2013). Interference resisting design for guided wave tomography. Smart Materials and Structures, 22(5), 055017. https://doi.org/10.1088/0964-1726/22/5/055017</p></li>
+<li><p>Du, X., Li, J., Feng, H., &amp; Chen, S. (2018). Image Reconstruction of Internal Defects in Wood Based on Segmented Propagation Rays of Stress Waves. Applied Sciences 2018, Vol. 8, Page 1778, 8(10), 1778. https://doi.org/10.3390/APP8101778</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Valentino Cristini, Robert Mařík.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

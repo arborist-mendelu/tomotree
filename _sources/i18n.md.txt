@@ -1,0 +1,466 @@
+# Internationalization (i18n) & Localization (l10n) Guide
+
+This document explains how the TomoTree multilingual system works, how to mark
+new UI strings for translation, how to extract them to the template, and how to
+add a completely new language.
+
+---
+
+## Table of Contents
+
+- [Internationalization (i18n) \& Localization (l10n) Guide](#internationalization-i18n--localization-l10n-guide)
+  - [Table of Contents](#table-of-contents)
+  - [1. Architecture overview](#1-architecture-overview)
+  - [2. Directory layout](#2-directory-layout)
+  - [3. How it works at runtime](#3-how-it-works-at-runtime)
+    - [Initialization](#initialization)
+    - [Translation look-up](#translation-look-up)
+    - [Plural forms](#plural-forms)
+  - [4. Marking strings for translation in Python code](#4-marking-strings-for-translation-in-python-code)
+    - [Import the function](#import-the-function)
+    - [Basic usage](#basic-usage)
+    - [Variable interpolation — use `.format()`, not f-strings](#variable-interpolation--use-format-not-f-strings)
+    - [Multiline strings](#multiline-strings)
+    - [Loop variable clash](#loop-variable-clash)
+  - [5. Extracting new strings to the template (.pot)](#5-extracting-new-strings-to-the-template-pot)
+    - [Manual extraction (current workflow)](#manual-extraction-current-workflow)
+    - [Automated extraction (optional, requires xgettext)](#automated-extraction-optional-requires-xgettext)
+  - [6. Updating existing language files (.po)](#6-updating-existing-language-files-po)
+    - [.po file structure](#po-file-structure)
+    - [Adding a new string to an existing language](#adding-a-new-string-to-an-existing-language)
+  - [7. Adding a brand-new language](#7-adding-a-brand-new-language)
+    - [Step 1 — Create the directory \& PO file](#step-1--create-the-directory--po-file)
+    - [Step 2 — Register the language in `__init__.py`](#step-2--register-the-language-in-__init__py)
+    - [Step 3 — Register the language in `po_to_json.py`](#step-3--register-the-language-in-po_to_jsonpy)
+    - [Step 4 — Generate the JSON file](#step-4--generate-the-json-file)
+    - [Step 5 — Verify](#step-5--verify)
+  - [8. Compiling translations (.po → .json)](#8-compiling-translations-po--json)
+  - [9. Currently supported languages](#9-currently-supported-languages)
+  - [10. Common pitfalls](#10-common-pitfalls)
+
+---
+
+## 1. Architecture overview
+
+TomoTree uses a **custom JSON-based i18n system** instead of the standard
+Python `gettext` binary (`.mo`) approach. The reasons are:
+
+- No need to call system tools (`msgfmt`, `xgettext`) as a build step.
+- JSON files are human-readable and easy to diff in version control.
+- Works identically on every platform without gettext installed.
+
+The translation pipeline looks like this:
+
+```
+Python source files            Translation template       Language-specific files
+  st.button(_("Save"))   -->   locale/messages.pot   -->  locale/cs/LC_MESSAGES/messages.po
+                                                          locale/de/LC_MESSAGES/messages.po
+                                                          locale/es/LC_MESSAGES/messages.po
+                                                          ...
+                                    po_to_json.py
+                                         ↓
+                               locale/cs/messages.json   ← loaded at runtime
+                               locale/de/messages.json
+                               ...
+```
+
+The core module is `src/tomotree/i18n/__init__.py`.  A single global dict
+`_current_translations` maps English source strings → translated strings.  The
+function `_(message)` does a dict look-up and returns the original string
+unchanged when no translation exists (safe fallback to English).
+
+---
+
+## 2. Directory layout
+
+```
+src/tomotree/i18n/
+├── __init__.py            # Core module: _(), init_i18n(), set_language()
+├── po_to_json.py          # Compiler: converts .po files → .json
+├── build_translations.py  # Legacy compiler (generates .mo, not used at runtime)
+└── locale/
+    ├── messages.pot       # Master template — all source strings, no translations
+    ├── cs/
+    │   ├── LC_MESSAGES/
+    │   │   └── messages.po   # Czech translations (edit this file)
+    │   └── messages.json     # Generated — do NOT edit by hand
+    ├── de/
+    │   ├── LC_MESSAGES/messages.po
+    │   └── messages.json
+    ├── es/
+    │   ├── LC_MESSAGES/messages.po
+    │   └── messages.json
+    ├── fr/
+    │   ├── LC_MESSAGES/messages.po
+    │   └── messages.json
+    ├── it/
+    │   ├── LC_MESSAGES/messages.po
+    │   └── messages.json
+    └── uk/
+        ├── LC_MESSAGES/messages.po
+        └── messages.json
+```
+
+**Rule:** Only ever edit the `.po` files by hand.  The `.json` files are
+**generated** and must never be edited directly.
+
+---
+
+## 3. How it works at runtime
+
+### Initialization
+
+`app.py` calls `init_i18n()` once at startup:
+
+```python
+from tomotree.i18n import init_i18n, _
+
+init_i18n()          # reads st.session_state.language, loads JSON, renders flag buttons
+```
+
+`init_i18n()` injects flag buttons into the Streamlit sidebar.  When a user
+clicks a flag, `set_language(code)` loads the corresponding `messages.json`
+into `_current_translations` and triggers `st.rerun()`.
+
+### Translation look-up
+
+Every call to `_("Some string")` does:
+
+```python
+return _current_translations.get(message, message)
+```
+
+If the string is missing from the translation file (or English is selected),
+the original English string is returned unmodified — no exception is raised.
+
+### Plural forms
+
+```python
+from tomotree.i18n import ngettext
+
+label = ngettext("1 node selected", "{n} nodes selected", n).format(n=n)
+```
+
+`ngettext` chooses the singular or plural key and then delegates to `_()`.
+Complex plural rules (Czech, Ukrainian, etc.) are declared in the `.po` file
+header (`Plural-Forms:`) and are informational only — the runtime uses a
+simple `count == 1` rule; full plural inflection must be handled in the
+`msgstr` value itself.
+
+---
+
+## 4. Marking strings for translation in Python code
+
+### Import the function
+
+Every Streamlit module that shows user-visible text must import `_`:
+
+```python
+from tomotree.i18n import _
+```
+
+### Basic usage
+
+Wrap any user-visible string literal with `_(...)`:
+
+```python
+# Before
+st.button("Save")
+
+# After
+st.button(_("Save"))
+```
+
+The string passed to `_()` **must be a plain string literal** — it serves as
+both the look-up key and the English fallback.
+
+### Variable interpolation — use `.format()`, not f-strings
+
+`_()` receives a key at import time, so f-strings evaluated before look-up
+would produce a key that is unique per call and can never match a translation.
+
+```python
+# WRONG — the f-string is evaluated first, key never matches
+st.error(_(f"File {filename} not found"))
+
+# CORRECT — translate the template, then format
+st.error(_("File {filename} not found").format(filename=filename))
+```
+
+### Multiline strings
+
+```python
+st.info(_(
+    "This tool allows you to select areas in the tomogram for\n"
+    "focused analysis.\n"
+    "Use at most 12 intervals."
+))
+```
+
+The key in the `.po` file is the concatenated string exactly as Python sees it.
+
+### Loop variable clash
+
+If a loop uses `_` as the loop variable in a file that already imports `_` as
+the translation function, rename the loop variable:
+
+```python
+# WRONG — shadows the translation function
+for _ in items:
+    ...
+
+# CORRECT
+for _item in items:
+    ...
+```
+
+---
+
+## 5. Extracting new strings to the template (.pot)
+
+The file `locale/messages.pot` is the **master template**.  It contains all
+`msgid` entries used in the source code, with empty `msgstr ""` values.
+
+### Manual extraction (current workflow)
+
+There is no automated `xgettext` step configured.  When you add new `_("...")`
+calls to the source, manually add the corresponding `msgid` entries to
+`messages.pot` and to each language's `messages.po`:
+
+1. Open `locale/messages.pot`.
+2. Append at the end:
+   ```po
+   msgid "Your new string"
+   msgstr ""
+   ```
+3. Repeat for each `locale/<lang>/LC_MESSAGES/messages.po`, but fill in the
+   translated `msgstr`.
+
+### Automated extraction (optional, requires xgettext)
+
+If `gettext` tools are installed you can automate extraction:
+
+```bash
+# Collect all source files
+find src/ -name "*.py" > /tmp/py_files.txt
+
+# Extract strings into the template
+xgettext \
+    --files-from=/tmp/py_files.txt \
+    --language=Python \
+    --keyword=_ \
+    --keyword=N_ \
+    --output=src/tomotree/i18n/locale/messages.pot \
+    --from-code=UTF-8
+
+# Merge new strings into an existing language file without overwriting existing
+# translations
+msgmerge --update \
+    src/tomotree/i18n/locale/de/LC_MESSAGES/messages.po \
+    src/tomotree/i18n/locale/messages.pot
+```
+
+> Note: `xgettext` is not a project dependency and is not required for normal
+> operation.  It is only helpful when doing a large-scale string extraction
+> across many files at once.
+
+---
+
+## 6. Updating existing language files (.po)
+
+### .po file structure
+
+```po
+# Language name translation for TomoTree
+# …
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: de\n"
+"Language-Team: German\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "File uploaded successfully: {filename}"
+msgstr "Datei erfolgreich hochgeladen: {filename}"
+```
+
+Rules:
+- `msgid` must exactly match the string passed to `_()` in the Python source,
+  including whitespace, newlines (`\n`), and emoji.
+- `msgstr` is the translated string.  An empty `msgstr ""` means the English
+  fallback will be used at runtime.
+- Lines starting with `#` are comments and are ignored by the compiler.
+- Section comments like `# --- admin.py ---` are conventional grouping
+  markers; they have no functional effect.
+
+### Adding a new string to an existing language
+
+1. Find (or create) the appropriate section in
+   `locale/<lang>/LC_MESSAGES/messages.po`.
+2. Add:
+   ```po
+   msgid "Exact English source string"
+   msgstr "Translation in target language"
+   ```
+3. Run the compiler (see §8).
+
+---
+
+## 7. Adding a brand-new language
+
+Follow these steps to add, for example, **Polish** (`pl`).
+
+### Step 1 — Create the directory & PO file
+
+```bash
+mkdir -p src/tomotree/i18n/locale/pl/LC_MESSAGES
+```
+
+Copy the template and fill in translations:
+
+```bash
+cp src/tomotree/i18n/locale/messages.pot \
+   src/tomotree/i18n/locale/pl/LC_MESSAGES/messages.po
+```
+
+Edit the file header:
+
+```po
+# Polish translation for TomoTree
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: pl\n"
+"Language-Team: Polish\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+```
+
+Then translate all `msgstr ""` entries.
+
+> **Plural-Forms reference** for common languages:
+>
+> | Language | Plural-Forms |
+> |----------|-------------|
+> | English, German, Spanish, French | `nplurals=2; plural=(n != 1);` |
+> | Czech, Slovak | `nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;` |
+> | Ukrainian, Russian | `nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);` |
+> | Polish | `nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);` |
+
+### Step 2 — Register the language in `__init__.py`
+
+Edit `src/tomotree/i18n/__init__.py` and add to both dicts:
+
+```python
+def get_available_languages() -> dict:
+    return {
+        "en": "English",
+        "cs": "Česky (Czech)",
+        # … existing entries …
+        "pl": "Polski (Polish)",     # ← add here
+    }
+
+_LANGUAGE_FLAGS = {
+    "en": "🇬🇧",
+    # … existing entries …
+    "pl": "🇵🇱",                     # ← add here
+}
+```
+
+### Step 3 — Register the language in `po_to_json.py`
+
+Edit `src/tomotree/i18n/po_to_json.py` and add the language code to the list:
+
+```python
+languages = ["cs", "it", "es", "de", "fr", "uk", "pl"]   # ← add "pl"
+```
+
+### Step 4 — Generate the JSON file
+
+```bash
+python src/tomotree/i18n/po_to_json.py
+```
+
+Expected output:
+```
+✅ pl: messages.po → messages.json (321 strings)
+```
+
+### Step 5 — Verify
+
+```python
+python -c "
+from src.tomotree.i18n import get_available_languages, _load_json_translations
+t = _load_json_translations('pl')
+print(len(t), 'strings loaded')
+print('Save =>', t.get('Save', 'MISSING'))
+"
+```
+
+---
+
+## 8. Compiling translations (.po → .json)
+
+After editing any `.po` file you **must** regenerate the corresponding
+`.json` file.  Run from the repository root:
+
+```bash
+python src/tomotree/i18n/po_to_json.py
+```
+
+This processes every language listed in the `languages` list inside that script
+and writes `locale/<lang>/messages.json`.
+
+The script output reports how many strings were converted per language and
+whether any errors occurred:
+
+```
+🔄 Converting .po files to JSON format...
+
+✅ cs: messages.po → messages.json (321 strings)
+✅ it: messages.po → messages.json (321 strings)
+✅ es: messages.po → messages.json (321 strings)
+✅ de: messages.po → messages.json (321 strings)
+✅ fr: messages.po → messages.json (321 strings)
+✅ uk: messages.po → messages.json (321 strings)
+
+📊 Summary: 6 converted, 0 errors
+✅ All .po files converted successfully!
+```
+
+> **Important:** The `.json` files are committed to version control alongside
+> the `.po` files so that the app can work without running `po_to_json.py` at
+> deploy time.  Always commit both files together.
+
+---
+
+## 9. Currently supported languages
+
+| Code | Language | Flag | Plural-Forms |
+|------|----------|------|-------------|
+| `en` | English | 🇬🇧 | fallback (no file) |
+| `cs` | Czech | 🇨🇿 | 3 forms |
+| `it` | Italian | 🇮🇹 | 2 forms |
+| `es` | Spanish | 🇪🇸 | 2 forms |
+| `de` | German | 🇩🇪 | 2 forms |
+| `fr` | French | 🇫🇷 | 2 forms |
+| `uk` | Ukrainian | 🇺🇦 | 3 forms |
+| `zh` | Chinese (Simplified) | 🇨🇳 | 1 form |
+
+All language files contain **321 strings** covering the full UI.
+
+---
+
+## 10. Common pitfalls
+
+| Problem | Cause | Fix |
+|---------|-------|-----|
+| Translation not shown | `.json` not regenerated after editing `.po` | Run `po_to_json.py` |
+| `msgid` not matching | Whitespace, newline, or emoji difference between `.po` key and Python string | Copy the exact string from source; use `repr()` to inspect |
+| f-string not translating | `_(f"Hello {name}")` evaluates before look-up | Use `_("Hello {name}").format(name=name)` |
+| `_` shadowed in loop | `for _ in items:` overwrites the imported `_` function | Rename loop variable to `_item` or `_toggle` |
+| New language not appearing | Language not added to `get_available_languages()` or `_LANGUAGE_FLAGS` | Edit both dicts in `__init__.py` |
+| New language not compiled | Language code not in `languages` list in `po_to_json.py` | Add code to the list and re-run |
+| `messages.json` has 0 strings | Header `msgid ""` was not filtered or `.po` is malformed | Check that the first `msgid ""` block has a valid `Content-Type` header |

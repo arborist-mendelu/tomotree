@@ -1,10 +1,10 @@
-import yaml
+from ruamel.yaml import YAML
 from jinja2 import Template
 from markdown import markdown
 
 # Načti data z YAML
 with open("content.yaml", encoding="utf-8") as f:
-    data = yaml.safe_load(f)
+    data = YAML(typ="rt").load(f)
 
 # Markdown → HTML pro každou sekci
 position = 'right'

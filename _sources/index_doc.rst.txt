@@ -10,6 +10,8 @@ Welcome to tomotree's documentation!
    :maxdepth: 2
 
    doc
+   config_file
+   i18n
    tomotree
    resistograph
    analyze_f3d

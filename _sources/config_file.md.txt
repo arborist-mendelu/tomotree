@@ -1,0 +1,333 @@
+# Configuration file `config.yaml`
+
+Each dataset directory can contain an optional `config.yaml` file that
+pre-configures the TomoTree application for that particular measurement.
+When the directory is loaded the file is parsed and its values are written
+directly into the application's session state, so every subsequent slider,
+radio button, or toggle in the sidebar already shows the correct setting for
+the dataset.
+
+---
+
+## Location
+
+Place the file inside the measurement directory, for example:
+
+```
+streamlit_user/my_project/Measurement_01/
+├── config.yaml          ← here
+├── nodes.csv
+├── speeds.csv
+└── photo.jpg
+```
+
+---
+
+## Input data
+
+### Node positions
+
+Provide either **Cartesian coordinates** or **pairwise distances**;
+the application uses whichever key is present.
+
+```yaml
+# Cartesian coordinates of sensors as a CSV string (x, y in metres).
+# Note the | marking the start of a multi-line string. One line per node, no header.
+nodes: |
+  0.0;0.0
+  -0.1388855641449167;-0.034055837563451805
+  -0.26053412907939993;-0.13405583756345177
+  -0.2926037348490796;-0.2800143824027072
+  -0.2527030211439491;-0.42563620981387473
+  -0.1380170864257508;-0.537565143824027
+  0.0;-0.591
+  0.1526909370521609;-0.5812800338409475
+  0.26408687276895;-0.4892791878172589
+  0.2918393428044868;-0.32928680203045674
+  0.2482252001711349;-0.1755
+  0.15585561338053316;-0.05416666666666666
+```
+
+or 
+
+```yaml
+# Distance table as a CSV string:  from-to, distance
+distances: |
+2-1,28.8
+3-1,58
+4-1,72.8
+5-1,81.7
+6-1,90.3
+7-1,95.2
+8-1,85.1
+9-1,73.2
+10-1,64.4
+11-1,36.9
+12-1,18.5
+2-7,98.9
+3-7,92.5
+4-7,70.6
+5-7,51.2
+6-7,24.4
+8-7,29.8
+9-7,49.1
+10-7,74.6
+11-7,82.1
+12-7,94.3
+```
+
+If neither key is present the application looks for files named
+`nodes.csv` / `distances.csv` or a binary `.f3d` file inside the directory.
+
+**`clockwise`** controls the orientation when computing positions from distances:
+
+```yaml
+clockwise: false   # true → clockwise node numbering
+```
+
+### Measurements
+
+Provide either travel **speeds** (m/s) or travel **times** in a CSV matrix
+(rows = receivers, columns = sources).  Empty cells on the diagonal are fine.
+
+```yaml
+speeds: |
+  ;1289.0;1317.0;1373.0;1372.0;1282.0;1056.0;1002.0;1086.0;1174.0;1244.0;1384.0
+  1289.0;;1413.0;1319.0;1318.0;1288.0;1129.0;953.0;1005.0;1132.0;1236.0;1292.0
+  1317.0;1413.0;;1279.0;1257.0;1233.0;1152.0;1005.0;953.0;1071.0;1278.0;1346.0
+  1373.0;1319.0;1279.0;;1292.0;1204.0;1135.0;1047.0;1000.0;962.0;1227.0;1374.0
+  1372.0;1318.0;1257.0;1292.0;;1233.0;1139.0;1080.0;1076.0;993.0;1154.0;1319.0
+  1282.0;1288.0;1233.0;1204.0;1233.0;;1174.0;1135.0;1207.0;1156.0;1061.0;1114.0
+  1056.0;1129.0;1152.0;1135.0;1139.0;1174.0;;1276.0;1365.0;1325.0;1185.0;987.0
+  1002.0;953.0;1005.0;1047.0;1080.0;1135.0;1276.0;;1236.0;1277.0;1222.0;1087.0
+  1086.0;1005.0;953.0;1000.0;1076.0;1207.0;1365.0;1236.0;;1295.0;1258.0;1147.0
+  1174.0;1132.0;1071.0;962.0;993.0;1156.0;1325.0;1277.0;1295.0;;1258.0;1192.0
+  1244.0;1236.0;1278.0;1227.0;1154.0;1061.0;1185.0;1222.0;1258.0;1258.0;;1204.0
+  1384.0;1292.0;1346.0;1374.0;1319.0;1114.0;987.0;1087.0;1147.0;1192.0;1204.0;
+```
+or
+
+```yaml
+times: |
+  ;76.1;117.2;174.2;224.5;315.5;368.1;313.5;268.6;233.1;158.0;65.2
+  78.9;;86.4;125.3;151.6;230.4;363.8;299.3;397.5;294.3;196.9;121.7
+  117.2;62.1;;70.3;133.2;215.0;236.4;275.8;434.9;334.8;282.2;156.9
+  188.6;130.3;66.3;;77.8;166.2;179.6;247.9;392.3;373.4;358.0;233.4
+  242.0;185.4;136.2;74.7;;94.5;146.4;179.0;281.6;293.7;371.8;313.2
+  299.8;237.4;182.3;134.9;74.6;;110.5;137.4;236.6;242.3;314.8;363.7
+  317.1;302.4;241.2;173.8;143.9;104.0;;95.9;150.2;191.0;225.3;357.9
+  377.3;300.0;282.6;237.5;211.8;155.4;100.3;;96.2;114.7;168.9;257.8
+  255.8;321.4;358.3;372.6;281.3;239.4;155.7;92.4;;73.5;132.8;210.7
+  198.6;258.3;280.7;373.6;312.9;279.7;204.5;126.3;94.3;;80.7;165.4
+  124.6;175.8;235.4;381.0;377.9;329.0;244.8;201.0;138.9;83.6;;114.8
+  58.2;107.9;151.4;240.4;285.6;399.7;345.9;273.4;234.8;158.6;116.8;
+```
+
+As with nodes, if neither key is present the application searches for
+`speeds.csv`, `velocities.csv`, `times.csv`, or an `.f3d` file.
+
+---
+
+## Units
+
+```yaml
+length_unit: m      # m | cm | mm  (default: m)
+time_unit: s        # s | ms | µs   (default: s)
+```
+
+**Legacy alternative** (deprecated, prefer the keys above):
+
+```yaml
+conversion factors:
+  length: 0.01      # multiplier to convert to metres
+  time: 1.0e-6      # multiplier to convert to seconds
+```
+
+---
+
+## Access control
+
+Restrict which logged-in users may open the dataset:
+
+```yaml
+allowed: [alice, bob, guest]
+```
+
+If the key is absent, all users have access.
+
+---
+
+## Grid resolution
+
+```yaml
+nx: 70   # horizontal cell count (default: 41, range 4–140)
+ny: 70   # vertical cell count   (default: 41, range 4–140)
+```
+
+---
+
+## Velocity colour scale
+
+### Scale type
+
+```yaml
+speed_scale: percentile           # percentile | percentage of reference value | numerical value
+```
+
+### Bounds — numerical (m/s)
+
+```yaml
+speed_min: 600.0
+speed_max: 1800.0
+```
+
+### Bounds — percentage of reference value
+
+```yaml
+speed_percent_min: 50
+speed_percent_max: 100
+
+# Which value is 100 %:
+reference_value: sound wood velocity   # sound wood velocity | maximal velocity | upper decile
+```
+
+### Bounds — percentile
+
+```yaml
+speed_percentile_min: 10
+speed_percentile_max: 90
+```
+
+---
+
+## Tomogram appearance
+
+```yaml
+plot_function: velocity      # velocity | velocity square | Edyn modulus
+tomogram_type: cells only    # rays only | cells only | both
+shading: flat                # flat | gouraud | nearest
+contourf: false              # use matplotlib contourf instead of pcolormesh
+draw_boundary: false         # draw a curve along the sensor polygon
+boundary_is_spline: true     # spline (true) or polygon (false) boundary
+discrete_colorbar: false     # quantise the colorbar
+n_discrete_colors: 5         # number of colours when discrete_colorbar is true
+grid: true                   # draw grid lines on the tomogram
+axes_alignment: origin bottom left
+  # origin bottom left | origin in the sensors center |
+  # origin in the pith | none
+image_comparison_photo_tomogram: true
+  # enable slider-based photo/tomogram comparison
+```
+
+---
+
+## Reconstruction parameters
+
+```yaml
+anisotropy: true        # correct for acoustic anisotropy (Du 2015 formula)
+rescale: true           # rescale cell speeds to match measured TOF (ERSM)
+bark_thickness: 0.0     # bark thickness in cm — sensors are shifted inward
+power: 1.0              # EBSI: exponent for weighted mean (range 1–5)
+max_segments: 10        # ERSM: maximum ray segments (range 1–50)
+e_segmentation: 0.98    # ERSM: ellipse eccentricity for segmentation
+e_interpolation: 0.99   # ERSM: ellipse eccentricity for interpolation
+```
+
+---
+
+## Subset of nodes
+
+```yaml
+# Use only a subset of node numbers (1-based) for reconstruction.
+nodes_subset: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+```
+
+---
+
+## Sound-wood speed
+
+```yaml
+# Node pairs used to estimate the sound-wood reference speed.
+rays_sound_wood_speed: ['1-11', '2-12', '1-3', '2-4', '3-5', '4-6', '5-7', '6-8', '7-9', '8-10', '9-11', '10-12']
+speed_method_avg: Mean    # Mean | Median
+```
+
+---
+
+## Background photo
+
+Registers a photo from the directory and maps two known
+sensor positions to pixel coordinates so the photo can be correctly overlaid
+on the tomogram.
+
+```yaml
+background:
+  image: photo.jpeg          # filename inside the images/ sub-directory
+  from_node_value: 1         # node number for the first reference point
+  to_node_value: 7           # node number for the second reference point
+  coordinates:
+    x1: 427.58               # pixel x of node from_node_value
+    y1: 42.82                # pixel y of node from_node_value
+    x2: 506.50               # pixel x of node to_node_value
+    y2: 736.33               # pixel y of node to_node_value
+```
+
+---
+
+## Resistograph settings
+
+All `R_*` keys control the visual parameters of the resistograph display.
+
+```yaml
+R_min: 88.0              # minimum value on the resistograph scale
+R_max: 180.0             # maximum value on the resistograph scale
+R_depth: 25.0            # maximum drilling depth shown (cm)
+R_scale_length: 25.0     # length of the reference scale bar (cm)
+R_color_column_step: 300 # colour column step
+R_vertical_shift: 100.0  # vertical shift of the plot
+R_vertical_scale: 20.0   # zoom-out factor in the vertical direction
+R_window_length: 201     # window length for the smoothing filter (odd integer)
+R_polyorder: 3           # polynomial order for the Savitzky-Golay filter
+R_drillbar: ['00001394', '00001400', '00001395']
+  # identifiers of the drill bars to display
+R_graphs: []
+  # identifiers of resistograph curves to overlay
+```
+
+---
+
+## Navigation / landing page
+
+Set the tab that is shown first when the dataset is opened:
+
+```yaml
+landing_page: ERSM method   # any valid menu item name
+```
+
+Alternative low-level form (kept for compatibility):
+
+```yaml
+config:
+  first_level: Tomograph
+  last_sub:
+    Resistograph: Define drilling paths
+    Tomograph: ERSM method
+```
+
+---
+
+## Minimal example
+
+```yaml
+nodes: '0.0,0.0
+  -0.139,-0.034
+  -0.261,-0.134
+  '
+speeds: ',1250.0,1300.0
+  1250.0,,1350.0
+  1300.0,1350.0,
+  '
+length_unit: m
+nx: 50
+ny: 50
+```

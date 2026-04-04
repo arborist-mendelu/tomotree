@@ -1,0 +1,289 @@
+# Konfigurační soubor `config.yaml`
+
+Každý adresář s měřením může obsahovat volitelný soubor `config.yaml`, který
+předkonfiguruje aplikaci TomoTree pro konkrétní sadu dat.
+Soubor je načten při otevření adresáře a jeho hodnoty jsou zapsány přímo do
+stavu aplikace, takže posuvníky, přepínače i výběry v postranním panelu ihned
+zobrazují správné nastavení pro dané měření.
+
+---
+
+## Umístění
+
+Soubor se umisťuje přímo do adresáře s měřením, například:
+
+```
+streamlit_user/muj_projekt/Mereni_01/
+├── config.yaml          ← zde
+├── nodes.csv
+├── speeds.csv
+└── photo.jpg
+```
+
+---
+
+## Vstupní data
+
+### Polohy uzlů (senzorů)
+
+Lze zadat buď **kartézské souřadnice**, nebo **tabulku vzdáleností**;
+aplikace použije ten klíč, který je přítomen.
+
+```yaml
+# Kartézské souřadnice senzorů jako CSV řetězec (x, y v metrech).
+# Jeden řádek na uzel, bez záhlaví. Prázdné řádky a mezery jsou ignorovány.
+nodes: '0.0,0.0
+  -0.139,-0.034
+  -0.261,-0.134
+  -0.293,-0.280
+  '
+
+# --- NEBO ---
+
+# Tabulka vzdáleností jako CSV řetězec (od_uzlu, do_uzlu, vzdálenost).
+# Souřadnice uzlů jsou odvozeny automaticky (metoda MDS).
+distances: '1,2,0.155
+  1,3,0.301
+  2,3,0.162
+  '
+```
+
+Pokud není přítomen žádný z klíčů, aplikace hledá soubory
+`nodes.csv` / `distances.csv` nebo binární soubor `.f3d` v adresáři.
+
+**`clockwise`** určuje orientaci při výpočtu polohy z vzdáleností:
+
+```yaml
+clockwise: false   # true → uzly jsou číslovány po směru hodinových ručiček
+```
+
+### Naměřená data
+
+Lze zadat buď **rychlosti** šíření zvuku (m/s), nebo **časy průletu** jako
+CSV matici (řádky = přijímače, sloupce = zdroje). Prázdné buňky na diagonále
+jsou v pořádku.
+
+```yaml
+speeds: ',1289.0,1317.0,1373.0
+  1289.0,,1413.0,1319.0
+  1317.0,1413.0,,1279.0
+  1373.0,1319.0,1279.0,
+  '
+
+# --- NEBO ---
+
+times: ',150,120,180
+  150,,130,160
+  120,130,,140
+  180,160,140,
+  '
+```
+
+Stejně jako u uzlů: pokud žádný klíč není přítomen, aplikace hledá soubory
+`speeds.csv`, `velocities.csv`, `times.csv` nebo soubor `.f3d`.
+
+---
+
+## Jednotky
+
+```yaml
+length_unit: m      # m | cm | mm  (výchozí: m)
+time_unit: s        # s | ms | µs   (výchozí: s)
+```
+
+**Starší alternativa** (zastaralé, preferujte klíče výše):
+
+```yaml
+conversion factors:
+  length: 0.01      # násobitel pro převod na metry
+  time: 1.0e-6      # násobitel pro převod na sekundy
+```
+
+---
+
+## Přístupová práva
+
+Omezení, kteří přihlášení uživatelé smí adresář otevřít:
+
+```yaml
+allowed: [alice, bob, host]
+```
+
+Pokud klíč chybí, mají přístup všichni uživatelé.
+
+---
+
+## Hustota výpočetní sítě
+
+```yaml
+nx: 70   # počet buněk ve vodorovném směru (výchozí: 41, rozsah 4–140)
+ny: 70   # počet buněk ve svislém směru    (výchozí: 41, rozsah 4–140)
+```
+
+---
+
+## Barevná škála rychlostí
+
+### Typ škály
+
+```yaml
+speed_scale: percentile           # percentile | percentage of reference value | numerical value
+```
+
+### Meze — číselné (m/s)
+
+```yaml
+speed_min: 600.0
+speed_max: 1800.0
+```
+
+### Meze — procenta referenční hodnoty
+
+```yaml
+speed_percent_min: 50
+speed_percent_max: 100
+
+# Jaká hodnota představuje 100 %:
+reference_value: sound wood velocity   # sound wood velocity | maximal velocity | upper decile
+```
+
+### Meze — percentil
+
+```yaml
+speed_percentile_min: 10
+speed_percentile_max: 90
+```
+
+---
+
+## Vzhled tomogramu
+
+```yaml
+plot_function: velocity      # velocity | velocity square | Edyn modulus
+tomogram_type: cells only    # rays only | cells only | both
+shading: flat                # flat | gouraud | nearest
+contourf: false              # použít matplotlib contourf místo pcolormesh
+draw_boundary: false         # nakreslit křivku podél polygonu senzorů
+boundary_is_spline: true     # hranice jako splajn (true) nebo polygon (false)
+discrete_colorbar: false     # kvantizovat barevnou škálu
+n_discrete_colors: 5         # počet barev při zapnutém discrete_colorbar
+grid: true                   # zobrazit mřížku na tomogramu
+axes_alignment: origin bottom left
+  # origin bottom left | origin in the sensors center |
+  # origin in the pith | none
+image_comparison_photo_tomogram: true
+  # povolí porovnání fotografie a tomogramu posuvníkem
+```
+
+---
+
+## Parametry rekonstrukce
+
+```yaml
+anisotropy: true        # korekce akustické anizotropie (vzorec Du 2015)
+rescale: true           # přeškálovat rychlosti buněk tak, aby odpovídaly naměřeným TOF (ERSM)
+bark_thickness: 0.0     # tloušťka kůry v cm — senzory jsou posunuty dovnitř
+power: 1.0              # EBSI: exponent váženého průměru (rozsah 1–5)
+max_segments: 10        # ERSM: max. počet segmentů paprsku (rozsah 1–50)
+e_segmentation: 0.98    # ERSM: výstřednost elipsy pro segmentaci
+e_interpolation: 0.99   # ERSM: výstřednost elipsy pro interpolaci
+```
+
+---
+
+## Podmnožina uzlů
+
+```yaml
+# Použít pouze vybrané uzly (číslování od 1) pro rekonstrukci.
+nodes_subset: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+```
+
+---
+
+## Rychlost zdravého dřeva
+
+```yaml
+# Dvojice uzlů použité pro odhad referenční rychlosti zdravého dřeva.
+rays_sound_wood_speed: [1, 2, 3]
+speed_method_avg: Mean    # Mean | Median
+```
+
+---
+
+## Fotografie na pozadí
+
+Zaregistruje fotografii z podadresáře `images/` a namapuje dvě referenční
+polohy senzorů na souřadnice pixelů, aby bylo možné fotografii správně
+překrýt tomogramem.
+
+```yaml
+background:
+  image: photo.jpeg          # název souboru v podadresáři images/
+  from_node_value: 1         # číslo uzlu prvního referenčního bodu
+  to_node_value: 7           # číslo uzlu druhého referenčního bodu
+  coordinates:
+    x1: 427.58               # x [px] uzlu from_node_value
+    y1: 42.82                # y [px] uzlu from_node_value
+    x2: 506.50               # x [px] uzlu to_node_value
+    y2: 736.33               # y [px] uzlu to_node_value
+```
+
+---
+
+## Nastavení rezistografu
+
+Všechny klíče `R_*` ovládají vizuální parametry zobrazení rezistografu.
+
+```yaml
+R_min: 88.0              # minimální hodnota na škále rezistografu
+R_max: 180.0             # maximální hodnota na škále rezistografu
+R_depth: 25.0            # maximální zobrazená hloubka vrtání (cm)
+R_scale_length: 25.0     # délka referenční měřítka (cm)
+R_color_column_step: 300 # krok barevného sloupce
+R_vertical_shift: 100.0  # svislý posun grafu
+R_vertical_scale: 20.0   # faktor přiblížení ve svislém směru (zoom-out)
+R_window_length: 201     # délka okna vyhlazovacího filtru (liché číslo)
+R_polyorder: 3           # řád polynomu pro Savitzky-Golay filtr
+R_drillbar: ['00001394', '00001400', '00001395']
+  # identifikátory vrtných tyčí, které se mají zobrazit
+R_graphs: []
+  # identifikátory křivek rezistografu pro překrytí
+```
+
+---
+
+## Navigace / úvodní stránka
+
+Nastavení záložky, která se zobrazí jako první při otevření adresáře:
+
+```yaml
+landing_page: ERSM method   # libovolný platný název položky nabídky
+```
+
+Starší alternativní zápis (zachován pro zpětnou kompatibilitu):
+
+```yaml
+config:
+  first_level: Tomograph
+  last_sub:
+    Resistograph: Define drilling paths
+    Tomograph: ERSM method
+```
+
+---
+
+## Minimální příklad
+
+```yaml
+nodes: '0.0,0.0
+  -0.139,-0.034
+  -0.261,-0.134
+  '
+speeds: ',1250.0,1300.0
+  1250.0,,1350.0
+  1300.0,1350.0,
+  '
+length_unit: m
+nx: 50
+ny: 50
+```

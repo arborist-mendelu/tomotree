@@ -1,0 +1,75 @@
+# Methodology
+
+Several methods are available for image reconstruction.
+
+## Basic method
+
+This method is intended for rays visualization. The ray speeds remain intact in this method, provided the "Fix anisotropy" switch is off. 
+
+However, the method has a fallback to cell velocity determination as well. 
+For each cell we find the rays through this cell and then evaluate the mean of speeds on these rays. If used for tomogram, *the grid should not be too fine.* Otherwise some cells are not crossed
+by any ray. Also the number of rays involved in the mean is small.
+
+## EBSI method
+
+Ellipse-based segment interpolation as described in the paper Du(2015).
+This paper suggests to handle the anisotropy using the formula 
+
+$$
+v_{\text{fixed}}=\frac{v}{1-0.2\theta^2},
+$$
+
+where $\theta$ is the angle between the ray and the radial direction.
+
+Fine grid is possible and suggested for this method.
+
+The doc of the method is at <https://robert-marik.github.io/tomotree/tomotree.html#tomotree.Tomo.do_EBSI_method>
+
+In plain words:
+
+* The elliptic neighborhood (area of influence) of each ray is determined. 
+* The velocity at each cell is the mean value of all ray speeds which influence this
+  cell.
+* Weighted mean is used in the previous step. The weights are reciprocal values of the 
+  ray lengths. Thus the short rays have bigger weight.
+* For the implementation in the TomoTree we proceed as follows:
+  * For each ray all cells in the area of the influence are established. The ray speed and length is added to a list for each cell.
+  * For each cell, the mean to get the final speed value is evaluated.
+
+## ERSM method
+
+Ray segmentation method and spatial interpolation using segmented 
+ellipses as described in Du(2018) and modified.
+
+Fine grid is possible and suggested for this method.
+
+
+
+## Angle plots
+
+Velocity as a function of the declination angle. For sound wood has parabolic shape. See Li(2014)
+
+## Tomogram visualization
+
+To appear
+
+* user chan define limits for the picture
+* user can define the threshold between intact and degraded wood
+* user can determine speed for picture on several scales (numerical value, percentage of maximal value, percentage of 90-th percentile, percentage of the speed in sound wood)
+* user can process data from resistograph
+* the data from resistograph can be plotteed over the tomogram
+* the photo of the cross section (if available) can be shown together with the tomogram
+
+## Visualisation of cell velocities distribution
+
+Empirical cumulative distribution function is plotted for cell velocities. 
+The curve should have jumps or steep parts for velocities shared by 
+many cells. The original idea was that this 
+will enable to setup the speed limit between sound wood and degraded
+wood (only few cells in certain interval of velocities).
+
+## Literature
+
+* Du, X., Li, S., Li, G., Feng, H., & Chen, S. (2015). Stress Wave Tomography of Wood Internal Defects using Ellipse-Based Spatial Interpolation and Velocity Compensation. BioResources, 10(3), 3948–3962. https://doi.org/10.1537/biores.10.3.3948-3962
+* Du, X., Li, J., Feng, H., & Chen, S. (2018). Image Reconstruction of Internal Defects in Wood Based on Segmented Propagation Rays of Stress Waves. Applied Sciences 2018, Vol. 8, Page 1778, 8(10), 1778. https://doi.org/10.3390/APP8101778
+* Li, G., Wang, X., Feng, H., Wiedenbeck, J., & Ross, R. J. (2014). Analysis of wave velocity patterns in black cherry trees and its effect on internal decay detection. Computers and Electronics in Agriculture, 104, 32–39. https://doi.org/10.1016/J.COMPAG.2014.03.008

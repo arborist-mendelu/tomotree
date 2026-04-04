@@ -1,0 +1,5 @@
+# Description
+
+See the [project home](https://arborist-mendelu.github.io/tomotree/) for basic description of the TomoTree tool. 
+
+Detailed information will be published in a subsequent paper (submitted).

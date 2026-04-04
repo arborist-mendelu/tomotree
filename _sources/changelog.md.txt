@@ -1,0 +1,49 @@
+# Changelog
+* 2026, January, tomotree library & streamlit
+    * Automated wall thickness measurement
+    * Support for data sharing
+    * User registration allowed
+    * Simple admin console added
+    * Fixed the pith position estimate (centroid of the cross section area)
+    * Allow to set the number of iteration for final back optimalization
+* 2025, November 28, tomotree library & streamlit
+    * Code profiling and speedup
+    * Spliting code into submodules
+    * Fix the method how to define tangential rays of some nodes are ignored
+    * Allow area measurement
+    * Compute section modulus
+    * Allow to set the drilling path for resistograph via measurement tool
+    * Choose between velocity, velocity square and Edyn in tomogram plot
+* 2025, November 16, tomotree library & streamlit
+    * Allow to switch between slider and input field in web GUI
+    * Allow to define the pith position in tomotree library (no support in GUI yet)
+    * Allow customizable alignment of the tomogram with respect to axes
+* 2025, November 9, tomotree library & streamlit
+    * Support for discrete colorbar in tomograms
+    * Support for session state save/load
+    * Support for measuring distances & coordinates
+    * Fixed buttons appearance in GUI (buttons in directory and file managers)
+    * Refactoring menu to buttons based navigation
+    * Allow assign keywords to directories in directory manager
+* 2025, October 30, tomotree library & streamlit
+    * Allow to set maximal number of segments in ERSM method
+    * Allow to switch clockwise/anticlockwose node numbering in streamlit, of node distances are used to define the nodes position 
+* 2025, October 24, tomotree, both library & streamlit app update
+    * Allow to set the exponent for the weight 1/r used in the EBSI method, also support this feature in streamlit app
+    * UX in filemanager improved
+    * If node definition files are missing, but the speeds are given, assume regularly 
+    spaced sensors on unit circle.
+* 2025, October 20, streamlit app update
+    * Filemanager for user data, allow to upload, preview, edit and delete files.
+    * Smoother and more uniform UI
+    * Internal changes for better maintainability
+* 2025, October 19, streamlit app update
+    * Allow to save uploaded data
+    * Allow to edit csv files and yaml configuration
+    * Allow to select velocities for plots as numerical values or as percent of reference value.
+    * UI simplified
+    * Data can be uploaded as single zip file or as multiple files
+* 2025, October 12, streamlit app update
+    * Allow to select the rays for speed estimate in the sound wood.
+    * Allow to select the background for the tomogram.
+    * It is possible to set the background position and access rights in configuration file.

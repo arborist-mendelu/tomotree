@@ -1,0 +1,43 @@
+## Input data units
+
+The TomoTree application internally works exclusively in **SI units** (metres for distance, seconds for time, m/s for speed). Before any reconstruction is performed, the uploaded data must be converted to these units.
+
+### Selecting units in the sidebar
+
+After a dataset directory is selected, an **Input data units** selector appears in the sidebar. Choose the combination that matches your input files:
+
+| Option | Distance factor | Time factor | Typical source |
+|---|---|---|---|
+| **cm + µs** *(default)* | × 0.01 | × 1 × 10⁻⁶ | Picus / ArborSonic CSV, F3D files |
+| **m + µs** | × 1 | × 1 × 10⁻⁶ | Already-metric distance, µs times |
+| **m + s** | × 1 | × 1 | Full SI, no conversion needed |
+| **mm + µs** | × 0.001 | × 1 × 10⁻⁶ | Some proprietary formats |
+| **Custom** | user-defined | user-defined | Any other combination |
+| **From config.yaml** | from file | from file | Overridden per-dataset (see below) |
+
+Changing the selection clears the cached data and forces a reload, so the new factors are applied immediately.
+
+#### Custom units
+
+When **Custom** is selected, two dropdown menus appear:
+
+* **Distance** — `mm`, `cm`, or `m`
+* **Time** — `µs`, `ms`, or `s`
+
+The corresponding SI conversion factors are derived automatically.
+
+### Per-dataset override via config.yaml
+
+If a dataset directory contains a `config.yaml` file with a `conversion factors` section, those values override the sidebar selection when the option **From config.yaml** is active. Example:
+
+```yaml
+conversion factors:
+  length: 0.01    # centimetres → metres
+  time: 1.0e-6    # microseconds → seconds
+```
+
+Any numeric multiplier is accepted. The converted value equals `raw_value × factor`.
+
+### F3D files
+
+Data extracted from binary `.f3d` files (Picus Sonic Tomograph format) use the same conversion factors as CSV files. The F3D format stores distances in centimetres and travel times in microseconds, so the default **cm + µs** preset is the correct choice for these files.

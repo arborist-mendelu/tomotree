@@ -1,0 +1,6 @@
+## Resistograph
+
+It is assumed that the drilling takes place between each pair of tomograf sensors. If not, use column of undefined data.
+
+* You can visualise the resistograph curves in one single picture. The picture is interactive, see [this link](https://plotly.com/chart-studio-help/zoom-pan-hover-controls/) to learn the controls.
+* You can merge the results of the resistograph an tomograf. The last tomogram is used. The resistograph data are smoothed and visualised as column bars where the color is related to the drilling resistance. For better interpretation, a red/black scale with element length 5cm is shown at each bar.

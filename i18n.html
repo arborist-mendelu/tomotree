@@ -1,0 +1,913 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Internationalization (i18n) &amp; Localization (l10n) Guide &mdash; tomotree  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tomotree" href="tomotree.html" />
+    <link rel="prev" title="Configuration file config.yaml" href="config_file.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index_doc.html" class="icon icon-home">
+            tomotree
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="doc.html">TomoTree package description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="doc.html#pip-installation">Pip installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc.html#docker">Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="doc.html#python">Python</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#quick-start">Quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#short-demos">Short demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#rays-method">Rays method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#equidistant-ray-segmentation-method-ersm">Equidistant ray segmentation method (ERSM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#tests-of-internal-procedures">Tests of internal procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#tomowood">TomoWood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#various-tests">Various tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc.html#online-application">Online application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config_file.html">Configuration file <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#location">Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#input-data">Input data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#node-positions">Node positions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#measurements">Measurements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#units">Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#access-control">Access control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#grid-resolution">Grid resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#velocity-colour-scale">Velocity colour scale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#scale-type">Scale type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#bounds-numerical-m-s">Bounds — numerical (m/s)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#bounds-percentage-of-reference-value">Bounds — percentage of reference value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#bounds-percentile">Bounds — percentile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#tomogram-appearance">Tomogram appearance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#reconstruction-parameters">Reconstruction parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#subset-of-nodes">Subset of nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#sound-wood-speed">Sound-wood speed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#background-photo">Background photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#resistograph-settings">Resistograph settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#navigation-landing-page">Navigation / landing page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#minimal-example">Minimal example</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Internationalization (i18n) &amp; Localization (l10n) Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture-overview">1. Architecture overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#directory-layout">2. Directory layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-it-works-at-runtime">3. How it works at runtime</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#translation-look-up">Translation look-up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plural-forms">Plural forms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#marking-strings-for-translation-in-python-code">4. Marking strings for translation in Python code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-the-function">Import the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variable-interpolation-use-format-not-f-strings">Variable interpolation — use <code class="docutils literal notranslate"><span class="pre">.format()</span></code>, not f-strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multiline-strings">Multiline strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loop-variable-clash">Loop variable clash</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#extracting-new-strings-to-the-template-pot">5. Extracting new strings to the template (.pot)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual-extraction-current-workflow">Manual extraction (current workflow)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#automated-extraction-optional-requires-xgettext">Automated extraction (optional, requires xgettext)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-existing-language-files-po">6. Updating existing language files (.po)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#po-file-structure">.po file structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-new-string-to-an-existing-language">Adding a new string to an existing language</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-a-brand-new-language">7. Adding a brand-new language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-create-the-directory-po-file">Step 1 — Create the directory &amp; PO file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-register-the-language-in-init-py">Step 2 — Register the language in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-register-the-language-in-po-to-json-py">Step 3 — Register the language in <code class="docutils literal notranslate"><span class="pre">po_to_json.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-generate-the-json-file">Step 4 — Generate the JSON file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-5-verify">Step 5 — Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#compiling-translations-po-json">8. Compiling translations (.po → .json)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#currently-supported-languages">9. Currently supported languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-pitfalls">10. Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tomotree.html">Tomotree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree-module">Tomotree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocity_no_boundary"><code class="docutils literal notranslate"><span class="pre">Cell.velocity_no_boundary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.dx"><code class="docutils literal notranslate"><span class="pre">Cell.dx</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.dy"><code class="docutils literal notranslate"><span class="pre">Cell.dy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.boundary_points"><code class="docutils literal notranslate"><span class="pre">Cell.boundary_points</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.segments"><code class="docutils literal notranslate"><span class="pre">Cell.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.id"><code class="docutils literal notranslate"><span class="pre">Cell.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.status"><code class="docutils literal notranslate"><span class="pre">Cell.status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.x"><code class="docutils literal notranslate"><span class="pre">Grid.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.y"><code class="docutils literal notranslate"><span class="pre">Grid.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.cells"><code class="docutils literal notranslate"><span class="pre">Grid.cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.all_cells"><code class="docutils literal notranslate"><span class="pre">Grid.all_cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.min_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.max_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.get_cell"><code class="docutils literal notranslate"><span class="pre">Grid.get_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id0"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id1"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.plot"><code class="docutils literal notranslate"><span class="pre">Grid.plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.set_cell_status_from_threshold"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_status_from_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.set_cell_velocity_from_ray_means"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_velocity_from_ray_means()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.coordinates"><code class="docutils literal notranslate"><span class="pre">Node.coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.raw_coordinates"><code class="docutils literal notranslate"><span class="pre">Node.raw_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.rays_from"><code class="docutils literal notranslate"><span class="pre">Node.rays_from</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.rays_to"><code class="docutils literal notranslate"><span class="pre">Node.rays_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.number"><code class="docutils literal notranslate"><span class="pre">Node.number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.get_ray_to"><code class="docutils literal notranslate"><span class="pre">Node.get_ray_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.active"><code class="docutils literal notranslate"><span class="pre">Node.active</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Ray"><code class="docutils literal notranslate"><span class="pre">Ray</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.start"><code class="docutils literal notranslate"><span class="pre">Ray.start</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.end"><code class="docutils literal notranslate"><span class="pre">Ray.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.speed"><code class="docutils literal notranslate"><span class="pre">Ray.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.time"><code class="docutils literal notranslate"><span class="pre">Ray.time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.segments"><code class="docutils literal notranslate"><span class="pre">Ray.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.signed_angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.signed_angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.ori_time"><code class="docutils literal notranslate"><span class="pre">Ray.ori_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.ori_speed"><code class="docutils literal notranslate"><span class="pre">Ray.ori_speed</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Tomo"><code class="docutils literal notranslate"><span class="pre">Tomo</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.nodes"><code class="docutils literal notranslate"><span class="pre">Tomo.nodes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.rays"><code class="docutils literal notranslate"><span class="pre">Tomo.rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.tangential_rays"><code class="docutils literal notranslate"><span class="pre">Tomo.tangential_rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.speeds"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.times"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.get_node_by_number"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.n"><code class="docutils literal notranslate"><span class="pre">Tomo.n</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.grid"><code class="docutils literal notranslate"><span class="pre">Tomo.grid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.polygon"><code class="docutils literal notranslate"><span class="pre">Tomo.polygon</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id2"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.info"><code class="docutils literal notranslate"><span class="pre">Tomo.info</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.pith"><code class="docutils literal notranslate"><span class="pre">Tomo.pith</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.data_source"><code class="docutils literal notranslate"><span class="pre">Tomo.data_source</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.boundary"><code class="docutils literal notranslate"><span class="pre">Tomo.boundary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.allsegments"><code class="docutils literal notranslate"><span class="pre">Tomo.allsegments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.get_ray"><code class="docutils literal notranslate"><span class="pre">Tomo.get_ray()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.ori_speeds"><code class="docutils literal notranslate"><span class="pre">Tomo.ori_speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.ori_times"><code class="docutils literal notranslate"><span class="pre">Tomo.ori_times</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id3"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id4"><code class="docutils literal notranslate"><span class="pre">Tomo.tangential_rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id5"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.get_boundary_points"><code class="docutils literal notranslate"><span class="pre">get_boundary_points()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.is_point_inside_ellipse"><code class="docutils literal notranslate"><span class="pre">is_point_inside_ellipse()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.perp"><code class="docutils literal notranslate"><span class="pre">perp()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.speed2color"><code class="docutils literal notranslate"><span class="pre">speed2color()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.coordinates"><code class="docutils literal notranslate"><span class="pre">Node.coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.raw_coordinates"><code class="docutils literal notranslate"><span class="pre">Node.raw_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.rays_from"><code class="docutils literal notranslate"><span class="pre">Node.rays_from</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.rays_to"><code class="docutils literal notranslate"><span class="pre">Node.rays_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.number"><code class="docutils literal notranslate"><span class="pre">Node.number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.get_ray_to"><code class="docutils literal notranslate"><span class="pre">Node.get_ray_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.active"><code class="docutils literal notranslate"><span class="pre">Node.active</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray"><code class="docutils literal notranslate"><span class="pre">Ray</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.start"><code class="docutils literal notranslate"><span class="pre">Ray.start</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.end"><code class="docutils literal notranslate"><span class="pre">Ray.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.speed"><code class="docutils literal notranslate"><span class="pre">Ray.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.time"><code class="docutils literal notranslate"><span class="pre">Ray.time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.segments"><code class="docutils literal notranslate"><span class="pre">Ray.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.signed_angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.signed_angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.ori_time"><code class="docutils literal notranslate"><span class="pre">Ray.ori_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.ori_speed"><code class="docutils literal notranslate"><span class="pre">Ray.ori_speed</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment"><code class="docutils literal notranslate"><span class="pre">Segment</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.ray"><code class="docutils literal notranslate"><span class="pre">Segment.ray</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.speed"><code class="docutils literal notranslate"><span class="pre">Segment.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.start"><code class="docutils literal notranslate"><span class="pre">Segment.start</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.end"><code class="docutils literal notranslate"><span class="pre">Segment.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.start_coordinates"><code class="docutils literal notranslate"><span class="pre">Segment.start_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.end_coordinates"><code class="docutils literal notranslate"><span class="pre">Segment.end_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.length"><code class="docutils literal notranslate"><span class="pre">Segment.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id7"><code class="docutils literal notranslate"><span class="pre">Segment.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.split"><code class="docutils literal notranslate"><span class="pre">Segment.split()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocity_no_boundary"><code class="docutils literal notranslate"><span class="pre">Cell.velocity_no_boundary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.dx"><code class="docutils literal notranslate"><span class="pre">Cell.dx</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.dy"><code class="docutils literal notranslate"><span class="pre">Cell.dy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.boundary_points"><code class="docutils literal notranslate"><span class="pre">Cell.boundary_points</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.segments"><code class="docutils literal notranslate"><span class="pre">Cell.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.id"><code class="docutils literal notranslate"><span class="pre">Cell.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.status"><code class="docutils literal notranslate"><span class="pre">Cell.status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.x"><code class="docutils literal notranslate"><span class="pre">Grid.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.y"><code class="docutils literal notranslate"><span class="pre">Grid.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.cells"><code class="docutils literal notranslate"><span class="pre">Grid.cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.all_cells"><code class="docutils literal notranslate"><span class="pre">Grid.all_cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.min_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.max_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.get_cell"><code class="docutils literal notranslate"><span class="pre">Grid.get_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id8"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id9"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.plot"><code class="docutils literal notranslate"><span class="pre">Grid.plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.set_cell_status_from_threshold"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_status_from_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.set_cell_velocity_from_ray_means"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_velocity_from_ray_means()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resistograph.html">Resistograph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.DrillingPath"><code class="docutils literal notranslate"><span class="pre">DrillingPath</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.DrillingPath.angle"><code class="docutils literal notranslate"><span class="pre">DrillingPath.angle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.data"><code class="docutils literal notranslate"><span class="pre">Resistograph.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.preprocess_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.preprocess_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.read_resistograph_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.read_resistograph_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.remove_global_linear_trend"><code class="docutils literal notranslate"><span class="pre">Resistograph.remove_global_linear_trend()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analyze_f3d.html">Analyze f3d files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.df_nodes"><code class="docutils literal notranslate"><span class="pre">df_nodes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.distance_matrix"><code class="docutils literal notranslate"><span class="pre">distance_matrix()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.extract_distance_data"><code class="docutils literal notranslate"><span class="pre">extract_distance_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.extract_time_data"><code class="docutils literal notranslate"><span class="pre">extract_time_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.get_xml_root"><code class="docutils literal notranslate"><span class="pre">get_xml_root()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.time_matrix"><code class="docutils literal notranslate"><span class="pre">time_matrix()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index_doc.html">tomotree</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index_doc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Internationalization (i18n) &amp; Localization (l10n) Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/i18n.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="internationalization-i18n-localization-l10n-guide">
+<h1>Internationalization (i18n) &amp; Localization (l10n) Guide<a class="headerlink" href="#internationalization-i18n-localization-l10n-guide" title="Link to this heading"></a></h1>
+<p>This document explains how the TomoTree multilingual system works, how to mark
+new UI strings for translation, how to extract them to the template, and how to
+add a completely new language.</p>
+<hr class="docutils" />
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#internationalization-i18n--localization-l10n-guide"><span class="xref myst">Internationalization (i18n) &amp; Localization (l10n) Guide</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#table-of-contents"><span class="xref myst">Table of Contents</span></a></p></li>
+<li><p><a class="reference internal" href="#1-architecture-overview"><span class="xref myst">1. Architecture overview</span></a></p></li>
+<li><p><a class="reference internal" href="#2-directory-layout"><span class="xref myst">2. Directory layout</span></a></p></li>
+<li><p><a class="reference internal" href="#3-how-it-works-at-runtime"><span class="xref myst">3. How it works at runtime</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#initialization"><span class="xref myst">Initialization</span></a></p></li>
+<li><p><a class="reference internal" href="#translation-look-up"><span class="xref myst">Translation look-up</span></a></p></li>
+<li><p><a class="reference internal" href="#plural-forms"><span class="xref myst">Plural forms</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#4-marking-strings-for-translation-in-python-code"><span class="xref myst">4. Marking strings for translation in Python code</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#import-the-function"><span class="xref myst">Import the function</span></a></p></li>
+<li><p><a class="reference internal" href="#basic-usage"><span class="xref myst">Basic usage</span></a></p></li>
+<li><p><a class="reference internal" href="#variable-interpolation--use-format-not-f-strings"><span class="xref myst">Variable interpolation — use <code class="docutils literal notranslate"><span class="pre">.format()</span></code>, not f-strings</span></a></p></li>
+<li><p><a class="reference internal" href="#multiline-strings"><span class="xref myst">Multiline strings</span></a></p></li>
+<li><p><a class="reference internal" href="#loop-variable-clash"><span class="xref myst">Loop variable clash</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#5-extracting-new-strings-to-the-template-pot"><span class="xref myst">5. Extracting new strings to the template (.pot)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#manual-extraction-current-workflow"><span class="xref myst">Manual extraction (current workflow)</span></a></p></li>
+<li><p><a class="reference internal" href="#automated-extraction-optional-requires-xgettext"><span class="xref myst">Automated extraction (optional, requires xgettext)</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#6-updating-existing-language-files-po"><span class="xref myst">6. Updating existing language files (.po)</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#po-file-structure"><span class="xref myst">.po file structure</span></a></p></li>
+<li><p><a class="reference internal" href="#adding-a-new-string-to-an-existing-language"><span class="xref myst">Adding a new string to an existing language</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#7-adding-a-brand-new-language"><span class="xref myst">7. Adding a brand-new language</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#step-1--create-the-directory--po-file"><span class="xref myst">Step 1 — Create the directory &amp; PO file</span></a></p></li>
+<li><p><a class="reference internal" href="#step-2--register-the-language-in-__init__py"><span class="xref myst">Step 2 — Register the language in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></span></a></p></li>
+<li><p><a class="reference internal" href="#step-3--register-the-language-in-po_to_jsonpy"><span class="xref myst">Step 3 — Register the language in <code class="docutils literal notranslate"><span class="pre">po_to_json.py</span></code></span></a></p></li>
+<li><p><a class="reference internal" href="#step-4--generate-the-json-file"><span class="xref myst">Step 4 — Generate the JSON file</span></a></p></li>
+<li><p><a class="reference internal" href="#step-5--verify"><span class="xref myst">Step 5 — Verify</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#8-compiling-translations-po--json"><span class="xref myst">8. Compiling translations (.po → .json)</span></a></p></li>
+<li><p><a class="reference internal" href="#9-currently-supported-languages"><span class="xref myst">9. Currently supported languages</span></a></p></li>
+<li><p><a class="reference internal" href="#10-common-pitfalls"><span class="xref myst">10. Common pitfalls</span></a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="architecture-overview">
+<h2>1. Architecture overview<a class="headerlink" href="#architecture-overview" title="Link to this heading"></a></h2>
+<p>TomoTree uses a <strong>custom JSON-based i18n system</strong> instead of the standard
+Python <code class="docutils literal notranslate"><span class="pre">gettext</span></code> binary (<code class="docutils literal notranslate"><span class="pre">.mo</span></code>) approach. The reasons are:</p>
+<ul class="simple">
+<li><p>No need to call system tools (<code class="docutils literal notranslate"><span class="pre">msgfmt</span></code>, <code class="docutils literal notranslate"><span class="pre">xgettext</span></code>) as a build step.</p></li>
+<li><p>JSON files are human-readable and easy to diff in version control.</p></li>
+<li><p>Works identically on every platform without gettext installed.</p></li>
+</ul>
+<p>The translation pipeline looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Python source files            Translation template       Language-specific files
+  st.button(_(&quot;Save&quot;))   --&gt;   locale/messages.pot   --&gt;  locale/cs/LC_MESSAGES/messages.po
+                                                          locale/de/LC_MESSAGES/messages.po
+                                                          locale/es/LC_MESSAGES/messages.po
+                                                          ...
+                                    po_to_json.py
+                                         ↓
+                               locale/cs/messages.json   ← loaded at runtime
+                               locale/de/messages.json
+                               ...
+</pre></div>
+</div>
+<p>The core module is <code class="docutils literal notranslate"><span class="pre">src/tomotree/i18n/__init__.py</span></code>.  A single global dict
+<code class="docutils literal notranslate"><span class="pre">_current_translations</span></code> maps English source strings → translated strings.  The
+function <code class="docutils literal notranslate"><span class="pre">_(message)</span></code> does a dict look-up and returns the original string
+unchanged when no translation exists (safe fallback to English).</p>
+</section>
+<hr class="docutils" />
+<section id="directory-layout">
+<h2>2. Directory layout<a class="headerlink" href="#directory-layout" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>src/tomotree/i18n/
+├── __init__.py            # Core module: _(), init_i18n(), set_language()
+├── po_to_json.py          # Compiler: converts .po files → .json
+├── build_translations.py  # Legacy compiler (generates .mo, not used at runtime)
+└── locale/
+    ├── messages.pot       # Master template — all source strings, no translations
+    ├── cs/
+    │   ├── LC_MESSAGES/
+    │   │   └── messages.po   # Czech translations (edit this file)
+    │   └── messages.json     # Generated — do NOT edit by hand
+    ├── de/
+    │   ├── LC_MESSAGES/messages.po
+    │   └── messages.json
+    ├── es/
+    │   ├── LC_MESSAGES/messages.po
+    │   └── messages.json
+    ├── fr/
+    │   ├── LC_MESSAGES/messages.po
+    │   └── messages.json
+    ├── it/
+    │   ├── LC_MESSAGES/messages.po
+    │   └── messages.json
+    └── uk/
+        ├── LC_MESSAGES/messages.po
+        └── messages.json
+</pre></div>
+</div>
+<p><strong>Rule:</strong> Only ever edit the <code class="docutils literal notranslate"><span class="pre">.po</span></code> files by hand.  The <code class="docutils literal notranslate"><span class="pre">.json</span></code> files are
+<strong>generated</strong> and must never be edited directly.</p>
+</section>
+<hr class="docutils" />
+<section id="how-it-works-at-runtime">
+<h2>3. How it works at runtime<a class="headerlink" href="#how-it-works-at-runtime" title="Link to this heading"></a></h2>
+<section id="initialization">
+<h3>Initialization<a class="headerlink" href="#initialization" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">app.py</span></code> calls <code class="docutils literal notranslate"><span class="pre">init_i18n()</span></code> once at startup:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tomotree.i18n</span><span class="w"> </span><span class="kn">import</span> <span class="n">init_i18n</span><span class="p">,</span> <span class="n">_</span>
+
+<span class="n">init_i18n</span><span class="p">()</span>          <span class="c1"># reads st.session_state.language, loads JSON, renders flag buttons</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">init_i18n()</span></code> injects flag buttons into the Streamlit sidebar.  When a user
+clicks a flag, <code class="docutils literal notranslate"><span class="pre">set_language(code)</span></code> loads the corresponding <code class="docutils literal notranslate"><span class="pre">messages.json</span></code>
+into <code class="docutils literal notranslate"><span class="pre">_current_translations</span></code> and triggers <code class="docutils literal notranslate"><span class="pre">st.rerun()</span></code>.</p>
+</section>
+<section id="translation-look-up">
+<h3>Translation look-up<a class="headerlink" href="#translation-look-up" title="Link to this heading"></a></h3>
+<p>Every call to <code class="docutils literal notranslate"><span class="pre">_(&quot;Some</span> <span class="pre">string&quot;)</span></code> does:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">_current_translations</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the string is missing from the translation file (or English is selected),
+the original English string is returned unmodified — no exception is raised.</p>
+</section>
+<section id="plural-forms">
+<h3>Plural forms<a class="headerlink" href="#plural-forms" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tomotree.i18n</span><span class="w"> </span><span class="kn">import</span> <span class="n">ngettext</span>
+
+<span class="n">label</span> <span class="o">=</span> <span class="n">ngettext</span><span class="p">(</span><span class="s2">&quot;1 node selected&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{n}</span><span class="s2"> nodes selected&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">ngettext</span></code> chooses the singular or plural key and then delegates to <code class="docutils literal notranslate"><span class="pre">_()</span></code>.
+Complex plural rules (Czech, Ukrainian, etc.) are declared in the <code class="docutils literal notranslate"><span class="pre">.po</span></code> file
+header (<code class="docutils literal notranslate"><span class="pre">Plural-Forms:</span></code>) and are informational only — the runtime uses a
+simple <code class="docutils literal notranslate"><span class="pre">count</span> <span class="pre">==</span> <span class="pre">1</span></code> rule; full plural inflection must be handled in the
+<code class="docutils literal notranslate"><span class="pre">msgstr</span></code> value itself.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="marking-strings-for-translation-in-python-code">
+<h2>4. Marking strings for translation in Python code<a class="headerlink" href="#marking-strings-for-translation-in-python-code" title="Link to this heading"></a></h2>
+<section id="import-the-function">
+<h3>Import the function<a class="headerlink" href="#import-the-function" title="Link to this heading"></a></h3>
+<p>Every Streamlit module that shows user-visible text must import <code class="docutils literal notranslate"><span class="pre">_</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tomotree.i18n</span><span class="w"> </span><span class="kn">import</span> <span class="n">_</span>
+</pre></div>
+</div>
+</section>
+<section id="basic-usage">
+<h3>Basic usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h3>
+<p>Wrap any user-visible string literal with <code class="docutils literal notranslate"><span class="pre">_(...)</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Before</span>
+<span class="n">st</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="s2">&quot;Save&quot;</span><span class="p">)</span>
+
+<span class="c1"># After</span>
+<span class="n">st</span><span class="o">.</span><span class="n">button</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;Save&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The string passed to <code class="docutils literal notranslate"><span class="pre">_()</span></code> <strong>must be a plain string literal</strong> — it serves as
+both the look-up key and the English fallback.</p>
+</section>
+<section id="variable-interpolation-use-format-not-f-strings">
+<h3>Variable interpolation — use <code class="docutils literal notranslate"><span class="pre">.format()</span></code>, not f-strings<a class="headerlink" href="#variable-interpolation-use-format-not-f-strings" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">_()</span></code> receives a key at import time, so f-strings evaluated before look-up
+would produce a key that is unique per call and can never match a translation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># WRONG — the f-string is evaluated first, key never matches</span>
+<span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">))</span>
+
+<span class="c1"># CORRECT — translate the template, then format</span>
+<span class="n">st</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s2">&quot;File </span><span class="si">{filename}</span><span class="s2"> not found&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="multiline-strings">
+<h3>Multiline strings<a class="headerlink" href="#multiline-strings" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">st</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">_</span><span class="p">(</span>
+    <span class="s2">&quot;This tool allows you to select areas in the tomogram for</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="s2">&quot;focused analysis.</span><span class="se">\n</span><span class="s2">&quot;</span>
+    <span class="s2">&quot;Use at most 12 intervals.&quot;</span>
+<span class="p">))</span>
+</pre></div>
+</div>
+<p>The key in the <code class="docutils literal notranslate"><span class="pre">.po</span></code> file is the concatenated string exactly as Python sees it.</p>
+</section>
+<section id="loop-variable-clash">
+<h3>Loop variable clash<a class="headerlink" href="#loop-variable-clash" title="Link to this heading"></a></h3>
+<p>If a loop uses <code class="docutils literal notranslate"><span class="pre">_</span></code> as the loop variable in a file that already imports <code class="docutils literal notranslate"><span class="pre">_</span></code> as
+the translation function, rename the loop variable:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># WRONG — shadows the translation function</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="o">...</span>
+
+<span class="c1"># CORRECT</span>
+<span class="k">for</span> <span class="n">_item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="extracting-new-strings-to-the-template-pot">
+<h2>5. Extracting new strings to the template (.pot)<a class="headerlink" href="#extracting-new-strings-to-the-template-pot" title="Link to this heading"></a></h2>
+<p>The file <code class="docutils literal notranslate"><span class="pre">locale/messages.pot</span></code> is the <strong>master template</strong>.  It contains all
+<code class="docutils literal notranslate"><span class="pre">msgid</span></code> entries used in the source code, with empty <code class="docutils literal notranslate"><span class="pre">msgstr</span> <span class="pre">&quot;&quot;</span></code> values.</p>
+<section id="manual-extraction-current-workflow">
+<h3>Manual extraction (current workflow)<a class="headerlink" href="#manual-extraction-current-workflow" title="Link to this heading"></a></h3>
+<p>There is no automated <code class="docutils literal notranslate"><span class="pre">xgettext</span></code> step configured.  When you add new <code class="docutils literal notranslate"><span class="pre">_(&quot;...&quot;)</span></code>
+calls to the source, manually add the corresponding <code class="docutils literal notranslate"><span class="pre">msgid</span></code> entries to
+<code class="docutils literal notranslate"><span class="pre">messages.pot</span></code> and to each language’s <code class="docutils literal notranslate"><span class="pre">messages.po</span></code>:</p>
+<ol class="arabic">
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">locale/messages.pot</span></code>.</p></li>
+<li><p>Append at the end:</p>
+<div class="highlight-po notranslate"><div class="highlight"><pre><span></span><span class="nv">msgid</span> <span class="s">&quot;Your new string&quot;</span>
+<span class="nv">msgstr</span> <span class="s">&quot;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Repeat for each <code class="docutils literal notranslate"><span class="pre">locale/&lt;lang&gt;/LC_MESSAGES/messages.po</span></code>, but fill in the
+translated <code class="docutils literal notranslate"><span class="pre">msgstr</span></code>.</p></li>
+</ol>
+</section>
+<section id="automated-extraction-optional-requires-xgettext">
+<h3>Automated extraction (optional, requires xgettext)<a class="headerlink" href="#automated-extraction-optional-requires-xgettext" title="Link to this heading"></a></h3>
+<p>If <code class="docutils literal notranslate"><span class="pre">gettext</span></code> tools are installed you can automate extraction:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Collect all source files</span>
+find<span class="w"> </span>src/<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.py&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/py_files.txt
+
+<span class="c1"># Extract strings into the template</span>
+xgettext<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--files-from<span class="o">=</span>/tmp/py_files.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--language<span class="o">=</span>Python<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--keyword<span class="o">=</span>_<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--keyword<span class="o">=</span>N_<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output<span class="o">=</span>src/tomotree/i18n/locale/messages.pot<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--from-code<span class="o">=</span>UTF-8
+
+<span class="c1"># Merge new strings into an existing language file without overwriting existing</span>
+<span class="c1"># translations</span>
+msgmerge<span class="w"> </span>--update<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>src/tomotree/i18n/locale/de/LC_MESSAGES/messages.po<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>src/tomotree/i18n/locale/messages.pot
+</pre></div>
+</div>
+<blockquote>
+<div><p>Note: <code class="docutils literal notranslate"><span class="pre">xgettext</span></code> is not a project dependency and is not required for normal
+operation.  It is only helpful when doing a large-scale string extraction
+across many files at once.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="updating-existing-language-files-po">
+<h2>6. Updating existing language files (.po)<a class="headerlink" href="#updating-existing-language-files-po" title="Link to this heading"></a></h2>
+<section id="po-file-structure">
+<h3>.po file structure<a class="headerlink" href="#po-file-structure" title="Link to this heading"></a></h3>
+<div class="highlight-po notranslate"><div class="highlight"><pre><span></span><span class="c1"># Language name translation for TomoTree</span>
+<span class="c1"># …</span>
+<span class="nv">msgid</span> <span class="s">&quot;&quot;</span>
+<span class="nv">msgstr</span> <span class="s">&quot;&quot;</span>
+<span class="s">&quot;</span><span class="py">Content-Type:</span><span class="s"> text/plain; charset=UTF-8\n&quot;</span>
+<span class="s">&quot;</span><span class="py">Language:</span><span class="s"> de\n&quot;</span>
+<span class="s">&quot;</span><span class="py">Language-Team:</span><span class="s"> German\n&quot;</span>
+<span class="s">&quot;</span><span class="py">Plural-Forms:</span><span class="s"> nplurals=2; plural=(n != 1);\n&quot;</span>
+
+<span class="nv">msgid</span> <span class="s">&quot;Save&quot;</span>
+<span class="nv">msgstr</span> <span class="s">&quot;Speichern&quot;</span>
+
+<span class="nv">msgid</span> <span class="s">&quot;File uploaded successfully: {filename}&quot;</span>
+<span class="nv">msgstr</span> <span class="s">&quot;Datei erfolgreich hochgeladen: {filename}&quot;</span>
+</pre></div>
+</div>
+<p>Rules:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">msgid</span></code> must exactly match the string passed to <code class="docutils literal notranslate"><span class="pre">_()</span></code> in the Python source,
+including whitespace, newlines (<code class="docutils literal notranslate"><span class="pre">\n</span></code>), and emoji.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msgstr</span></code> is the translated string.  An empty <code class="docutils literal notranslate"><span class="pre">msgstr</span> <span class="pre">&quot;&quot;</span></code> means the English
+fallback will be used at runtime.</p></li>
+<li><p>Lines starting with <code class="docutils literal notranslate"><span class="pre">#</span></code> are comments and are ignored by the compiler.</p></li>
+<li><p>Section comments like <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">---</span> <span class="pre">admin.py</span> <span class="pre">---</span></code> are conventional grouping
+markers; they have no functional effect.</p></li>
+</ul>
+</section>
+<section id="adding-a-new-string-to-an-existing-language">
+<h3>Adding a new string to an existing language<a class="headerlink" href="#adding-a-new-string-to-an-existing-language" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Find (or create) the appropriate section in
+<code class="docutils literal notranslate"><span class="pre">locale/&lt;lang&gt;/LC_MESSAGES/messages.po</span></code>.</p></li>
+<li><p>Add:</p>
+<div class="highlight-po notranslate"><div class="highlight"><pre><span></span><span class="nv">msgid</span> <span class="s">&quot;Exact English source string&quot;</span>
+<span class="nv">msgstr</span> <span class="s">&quot;Translation in target language&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run the compiler (see §8).</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="adding-a-brand-new-language">
+<h2>7. Adding a brand-new language<a class="headerlink" href="#adding-a-brand-new-language" title="Link to this heading"></a></h2>
+<p>Follow these steps to add, for example, <strong>Polish</strong> (<code class="docutils literal notranslate"><span class="pre">pl</span></code>).</p>
+<section id="step-1-create-the-directory-po-file">
+<h3>Step 1 — Create the directory &amp; PO file<a class="headerlink" href="#step-1-create-the-directory-po-file" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>src/tomotree/i18n/locale/pl/LC_MESSAGES
+</pre></div>
+</div>
+<p>Copy the template and fill in translations:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>src/tomotree/i18n/locale/messages.pot<span class="w"> </span><span class="se">\</span>
+<span class="w">   </span>src/tomotree/i18n/locale/pl/LC_MESSAGES/messages.po
+</pre></div>
+</div>
+<p>Edit the file header:</p>
+<div class="highlight-po notranslate"><div class="highlight"><pre><span></span><span class="c1"># Polish translation for TomoTree</span>
+<span class="nv">msgid</span> <span class="s">&quot;&quot;</span>
+<span class="nv">msgstr</span> <span class="s">&quot;&quot;</span>
+<span class="s">&quot;</span><span class="py">Content-Type:</span><span class="s"> text/plain; charset=UTF-8\n&quot;</span>
+<span class="s">&quot;</span><span class="py">Language:</span><span class="s"> pl\n&quot;</span>
+<span class="s">&quot;</span><span class="py">Language-Team:</span><span class="s"> Polish\n&quot;</span>
+<span class="s">&quot;</span><span class="py">Plural-Forms:</span><span class="s"> nplurals=3; plural=(n==1 ? 0 : n%10&gt;=2 &amp;&amp; n%10&lt;=4 &amp;&amp; (n%100&lt;10 || n%100&gt;=20) ? 1 : 2);\n&quot;</span>
+</pre></div>
+</div>
+<p>Then translate all <code class="docutils literal notranslate"><span class="pre">msgstr</span> <span class="pre">&quot;&quot;</span></code> entries.</p>
+<blockquote>
+<div><p><strong>Plural-Forms reference</strong> for common languages:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Language</p></th>
+<th class="head"><p>Plural-Forms</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>English, German, Spanish, French</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">nplurals=2;</span> <span class="pre">plural=(n</span> <span class="pre">!=</span> <span class="pre">1);</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Czech, Slovak</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">nplurals=3;</span> <span class="pre">plural=(n==1)</span> <span class="pre">?</span> <span class="pre">0</span> <span class="pre">:</span> <span class="pre">(n&gt;=2</span> <span class="pre">&amp;&amp;</span> <span class="pre">n&lt;=4)</span> <span class="pre">?</span> <span class="pre">1</span> <span class="pre">:</span> <span class="pre">2;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Ukrainian, Russian</p></td>
+<td><p>`nplurals=3; plural=(n%10==1 &amp;&amp; n%100!=11 ? 0 : n%10&gt;=2 &amp;&amp; n%10&lt;=4 &amp;&amp; (n%100&lt;10</p></td>
+</tr>
+<tr class="row-odd"><td><p>Polish</p></td>
+<td><p>`nplurals=3; plural=(n==1 ? 0 : n%10&gt;=2 &amp;&amp; n%10&lt;=4 &amp;&amp; (n%100&lt;10</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</section>
+<section id="step-2-register-the-language-in-init-py">
+<h3>Step 2 — Register the language in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code><a class="headerlink" href="#step-2-register-the-language-in-init-py" title="Link to this heading"></a></h3>
+<p>Edit <code class="docutils literal notranslate"><span class="pre">src/tomotree/i18n/__init__.py</span></code> and add to both dicts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_available_languages</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;English&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cs&quot;</span><span class="p">:</span> <span class="s2">&quot;Česky (Czech)&quot;</span><span class="p">,</span>
+        <span class="c1"># … existing entries …</span>
+        <span class="s2">&quot;pl&quot;</span><span class="p">:</span> <span class="s2">&quot;Polski (Polish)&quot;</span><span class="p">,</span>     <span class="c1"># ← add here</span>
+    <span class="p">}</span>
+
+<span class="n">_LANGUAGE_FLAGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;🇬🇧&quot;</span><span class="p">,</span>
+    <span class="c1"># … existing entries …</span>
+    <span class="s2">&quot;pl&quot;</span><span class="p">:</span> <span class="s2">&quot;🇵🇱&quot;</span><span class="p">,</span>                     <span class="c1"># ← add here</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-register-the-language-in-po-to-json-py">
+<h3>Step 3 — Register the language in <code class="docutils literal notranslate"><span class="pre">po_to_json.py</span></code><a class="headerlink" href="#step-3-register-the-language-in-po-to-json-py" title="Link to this heading"></a></h3>
+<p>Edit <code class="docutils literal notranslate"><span class="pre">src/tomotree/i18n/po_to_json.py</span></code> and add the language code to the list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">languages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cs&quot;</span><span class="p">,</span> <span class="s2">&quot;it&quot;</span><span class="p">,</span> <span class="s2">&quot;es&quot;</span><span class="p">,</span> <span class="s2">&quot;de&quot;</span><span class="p">,</span> <span class="s2">&quot;fr&quot;</span><span class="p">,</span> <span class="s2">&quot;uk&quot;</span><span class="p">,</span> <span class="s2">&quot;pl&quot;</span><span class="p">]</span>   <span class="c1"># ← add &quot;pl&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="step-4-generate-the-json-file">
+<h3>Step 4 — Generate the JSON file<a class="headerlink" href="#step-4-generate-the-json-file" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>src/tomotree/i18n/po_to_json.py
+</pre></div>
+</div>
+<p>Expected output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>✅ pl: messages.po → messages.json (321 strings)
+</pre></div>
+</div>
+</section>
+<section id="step-5-verify">
+<h3>Step 5 — Verify<a class="headerlink" href="#step-5-verify" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">src.tomotree.i18n</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_available_languages</span><span class="p">,</span> <span class="n">_load_json_translations</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">_load_json_translations</span><span class="p">(</span><span class="s1">&#39;pl&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="s1">&#39;strings loaded&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Save =&gt;&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;Save&#39;</span><span class="p">,</span> <span class="s1">&#39;MISSING&#39;</span><span class="p">))</span>
+<span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="compiling-translations-po-json">
+<h2>8. Compiling translations (.po → .json)<a class="headerlink" href="#compiling-translations-po-json" title="Link to this heading"></a></h2>
+<p>After editing any <code class="docutils literal notranslate"><span class="pre">.po</span></code> file you <strong>must</strong> regenerate the corresponding
+<code class="docutils literal notranslate"><span class="pre">.json</span></code> file.  Run from the repository root:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>src/tomotree/i18n/po_to_json.py
+</pre></div>
+</div>
+<p>This processes every language listed in the <code class="docutils literal notranslate"><span class="pre">languages</span></code> list inside that script
+and writes <code class="docutils literal notranslate"><span class="pre">locale/&lt;lang&gt;/messages.json</span></code>.</p>
+<p>The script output reports how many strings were converted per language and
+whether any errors occurred:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>🔄 Converting .po files to JSON format...
+
+✅ cs: messages.po → messages.json (321 strings)
+✅ it: messages.po → messages.json (321 strings)
+✅ es: messages.po → messages.json (321 strings)
+✅ de: messages.po → messages.json (321 strings)
+✅ fr: messages.po → messages.json (321 strings)
+✅ uk: messages.po → messages.json (321 strings)
+
+📊 Summary: 6 converted, 0 errors
+✅ All .po files converted successfully!
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Important:</strong> The <code class="docutils literal notranslate"><span class="pre">.json</span></code> files are committed to version control alongside
+the <code class="docutils literal notranslate"><span class="pre">.po</span></code> files so that the app can work without running <code class="docutils literal notranslate"><span class="pre">po_to_json.py</span></code> at
+deploy time.  Always commit both files together.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="currently-supported-languages">
+<h2>9. Currently supported languages<a class="headerlink" href="#currently-supported-languages" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Code</p></th>
+<th class="head"><p>Language</p></th>
+<th class="head"><p>Flag</p></th>
+<th class="head"><p>Plural-Forms</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">en</span></code></p></td>
+<td><p>English</p></td>
+<td><p>🇬🇧</p></td>
+<td><p>fallback (no file)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cs</span></code></p></td>
+<td><p>Czech</p></td>
+<td><p>🇨🇿</p></td>
+<td><p>3 forms</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">it</span></code></p></td>
+<td><p>Italian</p></td>
+<td><p>🇮🇹</p></td>
+<td><p>2 forms</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">es</span></code></p></td>
+<td><p>Spanish</p></td>
+<td><p>🇪🇸</p></td>
+<td><p>2 forms</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">de</span></code></p></td>
+<td><p>German</p></td>
+<td><p>🇩🇪</p></td>
+<td><p>2 forms</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fr</span></code></p></td>
+<td><p>French</p></td>
+<td><p>🇫🇷</p></td>
+<td><p>2 forms</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">uk</span></code></p></td>
+<td><p>Ukrainian</p></td>
+<td><p>🇺🇦</p></td>
+<td><p>3 forms</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">zh</span></code></p></td>
+<td><p>Chinese (Simplified)</p></td>
+<td><p>🇨🇳</p></td>
+<td><p>1 form</p></td>
+</tr>
+</tbody>
+</table>
+<p>All language files contain <strong>321 strings</strong> covering the full UI.</p>
+</section>
+<hr class="docutils" />
+<section id="common-pitfalls">
+<h2>10. Common pitfalls<a class="headerlink" href="#common-pitfalls" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Problem</p></th>
+<th class="head"><p>Cause</p></th>
+<th class="head"><p>Fix</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Translation not shown</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.json</span></code> not regenerated after editing <code class="docutils literal notranslate"><span class="pre">.po</span></code></p></td>
+<td><p>Run <code class="docutils literal notranslate"><span class="pre">po_to_json.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">msgid</span></code> not matching</p></td>
+<td><p>Whitespace, newline, or emoji difference between <code class="docutils literal notranslate"><span class="pre">.po</span></code> key and Python string</p></td>
+<td><p>Copy the exact string from source; use <code class="docutils literal notranslate"><span class="pre">repr()</span></code> to inspect</p></td>
+</tr>
+<tr class="row-even"><td><p>f-string not translating</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">_(f&quot;Hello</span> <span class="pre">{name}&quot;)</span></code> evaluates before look-up</p></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">_(&quot;Hello</span> <span class="pre">{name}&quot;).format(name=name)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">_</span></code> shadowed in loop</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">_</span> <span class="pre">in</span> <span class="pre">items:</span></code> overwrites the imported <code class="docutils literal notranslate"><span class="pre">_</span></code> function</p></td>
+<td><p>Rename loop variable to <code class="docutils literal notranslate"><span class="pre">_item</span></code> or <code class="docutils literal notranslate"><span class="pre">_toggle</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>New language not appearing</p></td>
+<td><p>Language not added to <code class="docutils literal notranslate"><span class="pre">get_available_languages()</span></code> or <code class="docutils literal notranslate"><span class="pre">_LANGUAGE_FLAGS</span></code></p></td>
+<td><p>Edit both dicts in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>New language not compiled</p></td>
+<td><p>Language code not in <code class="docutils literal notranslate"><span class="pre">languages</span></code> list in <code class="docutils literal notranslate"><span class="pre">po_to_json.py</span></code></p></td>
+<td><p>Add code to the list and re-run</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">messages.json</span></code> has 0 strings</p></td>
+<td><p>Header <code class="docutils literal notranslate"><span class="pre">msgid</span> <span class="pre">&quot;&quot;</span></code> was not filtered or <code class="docutils literal notranslate"><span class="pre">.po</span></code> is malformed</p></td>
+<td><p>Check that the first <code class="docutils literal notranslate"><span class="pre">msgid</span> <span class="pre">&quot;&quot;</span></code> block has a valid <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> header</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="config_file.html" class="btn btn-neutral float-left" title="Configuration file config.yaml" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tomotree.html" class="btn btn-neutral float-right" title="Tomotree" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Valentino Cristini, Robert Mařík.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

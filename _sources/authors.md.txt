@@ -1,0 +1,4 @@
+# Authors
+
+* [Valentino Cristini](https://is.mendelu.cz/lide/clovek.pl?id=47209) (the main idea, conceptual framework, implementation)
+* [Robert Mařík](https://is.mendelu.cz/lide/clovek.pl?id=3785) (software implementation)

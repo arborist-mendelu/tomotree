@@ -56,7 +56,7 @@ sections:
       - Binary tomogram allows to separate the sound wood from the degraded wood or the cavities.
       - The threshold can be set interactively and the effect on the binary tomogram is shown immediately.
       - The **area of the sound wood** can be calculated and used for further analysis.
-      - Given an axis of rotation, the **physical characteristics** important for tree stability can be estimated.
+      - Given a neural axis, the **physical characteristics** important for tree stability can be estimated.
 
   - anchor: "start"
     title: "Getting started"

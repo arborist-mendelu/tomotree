@@ -184,6 +184,13 @@ Various tests
 Online application
 ------------------
 
+.. include:: config_file.md.md
+   :parser: myst_parser.sphinx
+
+.. include:: i18n.md
+   :parser: myst_parser.sphinx
+
+
 The old web interface to the Tomotree package is available at
 `https://tomotree.streamlit.app/ <https://tomotree.streamlit.app/>`_. A short video is also `available <https://youtu.be/P0PhThIeqmo>`_
 An updated version of the web UI is available as a docker container. See the installation instructions above. 
