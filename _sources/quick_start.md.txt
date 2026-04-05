@@ -134,9 +134,7 @@ from tomotree.util import measure_walls
 # - sound_wood_speed: sound velocity in healthy wood (reference value)
 # - sound_wood_speed*0.5: upper limit for detecting damaged/hollow part (50% of velocity)
 # - plot_figure=True: creates visual representation of measurements
-# - num=500: number of measurement rays for more detailed analysis
-result = measure_walls(tomogram, sound_wood_speed, sound_wood_speed*0.5,
-            plot_figure=True, num=500)
+result = measure_walls(tomogram, sound_wood_speed, sound_wood_speed*0.5, plot_figure=True)
 
 # Display results in table
 # Sensor1: first sensor in the pair

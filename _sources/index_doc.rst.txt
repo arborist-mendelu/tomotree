@@ -3,7 +3,7 @@
    :align: right
 
   
-Welcome to tomotree's documentation!
+Welcome to TomoTree's documentation!
 ====================================
 
 .. toctree::

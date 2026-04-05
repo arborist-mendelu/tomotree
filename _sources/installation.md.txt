@@ -120,8 +120,6 @@ python -c "import tomotree; print(tomotree.__version__)"
 
 Use this method to install TomoTree directly in a Jupyter notebook or Google Colab environment for interactive analysis and development.
 
-### In a Jupyter notebook cell
-
 Simply run this command in a notebook cell:
 
 ```python
@@ -133,31 +131,6 @@ Then verify the installation in the next cell:
 ```python
 import tomotree
 print(tomotree.__version__)
-```
-
-### In Google Colab
-
-The same command works in Google Colab:
-
-```python
-!pip install git+https://github.com/robert-marik/tomotree.git
-```
-
-If you also need plotting and visualization tools, install the extras:
-
-```python
-!pip install git+https://github.com/robert-marik/tomotree.git[jupyter]
-```
-
-Then you can use TomoTree in subsequent Colab cells:
-
-```python
-import tomotree as tomo
-import numpy as np
-
-# Your tomography code here
-tomogram = tomo.Tomo(nodes, speeds, nx=100, ny=100, symmetric=True)
-tomogram.do_ERSM_method()
 ```
 
 ### Advantages

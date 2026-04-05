@@ -79,8 +79,6 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#method-3-jupyter-colab">Method 3 — Jupyter / Colab</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#in-a-jupyter-notebook-cell">In a Jupyter notebook cell</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#in-google-colab">In Google Colab</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#advantages">Advantages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#limitations">Limitations</a></li>
 </ul>
@@ -635,8 +633,6 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <section id="method-3-jupyter-colab">
 <h2>Method 3 — Jupyter / Colab<a class="headerlink" href="#method-3-jupyter-colab" title="Link to this heading"></a></h2>
 <p>Use this method to install TomoTree directly in a Jupyter notebook or Google Colab environment for interactive analysis and development.</p>
-<section id="in-a-jupyter-notebook-cell">
-<h3>In a Jupyter notebook cell<a class="headerlink" href="#in-a-jupyter-notebook-cell" title="Link to this heading"></a></h3>
 <p>Simply run this command in a notebook cell:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">robert</span><span class="o">-</span><span class="n">marik</span><span class="o">/</span><span class="n">tomotree</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
@@ -646,27 +642,6 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <span class="nb">print</span><span class="p">(</span><span class="n">tomotree</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="in-google-colab">
-<h3>In Google Colab<a class="headerlink" href="#in-google-colab" title="Link to this heading"></a></h3>
-<p>The same command works in Google Colab:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">robert</span><span class="o">-</span><span class="n">marik</span><span class="o">/</span><span class="n">tomotree</span><span class="o">.</span><span class="n">git</span>
-</pre></div>
-</div>
-<p>If you also need plotting and visualization tools, install the extras:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">robert</span><span class="o">-</span><span class="n">marik</span><span class="o">/</span><span class="n">tomotree</span><span class="o">.</span><span class="n">git</span><span class="p">[</span><span class="n">jupyter</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Then you can use TomoTree in subsequent Colab cells:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tomotree</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tomo</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="c1"># Your tomography code here</span>
-<span class="n">tomogram</span> <span class="o">=</span> <span class="n">tomo</span><span class="o">.</span><span class="n">Tomo</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span> <span class="n">speeds</span><span class="p">,</span> <span class="n">nx</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">ny</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">symmetric</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">tomogram</span><span class="o">.</span><span class="n">do_ERSM_method</span><span class="p">()</span>
-</pre></div>
-</div>
-</section>
 <section id="advantages">
 <h3>Advantages<a class="headerlink" href="#advantages" title="Link to this heading"></a></h3>
 <ul class="simple">
