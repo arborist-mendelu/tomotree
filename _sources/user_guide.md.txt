@@ -1,0 +1,573 @@
+# TomoTree Web Application — User Guide
+
+## Table of Contents
+
+- [TomoTree Web Application — User Guide](#tomotree-web-application--user-guide)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Login and Registration](#login-and-registration)
+    - [Logging In](#logging-in)
+    - [Registering a New Account](#registering-a-new-account)
+    - [Forgotten Password](#forgotten-password)
+    - [User Roles](#user-roles)
+    - [Logging Out](#logging-out)
+  - [Home Screen — Choosing a Data Source](#home-screen--choosing-a-data-source)
+    - [Preloaded Data](#preloaded-data)
+    - [User Data](#user-data)
+    - [Uploading Your Own Data](#uploading-your-own-data)
+    - [Shared Data](#shared-data)
+    - [User Profile](#user-profile)
+    - [About](#about)
+  - [Sidebar — Persistent Controls](#sidebar--persistent-controls)
+    - [Dataset Info](#dataset-info)
+    - [Reconstruction and Plot Settings](#reconstruction-and-plot-settings)
+    - [Readme Button](#readme-button)
+    - [Video](#video)
+  - [Tomography Reconstruction](#tomography-reconstruction)
+    - [Rays Method](#rays-method)
+    - [EBSI Method](#ebsi-method)
+    - [ERSM Method](#ersm-method)
+    - [Speed Calibration](#speed-calibration)
+  - [Postprocessing](#postprocessing)
+    - [Binary Tomo](#binary-tomo)
+    - [Area Selection Tool](#area-selection-tool)
+    - [Tomogram Measurement Tool](#tomogram-measurement-tool)
+    - [Background](#background)
+    - [Angle Plots](#angle-plots)
+  - [Resistograph](#resistograph)
+    - [Viewing Raw Curves](#viewing-raw-curves)
+    - [Mean and Standard Deviation](#mean-and-standard-deviation)
+    - [Define Drilling Paths](#define-drilling-paths)
+    - [Resistograph \& Tomogram Overlay](#resistograph--tomogram-overlay)
+  - [Data, Info \& Share](#data-info--share)
+    - [View Data Tool](#view-data-tool)
+    - [File Browser](#file-browser)
+    - [Sharing Data](#sharing-data)
+  - [Save and Load Session State](#save-and-load-session-state)
+    - [Saving a State](#saving-a-state)
+    - [Loading a State](#loading-a-state)
+  - [Admin Console](#admin-console)
+    - [Managing Storage Quotas](#managing-storage-quotas)
+  - [Direct URL Access](#direct-url-access)
+  - [Input File Format Reference](#input-file-format-reference)
+    - [Notes on geometry input](#notes-on-geometry-input)
+    - [Matrix orientation](#matrix-orientation)
+
+---
+
+## Overview
+
+TomoTree is a web application for **acoustic tomography of trees**. It processes travel-time or sound-speed measurements between sensor nodes placed around a tree cross-section and reconstructs a 2D tomogram that shows the internal condition of the wood.
+
+The application is used by arborists and researchers to identify areas of decay, cavities, or mechanical weakening inside a living tree without invasive methods.
+
+Everything runs in a web browser. All your settings are preserved within a session as you navigate between pages.
+
+---
+
+## Login and Registration
+
+### Logging In
+
+Open the application URL in your browser. You will see a login form. Enter your **username** and **password** and click **Login**.
+
+### Registering a New Account
+
+If the administrator has enabled self-registration, a registration form is available below the login form. Fill in your desired username, full name, email address, and password, then submit. Your new account will be assigned the **user** role automatically.
+
+After registration, you can log in immediately.
+
+### Forgotten Password
+
+If a password-reset email service is configured on the server, you can enter your username in the "Forgot password" section to receive a new temporary password by email.
+
+### User Roles
+
+| Role | Access |
+|------|--------|
+| `user` | Full access to own data; can read preloaded and shared datasets |
+| `guest` | Same as user but grid resolution is capped at 50 cells per axis |
+| `admin` / `developer` | All user permissions plus Admin Console; can browse all users' directories |
+
+### Logging Out
+
+Click the **👋 Logout** button in the sidebar at any time.
+
+---
+
+## Home Screen — Choosing a Data Source
+
+After login you must choose which dataset to work with. The home screen shows a horizontal tab bar with the following options.
+
+### Preloaded Data
+
+A gallery of datasets prepared by the administrator. Each dataset is shown as a thumbnail image with a title. Click any dataset to open it in read-only mode.
+
+Administrators see an additional toggle to switch to a compact file-manager view of the preloaded data directory.
+
+### User Data
+
+Your personal storage directory. You can:
+
+- Navigate into subdirectories.
+- Click any directory to open it as a working dataset.
+- Rename or delete directories and files directly from this view.
+- Administrators can toggle **"Show all user directories"** to browse every user's data.
+
+### Uploading Your Own Data
+
+Use this tab to load data that is not yet on the server.
+
+**You can upload:**
+- Multiple individual files (CSV, F3D, DPA, image files, etc.)
+- A single **ZIP archive** — the app extracts it automatically into a temporary directory.
+
+After uploading, the dataset opens immediately. Use the **"📦 Save uploaded data"** button that appears in the sidebar to copy it permanently into your user directory.
+
+See the [Input File Format Reference](#input-file-format-reference) section for details on required and optional files.
+
+### Shared Data
+
+Two sub-tabs:
+
+- **"Someone shares with everybody"** — a public list of datasets that other users or administrators have shared. Click the link button next to any entry to open it.
+- **"You share with others"** — datasets you have shared yourself. Each entry has a 🗑️ button to remove it from the public list.
+
+### User Profile
+
+Displays your name, username, email, and assigned roles. If authentication is configured, you can also change your password here.
+
+### About
+
+In-app documentation tabs: Description, Methodology, Authors, License, Changelog, and Support.
+
+---
+
+## Sidebar — Persistent Controls
+
+Once a dataset is open, the sidebar shows a set of controls that are available on all pages.
+
+### Dataset Info
+
+An expandable section shows:
+- Whether the dataset is in a **temporary directory** (upload that has not been saved yet).
+- Whether you have **read-write** or **read-only** access.
+- A **storage quota bar** showing your disk usage.
+- **👁️ Show config** — opens the raw `config.yaml` for this dataset.
+- **✏️ Edit config** — opens the config editor (read-write sessions only).
+
+### Reconstruction and Plot Settings
+
+Several collapsible sections let you control how the tomogram is rendered:
+
+**Grid & plot settings**
+- **Plot type:** `cells only`, `rays only`, or `both`. For the Rays method, only `rays only` is available.
+- When `rays only` is selected: sliders to filter which ray speeds are displayed (min/max m/s).
+- Toggles for **grid lines** and **draw boundary** (polygon or spline approximation).
+
+**Output type**
+- Choose what quantity to plot: **velocity** (m/s), **velocity square** (m²/s²), or **dynamic elastic modulus** (MPa).
+- When elastic modulus is selected, a **wood density** slider (kg/m³) becomes active.
+
+**Anisotropy handling**
+- Toggle to enable an anisotropy correction that accounts for radial rays being naturally faster than tangential ones.
+
+**Map plot options** (cells-based methods only)
+- **Discrete colorbar** toggle with a slider for the number of color steps.
+- **Contourf** (contour-filled rendering) toggle.
+- **Shading** mode selector.
+
+### Readme Button
+
+Click **📖 Readme** to display the `readme.md` file from the current dataset in a popup dialog.
+
+### Video
+
+If the dataset contains an `.mp4` video file, it plays in the sidebar.
+
+---
+
+## Tomography Reconstruction
+
+### Rays Method
+
+**Menu: Tomograph → Rays method**
+
+This is the fastest preview option. No advanced reconstruction is performed — the raw measurement rays are drawn on the grid and colored by their measured speed. Use this to check node placement and spot obvious data problems before running a full reconstruction.
+
+**Controls (left column):**
+- **Node selector (pills)** — deselect any node to exclude all rays connected to it.
+- **nx / ny** — number of grid cells in the horizontal and vertical directions.
+- **Bark thickness** — outer bark layer as a percentage of the cross-section radius.
+- **Boundary is spline** — switches between a polygonal and a smooth spline boundary.
+- **Axes alignment** — orientation of the coordinate axes.
+- **Speed color range** — set the minimum/maximum speed for the color scale. Click **⚖️ Auto adjust** to reset to the 10th/90th percentile of the data.
+
+**Outputs (right column):**
+- A color-mapped plot of all rays.
+- The estimated **pith position** (tree center) in cm.
+- Optional draggable image-comparison slider if a background photo is configured.
+
+**Statistics (below the plot):**
+- Interactive ECDF and histogram of ray speeds.
+- Descriptive statistics table.
+- Ray time-of-flight comparison table and histogram.
+
+---
+
+### EBSI Method
+
+**Menu: Tomograph → EBSI method**
+
+EBSI (Elliptic Based Spatial Interpolation) reconstructs the velocity of each grid cell by back-projecting the measured ray speeds along their paths and averaging the contributions.
+
+**Additional controls:**
+- **EBSI power** — the exponent used in the weighted interpolation.
+- **Rescale speeds** — when enabled, the app finds a linear correction ($v' = k \cdot v + q$) that minimises the squared difference between the measured and back-computed travel times. The coefficients $k$ and $q$ are displayed below the plot.
+
+---
+
+### ERSM Method
+
+**Menu: Tomograph → ERSM method**
+
+ERSM (Enhanced Ray Segmentation Method) divides each ray into shorter segments that lie within individual grid cells, which gives a more spatially accurate velocity assignment than EBSI.
+
+**Additional controls:**
+- **Max segments** — maximum number of sub-segments per ray.
+- **e\_segmentation** / **e\_interpolation** — numerical tolerances for the segmentation and interpolation steps.
+- **Rescale speeds** — same linear correction as in the EBSI method.
+
+The statistics section adds an extra tab showing the distribution of **segment lengths**.
+
+---
+
+### Speed Calibration
+
+**Menu: Tomograph → Speed calibration**
+
+Estimates the speed of sound in healthy (sound) wood from the rays that travel along the outer ring of the cross-section (tangential rays).
+
+**Workflow:**
+1. The app automatically identifies tangential rays and lists them in a **pills widget** labeled `<node A>–<node B>`.
+2. Deselect any ray that you believe passes through degraded wood.
+3. Choose the averaging method: **Mean** or **Median**.
+4. The estimated sound-wood speed is shown in a highlighted box and stored for use in binary thresholding and color-scale percentage mode.
+
+The tomogram plot highlights (in black) the grid cells that contribute to the selected tangential rays.
+
+---
+
+## Postprocessing
+
+### Binary Tomo
+
+**Menu: Postprocessing → Binary Tomo**
+
+Applies a velocity threshold to classify each grid cell as **sound wood** (above the threshold) or **degraded wood** (below it).
+
+**Controls:**
+- **Threshold source** — choose between:
+  - **From color scale position** — a slider sets the threshold as a percentage of the current color-scale range.
+  - **Explicit value** — enter the threshold directly as m/s, as a percentage of the reference speed, or as a percentile rank.
+- **Neutral axis** — draw a red dashed line through the sound-wood region at a chosen angle.
+- **Center of gravity** — plot the geometric center of all cells (blue) and the center of sound wood (red).
+- **Measure wall thickness** — show green wall-segment indicators on the tomogram.
+- **Binary mask background** — if a background photo is registered, choose to show it under the binary mask instead of the color tomogram.
+
+**Outputs:**
+- A draggable **comparison slider** between the original tomogram and the binary mask.
+- A **moment of inertia** chart comparing the numerical result with the analytical (tree-ring) model over angles from −90° to +90°.
+- A **second moment of area** table.
+- Wall-thickness measurements (when enabled).
+- Center-of-gravity coordinates in cm.
+
+---
+
+### Area Selection Tool
+
+**Menu: Postprocessing → Area selection tool**
+
+Divides the tomogram into user-defined velocity intervals and measures the cross-sectional area that falls in each interval.
+
+**How to use:**
+1. Enter **comma-separated threshold values** in the text box (up to 12 values). Values should be in the units of the currently selected output type (m/s, m²/s², or MPa).
+2. The field pre-fills with the full data range as a starting point.
+3. The plot updates automatically, assigning a distinct color to each interval.
+
+**Output:**
+- A color-coded tomogram where each interval has its own color.
+- A **summary table** showing the area (cm²) and percentage of total cross-sectional area for each interval.
+
+---
+
+### Tomogram Measurement Tool
+
+**Menu: Postprocessing → Tomogram measurement tool**
+
+Lets you interactively **click or drag** on the tomogram image to record coordinates and distances in real-world units.
+
+**Workflow:**
+1. Click on the image to record a **point** (shown in blue).
+2. Drag across the image to place a **segment** — both endpoints and the Euclidean distance are recorded.
+3. All measurements are accumulated in a **table** and labeled sequentially on the image.
+4. Adjust the **scale factor** slider to convert output units if needed.
+5. Click **Clear all measurements** to start over.
+
+**Calibration mode:**
+Before measuring, you can calibrate by mapping two pixel positions on the image to known physical coordinates. All subsequent measurements use this calibration.
+
+Measurement results can later be used to define resistograph drilling paths (see [Define Drilling Paths](#define-drilling-paths)).
+
+---
+
+### Background
+
+**Menu: Postprocessing → Background**
+
+Registers a photograph of the cross-section with the tomogram coordinate system so that the two can be overlaid.
+
+**Steps:**
+1. Select an existing PNG/JPG file from the dataset directory, or upload a new one (subject to your storage quota).
+2. Pick two **reference nodes** from the dropdowns (the nodes visible in the photo).
+3. Click the two corresponding pixel positions on the image.
+4. The configuration is saved to `config.yaml` automatically.
+
+Once configured, a draggable **image-comparison slider** appears on all tomogram and binary-mask pages.
+
+---
+
+### Angle Plots
+
+**Menu: Postprocessing → Angle plots**
+
+Shows how measured ray speed varies with the ray direction (angle relative to the radial direction).
+
+This is useful for assessing whether anisotropy correction is needed and for validating calibrated sound-wood speed.
+
+**Output formats** (selectable in the sidebar):
+- Matplotlib subplots (one per reconstruction method)
+- Interactive Plotly chart
+- Combined Matplotlib figure
+
+---
+
+## Resistograph
+
+Resistograph data are stored as `.dpa` files in the dataset directory, one file per drilling path.
+
+### Viewing Raw Curves
+
+**Menu: Resistograph → Resistograph**
+
+Displays all resistograph drilling curves in a single **interactive Plotly chart**.
+
+- Click or double-click entries in the legend to show/hide individual curves.
+- Use rectangle-select to zoom.
+- The fullscreen button maximises the chart.
+- Download the raw data as **CSV** using the button below the chart.
+- An expandable **data table** is available below the chart.
+
+---
+
+### Mean and Standard Deviation
+
+**Menu: Resistograph → Resistograph mean & std**
+
+Computes the **smoothed mean** and a **±nσ band** over the selected resistograph curves.
+
+**Controls:**
+- **Drilling path selector (pills)** — choose which curves to include in the average.
+- **n** — number of standard deviations for the uncertainty band.
+- **Smoothing method** — rolling window or Savitzky–Golay filter.
+- **Window size** — smoothing window length.
+- **Initial skip** — ignore the first N data points (e.g., to skip the bark entry).
+- Savitzky–Golay specific: **SG window** and **polynomial order**.
+
+**Output:** A Matplotlib plot showing the raw curves, the smoothed mean, and the ±nσ band.
+
+---
+
+### Define Drilling Paths
+
+**Menu: Resistograph → Define drilling paths**
+
+Maps each resistograph file to a physical path on the cross-section, so the curves can be overlaid on the tomogram.
+
+**Automatic setup:**
+Click **"✨ Setup drilling paths automatically"** to have the app place each path from the midpoint between adjacent sensor pairs toward the tree center. Review the result on the tomogram preview before proceeding.
+
+**Manual setup:**
+1. Select the paths you want to define using the pills widget.
+2. Click **"🛠️ Define drilling paths"**; the app navigates to the Measurement Tool.
+3. Draw one segment per path.
+4. Return to this page and click **"📥 Load drilling path from measurement data"** to import the segments you drew.
+5. Click **"❌ Clear drilling paths"** at any time to reset all paths.
+
+After defining paths, click **Save paths to config.yaml** to persist them.
+
+---
+
+### Resistograph & Tomogram Overlay
+
+**Menu: Resistograph → Res & Tomo**
+
+Overlays smoothed resistograph data on the tomogram as **colored bar columns** along each drilling path.
+
+**Sidebar controls:**
+- **R\_min / R\_max** — value range for color mapping resistograph readings.
+- **R\_depth** — how deep along each path to visualize.
+- **R\_scale\_length** — physical length of the scale bar (m).
+- **R\_color\_column\_step** — width of each colored bar step.
+- **Color** picker for line graphs.
+- **R\_vertical\_shift / R\_vertical\_scale** — adjust the resistograph graph position alongside the path.
+- **Filter:** Savitzky–Golay window and polynomial order for smoothing.
+- **Drill bars selector / Drill graphs selector (pills)** — choose which paths appear as colored bars and which as line graphs.
+- **Freeze** toggle — freezes all settings to prevent recomputation while you adjust parameters. Unfreeze to apply everything at once.
+
+Click **💾 Save to file** to write all current settings to the dataset's `config.yaml` so they are restored automatically next time.
+
+---
+
+## Data, Info & Share
+
+### View Data Tool
+
+**Menu: Data & Info → View data tool**
+
+Tabbed table viewer of the raw input data:
+
+| Tab | Content |
+|-----|---------|
+| **Speeds** | n×n speed matrix in m/s; download as CSV; symmetry heatmap if data is not symmetric |
+| **Nodes** | Node coordinates in metres; download as CSV |
+| **Times of flight** | n×n travel-time matrix in µs; download as CSV; symmetry check |
+| **Config file** | Raw content of the dataset's `config.yaml` |
+
+---
+
+### File Browser
+
+**Menu: Data & Info → File browser**
+
+A full file manager for the current dataset directory.
+
+| Action | Description |
+|--------|-------------|
+| **👁️ Preview** | View text, YAML, Markdown, and images in a popup |
+| **✏️ Edit** | Open editable text/YAML/CSV editor (read-write sessions only) |
+| **🗜️ Extract** | Extract a ZIP archive |
+| **🖼️ Preview image** | Display PNG/JPG files |
+| **👁️ Preview F3D** | Show a summary of F3D tomography files |
+| **⬇️ Download** | Download any file to your computer |
+| **🗑️ Delete** | Delete a file (with confirmation; read-write only) |
+| **📤 Upload files** | Upload new files to the current directory (quota checked) |
+| **📦 Create ZIP** | Package the entire directory as a ZIP archive for download |
+
+---
+
+### Sharing Data
+
+**Menu: Data & Info → Share**
+
+Available only in read-write sessions.
+
+**Public share (visible to all users):**
+1. Type a name for your share in the text field.
+2. Click **"📤 Share"**.
+3. The dataset now appears in the "Shared data" tab on the home screen for every logged-in user.
+4. To stop sharing, go to **Home → Shared Data → You share with others** and click 🗑️.
+
+**Secret link:**
+The app generates a **URL with an encrypted `?key=` parameter**. Anyone who receives this link and has access to the application URL can open your dataset in read-only mode — without being directed to it through the shared list.
+
+Copy the link from the displayed code block and send it directly to the person you want to share with.
+
+---
+
+## Save and Load Session State
+
+The sidebar provides buttons to save and restore your entire working session so you can continue later without reconfiguring everything.
+
+### Saving a State
+
+Click **💾 Save state** in the sidebar. You can optionally add a description. The state is written as a `.state` file in the current dataset directory.
+
+A file named **`autoload.state`** is automatically restored at the start of every new session for the same dataset.
+
+### Loading a State
+
+Click **📂 Load state** in the sidebar. A list of saved state files is shown, sorted by modification date. Each entry shows the timestamp and description. Click the load button next to the desired file to restore it.
+
+A delete 🗑️ button is available for each state file.
+
+---
+
+## Admin Console
+
+Accessible to administrators and developers via the **⚙️ Admin Console** button in the sidebar.
+
+| Tab | Content |
+|-----|---------|
+| **Configuration** | Full configuration object currently loaded in memory |
+| **Credentials** | Parsed content of `login.yaml` |
+| **Access** | Last 100 login events from `log/login.txt` |
+| **Storage** | Per-user storage usage and quota management |
+| **Log** | Last 100 lines of the application log `log/app.log` |
+| **Editor** | Buttons to open credentials and config files in the inline editor |
+
+### Managing Storage Quotas
+
+In the **Storage** tab, a table lists all users with their current usage, quota limit, and a status icon (✅ within quota / ⚠️ approaching limit / ❌ over quota).
+
+To set a per-user limit:
+1. Select the user from the dropdown.
+2. Enter the limit in MB.
+3. Click **✅ Set limit**.
+
+To remove a custom limit and fall back to the global default, click **🗑️ Remove override**.
+
+---
+
+## Direct URL Access
+
+Two URL parameter mechanisms allow direct access to a specific dataset without going through the home screen:
+
+| URL parameter | Effect |
+|---|---|
+| `?share=<name>` | Opens `streamlit_shared/<name>` as read-only |
+| `?key=<encrypted>` | Decrypts the target path using the server passphrase and opens it in read mode (or read-write for admins) |
+
+These links are generated automatically by the **Share** feature (see [Sharing Data](#sharing-data)) and can be bookmarked or distributed directly.
+
+---
+
+## Input File Format Reference
+
+The following files can be placed in a dataset directory. The application detects them automatically by name or extension.
+
+| File | Required | Description |
+|------|----------|-------------|
+| `nodes.csv` | Optional | Two-column CSV with x and y coordinates of each sensor node in metres |
+| `distances.csv` | Optional | Square n×n matrix of inter-node distances in metres |
+| `distances_clockwise.csv` | Optional | Same as above, but nodes ordered clockwise |
+| `*.f3d` | Optional | Binary F3D export file from supported acoustic tomographs |
+| `times.csv` | One of these two | Square n×n matrix of travel times in seconds (rows = receiver, columns = source) |
+| `speeds.csv` or `*velocities*.csv` | One of these two | Square n×n matrix of sound speeds in m/s (rows = receiver, columns = source) |
+| `resistograph_*.dpa` | Optional | Resistograph drilling curves (one file per path) |
+| `thumbnail.png` | Optional | Preview image shown in the preloaded-data gallery |
+| `readme.md` | Optional | Dataset description, shown on load in a popup |
+| `config.yaml` | Optional | Per-dataset default settings (sliders, background, resistograph filters, etc.) |
+| `autoload.state` | Optional | Session state restored automatically when the dataset is opened |
+| `*.mp4` | Optional | Video shown in the sidebar |
+| `*.png` / `*.jpg` | Optional | Images available for background photo registration |
+
+### Notes on geometry input
+
+- If **only speed or time data are present** (no geometry file), the app assumes equally spaced nodes distributed clockwise around a unit circle.
+- If a **`*.f3d` file** is present, node coordinates and measurements are read from it directly. Unit conversion factors (µs for time, cm for length) are enforced automatically.
+- The **distances matrix** is used to infer node coordinates via multidimensional scaling when no explicit `nodes.csv` exists.
+
+### Matrix orientation
+
+All measurement matrices follow the convention **rows = receiver node, columns = source node**. Node numbering is **1-based** throughout the application.

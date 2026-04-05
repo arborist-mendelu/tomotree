@@ -9,14 +9,17 @@
   <title>Methods for acoustic tomography on trees &mdash; tomotree  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
       <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -42,24 +45,166 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="doc.html">TomoTree package description</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#installation">Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="doc.html#pip-installation">Pip installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="doc.html#docker">Docker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="doc.html#python">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="doc.html">TomoTree package description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#basic-usage">Basic usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#initialize-tomogram-with-sensor-positions-and-velocity-data">Initialize tomogram with sensor positions and velocity data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#perform-ersm-reconstruction-and-estimate-sound-wood-speed">Perform ERSM reconstruction and estimate sound wood speed</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#quick-start">Quick start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#short-demos">Short demos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#rays-method">Rays method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#equidistant-ray-segmentation-method-ersm">Equidistant ray segmentation method (ERSM)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#tests-of-internal-procedures">Tests of internal procedures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#tomowood">TomoWood</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#various-tests">Various tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="doc.html#online-application">Online application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#wall-thickness-measurement">Wall thickness measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#measure-wall-thickness-between-sensor-pairs">Measure wall thickness between sensor pairs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites-all-methods">Prerequisites (all methods)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#method-1-conda-mamba">Method 1 — Conda / Mamba</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#create-and-activate-a-new-environment">1. Create and activate a new environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#install-core-dependencies-via-conda">2. Install core dependencies via Conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#install-pip-only-extras">3. Install pip-only extras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#install-the-tomotree-package">4. Install the TomoTree package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#verify">5. Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#method-2-pip">Method 2 — pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#option-a-install-directly-from-github-no-clone-needed">Option A — Install directly from GitHub (no clone needed)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#option-b-install-from-a-local-clone">Option B — Install from a local clone</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#create-and-activate-a-virtual-environment">1. Create and activate a virtual environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#install-all-dependencies-and-the-package">2. Install all dependencies and the package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#id1">3. Verify</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#method-3-jupyter-colab">Method 3 — Jupyter / Colab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#in-a-jupyter-notebook-cell">In a Jupyter notebook cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#in-google-colab">In Google Colab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#advantages">Advantages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#method-4-docker">Method 4 — Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#a-using-the-pre-built-image-fastest">4a. Using the pre-built image (fastest)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#b-building-the-image-from-source">4b. Building the image from source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#stopping-and-updating">Stopping and updating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#jupyter-interface-via-docker">Jupyter interface via Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#connecting-with-vs-code-dev-containers">Connecting with VS Code Dev Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#useful-docker-commands">Useful Docker commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#post-installation-configuration">Post-Installation Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#main-configuration-file">1. Main configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#user-credentials-file">2. User credentials file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#required-directories">3. Required directories</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#running-the-application">Running the Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#streamlit-web-ui">Streamlit web UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#fastapi-rest-service">FastAPI REST service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#running-the-test-suite">Running the Test Suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#dependency-overview">Dependency Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="launching_gui.html">Launching the GUI — Using <code class="docutils literal notranslate"><span class="pre">app.py.dist</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="launching_gui.html#quick-start">Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#copy-the-template">1. Copy the template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#set-up-configuration-files">2. Set up configuration files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#run-the-application">3. Run the application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="launching_gui.html#what-app-py-dist-contains">What <code class="docutils literal notranslate"><span class="pre">app.py.dist</span></code> Contains</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#logging">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#session-start-marker">Session start marker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#config-application-settings"><code class="docutils literal notranslate"><span class="pre">Config()</span></code> — application settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#relationship-between-app-py-and-config-config-yaml">Relationship between <code class="docutils literal notranslate"><span class="pre">app.py</span></code> and <code class="docutils literal notranslate"><span class="pre">config/config.yaml</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="launching_gui.html#running-without-app-py-dist">Running Without <code class="docutils literal notranslate"><span class="pre">app.py.dist</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="launching_gui.html#launching-the-gui-via-docker">Launching the GUI via Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#streamlit-gui">Streamlit GUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#jupyter-interface">Jupyter interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#connecting-with-vs-code">Connecting with VS Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#useful-docker-commands">Useful Docker commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="launching_gui.html#changes-to-watch-for-when-updating">Changes to Watch for When Updating</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">TomoTree Web Application — User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#login-and-registration">Login and Registration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#logging-in">Logging In</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#registering-a-new-account">Registering a New Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#forgotten-password">Forgotten Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#user-roles">User Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#logging-out">Logging Out</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#home-screen-choosing-a-data-source">Home Screen — Choosing a Data Source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#preloaded-data">Preloaded Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#user-data">User Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#uploading-your-own-data">Uploading Your Own Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#shared-data">Shared Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#user-profile">User Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#about">About</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#sidebar-persistent-controls">Sidebar — Persistent Controls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#dataset-info">Dataset Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#reconstruction-and-plot-settings">Reconstruction and Plot Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#readme-button">Readme Button</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#video">Video</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#tomography-reconstruction">Tomography Reconstruction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#rays-method">Rays Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#ebsi-method">EBSI Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#ersm-method">ERSM Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#speed-calibration">Speed Calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#postprocessing">Postprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#binary-tomo">Binary Tomo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#area-selection-tool">Area Selection Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#tomogram-measurement-tool">Tomogram Measurement Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#angle-plots">Angle Plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#resistograph">Resistograph</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#viewing-raw-curves">Viewing Raw Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#mean-and-standard-deviation">Mean and Standard Deviation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#define-drilling-paths">Define Drilling Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#resistograph-tomogram-overlay">Resistograph &amp; Tomogram Overlay</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#data-info-share">Data, Info &amp; Share</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#view-data-tool">View Data Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#file-browser">File Browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#sharing-data">Sharing Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#save-and-load-session-state">Save and Load Session State</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#saving-a-state">Saving a State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#loading-a-state">Loading a State</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#admin-console">Admin Console</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#managing-storage-quotas">Managing Storage Quotas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#direct-url-access">Direct URL Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#input-file-format-reference">Input File Format Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#notes-on-geometry-input">Notes on geometry input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#matrix-orientation">Matrix orientation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="config_file.html">Configuration file <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></a><ul>
@@ -306,6 +451,51 @@
 <li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.time_matrix"><code class="docutils literal notranslate"><span class="pre">time_matrix()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Notebook examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#quick-start">Quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#short-demos">Short demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#rays-method">Rays method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#equidistant-ray-segmentation-method-ersm">Equidistant ray segmentation method (ERSM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#tests-of-internal-procedures">Tests of internal procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#tomowood">TomoWood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#various-tests">Various tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="admin_guide.html">Administrator Guide — Building and Deploying TomoTree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="admin_guide.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin_guide.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin_guide.html#bumping-the-version">Bumping the Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="admin_guide.html#building-and-publishing-the-python-package">Building and Publishing the Python Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin_guide.html#publish-to-github-recommended">Publish to GitHub (recommended)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin_guide.html#publish-to-pypi">Publish to PyPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="admin_guide.html#build-the-distribution-archives">1. Build the distribution archives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin_guide.html#upload-to-pypi">2. Upload to PyPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="admin_guide.html#upload-to-testpypi-first-optional">3. Upload to TestPyPI first (optional)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="admin_guide.html#building-and-pushing-the-docker-image">Building and Pushing the Docker Image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin_guide.html#build-the-image">1. Build the image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin_guide.html#tag-for-docker-hub">2. Tag for Docker Hub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin_guide.html#push-to-docker-hub">3. Push to Docker Hub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin_guide.html#one-liner-for-a-clean-release-build-and-push">One-liner for a clean release build and push</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="admin_guide.html#updating-a-production-server">Updating a Production Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="admin_guide.html#typical-deployment-directory-layout">Typical deployment directory layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin_guide.html#compose-yml-on-the-server">compose.yml on the server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin_guide.html#pulling-the-latest-image-and-restarting">Pulling the latest image and restarting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin_guide.html#checking-the-running-container">Checking the running container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="admin_guide.html#rolling-back-to-a-previous-version">Rolling back to a previous version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="admin_guide.html#configuration-files-on-the-server">Configuration Files on the Server</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -333,7 +523,7 @@
            <div itemprop="articleBody">
              
   <p>(Blockquotes are direct citations from the corresponding papers.)</p>
-<section id="methods-for-acoustic-tomography-on-trees">
+<section class="tex2jax_ignore mathjax_ignore" id="methods-for-acoustic-tomography-on-trees">
 <h1>Methods for acoustic tomography on trees<a class="headerlink" href="#methods-for-acoustic-tomography-on-trees" title="Link to this heading"></a></h1>
 <p>Feng (2014) introduced the idea to track straight ray interceptions. Zeng (2013)
 developed the technigue based on ellitical neighborhood of rays to get points
@@ -343,30 +533,31 @@ of segments a this results in lare differences between segment lengths. For this
 reason we present variation of this method.</p>
 <section id="anizotropy-handling">
 <h2>Anizotropy handling<a class="headerlink" href="#anizotropy-handling" title="Link to this heading"></a></h2>
-<p>The velocity in radial direction is higher than in nonradial. We divide velocity of nonradial rays as suggested by Du (2015). Not that the denominator is less than 1 and thus $v’_N$ (fixed velocity) is bigger than $v_N$ (measured velocity).</p>
+<p>The velocity in radial direction is higher than in nonradial. We divide velocity of nonradial rays as suggested by Du (2015). Not that the denominator is less than 1 and thus <span class="math notranslate nohighlight">\(v'_N\)</span> (fixed velocity) is bigger than <span class="math notranslate nohighlight">\(v_N\)</span> (measured velocity).</p>
 <section id="du-at-al-2015">
 <h3>Du at al. (2015)<a class="headerlink" href="#du-at-al-2015" title="Link to this heading"></a></h3>
 <blockquote>
 <div><p>To obtain more accurate input data for the proposed spatial interpolation method, based on Eq.13, the velocity value of each non-radial wave path can be compensated as follows,
-$$v ‘_N = \frac{v_N}{-0.2\theta + 1}\tag{14}$$
-where $v_N$ is the original velocity value of a certain non-radial wave path, and $v’_N$ is the velocity value of a certain non-radial wave path after compensation.</p>
+$<span class="math notranslate nohighlight">\(v '_N = \frac{v_N}{-0.2\theta + 1}\tag{14}\)</span><span class="math notranslate nohighlight">\(
+where \)</span>v_N<span class="math notranslate nohighlight">\( is the original velocity value of a certain non-radial wave path, and \)</span>v’_N$ is the velocity value of a certain non-radial wave path after compensation.</p>
 </div></blockquote>
 <p>RM: Probably a typing error in the paper and the equation (14) should read as
-$$v ‘_N = \frac{v_N}{-0.2\theta^2 + 1}.\tag{14}$$</p>
+$<span class="math notranslate nohighlight">\(v '_N = \frac{v_N}{-0.2\theta^2 + 1}.\tag{14}\)</span>$</p>
 </section>
 <section id="see-also-maurer-2006">
 <h3>See also Maurer (2006)<a class="headerlink" href="#see-also-maurer-2006" title="Link to this heading"></a></h3>
 <blockquote>
 <div><p>Although anisotropy in its most general form is mathematically awkward, Thomsen (1986) showed that these equations can be substantially simplified when approximations for ‘‘weak anisotropy’’ are made. These approximations are reasonably accurate, even for materials with moderate anisotropy such as wood. For the sake of simplicity, we have further simplified the ‘‘weak anisotropy’’ equations and assumed elliptic anisotropy (Thomsen 1986), where the angle-dependent velocity v can be written as:</p>
-<p>$$ v=v_{\text{radial}}(1-\varepsilon\sin(\phi-\varphi)^2) \tag{10}$$</p>
-<p>where $\phi$ is the ray angle, $\varphi$ represents the azimuth of the $v_{\text{radial}}$ direction relative to the axis of the coordinate system, and $\varepsilon$ is the degree of anisotropy:
-$$\varepsilon =\frac{v_{\text{radial}}-v_{\text{tangential}}}{v_{\text{radial}}}.$$</p>
+<div class="math notranslate nohighlight">
+\[ v=v_{\text{radial}}(1-\varepsilon\sin(\phi-\varphi)^2) \tag{10}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\phi\)</span> is the ray angle, <span class="math notranslate nohighlight">\(\varphi\)</span> represents the azimuth of the <span class="math notranslate nohighlight">\(v_{\text{radial}}\)</span> direction relative to the axis of the coordinate system, and <span class="math notranslate nohighlight">\(\varepsilon\)</span> is the degree of anisotropy:
+$<span class="math notranslate nohighlight">\(\varepsilon =\frac{v_{\text{radial}}-v_{\text{tangential}}}{v_{\text{radial}}}.\)</span>$</p>
 </div></blockquote>
 </section>
 <section id="comments-by-robert-marik">
 <h3>Comments by Robert Mařík<a class="headerlink" href="#comments-by-robert-marik" title="Link to this heading"></a></h3>
-<p>Formula (14) contains probably a typing error. It arises from Taylor expansion (12) of a more complicated formula derived in Du (2015). However, the linear term is missing in formula (12) and thus simplification of (9) to (13) does not make any sense (see the original paper for references to equations). The dependence on $\theta$ in (14) should be quadratic. Something like
-$$v ‘_N = \frac{v_N}{-0.2\theta^2 + 1}\tag{14.B}$$</p>
+<p>Formula (14) contains probably a typing error. It arises from Taylor expansion (12) of a more complicated formula derived in Du (2015). However, the linear term is missing in formula (12) and thus simplification of (9) to (13) does not make any sense (see the original paper for references to equations). The dependence on <span class="math notranslate nohighlight">\(\theta\)</span> in (14) should be quadratic. Something like
+$<span class="math notranslate nohighlight">\(v '_N = \frac{v_N}{-0.2\theta^2 + 1}\tag{14.B}\)</span>$</p>
 <p>Du (2015) používá Taylorův rozvoj funkce publikované v Dikrallah (2006), publikaci z konference. Kromě toho, že publikace není online, nedává smysl použití Taylorova vzorce. Je to přibližná metoda a platí jenom pro malé úhly. Oprava rychlostí není nijak výpočetně náročná a dá se udělat i s přesným vzorcem. Spolehlivější je asi ten Maurer (2006). Také nedává smysl použít opravu pro celý paprsek, protože během letu se odchylka od radiálního směru mění. Ale v ERSM metodě se dá udělat oprava pro každý segment samostatně. Tj. dalo by se opravit podle úhlu, který svírá segment a spojice střed paprsku - střed kmene. Pro každý paprsek by se vzaly jednotlivé segmenty a opravila by se na nich rychlost na každém segmentu samostatně.</p>
 </section>
 </section>
@@ -376,7 +567,7 @@ $$v ‘_N = \frac{v_N}{-0.2\theta^2 + 1}\tag{14.B}$$</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>Initialization. (Generating grid graph, calculating all values of velocity rays with Eq. 2, and normalizing them.)</p></li>
-<li><p>Compensating the values of all non-radial velocity rays with Eq. 14. $$v ‘_N = \frac{v_N}{-0.2\theta + 1}\tag{14}$$</p></li>
+<li><p>Compensating the values of all non-radial velocity rays with Eq. 14. $<span class="math notranslate nohighlight">\(v '_N = \frac{v_N}{-0.2\theta + 1}\tag{14}\)</span>$</p></li>
 <li><p>Generating all of the affected zones with Eq. 4 and Eq. 5.</p></li>
 <li><p>For a certain grid cell, one can record all of the elliptic zones that affect it with Eq. 6, and calculate its velocity value, using Eq. 7 and Eq. 8.</p></li>
 <li><p>Repeating Step 4 until every grid cell has been processed.</p></li>
@@ -385,40 +576,42 @@ $$v ‘_N = \frac{v_N}{-0.2\theta^2 + 1}\tag{14.B}$$</p>
 </div></blockquote>
 <p>Citation related to the step 3:</p>
 <blockquote>
-<div><p>A ray here represents the virtual propagation path of a stress wave, and its value represents the velocity value of stress wave. Obviously, there are internal defects present on the path if the value of a certain ray is low, but the exact location of the defective part is still uncertain. Ellipses with the same eccentricity will have a greater effect on the middle portion of a ray, but the defects may be near the sensor or somewhere else. Therefore, the spatial interpolation method that uses a basic ellipse can be improved. The length is another key property of the ray. The affected zones that corresponded to shorter rays are more likely to overlap with the defective region. As shown in Fig. 3(b), the area of the affected zone that corresponds to short rays should be larger, and the weight of the affected zone that corresponds to short rays should also be strengthened. The shape of the elliptic zone can be expressed as, $$c = \frac ba \tag{3}$$ where $a$ is the long axis of the ellipse and $b$ is the short axis of the ellipse. Therefore, $c$ is similar to the eccentricity, and the controlling coefficient for a certain ray can be given as,</p>
-<p>$$c_{ij}=\begin{cases}1-\frac{|j-i|}{\frac N2}&amp;|j-i|&lt;\frac N2\cr1-\frac{N-|j-i|}{\frac N2}&amp;|j-i|&gt;\frac N2\cr 0.1 &amp; |j-i|=\frac N2\end{cases}\tag{4}$$</p>
-<p>where: $i \in[1, N ]$ is the sensor number of a transmitter, $j \in[1, N ]$ is the sensor number of a receiver, $N$ is the total number of sensors, and $c_{ij}$ represents the ray from sensor number $i$ to sensor number $j$. The value of $a_{ij}$ is known, so the shape of each affected zone can be controlled by $b_{ij}$: $$b_{ij} = c_{ij} \times a_{ij}.\tag{5}$$</p>
+<div><p>A ray here represents the virtual propagation path of a stress wave, and its value represents the velocity value of stress wave. Obviously, there are internal defects present on the path if the value of a certain ray is low, but the exact location of the defective part is still uncertain. Ellipses with the same eccentricity will have a greater effect on the middle portion of a ray, but the defects may be near the sensor or somewhere else. Therefore, the spatial interpolation method that uses a basic ellipse can be improved. The length is another key property of the ray. The affected zones that corresponded to shorter rays are more likely to overlap with the defective region. As shown in Fig. 3(b), the area of the affected zone that corresponds to short rays should be larger, and the weight of the affected zone that corresponds to short rays should also be strengthened. The shape of the elliptic zone can be expressed as, $<span class="math notranslate nohighlight">\(c = \frac ba \tag{3}\)</span><span class="math notranslate nohighlight">\( where \)</span>a<span class="math notranslate nohighlight">\( is the long axis of the ellipse and \)</span>b<span class="math notranslate nohighlight">\( is the short axis of the ellipse. Therefore, \)</span>c$ is similar to the eccentricity, and the controlling coefficient for a certain ray can be given as,</p>
+<div class="math notranslate nohighlight">
+\[c_{ij}=\begin{cases}1-\frac{|j-i|}{\frac N2}&amp;|j-i|&lt;\frac N2\cr1-\frac{N-|j-i|}{\frac N2}&amp;|j-i|&gt;\frac N2\cr 0.1 &amp; |j-i|=\frac N2\end{cases}\tag{4}\]</div>
+<p>where: <span class="math notranslate nohighlight">\(i \in[1, N ]\)</span> is the sensor number of a transmitter, <span class="math notranslate nohighlight">\(j \in[1, N ]\)</span> is the sensor number of a receiver, <span class="math notranslate nohighlight">\(N\)</span> is the total number of sensors, and <span class="math notranslate nohighlight">\(c_{ij}\)</span> represents the ray from sensor number <span class="math notranslate nohighlight">\(i\)</span> to sensor number <span class="math notranslate nohighlight">\(j\)</span>. The value of <span class="math notranslate nohighlight">\(a_{ij}\)</span> is known, so the shape of each affected zone can be controlled by <span class="math notranslate nohighlight">\(b_{ij}\)</span>: $<span class="math notranslate nohighlight">\(b_{ij} = c_{ij} \times a_{ij}.\tag{5}\)</span>$</p>
 </div></blockquote>
 <p>Citation related to the step 4:</p>
 <blockquote>
-<div><p>Additionally, when a certain grid cell is affected by more than one elliptic zone, all these elliptic zones and their corresponding rays can be recorded. Then, the velocity value of the grid cell can be calculated as, $$v_{xy}=\sum_{k=1}^m w_k\times v_k\tag{7}$$ where $v_{xy}$ is the estimated velocity value of a certain grid cell, $v_k$ is the velocity value of a certain ray that affects the specific grid cell, $w_k$ is weighting coefficient, and $m$ is the total number of rays that affect the specific grid cell, simultaneously. Considering that elliptical zones that correspond to short rays should weigh more, $w_k$ can be given as, $$w_k = \frac {1}{l_k}\Biggm/ \sum_{z=1}^m \frac{1}{l_z}\tag{8}$$ where $l_z$ is the length of a certain ray.</p>
+<div><p>Additionally, when a certain grid cell is affected by more than one elliptic zone, all these elliptic zones and their corresponding rays can be recorded. Then, the velocity value of the grid cell can be calculated as, $<span class="math notranslate nohighlight">\(v_{xy}=\sum_{k=1}^m w_k\times v_k\tag{7}\)</span><span class="math notranslate nohighlight">\( where \)</span>v_{xy}<span class="math notranslate nohighlight">\( is the estimated velocity value of a certain grid cell, \)</span>v_k<span class="math notranslate nohighlight">\( is the velocity value of a certain ray that affects the specific grid cell, \)</span>w_k<span class="math notranslate nohighlight">\( is weighting coefficient, and \)</span>m<span class="math notranslate nohighlight">\( is the total number of rays that affect the specific grid cell, simultaneously. Considering that elliptical zones that correspond to short rays should weigh more, \)</span>w_k<span class="math notranslate nohighlight">\( can be given as, \)</span><span class="math notranslate nohighlight">\(w_k = \frac {1}{l_k}\Biggm/ \sum_{z=1}^m \frac{1}{l_z}\tag{8}\)</span><span class="math notranslate nohighlight">\( where \)</span>l_z$ is the length of a certain ray.</p>
 </div></blockquote>
 </section>
 <section id="ersm">
 <h2>ERSM<a class="headerlink" href="#ersm" title="Link to this heading"></a></h2>
 <p>Improvement of Du (2018).</p>
 <ol class="arabic simple">
-<li><p>Choose typical size of the segment $l_0$. One half of the shortest ray is suggested length.</p></li>
-<li><p>Split each ray into segments of equal size. The number of segments is the integer part of the quotient $l/l_0$ where $l$ is the legth of the ray. <strong>This is the change from Du (2018)</strong></p></li>
+<li><p>Choose typical size of the segment <span class="math notranslate nohighlight">\(l_0\)</span>. One half of the shortest ray is suggested length.</p></li>
+<li><p>Split each ray into segments of equal size. The number of segments is the integer part of the quotient <span class="math notranslate nohighlight">\(l/l_0\)</span> where <span class="math notranslate nohighlight">\(l\)</span> is the legth of the ray. <strong>This is the change from Du (2018)</strong></p></li>
 <li><p>For each segment consider the ellipse with major axis at the segment and the eccentricity given. Find all segments intercepting this ellipse and set the speed of this segment as a mean value of the speeds of segments through the ellipse.</p></li>
 <li><p>Set the cell velcities using spatial interpolation by segmented ellipe (SISE) as described in Du (2018).</p></li>
 </ol>
 </section>
 <section id="sirt-method">
 <h2>SIRT method<a class="headerlink" href="#sirt-method" title="Link to this heading"></a></h2>
-<p>Sluits and Vorst (1990) describe general SIRT methods. It $b_i$ is the time of fly of the $i$-th ray, $a_{ij}$ is the length of the intersection of the $i$-th ray with the $j$-th cell and $x_j$ is the slowness (reciprocal value of velocity) in the $j$-th cell, then we have
-$$b_i = \sum a_{ij} x_j$$
+<p>Sluits and Vorst (1990) describe general SIRT methods. It <span class="math notranslate nohighlight">\(b_i\)</span> is the time of fly of the <span class="math notranslate nohighlight">\(i\)</span>-th ray, <span class="math notranslate nohighlight">\(a_{ij}\)</span> is the length of the intersection of the <span class="math notranslate nohighlight">\(i\)</span>-th ray with the <span class="math notranslate nohighlight">\(j\)</span>-th cell and <span class="math notranslate nohighlight">\(x_j\)</span> is the slowness (reciprocal value of velocity) in the <span class="math notranslate nohighlight">\(j\)</span>-th cell, then we have
+$<span class="math notranslate nohighlight">\(b_i = \sum a_{ij} x_j\)</span><span class="math notranslate nohighlight">\(
 or in matrix form
-$$b = Ax,$$
-where $b$ and $x$ are column matrices of times and slownesses respectively and $A$ is the matrix of segment lengths. In general, this linear system with unknowns $x$ does not have solution. Thus we have to find vector $x$ which is close to the solution in the sense that the euclidean norm $$||b-Ax||$$ of the difference between the left and right hand side is minimal.</p>
+\)</span><span class="math notranslate nohighlight">\(b = Ax,\)</span><span class="math notranslate nohighlight">\(
+where \)</span>b<span class="math notranslate nohighlight">\( and \)</span>x<span class="math notranslate nohighlight">\( are column matrices of times and slownesses respectively and \)</span>A<span class="math notranslate nohighlight">\( is the matrix of segment lengths. In general, this linear system with unknowns \)</span>x<span class="math notranslate nohighlight">\( does not have solution. Thus we have to find vector \)</span>x<span class="math notranslate nohighlight">\( which is close to the solution in the sense that the euclidean norm \)</span><span class="math notranslate nohighlight">\(||b-Ax||\)</span>$ of the difference between the left and right hand side is minimal.</p>
 <p>Simultaneous iterative reconstruction technique (SIRT) is the method to solve this least square problem iteratively.
 Sluis and Vorst (1990) present a class of iterative formulas</p>
-<p>$$x^{(k+1)}=x^{(k)}+\omega P A^T Q (b-Ax),\tag{*}$$</p>
-<p>where $P=\mathrm{diag}(1/\gamma_j)$, $Q=\mathrm{diag}(1/\rho_j)$ and
-$$\gamma_j=\sum_i |a_{ij}|^\alpha, \quad
+<div class="math notranslate nohighlight">
+\[x^{(k+1)}=x^{(k)}+\omega P A^T Q (b-Ax),\tag{*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P=\mathrm{diag}(1/\gamma_j)\)</span>, <span class="math notranslate nohighlight">\(Q=\mathrm{diag}(1/\rho_j)\)</span> and
+$<span class="math notranslate nohighlight">\(\gamma_j=\sum_i |a_{ij}|^\alpha, \quad 
 \rho_j=\sum_k |a_{ij}|^{2-\alpha}, \quad
-0\leq \alpha\leq 2, \quad 0&lt;\omega&lt;2.$$
-Common choices are $\omega =1$ and either $\alpha = 0$ or $\alpha =1$. The scheme (*) is convergent by Sluis and Vorst (1990), Theorem 4.10.</p>
+0\leq \alpha\leq 2, \quad 0&lt;\omega&lt;2.\)</span><span class="math notranslate nohighlight">\(
+Common choices are \)</span>\omega =1<span class="math notranslate nohighlight">\( and either \)</span>\alpha = 0<span class="math notranslate nohighlight">\( or \)</span>\alpha =1$. The scheme (*) is convergent by Sluis and Vorst (1990), Theorem 4.10.</p>
 <section id="fixing-reaction-time-in-sirt-method">
 <h3>Fixing reaction time in SIRT method<a class="headerlink" href="#fixing-reaction-time-in-sirt-method" title="Link to this heading"></a></h3>
 <blockquote>
@@ -429,11 +622,12 @@ the seismic pulse and the time of the first sample of the digitized seismogram.
 This time difference is generally unknown, but it usually remains constant
 during an experiment. Consequently, the origin time to may be
 included as a further unknown in the tomographic inversion procedure by modifying Eq. (1):</p>
-<p>$$ t_{ij}=\sum_{\text{cells}}l_{ijk}s_k+t_0 \tag{5}$$</p>
+<div class="math notranslate nohighlight">
+\[ t_{ij}=\sum_{\text{cells}}l_{ijk}s_k+t_0 \tag{5}\]</div>
 <p>As shown by Maurer (1996), it is only necessary to append a column with values
-of 1 to matrix $G$ to solve the inverse problem related to Eq. (5). The
-solution vector $s$ will then include adjustments not only to the slowness of
-individual cells, but also to the origin time $t_0$.</p>
+of 1 to matrix <span class="math notranslate nohighlight">\(G\)</span> to solve the inverse problem related to Eq. (5). The
+solution vector <span class="math notranslate nohighlight">\(s\)</span> will then include adjustments not only to the slowness of
+individual cells, but also to the origin time <span class="math notranslate nohighlight">\(t_0\)</span>.</p>
 </div></blockquote>
 </section>
 </section>

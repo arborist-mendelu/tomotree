@@ -1,0 +1,172 @@
+# Launching the GUI — Using `app.py.dist`
+
+The repository ships with a template entry point called `app.py.dist`. It provides a fully configured, commented starting point for running the Streamlit web interface and is the recommended way to customise how the application starts.
+
+---
+
+## Quick Start
+
+### 1. Copy the template
+
+From the repository root:
+
+```bash
+cp app.py.dist app.py
+```
+
+`app.py` is listed in `.gitignore` (or treated as a local file), so your customisations will not accidentally overwrite the template when you pull updates.
+
+### 2. Set up configuration files
+
+If you have not done this already:
+
+```bash
+cp config/config.yaml.dist config/config.yaml
+cp config/login.yaml.dist config/login.yaml
+mkdir -p streamlit_data streamlit_user streamlit_shared log
+```
+
+Edit `config/config.yaml` and `config/login.yaml` to match your environment. See the [Installation Guide](installation.md) and the [Configuration file reference](config_file.md) for details.
+
+### 3. Run the application
+
+```bash
+streamlit run app.py
+# or, equivalently:
+make www
+```
+
+Open **http://localhost:8501** in your browser.
+
+---
+
+## What `app.py.dist` Contains
+
+The file has three sections.
+
+### Logging
+
+A rotating log file is written to `log/app.log`. The file rotates at 5 MB and three backup copies are kept, so total log disk usage is at most ~20 MB. The same messages are echoed to the terminal.
+
+The log directory is created automatically on startup, so no manual `mkdir` is needed.
+
+To enable verbose output for a specific module, add a line after the logging block:
+
+```python
+logging.getLogger("tomotree.streamlit.bg").setLevel(logging.DEBUG)
+```
+
+### Session start marker
+
+A one-time log line `=== APP START (first run) ===` is emitted when a new browser session is created. Subsequent re-executions (triggered by any widget interaction) log `=== APP RERUN ===`. This makes it easy to find session boundaries in `log/app.log`.
+
+### `Config()` — application settings
+
+All application settings are controlled by the `Config` dataclass. Every parameter has a sensible default and can be left commented out. The active defaults are identical to what `config/config.yaml.dist` defines.
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `dirname` | `"streamlit_data"` | Root directory for administrator-provided preloaded datasets |
+| `userdir` | `"streamlit_user"` | Root directory for per-user uploaded data |
+| `shareddir` | `"streamlit_shared"` | Directory used for public sharing symlinks |
+| `login_file` | `"config/login.yaml"` | Path to the user credentials file |
+| `allow_registration` | `False` | Allow new users to register themselves |
+| `passphrase` | *(placeholder)* | Secret used to sign/verify sharing links — **always change this** |
+| `log_path` | `"log/login.txt"` | Path for the per-user login event log |
+| `titlepage` | `"config/titlepage.txt"` | Markdown file shown on the login/welcome page |
+| `side_note` | `"config/side_note.txt"` | Markdown shown as a warning box in the sidebar on every page |
+| `show_about` | `False` | Show the *About* tab on the home screen |
+| `hostname` | `None` | Public hostname used in generated share URLs, e.g. `"tomotree.example.com:8501"` |
+| `max_user_storage` | `104857600` | Default per-user storage limit in bytes (100 MB) |
+| `user_storage_limits` | `{}` | Per-user overrides, e.g. `{"alice": 524288000}` |
+| `dpi` | `600` | Resolution for exported tomogram images |
+| `image_comparison_width` | `800` | Width (px) of the side-by-side image comparison slider |
+| `widgets` | `{}` | Override default slider/toggle values (see `config/config.yaml.dist`) |
+
+### Relationship between `app.py` and `config/config.yaml`
+
+Settings can be specified in either place:
+
+- Values in the `Config()` call in `app.py` override the defaults at **Python level**, before any YAML is read.
+- Values in `config/config.yaml` are merged in by `load_config()` when the application starts.
+
+In practice, `config/config.yaml` is the preferred place for deployment-specific values because it can be edited without restarting the process, and it is the file managed by the Admin Console editor. Use `app.py` overrides only when you need Python-level control (for example, when settings depend on environment variables).
+
+---
+
+## Running Without `app.py.dist`
+
+If you only need the default configuration you can skip the template and run directly from the installed package entry point:
+
+```bash
+streamlit run src/tomotree/streamlit_app/app.py
+```
+
+This is what `make www` falls back to when no `app.py` exists in the repository root.
+
+---
+
+## Launching the GUI via Docker
+
+If you prefer not to install Python dependencies locally, the Streamlit web interface can be started directly from the Docker image. Docker Compose files are provided in the `docker/` subdirectory.
+
+### Streamlit GUI
+
+From the repository root:
+
+```bash
+cd docker
+docker compose up
+```
+
+Or, to run in the background:
+
+```bash
+cd docker
+docker compose up -d
+```
+
+The GUI is available at **http://localhost:8501**. The URL is also printed in the terminal output.
+
+On first run Docker downloads and builds the image, which can take several minutes. Subsequent starts complete in a few seconds.
+
+### Jupyter interface
+
+A separate Compose file provides a JupyterLab interface for interactive scripting and demo notebooks:
+
+```bash
+cd docker
+docker compose -f compose-jupyter.yml up
+```
+
+JupyterLab is available at **http://localhost:8888**. The access token is printed in the terminal output.
+
+### Connecting with VS Code
+
+VS Code can attach directly to a running container using the [Dev Containers](https://code.visualstudio.com/docs/devcontainers/attach-container) extension. Once the container is running, open the VS Code Command Palette and select **Dev Containers: Attach to Running Container**, then choose the `tomotree` container.
+
+### Useful Docker commands
+
+```bash
+docker compose ps            # list running containers
+docker compose logs -f       # follow live output
+docker compose down          # stop and remove containers
+docker system df             # disk usage of images and volumes
+docker images                # list local images
+docker image prune           # remove unused images
+```
+
+For a full production deployment (including persistent data volumes, configuration, and update workflow) see the [Installation Guide — Method 3](installation.md#method-3--docker) and the [Administrator Guide](admin_guide.md).
+
+---
+
+## Changes to Watch for When Updating
+
+`app.py.dist` is updated alongside the package when new configuration parameters are added. After pulling an update:
+
+```bash
+# See what changed in the template
+diff app.py.dist app.py
+```
+
+Copy any new parameters you want into your `app.py` manually. Your existing `app.py` is never overwritten automatically.

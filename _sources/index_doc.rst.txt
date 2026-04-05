@@ -10,11 +10,17 @@ Welcome to tomotree's documentation!
    :maxdepth: 2
 
    doc
+   quick_start
+   installation
+   launching_gui
+   user_guide
    config_file
    i18n
    tomotree
    resistograph
    analyze_f3d
+   notebooks
+   admin_guide
 
 
 Indices and tables

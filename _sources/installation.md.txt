@@ -1,0 +1,394 @@
+# Installation Guide
+
+TomoTree can be installed in three ways depending on your use case:
+
+- **Conda / Mamba** — recommended for local development and scientific work; manages binary dependencies cleanly.
+- **pip** — suitable when you already have a Python environment and only need the package.
+- **Jupyter / Colab** — quick installation in notebook environments for interactive work. This method does not include the Streamlit UI.
+- **Docker** — recommended for server deployments; no Python environment required on the host.
+
+---
+
+## Prerequisites (all methods)
+
+- **Git** — to clone the repository.
+- **Python ≥ 3.9** — required by Conda and pip methods.
+- A copy of the repository:
+
+```bash
+git clone https://github.com/robert-marik/tomotree.git
+cd tomotree
+```
+
+---
+
+## Method 1 — Conda / Mamba
+
+This is the recommended approach for local use. Mamba is a faster drop-in replacement for Conda; all commands work equally with either tool.
+
+### 1. Create and activate a new environment
+
+```bash
+conda create -n tomotree python=3.12
+conda activate tomotree
+```
+
+### 2. Install core dependencies via Conda
+
+The packages listed in `requirements-mamba.txt` are available in the `conda-forge` channel and benefit from pre-compiled binaries (especially NumPy, SciPy, Numba):
+
+```bash
+conda install --file requirements-mamba.txt -c conda-forge
+```
+
+### 3. Install pip-only extras
+
+A small number of Streamlit UI components are not available on Conda and must be installed via pip:
+
+```bash
+pip install -r requirements-pip.txt
+```
+
+### 4. Install the TomoTree package
+
+```bash
+pip install -e .
+```
+
+The `-e` flag installs the package in **editable mode**, so any changes you make to the source code under `src/` take effect immediately without reinstalling.
+
+### 5. Verify
+
+```bash
+python -c "import tomotree; print(tomotree.__version__)"
+```
+
+---
+
+## Method 2 — pip
+
+Use this method if you manage your Python environment with `pip` and `venv` only, or if you are installing as a dependency of another project.
+
+### Option A — Install directly from GitHub (no clone needed)
+
+If you only need the package (not the Streamlit application or configuration files), you can install it in one command using SSH access to the repository:
+
+```bash
+pip install git+ssh://git@github.com/robert-marik/tomotree.git
+```
+
+Or using HTTPS (no SSH key required):
+
+```bash
+pip install git+https://github.com/robert-marik/tomotree.git
+```
+
+This installs the latest version of the `tomotree` Python package together with all its declared dependencies.
+
+> **Note:** The SSH variant requires that your SSH key is authorised for the repository. The HTTPS variant works without any prior setup.
+
+### Option B — Install from a local clone
+
+Use this option when you also need the Streamlit web UI, configuration templates, demo data, or want to modify the source code.
+
+#### 1. Create and activate a virtual environment
+
+```bash
+python -m venv .venv
+source .venv/bin/activate      # Linux / macOS
+# .venv\Scripts\activate       # Windows
+```
+
+#### 2. Install all dependencies and the package
+
+```bash
+pip install -r requirements-mamba.txt -r requirements-pip.txt
+pip install -e .
+```
+
+> **Note:** Some packages in `requirements-mamba.txt` (notably `numba`) have C-level dependencies. On Linux and macOS these are usually resolved automatically. On Windows you may need to install the [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) beforehand.
+
+#### 3. Verify
+
+```bash
+python -c "import tomotree; print(tomotree.__version__)"
+```
+
+---
+
+## Method 3 — Jupyter / Colab
+
+Use this method to install TomoTree directly in a Jupyter notebook or Google Colab environment for interactive analysis and development.
+
+### In a Jupyter notebook cell
+
+Simply run this command in a notebook cell:
+
+```python
+!pip install git+https://github.com/robert-marik/tomotree.git
+```
+
+Then verify the installation in the next cell:
+
+```python
+import tomotree
+print(tomotree.__version__)
+```
+
+### In Google Colab
+
+The same command works in Google Colab:
+
+```python
+!pip install git+https://github.com/robert-marik/tomotree.git
+```
+
+If you also need plotting and visualization tools, install the extras:
+
+```python
+!pip install git+https://github.com/robert-marik/tomotree.git[jupyter]
+```
+
+Then you can use TomoTree in subsequent Colab cells:
+
+```python
+import tomotree as tomo
+import numpy as np
+
+# Your tomography code here
+tomogram = tomo.Tomo(nodes, speeds, nx=100, ny=100, symmetric=True)
+tomogram.do_ERSM_method()
+```
+
+### Advantages
+
+- **No setup required** — install and use immediately without managing environments
+- **Perfect for demos and quick prototypes** — share notebooks with colleagues
+- **Works on any machine** — including cloud environments like Colab, Kaggle, or Azure Notebooks
+
+### Limitations
+
+- The Streamlit web UI is not available in Jupyter environments
+- Consider the [Conda/Mamba method](#method-1--conda--mamba) or [Docker method](#method-4--docker) for production use
+
+---
+
+## Method 4 — Docker
+
+The Docker image bundles the full application (Streamlit UI + TomoTree package) and is the easiest way to run TomoTree on a server.
+
+A pre-built image is published on Docker Hub as `robertmarik/tomotree:latest`.
+
+### Prerequisites
+
+- [Docker](https://docs.docker.com/get-docker/) with the Compose plugin (`docker compose`).
+- On Linux: your user must be in the `docker` group, or prefix commands with `sudo`.
+
+### 4a. Using the pre-built image (fastest)
+
+Create a working directory for persistent data and drop a `compose.yml` file in it:
+
+```yaml
+services:
+  tomotree:
+    image: robertmarik/tomotree:latest
+    network_mode: bridge
+    working_dir: /app
+    volumes:
+      - ./streamlit_data:/app/streamlit_data
+      - ./streamlit_user:/app/streamlit_user
+      - ./streamlit_shared:/app/streamlit_shared
+      - ./config:/app/config
+      - ./log:/app/log
+    ports:
+      - 8501:8501
+```
+
+Then pull and start:
+
+```bash
+docker pull robertmarik/tomotree:latest
+docker compose up -d
+```
+
+The application is available at `http://localhost:8501`.
+
+### 4b. Building the image from source
+
+If you have cloned the repository and want to build the image locally:
+
+```bash
+cd docker
+docker compose build
+docker compose up -d
+```
+
+To push the image to Docker Hub after building (maintainers only):
+
+```bash
+docker compose build --no-cache
+docker tag tomotree robertmarik/tomotree:latest
+docker login
+docker push robertmarik/tomotree:latest
+```
+
+### Stopping and updating
+
+```bash
+# Stop the running container
+docker compose down
+
+# Pull the latest image and restart
+docker pull robertmarik/tomotree:latest
+docker compose up -d
+```
+
+### Jupyter interface via Docker
+
+A separate Compose file starts a JupyterLab server inside the container, giving you an interactive Python environment with all TomoTree dependencies pre-installed:
+
+```bash
+cd docker
+docker compose -f compose-jupyter.yml up
+```
+
+JupyterLab is available at **http://localhost:8888**. The access token is printed in the terminal output. To run in the background append `-d`; retrieve the token afterwards with:
+
+```bash
+docker compose -f compose-jupyter.yml logs
+```
+
+### Connecting with VS Code Dev Containers
+
+VS Code can attach to any running TomoTree container and give you a full editor experience inside it, including terminal access, file editing, and the Python extension:
+
+1. Install the [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension in VS Code.
+2. Start the container (`docker compose up -d`).
+3. Open the Command Palette (`Ctrl+Shift+P`) and select **Dev Containers: Attach to Running Container**.
+4. Choose the `tomotree` container from the list.
+
+VS Code opens a new window connected to the container. The working directory is `/app`.
+
+### Useful Docker commands
+
+```bash
+docker compose ps          # list running containers
+docker compose logs -f     # follow live output
+docker system df           # disk usage of images and volumes
+docker images              # list local images
+docker image prune         # remove unused images
+```
+
+---
+
+## Post-Installation Configuration
+
+After installing by any method, configure the application before first use.
+
+### 1. Main configuration file
+
+Copy the template and edit it:
+
+```bash
+cp config/config.yaml.dist config/config.yaml
+```
+
+Key settings in `config/config.yaml`:
+
+| Key | Description | Default |
+|-----|-------------|---------|
+| `dirname` | Directory containing preloaded demo datasets | `streamlit_data` |
+| `userdir` | Root directory for per-user uploaded data | `streamlit_user` |
+| `hostname` | Public hostname shown in share links | `localhost:8501` |
+| `passphrase` | Secret used to encrypt/decrypt sharing links — **change this** | (placeholder) |
+| `allow_registration` | Whether new users can register themselves | `False` |
+| `max_user_storage` | Per-user storage limit in bytes | `104857600` (100 MB) |
+| `dpi` | Resolution for exported tomogram images | `600` |
+
+### 2. User credentials file
+
+Copy the template and edit it:
+
+```bash
+cp config/login.yaml.dist config/login.yaml
+```
+
+The file defines user accounts. An example entry:
+
+```yaml
+credentials:
+  usernames:
+    demo:
+      email: nobody@nowhere.com
+      first_name: Demo
+      last_name: TomoTree
+      password: MySecurePassword   # will be hashed automatically on first login
+      roles:
+        - admin
+```
+
+Passwords are stored in hashed form automatically after the first successful login; plain-text values in `login.yaml` are replaced on startup.
+
+The `cookie` section controls session persistence:
+
+```yaml
+cookie:
+  expiry_days: 30
+  key: any_random_string
+  name: streamlit_tomotree
+```
+
+Change `key` to any unique random string for your deployment.
+
+### 3. Required directories
+
+Create the directories referenced in `config.yaml` if they do not exist:
+
+```bash
+mkdir -p streamlit_data streamlit_user streamlit_shared log
+```
+
+When using Docker, these are created automatically by the volume mounts.
+
+---
+
+## Running the Application
+
+### Streamlit web UI
+
+```bash
+streamlit run app.py
+# or
+make www
+```
+
+Open `http://localhost:8501` in your browser.
+
+### FastAPI REST service
+
+```bash
+uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
+```
+
+Then open `http://localhost:8000/docs` for the interactive Swagger API documentation.
+
+---
+
+## Running the Test Suite
+
+```bash
+pytest tests/ -q
+```
+
+> The existing test baseline has known failures in `tests/test_api.py` related to the CSV export endpoints. These do not affect normal use of the application.
+
+---
+
+## Dependency Overview
+
+| File | Purpose |
+|------|---------|
+| `requirements-mamba.txt` | Core scientific stack (NumPy, SciPy, Pandas, Matplotlib, Streamlit, …) |
+| `requirements-pip.txt` | Additional Streamlit UI components unavailable on Conda |
+| `pyproject.toml` | Package metadata; references both requirement files for `pip install` |
+| `docker/Dockerfile` | Builds the production container from `python:3.12-slim` |

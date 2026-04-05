@@ -147,7 +147,9 @@ conversion factors:
 
 ## Access control
 
-Restrict which logged-in users may open the dataset:
+Each user can only see his/her own datasets and the datasets preloaded by the admin for all users. 
+
+The admin can restrict the access to these *preloaded datasets* using the `allowed` key, which takes a list of usernames as its value. For example:
 
 ```yaml
 allowed: [alice, bob, guest]
@@ -262,7 +264,7 @@ on the tomogram.
 
 ```yaml
 background:
-  image: photo.jpeg          # filename inside the images/ sub-directory
+  image: photo.jpeg          # filename
   from_node_value: 1         # node number for the first reference point
   to_node_value: 7           # node number for the second reference point
   coordinates:

@@ -1,0 +1,283 @@
+# Administrator Guide — Building and Deploying TomoTree
+
+This guide is intended for maintainers who need to build a new release, publish the Python package, build and push a Docker image, and update a running production server.
+
+---
+
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+2. [Bumping the Version](#bumping-the-version)
+3. [Building and Publishing the Python Package](#building-and-publishing-the-python-package)
+   - [Publish to GitHub (recommended)](#publish-to-github-recommended)
+   - [Publish to PyPI](#publish-to-pypi)
+4. [Building and Pushing the Docker Image](#building-and-pushing-the-docker-image)
+5. [Updating a Production Server](#updating-a-production-server)
+6. [Configuration Files on the Server](#configuration-files-on-the-server)
+
+---
+
+## Prerequisites
+
+Your local machine needs:
+
+- **Git** with push access to the repository.
+- **Python ≥ 3.9** with `build` and `twine` installed (for PyPI releases):
+  ```bash
+  pip install build twine
+  ```
+- **Docker** with the Compose plugin.
+- A **Docker Hub account** with push access to `robertmarik/tomotree`.
+
+---
+
+## Bumping the Version
+
+The canonical version string lives in one place:
+
+```
+src/tomotree/__init__.py
+```
+
+```python
+__version__ = "1.1.0"   # ← change this
+```
+
+`pyproject.toml` reads the version dynamically from that attribute, so editing the single line above is sufficient.
+
+Commit the change and tag the release in Git:
+
+```bash
+git add src/tomotree/__init__.py
+git commit -m "Bump version to 1.2.0"
+git tag v1.2.0
+git push origin main --tags
+```
+
+---
+
+## Building and Publishing the Python Package
+
+### Publish to GitHub (recommended)
+
+The simplest distribution method is to push the tagged commit. Users install directly from the repository without any package index:
+
+```bash
+# SSH (requires SSH key authorised for the repo)
+pip install git+ssh://git@github.com/robert-marik/tomotree.git
+
+# HTTPS (no SSH key required)
+pip install git+https://github.com/robert-marik/tomotree.git
+
+# Pin a specific tag
+pip install git+https://github.com/robert-marik/tomotree.git@v1.2.0
+```
+
+No additional build step is required. Once the tag is pushed, users can install that exact version.
+
+**Creating a GitHub Release (optional but recommended):**
+
+Go to the repository page on GitHub → **Releases** → **Draft a new release**, select the tag you just pushed, add release notes, and publish. This makes the release visible in the GitHub UI and allows users to download a source archive.
+
+### Publish to PyPI
+
+Use this method if you want users to be able to install with a plain `pip install tomotree`.
+
+#### 1. Build the distribution archives
+
+From the repository root:
+
+```bash
+python -m build
+```
+
+This produces two files in `dist/`:
+
+```
+dist/
+  tomotree-1.2.0-py3-none-any.whl
+  tomotree-1.2.0.tar.gz
+```
+
+#### 2. Upload to PyPI
+
+```bash
+python -m twine upload dist/*
+```
+
+You will be prompted for your PyPI username and password (or an API token — recommended). To use a token, create `~/.pypirc`:
+
+```ini
+[pypi]
+  username = __token__
+  password = pypi-YOUR_API_TOKEN_HERE
+```
+
+#### 3. Upload to TestPyPI first (optional)
+
+```bash
+python -m twine upload --repository testpypi dist/*
+pip install --index-url https://test.pypi.org/simple/ tomotree
+```
+
+---
+
+## Building and Pushing the Docker Image
+
+The Dockerfile is located at `docker/Dockerfile` and uses `python:3.12-slim` as the base image. It installs both requirement files then the package itself, and sets the Streamlit entry point.
+
+### 1. Build the image
+
+From the repository root:
+
+```bash
+cd docker
+docker compose build
+```
+
+Or, to skip the layer cache (recommended before a release):
+
+```bash
+docker compose build --no-cache
+```
+
+The resulting local image is tagged as `tomotree:latest` (as defined in `docker/compose.yml`).
+
+### 2. Tag for Docker Hub
+
+```bash
+docker tag tomotree robertmarik/tomotree:latest
+```
+
+To also tag a specific version:
+
+```bash
+docker tag tomotree robertmarik/tomotree:1.2.0
+```
+
+### 3. Push to Docker Hub
+
+```bash
+docker login          # enter Docker Hub credentials once
+docker push robertmarik/tomotree:latest
+docker push robertmarik/tomotree:1.2.0   # optional versioned tag
+```
+
+### One-liner for a clean release build and push
+
+```bash
+cd docker && \
+docker compose build --no-cache && \
+docker tag tomotree robertmarik/tomotree:latest && \
+docker push robertmarik/tomotree:latest
+```
+
+---
+
+## Updating a Production Server
+
+The production server runs the container defined by a `compose.yml` file in the deployment directory. It mounts persistent data directories as volumes so that user data, shared datasets, configuration, and logs survive container restarts.
+
+### Typical deployment directory layout
+
+```
+/srv/tomotree/
+├── compose.yml
+├── streamlit_data/      # preloaded datasets
+├── streamlit_user/      # per-user uploaded data
+├── streamlit_shared/    # shared dataset symlinks
+├── config/
+│   ├── config.yaml
+│   └── login.yaml
+└── log/
+```
+
+### compose.yml on the server
+
+```yaml
+services:
+  tomotree:
+    image: robertmarik/tomotree:latest
+    network_mode: bridge
+    working_dir: /app
+    volumes:
+      - ./streamlit_data:/app/streamlit_data
+      - ./streamlit_user:/app/streamlit_user
+      - ./streamlit_shared:/app/streamlit_shared
+      - ./config:/app/config
+      - ./log:/app/log
+    ports:
+      - 8501:8501
+    restart: unless-stopped
+```
+
+### Pulling the latest image and restarting
+
+```bash
+cd /srv/tomotree
+docker pull robertmarik/tomotree:latest
+docker compose down
+docker compose up -d
+```
+
+The container starts in detached mode (`-d`) and restarts automatically on reboot because of `restart: unless-stopped`.
+
+### Checking the running container
+
+```bash
+# List running containers
+docker compose ps
+
+# Follow live logs
+docker compose logs -f
+
+# Show the last 100 log lines
+docker compose logs --tail=100
+```
+
+### Rolling back to a previous version
+
+If the new image causes problems, roll back by pinning the previous version tag:
+
+```bash
+# Edit compose.yml: change image to robertmarik/tomotree:1.1.0
+docker compose down
+docker compose up -d
+```
+
+Or inline without editing the file:
+
+```bash
+docker compose down
+docker run -d \
+  --network bridge \
+  -p 8501:8501 \
+  -v ./streamlit_data:/app/streamlit_data \
+  -v ./streamlit_user:/app/streamlit_user \
+  -v ./streamlit_shared:/app/streamlit_shared \
+  -v ./config:/app/config \
+  -v ./log:/app/log \
+  --restart unless-stopped \
+  robertmarik/tomotree:1.1.0
+```
+
+---
+
+## Configuration Files on the Server
+
+All persistent configuration lives in the `config/` volume mount and is **not** replaced by image updates.
+
+| File | Purpose |
+|------|---------|
+| `config/config.yaml` | Main application settings (directories, hostname, passphrase, storage quotas, …) |
+| `config/login.yaml` | User accounts and password hashes |
+| `config/titlepage.txt` | Markdown text shown on the login page |
+| `config/side_note.txt` | Warning box shown in the sidebar on every page |
+
+After editing either YAML file, **restart the container** so the changes are picked up:
+
+```bash
+docker compose restart tomotree
+```
+
+> **Security reminder:** Set a strong, unique `passphrase` value in `config.yaml` before going live. This key is used to encrypt secret sharing links. Change the default `cookie.key` in `login.yaml` as well.

@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+  File "/home/marik/miniforge3/envs/tomotree/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/marik/miniforge3/envs/tomotree/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/marik/miniforge3/envs/tomotree/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/marik/miniforge3/envs/tomotree/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/marik/miniforge3/envs/tomotree/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/marik/miniforge3/envs/tomotree/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/marik/miniforge3/envs/tomotree/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Import function for measuring wall thickness and detecting hollow areas
+from tomotree.util import measure_walls
+
+# Measure thickness of undamaged part between sensors
+# Parameters:
+# - tomogram: processed tomogram from previous step
+# - sound_wood_speed: sound velocity in healthy wood (reference value)
+# - sound_wood_speed*0.5: upper limit for detecting damaged/hollow part (50% of velocity)
+# - plot_figure=True: creates visual representation of measurements
+# - num=500: number of measurement rays for more detailed analysis
+result = measure_walls(tomogram, sound_wood_speed, sound_wood_speed*0.5,
+            plot_figure=True, num=500)
+
+# Display results in table
+# Sensor1: first sensor in the pair
+# Sensor2: second sensor in the pair
+# Wall_thickness: measured thickness of healthy wood part between sensors
+result['df'][['Sensor1','Sensor2','Wall_thickness']]            
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mNameError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[2][39m[32m, line 11[39m
+[32m      2[39m [38;5;28;01mfrom[39;00m[38;5;250m [39m[34;01mtomotree[39;00m[34;01m.[39;00m[34;01mutil[39;00m[38;5;250m [39m[38;5;28;01mimport[39;00m measure_walls
+[32m      4[39m [38;5;66;03m# Measure thickness of undamaged part between sensors[39;00m
+[32m      5[39m [38;5;66;03m# Parameters:[39;00m
+[32m      6[39m [38;5;66;03m# - tomogram: processed tomogram from previous step[39;00m
+[32m   (...)[39m[32m      9[39m [38;5;66;03m# - plot_figure=True: creates visual representation of measurements[39;00m
+[32m     10[39m [38;5;66;03m# - num=500: number of measurement rays for more detailed analysis[39;00m
+[32m---> [39m[32m11[39m result = measure_walls(tomogram, [43msound_wood_speed[49m, sound_wood_speed*[32m0.5[39m,
+[32m     12[39m             plot_figure=[38;5;28;01mTrue[39;00m, num=[32m500[39m)
+[32m     14[39m [38;5;66;03m# Display results in table[39;00m
+[32m     15[39m [38;5;66;03m# Sensor1: first sensor in the pair[39;00m
+[32m     16[39m [38;5;66;03m# Sensor2: second sensor in the pair[39;00m
+[32m     17[39m [38;5;66;03m# Wall_thickness: measured thickness of healthy wood part between sensors[39;00m
+[32m     18[39m result[[33m'[39m[33mdf[39m[33m'[39m][[[33m'[39m[33mSensor1[39m[33m'[39m,[33m'[39m[33mSensor2[39m[33m'[39m,[33m'[39m[33mWall_thickness[39m[33m'[39m]]            
+
+[31mNameError[39m: name 'sound_wood_speed' is not defined
+

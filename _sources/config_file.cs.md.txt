@@ -103,7 +103,9 @@ conversion factors:
 
 ## Přístupová práva
 
-Omezení, kteří přihlášení uživatelé smí adresář otevřít:
+Každý uživatel může vidět pouze své vlastní sady dat a sady dat předem připravené správcem pro všechny uživatele.
+
+U předem připravených sad dat může správce omezit přístup pomocí klíče `allowed`, který jako hodnotu přijímá seznam uživatelských jmen. Například:
 
 ```yaml
 allowed: [alice, bob, host]

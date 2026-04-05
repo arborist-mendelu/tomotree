@@ -1,196 +1,41 @@
 TomoTree package description
 ============================
 
-Python class for processing data from acoustic tomography for trees. Here you can 
-find documentation of classes and functions. The source codes will be available later. 
+TomoTree is a Python library and interactive web application for **image reconstruction
+from acoustic tomography of trees**. Sensors (typically 12 or 24) are attached around the
+circumference of a tree trunk and short acoustic pulses are sent between every pair of
+sensors. The measured travel times — or the derived sound speeds — are then used to
+reconstruct a 2D velocity map of the cross-section. Areas with reduced sound speed
+indicate internal defects such as rot, cavities, or mechanically weakened wood.
+
+The package provides:
+
+* **Several reconstruction algorithms** — EBSI (Ellipse-Based Spatial Interpolation),
+  ERSM (Enhanced Ray Segmentation Method), and SIRT (Simultaneous Iterative
+  Reconstruction Technique).
+* **Anisotropy correction** — compensates for the well-known effect that radial rays
+  travel faster than tangential rays in living wood.
+* **Interactive Streamlit web GUI** — load data, tune parameters, and explore results
+  without writing any code.
+* **Cloud deployment possible** — you can run the web app on a server and access it from any device with a
+  web browser.
+* **Jupyter friendly API** — you can use the reconstruction algorithms and postprocessing tools in your own
+  Python code or Jupyter notebooks.
+* **FastAPI REST service** — programmatic access for integration into automated
+  pipelines.
+* **Rich geometry model** — ``Node``, ``Ray``, ``Segment``, ``Cell``, and ``Grid``
+  objects with full cross-references.
+* **Postprocessing tools** — binary thresholding, area measurement, wall-thickness
+  estimation, moment of inertia, and sound-wood speed calibration.
+* **Resistograph integration** — overlay drilling-resistance curves on the tomogram.
+* **Export** — tomogram images (configurable DPI), CSV data tables, and statistics.
+* **Session save / load** — persist the full application state between browser sessions.
+* **Internationalization** — support for multiple languages with easy translation workflow.
+* **Extensive documentation** — API reference, user guide, and worked examples.
+* **Open source** — MIT license, with code available on GitHub.
 
 .. note::
-    The package is described in the paper *(to be added later)* . The code of the package will 
-    be available after publication of the paper.
+    The case studies based on TomoTree utilization are described in detail in a forthcoming
+    paper (currently submitted for peer review). The full source code is publicly
+    available at https://github.com/robert-marik/tomotree.
 
-Installation
-------------
-
-Pip installation
-~~~~~~~~~~~~~~~~
-
-It is strongly recommended to use a virtual environment. You can use `conda`, `pip` or any alternative.
-With `conda`, you can use `mamba` for faster installation. Consult AI assistant if necessary.
-You can prepare the environment with the following commands. You may use `conda` instead of `mamba` if you do not have `mamba` installed.
-
-.. code-block:: bash
-
-    mamba create -n tomotree python=3.12
-    mamba activate tomotree
-
-Now you can install the package using pip. Run the following command in your terminal to install development version:
-If you do not have SSH keys set up for GitHub, you can use the HTTPS link instead. 
-
-.. code-block:: bash
-
-    pip install git+ssh://git@github.com/robert-marik/tomotree.git
-
-Use `@devel` to install the development version.
-
-.. code-block:: bash
-
-    pip install git+ssh://git@github.com/robert-marik/tomotree.git@devel
-
-
-Now you can create the app file and run. 
-
-.. code-block:: bash
-
-    echo -e "from tomotree.streamlit_app.app import app\napp()" > app.py
-    streamlit run app.py
-
-Docker
-~~~~~~
-
-Another easy way to use the package with GUI is through Docker. The Docker compose file is attached
-for Streamlit GUI and for Jupyter interface in the docker subdirectory. To run the GUI use the following command:
-
-.. code-block:: bash
-
-    docker compose up
-
-The GUI can be accessed at http://localhost:8501 URL. You will see this link in the terminal output.
-
-To run the Jupyter interface use the following command:
-
-.. code-block:: bash
-
-    docker compose -f compose-jupyter.yml up
-
-The Jupyterlab interface can be accessed at `http://localhost:8888`. The token 
-can be found in the terminal output.
-
-VSCode allows to connect to the running container. See `Remote - Containers <https://code.visualstudio.com/docs/devcontainers/attach-container>`_.
-
-Are you new in docker?
-
-* If you run the above commands for the first time, it take severa minutes to download
-  and install packages and create the containers. If the containers are created, 
-  the next start takes just few seconds.
-* To show the space occupied by the containers use ``docker system df``
-* To list the images use ``docker images``
-* To prune unused images use ``docker image prune``
-* To do other tasks use help to docker ecosystem or AI assistant.
-
-Python
-~~~~~~
-
-* It is recommended to use a virtual environment. Use `conda`, `pip` or any alternative. Consult AI assistant if necessary.
-* Install the packages from the file `requirements.txt`.
-
-Quick start
------------
-
-* `Visualization of acoustic rays. <./_static/00_basic_tomogram_rays.py.html>`_ 
-* `Tomogram reconstruction using advanced method. <./_static/00_ERSM_method.py.html>`_ 
-
-
-Short demos
------------
-* `Testing simulated data with decay outside the center and noncircular shape. <./_static/demo_artificial2.py.html>`_ 
-* `Testing simulated data with two decays. <./_static/demo_artificial3.py.html>`_ 
-* `The input data for the nodes are either coordinates or distances between nodes. <./_static/demo_distances.py.html>`_ 
-* `Wall thickenss <./_static/measure_walls.py.html>`_
-
-
-Rays method 
------------
-
-* Rays determine the velocities of cells through.
-* The velocity is established as a mean of the rays through this cell. 
-* If any cell is not illuminated by the rays, its velocity is undefined. Thus not suitable for fine grids.
-
-* `Testing simulated data with decay in the middle. Testing noncircular shape. <./_static/demo_artificial.py.html>`_ 
-
-
-Velocity is a parabolic function of angle from radial direction
----------------------------------------------------------------
-
-Data from the paper *Analysis of wave velocity patterns in black cherry trees 
-and its effect on internal decay detection*, 
-https://www.sciencedirect.com/science/article/pii/S0168169914000684
-
-* `Degraded wood. <./_static/demo_cherry_II.py.html>`_ 
-* `Sound wood. <./_static/demo_cherry_I.py.html>`_ 
-
-
-Eliptic based segmentation method (EBSI)
-----------------------------------------
-
-Comparison of primitive method (velocity from rays through) and EBSI. 
-
-* `Degraded wood and EBSI. <./_static/demo_EBSI_Du.py.html>`_ 
-* `Sound wood and EBSI.  <./_static/demo_EBSI_Du_sound_wood.py.html>`_ 
-* `Testing elliptical domains of rays, angles from radial direction and EBSI method for degraded wood. <./_static/demo_rays_from_point.py.html>`_ 
-* `Testing elliptical area of influence. <./_static/demo_EBSI_steps.py.html>`_ 
-
-
-Simultaneous interactive reconstruction technique (SIRT)
---------------------------------------------------------
-
-* `Degraded wood and SIRT. <./_static/demo_SIRT.py.html>`_ 
-
-
-Equidistant ray segmentation method (ERSM)
-------------------------------------------
-
-* `Degradation in the center <./_static/demo_ERSM_central_defect.py.html>`_   
-* `Sound wood <./_static/demo_ERSM_Du_sound_wood.py.html>`_
-* `The method for few rays <./_static/demo_ERSM_few_rays.py.html>`_, the file
-  shows some of the details of the mechanism behind  
-* `Test of identification segments through <./_static/demo_RSEN_Du.py.html>`_
-
-
-Tests of internal procedures
-----------------------------
-
-* `Testing ray segmentation. <./_static/demo_ellipse.py.html>`_ 
-* `Testing ray segmentation and spatial interpolation. <./_static/demo_ellipse_n.py.html>`_ 
-* `Simple test. <./_static/demo_few_rays.py.html>`_ 
-* `Simple 2-ray test of the Grid class. <./_static/demo_grid.py.html>`_  
-
-TomoWood
---------
-
-TomoWood is one of few datasets published. Tomotree has been tested on this dataset.
-However, the data could be unreliable. The node positions 
-does not match photo well, the velocities are highly asymmetric and the velocity
-as a function of the angle between the ray and the radial direction is not 
-a parabolic function.
-
-Espinosa, L., Brancheriau, L., Cortes, Y. et al. Ultrasound computed tomography
-on standing trees: accounting for wood anisotropy permits a more accurate
-detection of defects. Annals of Forest Science 77, 68 (2020).
-https://doi.org/10.1007/s13595-020-00971-z
-
-Data downloaded from Ultrasonic tomographic reconstruction considering wood anisotropy - UPR BioWooEB. (n.d.). Retrieved March 29, 2024, from https://dataverse.cirad.fr/dataset.xhtml?persistentId=doi:10.18167/DVN1/GI8LSW
-
-* `Healthy tree <./_static/demo_tomoWood_1.py.html>`_
-* `Deffect in the center <./_static/demo_tomoWood_2.py.html>`_
-* `Deffect outside center <./_static/demo_tomoWood_3.py.html>`_
-
-Various tests
--------------
-
-* `Checking triangle inequality <./_static/demo_triangle.py.html>`_
-* `Speed test <./_static/speed_test.py.html>`_
-* `Segmentation testing <./_static/test_segments.py.html>`_
-
-Online application
-------------------
-
-.. include:: config_file.md.md
-   :parser: myst_parser.sphinx
-
-.. include:: i18n.md
-   :parser: myst_parser.sphinx
-
-
-The old web interface to the Tomotree package is available at
-`https://tomotree.streamlit.app/ <https://tomotree.streamlit.app/>`_. A short video is also `available <https://youtu.be/P0PhThIeqmo>`_
-An updated version of the web UI is available as a docker container. See the installation instructions above. 

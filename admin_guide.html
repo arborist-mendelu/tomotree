@@ -1,0 +1,829 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administrator Guide — Building and Deploying TomoTree &mdash; tomotree  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Notebook examples" href="notebooks.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index_doc.html" class="icon icon-home">
+            tomotree
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="doc.html">TomoTree package description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick Start Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#basic-usage">Basic usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#initialize-tomogram-with-sensor-positions-and-velocity-data">Initialize tomogram with sensor positions and velocity data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#perform-ersm-reconstruction-and-estimate-sound-wood-speed">Perform ERSM reconstruction and estimate sound wood speed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quick_start.html#wall-thickness-measurement">Wall thickness measurement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quick_start.html#measure-wall-thickness-between-sensor-pairs">Measure wall thickness between sensor pairs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#prerequisites-all-methods">Prerequisites (all methods)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#method-1-conda-mamba">Method 1 — Conda / Mamba</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#create-and-activate-a-new-environment">1. Create and activate a new environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#install-core-dependencies-via-conda">2. Install core dependencies via Conda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#install-pip-only-extras">3. Install pip-only extras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#install-the-tomotree-package">4. Install the TomoTree package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#verify">5. Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#method-2-pip">Method 2 — pip</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#option-a-install-directly-from-github-no-clone-needed">Option A — Install directly from GitHub (no clone needed)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#option-b-install-from-a-local-clone">Option B — Install from a local clone</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#create-and-activate-a-virtual-environment">1. Create and activate a virtual environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#install-all-dependencies-and-the-package">2. Install all dependencies and the package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="installation.html#id1">3. Verify</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#method-3-jupyter-colab">Method 3 — Jupyter / Colab</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#in-a-jupyter-notebook-cell">In a Jupyter notebook cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#in-google-colab">In Google Colab</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#advantages">Advantages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#limitations">Limitations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#method-4-docker">Method 4 — Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#a-using-the-pre-built-image-fastest">4a. Using the pre-built image (fastest)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#b-building-the-image-from-source">4b. Building the image from source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#stopping-and-updating">Stopping and updating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#jupyter-interface-via-docker">Jupyter interface via Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#connecting-with-vs-code-dev-containers">Connecting with VS Code Dev Containers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#useful-docker-commands">Useful Docker commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#post-installation-configuration">Post-Installation Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#main-configuration-file">1. Main configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#user-credentials-file">2. User credentials file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#required-directories">3. Required directories</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#running-the-application">Running the Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#streamlit-web-ui">Streamlit web UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="installation.html#fastapi-rest-service">FastAPI REST service</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#running-the-test-suite">Running the Test Suite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#dependency-overview">Dependency Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="launching_gui.html">Launching the GUI — Using <code class="docutils literal notranslate"><span class="pre">app.py.dist</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="launching_gui.html#quick-start">Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#copy-the-template">1. Copy the template</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#set-up-configuration-files">2. Set up configuration files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#run-the-application">3. Run the application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="launching_gui.html#what-app-py-dist-contains">What <code class="docutils literal notranslate"><span class="pre">app.py.dist</span></code> Contains</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#logging">Logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#session-start-marker">Session start marker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#config-application-settings"><code class="docutils literal notranslate"><span class="pre">Config()</span></code> — application settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#relationship-between-app-py-and-config-config-yaml">Relationship between <code class="docutils literal notranslate"><span class="pre">app.py</span></code> and <code class="docutils literal notranslate"><span class="pre">config/config.yaml</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="launching_gui.html#running-without-app-py-dist">Running Without <code class="docutils literal notranslate"><span class="pre">app.py.dist</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="launching_gui.html#launching-the-gui-via-docker">Launching the GUI via Docker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#streamlit-gui">Streamlit GUI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#jupyter-interface">Jupyter interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#connecting-with-vs-code">Connecting with VS Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="launching_gui.html#useful-docker-commands">Useful Docker commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="launching_gui.html#changes-to-watch-for-when-updating">Changes to Watch for When Updating</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">TomoTree Web Application — User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#login-and-registration">Login and Registration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#logging-in">Logging In</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#registering-a-new-account">Registering a New Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#forgotten-password">Forgotten Password</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#user-roles">User Roles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#logging-out">Logging Out</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#home-screen-choosing-a-data-source">Home Screen — Choosing a Data Source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#preloaded-data">Preloaded Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#user-data">User Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#uploading-your-own-data">Uploading Your Own Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#shared-data">Shared Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#user-profile">User Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#about">About</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#sidebar-persistent-controls">Sidebar — Persistent Controls</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#dataset-info">Dataset Info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#reconstruction-and-plot-settings">Reconstruction and Plot Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#readme-button">Readme Button</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#video">Video</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#tomography-reconstruction">Tomography Reconstruction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#rays-method">Rays Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#ebsi-method">EBSI Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#ersm-method">ERSM Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#speed-calibration">Speed Calibration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#postprocessing">Postprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#binary-tomo">Binary Tomo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#area-selection-tool">Area Selection Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#tomogram-measurement-tool">Tomogram Measurement Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#background">Background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#angle-plots">Angle Plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#resistograph">Resistograph</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#viewing-raw-curves">Viewing Raw Curves</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#mean-and-standard-deviation">Mean and Standard Deviation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#define-drilling-paths">Define Drilling Paths</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#resistograph-tomogram-overlay">Resistograph &amp; Tomogram Overlay</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#data-info-share">Data, Info &amp; Share</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#view-data-tool">View Data Tool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#file-browser">File Browser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#sharing-data">Sharing Data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#save-and-load-session-state">Save and Load Session State</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#saving-a-state">Saving a State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#loading-a-state">Loading a State</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#admin-console">Admin Console</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#managing-storage-quotas">Managing Storage Quotas</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#direct-url-access">Direct URL Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide.html#input-file-format-reference">Input File Format Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#notes-on-geometry-input">Notes on geometry input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#matrix-orientation">Matrix orientation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="config_file.html">Configuration file <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#location">Location</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#input-data">Input data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#node-positions">Node positions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#measurements">Measurements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#units">Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#access-control">Access control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#grid-resolution">Grid resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#velocity-colour-scale">Velocity colour scale</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#scale-type">Scale type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#bounds-numerical-m-s">Bounds — numerical (m/s)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#bounds-percentage-of-reference-value">Bounds — percentage of reference value</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config_file.html#bounds-percentile">Bounds — percentile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#tomogram-appearance">Tomogram appearance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#reconstruction-parameters">Reconstruction parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#subset-of-nodes">Subset of nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#sound-wood-speed">Sound-wood speed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#background-photo">Background photo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#resistograph-settings">Resistograph settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#navigation-landing-page">Navigation / landing page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_file.html#minimal-example">Minimal example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="i18n.html">Internationalization (i18n) &amp; Localization (l10n) Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#architecture-overview">1. Architecture overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#directory-layout">2. Directory layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#how-it-works-at-runtime">3. How it works at runtime</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#translation-look-up">Translation look-up</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#plural-forms">Plural forms</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#marking-strings-for-translation-in-python-code">4. Marking strings for translation in Python code</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#import-the-function">Import the function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#basic-usage">Basic usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#variable-interpolation-use-format-not-f-strings">Variable interpolation — use <code class="docutils literal notranslate"><span class="pre">.format()</span></code>, not f-strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#multiline-strings">Multiline strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#loop-variable-clash">Loop variable clash</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#extracting-new-strings-to-the-template-pot">5. Extracting new strings to the template (.pot)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#manual-extraction-current-workflow">Manual extraction (current workflow)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#automated-extraction-optional-requires-xgettext">Automated extraction (optional, requires xgettext)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#updating-existing-language-files-po">6. Updating existing language files (.po)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#po-file-structure">.po file structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#adding-a-new-string-to-an-existing-language">Adding a new string to an existing language</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#adding-a-brand-new-language">7. Adding a brand-new language</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-1-create-the-directory-po-file">Step 1 — Create the directory &amp; PO file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-2-register-the-language-in-init-py">Step 2 — Register the language in <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-3-register-the-language-in-po-to-json-py">Step 3 — Register the language in <code class="docutils literal notranslate"><span class="pre">po_to_json.py</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-4-generate-the-json-file">Step 4 — Generate the JSON file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html#step-5-verify">Step 5 — Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#compiling-translations-po-json">8. Compiling translations (.po → .json)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#currently-supported-languages">9. Currently supported languages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="i18n.html#common-pitfalls">10. Common pitfalls</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tomotree.html">Tomotree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree-module">Tomotree module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocity_no_boundary"><code class="docutils literal notranslate"><span class="pre">Cell.velocity_no_boundary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.dx"><code class="docutils literal notranslate"><span class="pre">Cell.dx</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.dy"><code class="docutils literal notranslate"><span class="pre">Cell.dy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.boundary_points"><code class="docutils literal notranslate"><span class="pre">Cell.boundary_points</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.segments"><code class="docutils literal notranslate"><span class="pre">Cell.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.id"><code class="docutils literal notranslate"><span class="pre">Cell.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Cell.status"><code class="docutils literal notranslate"><span class="pre">Cell.status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.x"><code class="docutils literal notranslate"><span class="pre">Grid.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.y"><code class="docutils literal notranslate"><span class="pre">Grid.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.cells"><code class="docutils literal notranslate"><span class="pre">Grid.cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.all_cells"><code class="docutils literal notranslate"><span class="pre">Grid.all_cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.min_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.max_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.get_cell"><code class="docutils literal notranslate"><span class="pre">Grid.get_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id0"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id1"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.plot"><code class="docutils literal notranslate"><span class="pre">Grid.plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.set_cell_status_from_threshold"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_status_from_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Grid.set_cell_velocity_from_ray_means"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_velocity_from_ray_means()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.coordinates"><code class="docutils literal notranslate"><span class="pre">Node.coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.raw_coordinates"><code class="docutils literal notranslate"><span class="pre">Node.raw_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.rays_from"><code class="docutils literal notranslate"><span class="pre">Node.rays_from</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.rays_to"><code class="docutils literal notranslate"><span class="pre">Node.rays_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.number"><code class="docutils literal notranslate"><span class="pre">Node.number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.get_ray_to"><code class="docutils literal notranslate"><span class="pre">Node.get_ray_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Node.active"><code class="docutils literal notranslate"><span class="pre">Node.active</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Ray"><code class="docutils literal notranslate"><span class="pre">Ray</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.start"><code class="docutils literal notranslate"><span class="pre">Ray.start</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.end"><code class="docutils literal notranslate"><span class="pre">Ray.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.speed"><code class="docutils literal notranslate"><span class="pre">Ray.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.time"><code class="docutils literal notranslate"><span class="pre">Ray.time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.segments"><code class="docutils literal notranslate"><span class="pre">Ray.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.signed_angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.signed_angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.ori_time"><code class="docutils literal notranslate"><span class="pre">Ray.ori_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Ray.ori_speed"><code class="docutils literal notranslate"><span class="pre">Ray.ori_speed</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.Tomo"><code class="docutils literal notranslate"><span class="pre">Tomo</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.nodes"><code class="docutils literal notranslate"><span class="pre">Tomo.nodes</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.rays"><code class="docutils literal notranslate"><span class="pre">Tomo.rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.tangential_rays"><code class="docutils literal notranslate"><span class="pre">Tomo.tangential_rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.speeds"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.times"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.get_node_by_number"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.n"><code class="docutils literal notranslate"><span class="pre">Tomo.n</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.grid"><code class="docutils literal notranslate"><span class="pre">Tomo.grid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.polygon"><code class="docutils literal notranslate"><span class="pre">Tomo.polygon</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id2"><code class="docutils literal notranslate"><span class="pre">Tomo.get_node_by_number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.info"><code class="docutils literal notranslate"><span class="pre">Tomo.info</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.pith"><code class="docutils literal notranslate"><span class="pre">Tomo.pith</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.data_source"><code class="docutils literal notranslate"><span class="pre">Tomo.data_source</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.boundary"><code class="docutils literal notranslate"><span class="pre">Tomo.boundary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.allsegments"><code class="docutils literal notranslate"><span class="pre">Tomo.allsegments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.get_ray"><code class="docutils literal notranslate"><span class="pre">Tomo.get_ray()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.ori_speeds"><code class="docutils literal notranslate"><span class="pre">Tomo.ori_speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.Tomo.ori_times"><code class="docutils literal notranslate"><span class="pre">Tomo.ori_times</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id3"><code class="docutils literal notranslate"><span class="pre">Tomo.speeds</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id4"><code class="docutils literal notranslate"><span class="pre">Tomo.tangential_rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id5"><code class="docutils literal notranslate"><span class="pre">Tomo.times</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.get_boundary_points"><code class="docutils literal notranslate"><span class="pre">get_boundary_points()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.is_point_inside_ellipse"><code class="docutils literal notranslate"><span class="pre">is_point_inside_ellipse()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.perp"><code class="docutils literal notranslate"><span class="pre">perp()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.speed2color"><code class="docutils literal notranslate"><span class="pre">speed2color()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node"><code class="docutils literal notranslate"><span class="pre">Node</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.coordinates"><code class="docutils literal notranslate"><span class="pre">Node.coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.raw_coordinates"><code class="docutils literal notranslate"><span class="pre">Node.raw_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.rays_from"><code class="docutils literal notranslate"><span class="pre">Node.rays_from</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.rays_to"><code class="docutils literal notranslate"><span class="pre">Node.rays_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.number"><code class="docutils literal notranslate"><span class="pre">Node.number</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.get_ray_to"><code class="docutils literal notranslate"><span class="pre">Node.get_ray_to</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.node.Node.active"><code class="docutils literal notranslate"><span class="pre">Node.active</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray"><code class="docutils literal notranslate"><span class="pre">Ray</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.start"><code class="docutils literal notranslate"><span class="pre">Ray.start</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.end"><code class="docutils literal notranslate"><span class="pre">Ray.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.speed"><code class="docutils literal notranslate"><span class="pre">Ray.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.time"><code class="docutils literal notranslate"><span class="pre">Ray.time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.segments"><code class="docutils literal notranslate"><span class="pre">Ray.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.signed_angle_from_radial"><code class="docutils literal notranslate"><span class="pre">Ray.signed_angle_from_radial</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.length"><code class="docutils literal notranslate"><span class="pre">Ray.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.ori_time"><code class="docutils literal notranslate"><span class="pre">Ray.ori_time</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Ray.ori_speed"><code class="docutils literal notranslate"><span class="pre">Ray.ori_speed</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment"><code class="docutils literal notranslate"><span class="pre">Segment</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.ray"><code class="docutils literal notranslate"><span class="pre">Segment.ray</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.speed"><code class="docutils literal notranslate"><span class="pre">Segment.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.start"><code class="docutils literal notranslate"><span class="pre">Segment.start</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.end"><code class="docutils literal notranslate"><span class="pre">Segment.end</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.start_coordinates"><code class="docutils literal notranslate"><span class="pre">Segment.start_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.end_coordinates"><code class="docutils literal notranslate"><span class="pre">Segment.end_coordinates</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.length"><code class="docutils literal notranslate"><span class="pre">Segment.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id7"><code class="docutils literal notranslate"><span class="pre">Segment.length</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.ray.Segment.split"><code class="docutils literal notranslate"><span class="pre">Segment.split()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell"><code class="docutils literal notranslate"><span class="pre">Cell</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.rays"><code class="docutils literal notranslate"><span class="pre">Cell.rays</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocity"><code class="docutils literal notranslate"><span class="pre">Cell.velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocity_no_boundary"><code class="docutils literal notranslate"><span class="pre">Cell.velocity_no_boundary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.velocities_list"><code class="docutils literal notranslate"><span class="pre">Cell.velocities_list</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.x"><code class="docutils literal notranslate"><span class="pre">Cell.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.y"><code class="docutils literal notranslate"><span class="pre">Cell.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.dx"><code class="docutils literal notranslate"><span class="pre">Cell.dx</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.dy"><code class="docutils literal notranslate"><span class="pre">Cell.dy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.boundary_points"><code class="docutils literal notranslate"><span class="pre">Cell.boundary_points</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.segments"><code class="docutils literal notranslate"><span class="pre">Cell.segments</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.id"><code class="docutils literal notranslate"><span class="pre">Cell.id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.cell.Cell.status"><code class="docutils literal notranslate"><span class="pre">Cell.status</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid"><code class="docutils literal notranslate"><span class="pre">Grid</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.x"><code class="docutils literal notranslate"><span class="pre">Grid.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.y"><code class="docutils literal notranslate"><span class="pre">Grid.y</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.cells"><code class="docutils literal notranslate"><span class="pre">Grid.cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.all_cells"><code class="docutils literal notranslate"><span class="pre">Grid.all_cells</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.min_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.max_velocity"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.get_cell"><code class="docutils literal notranslate"><span class="pre">Grid.get_cell()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id8"><code class="docutils literal notranslate"><span class="pre">Grid.max_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#id9"><code class="docutils literal notranslate"><span class="pre">Grid.min_velocity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.plot"><code class="docutils literal notranslate"><span class="pre">Grid.plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.set_cell_status_from_threshold"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_status_from_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="tomotree.html#tomotree.classes.grid.Grid.set_cell_velocity_from_ray_means"><code class="docutils literal notranslate"><span class="pre">Grid.set_cell_velocity_from_ray_means()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="resistograph.html">Resistograph</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.DrillingPath"><code class="docutils literal notranslate"><span class="pre">DrillingPath</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.DrillingPath.angle"><code class="docutils literal notranslate"><span class="pre">DrillingPath.angle</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph"><code class="docutils literal notranslate"><span class="pre">Resistograph</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.data"><code class="docutils literal notranslate"><span class="pre">Resistograph.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.get_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.get_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.preprocess_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.preprocess_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.read_resistograph_data"><code class="docutils literal notranslate"><span class="pre">Resistograph.read_resistograph_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="resistograph.html#tomotree.resistograph.Resistograph.remove_global_linear_trend"><code class="docutils literal notranslate"><span class="pre">Resistograph.remove_global_linear_trend()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_graphs"><code class="docutils literal notranslate"><span class="pre">add_resistograph_graphs()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="resistograph.html#tomotree.resistograph.add_resistograph_to_image"><code class="docutils literal notranslate"><span class="pre">add_resistograph_to_image()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="analyze_f3d.html">Analyze f3d files</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.df_nodes"><code class="docutils literal notranslate"><span class="pre">df_nodes()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.distance_matrix"><code class="docutils literal notranslate"><span class="pre">distance_matrix()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.extract_distance_data"><code class="docutils literal notranslate"><span class="pre">extract_distance_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.extract_time_data"><code class="docutils literal notranslate"><span class="pre">extract_time_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.get_xml_root"><code class="docutils literal notranslate"><span class="pre">get_xml_root()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyze_f3d.html#tomotree.analyze_f3d.time_matrix"><code class="docutils literal notranslate"><span class="pre">time_matrix()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Notebook examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#quick-start">Quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#short-demos">Short demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#rays-method">Rays method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#velocity-is-a-parabolic-function-of-angle-from-radial-direction">Velocity is a parabolic function of angle from radial direction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#eliptic-based-segmentation-method-ebsi">Eliptic based segmentation method (EBSI)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#simultaneous-interactive-reconstruction-technique-sirt">Simultaneous interactive reconstruction technique (SIRT)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#equidistant-ray-segmentation-method-ersm">Equidistant ray segmentation method (ERSM)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#tests-of-internal-procedures">Tests of internal procedures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#tomowood">TomoWood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks.html#various-tests">Various tests</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Administrator Guide — Building and Deploying TomoTree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bumping-the-version">Bumping the Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-and-publishing-the-python-package">Building and Publishing the Python Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#publish-to-github-recommended">Publish to GitHub (recommended)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#publish-to-pypi">Publish to PyPI</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-the-distribution-archives">1. Build the distribution archives</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upload-to-pypi">2. Upload to PyPI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upload-to-testpypi-first-optional">3. Upload to TestPyPI first (optional)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#building-and-pushing-the-docker-image">Building and Pushing the Docker Image</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#build-the-image">1. Build the image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tag-for-docker-hub">2. Tag for Docker Hub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#push-to-docker-hub">3. Push to Docker Hub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#one-liner-for-a-clean-release-build-and-push">One-liner for a clean release build and push</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-a-production-server">Updating a Production Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#typical-deployment-directory-layout">Typical deployment directory layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compose-yml-on-the-server">compose.yml on the server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pulling-the-latest-image-and-restarting">Pulling the latest image and restarting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-the-running-container">Checking the running container</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rolling-back-to-a-previous-version">Rolling back to a previous version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-files-on-the-server">Configuration Files on the Server</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index_doc.html">tomotree</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index_doc.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Administrator Guide — Building and Deploying TomoTree</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/admin_guide.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="administrator-guide-building-and-deploying-tomotree">
+<h1>Administrator Guide — Building and Deploying TomoTree<a class="headerlink" href="#administrator-guide-building-and-deploying-tomotree" title="Link to this heading"></a></h1>
+<p>This guide is intended for maintainers who need to build a new release, publish the Python package, build and push a Docker image, and update a running production server.</p>
+<hr class="docutils" />
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#prerequisites"><span class="xref myst">Prerequisites</span></a></p></li>
+<li><p><a class="reference internal" href="#bumping-the-version"><span class="xref myst">Bumping the Version</span></a></p></li>
+<li><p><a class="reference internal" href="#building-and-publishing-the-python-package"><span class="xref myst">Building and Publishing the Python Package</span></a></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#publish-to-github-recommended"><span class="xref myst">Publish to GitHub (recommended)</span></a></p></li>
+<li><p><a class="reference internal" href="#publish-to-pypi"><span class="xref myst">Publish to PyPI</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#building-and-pushing-the-docker-image"><span class="xref myst">Building and Pushing the Docker Image</span></a></p></li>
+<li><p><a class="reference internal" href="#updating-a-production-server"><span class="xref myst">Updating a Production Server</span></a></p></li>
+<li><p><a class="reference internal" href="#configuration-files-on-the-server"><span class="xref myst">Configuration Files on the Server</span></a></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>Your local machine needs:</p>
+<ul>
+<li><p><strong>Git</strong> with push access to the repository.</p></li>
+<li><p><strong>Python ≥ 3.9</strong> with <code class="docutils literal notranslate"><span class="pre">build</span></code> and <code class="docutils literal notranslate"><span class="pre">twine</span></code> installed (for PyPI releases):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>build<span class="w"> </span>twine
+</pre></div>
+</div>
+</li>
+<li><p><strong>Docker</strong> with the Compose plugin.</p></li>
+<li><p>A <strong>Docker Hub account</strong> with push access to <code class="docutils literal notranslate"><span class="pre">robertmarik/tomotree</span></code>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="bumping-the-version">
+<h2>Bumping the Version<a class="headerlink" href="#bumping-the-version" title="Link to this heading"></a></h2>
+<p>The canonical version string lives in one place:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">src</span><span class="o">/</span><span class="n">tomotree</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;1.1.0&quot;</span>   <span class="c1"># ← change this</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> reads the version dynamically from that attribute, so editing the single line above is sufficient.</p>
+<p>Commit the change and tag the release in Git:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>src/tomotree/__init__.py
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Bump version to 1.2.0&quot;</span>
+git<span class="w"> </span>tag<span class="w"> </span>v1.2.0
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main<span class="w"> </span>--tags
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="building-and-publishing-the-python-package">
+<h2>Building and Publishing the Python Package<a class="headerlink" href="#building-and-publishing-the-python-package" title="Link to this heading"></a></h2>
+<section id="publish-to-github-recommended">
+<h3>Publish to GitHub (recommended)<a class="headerlink" href="#publish-to-github-recommended" title="Link to this heading"></a></h3>
+<p>The simplest distribution method is to push the tagged commit. Users install directly from the repository without any package index:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># SSH (requires SSH key authorised for the repo)</span>
+pip<span class="w"> </span>install<span class="w"> </span>git+ssh://git@github.com/robert-marik/tomotree.git
+
+<span class="c1"># HTTPS (no SSH key required)</span>
+pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/robert-marik/tomotree.git
+
+<span class="c1"># Pin a specific tag</span>
+pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/robert-marik/tomotree.git@v1.2.0
+</pre></div>
+</div>
+<p>No additional build step is required. Once the tag is pushed, users can install that exact version.</p>
+<p><strong>Creating a GitHub Release (optional but recommended):</strong></p>
+<p>Go to the repository page on GitHub → <strong>Releases</strong> → <strong>Draft a new release</strong>, select the tag you just pushed, add release notes, and publish. This makes the release visible in the GitHub UI and allows users to download a source archive.</p>
+</section>
+<section id="publish-to-pypi">
+<h3>Publish to PyPI<a class="headerlink" href="#publish-to-pypi" title="Link to this heading"></a></h3>
+<p>Use this method if you want users to be able to install with a plain <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tomotree</span></code>.</p>
+<section id="build-the-distribution-archives">
+<h4>1. Build the distribution archives<a class="headerlink" href="#build-the-distribution-archives" title="Link to this heading"></a></h4>
+<p>From the repository root:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>build
+</pre></div>
+</div>
+<p>This produces two files in <code class="docutils literal notranslate"><span class="pre">dist/</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dist</span><span class="o">/</span>
+  <span class="n">tomotree</span><span class="o">-</span><span class="mf">1.2.0</span><span class="o">-</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span>
+  <span class="n">tomotree</span><span class="o">-</span><span class="mf">1.2.0</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span>
+</pre></div>
+</div>
+</section>
+<section id="upload-to-pypi">
+<h4>2. Upload to PyPI<a class="headerlink" href="#upload-to-pypi" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>twine<span class="w"> </span>upload<span class="w"> </span>dist/*
+</pre></div>
+</div>
+<p>You will be prompted for your PyPI username and password (or an API token — recommended). To use a token, create <code class="docutils literal notranslate"><span class="pre">~/.pypirc</span></code>:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[pypi]</span>
+<span class="w">  </span><span class="na">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">__token__</span>
+<span class="w">  </span><span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">pypi-YOUR_API_TOKEN_HERE</span>
+</pre></div>
+</div>
+</section>
+<section id="upload-to-testpypi-first-optional">
+<h4>3. Upload to TestPyPI first (optional)<a class="headerlink" href="#upload-to-testpypi-first-optional" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>twine<span class="w"> </span>upload<span class="w"> </span>--repository<span class="w"> </span>testpypi<span class="w"> </span>dist/*
+pip<span class="w"> </span>install<span class="w"> </span>--index-url<span class="w"> </span>https://test.pypi.org/simple/<span class="w"> </span>tomotree
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="building-and-pushing-the-docker-image">
+<h2>Building and Pushing the Docker Image<a class="headerlink" href="#building-and-pushing-the-docker-image" title="Link to this heading"></a></h2>
+<p>The Dockerfile is located at <code class="docutils literal notranslate"><span class="pre">docker/Dockerfile</span></code> and uses <code class="docutils literal notranslate"><span class="pre">python:3.12-slim</span></code> as the base image. It installs both requirement files then the package itself, and sets the Streamlit entry point.</p>
+<section id="build-the-image">
+<h3>1. Build the image<a class="headerlink" href="#build-the-image" title="Link to this heading"></a></h3>
+<p>From the repository root:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docker
+docker<span class="w"> </span>compose<span class="w"> </span>build
+</pre></div>
+</div>
+<p>Or, to skip the layer cache (recommended before a release):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>build<span class="w"> </span>--no-cache
+</pre></div>
+</div>
+<p>The resulting local image is tagged as <code class="docutils literal notranslate"><span class="pre">tomotree:latest</span></code> (as defined in <code class="docutils literal notranslate"><span class="pre">docker/compose.yml</span></code>).</p>
+</section>
+<section id="tag-for-docker-hub">
+<h3>2. Tag for Docker Hub<a class="headerlink" href="#tag-for-docker-hub" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>tag<span class="w"> </span>tomotree<span class="w"> </span>robertmarik/tomotree:latest
+</pre></div>
+</div>
+<p>To also tag a specific version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>tag<span class="w"> </span>tomotree<span class="w"> </span>robertmarik/tomotree:1.2.0
+</pre></div>
+</div>
+</section>
+<section id="push-to-docker-hub">
+<h3>3. Push to Docker Hub<a class="headerlink" href="#push-to-docker-hub" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>login<span class="w">          </span><span class="c1"># enter Docker Hub credentials once</span>
+docker<span class="w"> </span>push<span class="w"> </span>robertmarik/tomotree:latest
+docker<span class="w"> </span>push<span class="w"> </span>robertmarik/tomotree:1.2.0<span class="w">   </span><span class="c1"># optional versioned tag</span>
+</pre></div>
+</div>
+</section>
+<section id="one-liner-for-a-clean-release-build-and-push">
+<h3>One-liner for a clean release build and push<a class="headerlink" href="#one-liner-for-a-clean-release-build-and-push" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docker<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+docker<span class="w"> </span>compose<span class="w"> </span>build<span class="w"> </span>--no-cache<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+docker<span class="w"> </span>tag<span class="w"> </span>tomotree<span class="w"> </span>robertmarik/tomotree:latest<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+docker<span class="w"> </span>push<span class="w"> </span>robertmarik/tomotree:latest
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="updating-a-production-server">
+<h2>Updating a Production Server<a class="headerlink" href="#updating-a-production-server" title="Link to this heading"></a></h2>
+<p>The production server runs the container defined by a <code class="docutils literal notranslate"><span class="pre">compose.yml</span></code> file in the deployment directory. It mounts persistent data directories as volumes so that user data, shared datasets, configuration, and logs survive container restarts.</p>
+<section id="typical-deployment-directory-layout">
+<h3>Typical deployment directory layout<a class="headerlink" href="#typical-deployment-directory-layout" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/srv/tomotree/
+├── compose.yml
+├── streamlit_data/      # preloaded datasets
+├── streamlit_user/      # per-user uploaded data
+├── streamlit_shared/    # shared dataset symlinks
+├── config/
+│   ├── config.yaml
+│   └── login.yaml
+└── log/
+</pre></div>
+</div>
+</section>
+<section id="compose-yml-on-the-server">
+<h3>compose.yml on the server<a class="headerlink" href="#compose-yml-on-the-server" title="Link to this heading"></a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tomotree</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">robertmarik/tomotree:latest</span>
+<span class="w">    </span><span class="nt">network_mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bridge</span>
+<span class="w">    </span><span class="nt">working_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/app</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./streamlit_data:/app/streamlit_data</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./streamlit_user:/app/streamlit_user</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./streamlit_shared:/app/streamlit_shared</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./config:/app/config</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./log:/app/log</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8501:8501</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+</pre></div>
+</div>
+</section>
+<section id="pulling-the-latest-image-and-restarting">
+<h3>Pulling the latest image and restarting<a class="headerlink" href="#pulling-the-latest-image-and-restarting" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/srv/tomotree
+docker<span class="w"> </span>pull<span class="w"> </span>robertmarik/tomotree:latest
+docker<span class="w"> </span>compose<span class="w"> </span>down
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+<p>The container starts in detached mode (<code class="docutils literal notranslate"><span class="pre">-d</span></code>) and restarts automatically on reboot because of <code class="docutils literal notranslate"><span class="pre">restart:</span> <span class="pre">unless-stopped</span></code>.</p>
+</section>
+<section id="checking-the-running-container">
+<h3>Checking the running container<a class="headerlink" href="#checking-the-running-container" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># List running containers</span>
+docker<span class="w"> </span>compose<span class="w"> </span>ps
+
+<span class="c1"># Follow live logs</span>
+docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>-f
+
+<span class="c1"># Show the last 100 log lines</span>
+docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"> </span>--tail<span class="o">=</span><span class="m">100</span>
+</pre></div>
+</div>
+</section>
+<section id="rolling-back-to-a-previous-version">
+<h3>Rolling back to a previous version<a class="headerlink" href="#rolling-back-to-a-previous-version" title="Link to this heading"></a></h3>
+<p>If the new image causes problems, roll back by pinning the previous version tag:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Edit compose.yml: change image to robertmarik/tomotree:1.1.0</span>
+docker<span class="w"> </span>compose<span class="w"> </span>down
+docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+<p>Or inline without editing the file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>down
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--network<span class="w"> </span>bridge<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">8501</span>:8501<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>./streamlit_data:/app/streamlit_data<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>./streamlit_user:/app/streamlit_user<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>./streamlit_shared:/app/streamlit_shared<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>./config:/app/config<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>./log:/app/log<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--restart<span class="w"> </span>unless-stopped<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>robertmarik/tomotree:1.1.0
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="configuration-files-on-the-server">
+<h2>Configuration Files on the Server<a class="headerlink" href="#configuration-files-on-the-server" title="Link to this heading"></a></h2>
+<p>All persistent configuration lives in the <code class="docutils literal notranslate"><span class="pre">config/</span></code> volume mount and is <strong>not</strong> replaced by image updates.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">config/config.yaml</span></code></p></td>
+<td><p>Main application settings (directories, hostname, passphrase, storage quotas, …)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">config/login.yaml</span></code></p></td>
+<td><p>User accounts and password hashes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">config/titlepage.txt</span></code></p></td>
+<td><p>Markdown text shown on the login page</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">config/side_note.txt</span></code></p></td>
+<td><p>Warning box shown in the sidebar on every page</p></td>
+</tr>
+</tbody>
+</table>
+<p>After editing either YAML file, <strong>restart the container</strong> so the changes are picked up:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>restart<span class="w"> </span>tomotree
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Security reminder:</strong> Set a strong, unique <code class="docutils literal notranslate"><span class="pre">passphrase</span></code> value in <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code> before going live. This key is used to encrypt secret sharing links. Change the default <code class="docutils literal notranslate"><span class="pre">cookie.key</span></code> in <code class="docutils literal notranslate"><span class="pre">login.yaml</span></code> as well.</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="notebooks.html" class="btn btn-neutral float-left" title="Notebook examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Valentino Cristini, Robert Mařík.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
